@@ -1,5 +1,5 @@
-import externals from 'rollup-plugin-node-externals'
-import multiInput from 'rollup-plugin-multi-input';
+import nodeexternals from 'rollup-plugin-node-externals'
+import multiInput from 'rollup-plugin-multi-input'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
 import alias from '@rollup/plugin-alias'
@@ -17,7 +17,7 @@ export default defineConfig([
     input: ['components/**'],
     plugins: [
       multiInput(),
-      externals({
+      nodeexternals({
         devDeps: false,
       }),
       typescript(), // so Rollup can convert TypeScript to JavaScript

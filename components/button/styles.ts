@@ -1,5 +1,9 @@
 import { styled } from '@/theme'
 
-const basic = styled('button', {
+export const StyledButton = styled('button', {
   borderStyle: 'none',
+  border: 'none',
+  appearance: 'none',
+  cursor: 'pointer',
+  textAlign: 'center',
 })

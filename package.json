@@ -16,10 +16,26 @@
     "email": "jiangweixian1994@gmail.com",
     "url": "https://twitter.com/jiangweixian"
   },
+  "scripts": {
+    "build": "rimraf lib && rollup -c --silent",
+    "dev": "rollup -c -w --silent",
+    "prepare": "husky install",
+    "test": "jest",
+    "pretest": "pnpm run build",
+    "release": "pnpm run build && np --no-cleanup --yolo --no-publish --any-branch",
+    "ci:version": "pnpx changeset version",
+    "ci:publish": "pnpx changeset publish",
+    "ci:snapshot": "pnpx changeset version --snapshot beta",
+    "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
+    "lint:fix": "eslint . --fix"
+  },
   "lint-staged": {
     "**/**/*.{js,ts,tsx,vue,json}": [
       "eslint --fix"
     ]
+  },
+  "peerDependencies": {
+    "react": ">=17"
   },
   "dependencies": {
     "@stitches/react": "^1.2.6",
@@ -48,23 +64,12 @@
     "rollup-plugin-typescript2": "0.30.0",
     "ts-jest": "27.0.5",
     "ts-node": "10.2.1",
+    "tslib": "^2.3.1",
     "typescript": "4.4.3"
   },
   "config": {
     "commitizen": {
       "path": "cz-emoji"
     }
-  },
-  "scripts": {
-    "build": "rimraf lib && rollup -c --silent",
-    "dev": "rollup -c -w --silent",
-    "test": "jest",
-    "pretest": "pnpm run build",
-    "release": "pnpm run build && np --no-cleanup --yolo --no-publish --any-branch",
-    "ci:version": "pnpx changeset version",
-    "ci:publish": "pnpx changeset publish",
-    "ci:snapshot": "pnpx changeset version --snapshot beta",
-    "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
-    "lint:fix": "eslint . --fix"
   }
 }
