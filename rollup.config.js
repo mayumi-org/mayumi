@@ -16,7 +16,9 @@ export default defineConfig([
   {
     input: ['components/**/index.ts', 'components/index.ts'],
     plugins: [
-      multiInput(),
+      multiInput({
+        relative: 'components/',
+      }),
       nodeexternals({
         devDeps: false,
       }),
@@ -34,8 +36,13 @@ export default defineConfig([
       size(),
     ],
     output: [
-      { dir: 'cjs', format: 'cjs', entryFileNames: '[name].cjs' },
-      { dir: 'es', format: 'es', entryFileNames: '[name].mjs' },
+      {
+        dir: 'cjs',
+        format: 'cjs',
+        entryFileNames: '[name].cjs',
+        chunkFileNames: '[name].cjs',
+      },
+      { dir: 'es', format: 'es', entryFileNames: '[name].mjs', chunkFileNames: '[name].mjs' },
     ],
   },
 ])
