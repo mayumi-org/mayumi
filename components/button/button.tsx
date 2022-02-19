@@ -1,30 +1,28 @@
 import React, { useCallback } from 'react'
+import cx from 'clsx'
 
 import { StyledButton } from './styles'
 
 export type ButtonProps = {
   children?: React.ReactNode
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-  size?: 'sm' | 'lg'
+  // size?: 'sm' | 'lg'
   className?: string
   style?: React.CSSProperties
 }
 
-export const Button = ({ onClick, size = 'lg', ...props }: ButtonProps) => {
+export const Button: React.FC<ButtonProps> = ({ onClick, ...props }) => {
   const handleOnClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      onSelected?.(props.itemKey)
       onClick?.(e)
     },
-    [onClick, onSelected, props.itemKey],
+    [onClick],
   )
   return (
     <StyledButton
       onClick={handleOnClick}
-      size={size}
-      data-role="button"
-      className={cx('button', props.className)}
-      selected={selected}
+      // size={size}
+      className={cx('mayumi-button', props.className)}
       {...props}
     >
       {props.children}

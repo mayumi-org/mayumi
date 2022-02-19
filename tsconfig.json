@@ -10,6 +10,8 @@
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
     "strict": true,
+    "declaration": true,
+    "jsx": "react",
     "resolveJsonModule": true,
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
