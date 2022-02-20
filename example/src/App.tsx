@@ -11,9 +11,12 @@ function App() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        gap: '12px',
       }}
     >
       <Button>Button</Button>
+      <Button color="gray">Button</Button>
+      <Button size="sm">Button</Button>
     </div>
   )
 }

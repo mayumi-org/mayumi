@@ -6,13 +6,14 @@ import { StyledButton } from './styles'
 export type ButtonProps = {
   children?: React.ReactNode
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-  // size?: 'sm' | 'lg'
+  color?: 'primary' | 'gray'
+  size?: 'md' | 'sm'
   className?: string
   style?: React.CSSProperties
 }
 
 export const Button: React.FC<ButtonProps> = ({ onClick, ...props }) => {
-  const handleOnClick = useCallback(
+  const handleClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
       onClick?.(e)
     },
@@ -20,8 +21,9 @@ export const Button: React.FC<ButtonProps> = ({ onClick, ...props }) => {
   )
   return (
     <StyledButton
-      onClick={handleOnClick}
-      // size={size}
+      onClick={handleClick}
+      color={props.color}
+      size={props.size}
       className={cx('mayumi-button', props.className)}
       {...props}
     >

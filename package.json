@@ -18,18 +18,18 @@
   },
   "exports": {
     "./button": {
-      "require": "./cjs/components/button/index.cjs",
-      "import": "./es/components/button/index.mjs",
-      "types": "./es/components/button/button.d.ts"
+      "require": "./cjs/button/index.cjs",
+      "import": "./es/button/index.mjs",
+      "types": "./es/button/button.d.ts"
     }
   },
-  "main": "cjs/components/index.cjs",
-  "module": "es/components/index.mjs",
-  "typings": "es/components/index.d.ts",
+  "main": "cjs/index.cjs",
+  "module": "es/index.mjs",
+  "typings": "es/index.d.ts",
   "typesVersions": {
     "*": {
       "button": [
-        "es/components/button/button.d.ts"
+        "es/button/button.d.ts"
       ]
     }
   },
