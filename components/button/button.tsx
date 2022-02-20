@@ -12,22 +12,27 @@ export type ButtonProps = {
   style?: React.CSSProperties
 }
 
-export const Button: React.FC<ButtonProps> = ({ onClick, ...props }) => {
-  const handleClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      onClick?.(e)
-    },
-    [onClick],
-  )
-  return (
-    <StyledButton
-      onClick={handleClick}
-      color={props.color}
-      size={props.size}
-      className={cx('mayumi-button', props.className)}
-      {...props}
-    >
-      {props.children}
-    </StyledButton>
-  )
-}
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ onClick, ...props }, ref) => {
+    const handleClick = useCallback(
+      (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        onClick?.(e)
+      },
+      [onClick],
+    )
+    return (
+      <StyledButton
+        ref={ref}
+        onClick={handleClick}
+        color={props.color}
+        size={props.size}
+        className={cx('mayumi-button', props.className)}
+        {...props}
+      >
+        {props.children}
+      </StyledButton>
+    )
+  },
+)
+
+Button.displayName = 'Button'
