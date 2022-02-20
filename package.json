@@ -20,7 +20,12 @@
     "./button": {
       "require": "./cjs/button/index.cjs",
       "import": "./es/button/index.mjs",
-      "types": "./es/button/button.d.ts"
+      "types": "./es/button/index.d.ts"
+    },
+    "./theme": {
+      "require": "./cjs/theme/index.cjs",
+      "import": "./es/theme/index.mjs",
+      "types": "./es/theme/index.d.ts"
     }
   },
   "main": "cjs/index.cjs",
@@ -29,7 +34,10 @@
   "typesVersions": {
     "*": {
       "button": [
-        "es/button/button.d.ts"
+        "es/button/index.d.ts"
+      ],
+      "theme": [
+        "es/button/index.d.ts"
       ]
     }
   },
