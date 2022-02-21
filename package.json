@@ -22,6 +22,11 @@
       "import": "./es/button/index.mjs",
       "types": "./es/button/index.d.ts"
     },
+    "./box": {
+      "require": "./cjs/box/index.cjs",
+      "import": "./es/box/index.mjs",
+      "types": "./es/box/index.d.ts"
+    },
     "./theme": {
       "require": "./cjs/theme/index.cjs",
       "import": "./es/theme/index.mjs",
@@ -35,6 +40,9 @@
     "*": {
       "button": [
         "es/button/index.d.ts"
+      ],
+      "box": [
+        "es/box/index.d.ts"
       ],
       "theme": [
         "es/button/index.d.ts"
