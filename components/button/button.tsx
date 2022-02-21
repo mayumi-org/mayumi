@@ -1,33 +1,42 @@
 import React, { useCallback } from 'react'
+import cx from 'clsx'
 
 import { StyledButton } from './styles'
 
 export type ButtonProps = {
   children?: React.ReactNode
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
-  size?: 'sm' | 'lg'
+  color?: 'primary' | 'gray'
+  size?: 'md' | 'sm'
   className?: string
   style?: React.CSSProperties
+  disabled?: boolean
 }
 
-export const Button = ({ onClick, size = 'lg', ...props }: ButtonProps) => {
-  const handleOnClick = useCallback(
-    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      onSelected?.(props.itemKey)
-      onClick?.(e)
-    },
-    [onClick, onSelected, props.itemKey],
-  )
-  return (
-    <StyledButton
-      onClick={handleOnClick}
-      size={size}
-      data-role="button"
-      className={cx('button', props.className)}
-      selected={selected}
-      {...props}
-    >
-      {props.children}
-    </StyledButton>
-  )
-}
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ onClick, ...props }, ref) => {
+    const handleClick = useCallback(
+      (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        onClick?.(e)
+      },
+      [onClick],
+    )
+    return (
+      <StyledButton
+        ref={ref}
+        onClick={handleClick}
+        color={props.color}
+        size={props.size}
+        disabled={props.disabled}
+        className={cx('mayumi-button', props.className, {
+          'mayumi-button__enabled': !props.disabled,
+        })}
+        {...props}
+      >
+        {props.children}
+      </StyledButton>
+    )
+  },
+)
+
+Button.displayName = 'Button'

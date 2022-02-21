@@ -3,7 +3,7 @@ import multiInput from 'rollup-plugin-multi-input'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
 import alias from '@rollup/plugin-alias'
-import bundleSize from 'rollup-plugin-bundle-size'
+import size from 'rollup-plugin-size'
 import { defineConfig } from 'rollup'
 
 export default defineConfig([
@@ -14,23 +14,35 @@ export default defineConfig([
   // an array for the `output` option, where we can specify
   // `file` and `format` for each target)
   {
-    input: ['components/**'],
+    input: ['components/**/index.ts', 'components/index.ts'],
     plugins: [
-      multiInput(),
+      multiInput({
+        relative: 'components/',
+      }),
       nodeexternals({
         devDeps: false,
       }),
-      typescript(), // so Rollup can convert TypeScript to JavaScript
+      typescript({
+        check: false,
+        tsconfigOverride: {
+          exclude: ['example'],
+        },
+      }), // so Rollup can convert TypeScript to JavaScript
       alias({
         resolve: ['.ts', '.js', '.tsx', '.jsx'],
         entries: [{ find: '@/', replacement: './components/' }],
       }),
       commonjs(), // so Rollup can convert `ms` to an ES module
-      bundleSize(),
+      size(),
     ],
     output: [
-      { dir: 'cjs', format: 'cjs', entryFileNames: '[name].mjs' },
-      { dir: 'es', format: 'es', entryFileNames: '[name].mjs' },
+      {
+        dir: 'cjs',
+        format: 'cjs',
+        entryFileNames: '[name].cjs',
+        chunkFileNames: '[name].cjs',
+      },
+      { dir: 'es', format: 'es', entryFileNames: '[name].mjs', chunkFileNames: '[name].mjs' },
     ],
   },
 ])
