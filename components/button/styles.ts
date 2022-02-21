@@ -13,18 +13,23 @@ export const StyledButton = styled('button', {
     border: 'none',
   },
   variants: {
+    disabled: {
+      true: {
+        cursor: 'not-allowed',
+      },
+    },
     color: {
       primary: {
         backgroundColor: '$primary',
         color: '$textColor',
-        '&:active': {
+        '&.mayumi-button__enabled:active': {
           backgroundColor: '$keyboardFocusIndicatorColor',
         },
       },
       gray: {
         backgroundColor: '$tertiaryLabelColor',
         color: '$textColor',
-        '&:active': {
+        '&.mayumi-button__enabled:active': {
           backgroundColor: '$secondaryLabelColor',
         },
       },

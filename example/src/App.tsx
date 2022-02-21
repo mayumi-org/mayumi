@@ -15,6 +15,7 @@ function App() {
       }}
     >
       <Button>Button</Button>
+      <Button disabled={true}>Button</Button>
       <Button color="gray">Button</Button>
       <Button size="sm">Button</Button>
     </div>

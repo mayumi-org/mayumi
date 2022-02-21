@@ -10,6 +10,7 @@ export type ButtonProps = {
   size?: 'md' | 'sm'
   className?: string
   style?: React.CSSProperties
+  disabled?: boolean
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -26,7 +27,10 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         onClick={handleClick}
         color={props.color}
         size={props.size}
-        className={cx('mayumi-button', props.className)}
+        disabled={props.disabled}
+        className={cx('mayumi-button', props.className, {
+          'mayumi-button__enabled': !props.disabled,
+        })}
         {...props}
       >
         {props.children}
