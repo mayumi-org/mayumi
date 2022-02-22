@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { Button } from 'mayumi/button'
+import { Box } from 'mayumi/box'
 
 function App() {
   return (
@@ -14,10 +14,7 @@ function App() {
         gap: '12px',
       }}
     >
-      <Button>Button</Button>
-      <Button disabled={true}>Button</Button>
-      <Button color="gray">Button</Button>
-      <Button size="sm">Button</Button>
+      <Box>Button</Box>
     </div>
   )
 }
