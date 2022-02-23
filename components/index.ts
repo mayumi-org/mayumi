@@ -1,4 +1,5 @@
 export { Button } from './button'
 export { Box } from './box'
 export { Text } from './text'
+export { Separator } from './separator'
 export { globalStyles } from './theme/preflight'

@@ -32,6 +32,11 @@
       "import": "./es/text/index.mjs",
       "types": "./es/text/index.d.ts"
     },
+    "./separator": {
+      "require": "./cjs/separator/index.cjs",
+      "import": "./es/separator/index.mjs",
+      "types": "./es/separator/index.d.ts"
+    },
     "./theme": {
       "require": "./cjs/theme/index.cjs",
       "import": "./es/theme/index.mjs",
@@ -56,6 +61,9 @@
       ],
       "text": [
         "es/text/index.d.ts"
+      ],
+      "separator": [
+        "es/separator/index.d.ts"
       ],
       "theme": [
         "es/theme/index.d.ts"
