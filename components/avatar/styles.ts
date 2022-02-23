@@ -9,4 +9,5 @@ export const StyledAvatar = styled('span', {
     rounded: '$full',
     objectFit: 'cover',
   },
+  backgroundColor: '$primary',
 })
