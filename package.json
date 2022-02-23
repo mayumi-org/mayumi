@@ -27,10 +27,20 @@
       "import": "./es/box/index.mjs",
       "types": "./es/box/index.d.ts"
     },
+    "./text": {
+      "require": "./cjs/text/index.cjs",
+      "import": "./es/text/index.mjs",
+      "types": "./es/text/index.d.ts"
+    },
     "./theme": {
       "require": "./cjs/theme/index.cjs",
       "import": "./es/theme/index.mjs",
       "types": "./es/theme/index.d.ts"
+    },
+    "./preflight": {
+      "require": "./cjs/theme/preflight.cjs",
+      "import": "./es/theme/preflight.mjs",
+      "types": "./es/theme/preflight.d.ts"
     }
   },
   "main": "cjs/index.cjs",
@@ -44,8 +54,14 @@
       "box": [
         "es/box/index.d.ts"
       ],
+      "text": [
+        "es/text/index.d.ts"
+      ],
       "theme": [
-        "es/button/index.d.ts"
+        "es/theme/index.d.ts"
+      ],
+      "preflight": [
+        "es/theme/preflight.d.ts"
       ]
     }
   },

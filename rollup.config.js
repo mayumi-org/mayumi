@@ -14,7 +14,7 @@ export default defineConfig([
   // an array for the `output` option, where we can specify
   // `file` and `format` for each target)
   {
-    input: ['components/**/index.ts', 'components/index.ts'],
+    input: ['components/**/index.ts', 'components/index.ts', 'components/theme/preflight.ts'],
     plugins: [
       multiInput({
         relative: 'components/',
