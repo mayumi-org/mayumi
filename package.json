@@ -37,6 +37,11 @@
       "import": "./es/separator/index.mjs",
       "types": "./es/separator/index.d.ts"
     },
+    "./avatar": {
+      "require": "./cjs/avatar/index.cjs",
+      "import": "./es/avatar/index.mjs",
+      "types": "./es/avatar/index.d.ts"
+    },
     "./theme": {
       "require": "./cjs/theme/index.cjs",
       "import": "./es/theme/index.mjs",
@@ -64,6 +69,9 @@
       ],
       "separator": [
         "es/separator/index.d.ts"
+      ],
+      "avatar": [
+        "es/avatar/index.d.ts"
       ],
       "theme": [
         "es/theme/index.d.ts"
