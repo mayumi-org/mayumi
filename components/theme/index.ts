@@ -379,4 +379,6 @@ export const styled = stitches.styled
 export type CSS = Stitches.CSS<typeof stitches['config']>
 export const globalCSS = stitches.globalCss
 export type FontWeight = keyof typeof stitches.theme['fontWeights']
+export type Space = keyof typeof stitches.theme['space']
+export type Shadow = keyof typeof stitches.theme['shadows']
 export type TextSize = keyof typeof stitches.theme['fontSizes']
