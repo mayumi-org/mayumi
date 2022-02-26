@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { Avatar } from 'mayumi/avatar'
+import { Input } from 'mayumi/input'
 import { globalStyles } from 'mayumi/preflight'
 
 function App() {
@@ -17,7 +17,12 @@ function App() {
         backgroundColor: '#1d1d1d',
       }}
     >
-      <Avatar src="http://img01.yohoboys.com/contentimg/2017/08/12/21/012a1eab9842a752f8c4d98b8fc2777ad7.jpg" />
+      <div style={{ width: '200px' }}>
+        <Input placeholder="搜索" />
+      </div>
+      <div style={{ width: '200px' }}>
+        <Input prefix={<i className="gg-search" />} placeholder="搜索" />
+      </div>
     </div>
   )
 }
