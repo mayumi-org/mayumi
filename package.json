@@ -47,6 +47,11 @@
       "import": "./es/input/index.mjs",
       "types": "./es/input/index.d.ts"
     },
+    "./description": {
+      "require": "./cjs/description/index.cjs",
+      "import": "./es/description/index.mjs",
+      "types": "./es/description/index.d.ts"
+    },
     "./hooks": {
       "require": "./cjs/hooks/index.cjs",
       "import": "./es/hooks/index.mjs",
@@ -85,6 +90,9 @@
       ],
       "input": [
         "es/input/index.d.ts"
+      ],
+      "description": [
+        "es/description/index.d.ts"
       ],
       "hooks": [
         "es/hooks/index.d.ts"

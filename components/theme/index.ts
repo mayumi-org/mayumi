@@ -370,10 +370,7 @@ const stitches = createStitches({
       fontSize: value,
     }),
   },
-  themeMap: {
-    ...defaultThemeMap,
-    indent: 'space',
-  },
+  themeMap: defaultThemeMap,
 })
 
 export const styled = stitches.styled
