@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { Input } from 'mayumi/input'
+import { Description } from 'mayumi/description'
 import { globalStyles } from 'mayumi/preflight'
 
 function App() {
@@ -17,12 +17,10 @@ function App() {
         backgroundColor: '#1d1d1d',
       }}
     >
-      <div style={{ width: '200px' }}>
-        <Input placeholder="搜索" />
-      </div>
-      <div style={{ width: '200px' }}>
-        <Input prefix={<i className="gg-search" />} placeholder="搜索" />
-      </div>
+      <Description title="Title">Description</Description>
+      <Description size="md" title="Title">
+        Description
+      </Description>
     </div>
   )
 }
