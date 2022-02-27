@@ -67,6 +67,11 @@
       "import": "./es/dropdown/index.mjs",
       "types": "./es/dropdown/index.d.ts"
     },
+    "./icons": {
+      "require": "./cjs/icons/index.cjs",
+      "import": "./es/icons/index.mjs",
+      "types": "./es/icons/index.d.ts"
+    },
     "./hooks": {
       "require": "./cjs/hooks/index.cjs",
       "import": "./es/hooks/index.mjs",
@@ -117,6 +122,9 @@
       ],
       "dropdown": [
         "es/dropdown/index.d.ts"
+      ],
+      "icons": [
+        "es/icons/index.d.ts"
       ],
       "hooks": [
         "es/hooks/index.d.ts"
