@@ -158,7 +158,8 @@
     "clsx": "^1.1.1",
     "lodash.keyby": "^4.6.0",
     "polished": "^4.1.4",
-    "react-popper-tooltip": "^4.3.1"
+    "react-popper-tooltip": "^4.3.1",
+    "react-use-measure": "^2.1.1"
   },
   "devDependencies": {
     "@aiou/eslint-config": "^0.5.0",

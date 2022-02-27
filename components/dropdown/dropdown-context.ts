@@ -4,7 +4,6 @@ import { ToolTipProps } from '@/tooltip'
 export type DropdownContextProps = {
   mode: 'switch' | 'nest'
   switchKey?: string
-  activeKey?: string
   visible?: boolean
   /**
    * Dropdown collapsed menu visible
@@ -25,7 +24,6 @@ export type DropdownContextProps = {
 
 export const defaultValue: DropdownContextProps = {
   mode: 'nest',
-  activeKey: undefined,
   visible: false,
   collapsedVisible: false,
   collapsedTrigger: 'hover',

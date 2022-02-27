@@ -99,14 +99,13 @@ export const DropdownMenuItem = ({ collapsedMenu, onClick, ...props }: DropdownM
         onChangeVisible?.(false)
         return false
       }
-      handleSubMenuPopupVisible?.(props.itemKey as any)
+      handleSubMenuPopupVisible?.((prev) => !prev)
       onChangeCollapsedVisible?.((prev) => !prev)
       return false
     },
     [
       mode,
       onClick,
-      props.itemKey,
       collapsedMenu,
       onChangeCollapsedVisible,
       collapsedTrigger,

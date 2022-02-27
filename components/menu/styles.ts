@@ -12,7 +12,7 @@ export const StyledMenu = styled(animated.div, {
     color: '$highlightColor',
   },
   // TODO: check color
-  '& ul.mayumi-menu-submenu': {
+  '& ul.mayumi-menu-submenu-content': {
     mb: '$2',
     listStyle: 'none',
     '&:last-child': {
@@ -23,6 +23,36 @@ export const StyledMenu = styled(animated.div, {
   },
   '& div.mayumi-separator:last-child': {
     display: 'none',
+  },
+  variants: {
+    switch: {
+      true: {
+        overflow: 'hidden',
+      },
+    },
+    size: {
+      sm: {
+        '& li.mayumi-menu-item': {
+          my: '$0_5',
+        },
+      },
+      md: {
+        '& li.mayumi-menu-item': {
+          py: '$1',
+          my: '$0_5',
+        },
+      },
+      lg: {
+        '& li.mayumi-menu-item': {
+          py: '$2',
+          px: '$4',
+          my: '$0_5',
+        },
+      },
+    },
+  },
+  defaultVariants: {
+    size: 'sm',
   },
 })
 
@@ -39,28 +69,10 @@ export const StyledMenuItem = styled('li', {
     transition: '$colors',
   },
   variants: {
-    size: {
-      sm: {
-        my: '$0_5',
-      },
-      md: {
-        py: '$1',
-        my: '$0_5',
-      },
-      lg: {
-        py: '$2',
-        px: '$4',
-        my: '$0_5',
-      },
-    },
     selected: {
       true: {
         backgroundColor: '$unemphasizedSelectedTextBackgroundColor',
       },
     },
   },
-  defaultVariants: {
-    size: 'sm',
-  },
-  // color: ${(props) => (props.type === 'action' ? 'var(--text-color-2)' : 'var(--text-color-0)')};
 })
