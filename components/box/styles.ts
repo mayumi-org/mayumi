@@ -1,6 +1,7 @@
 import { styled } from '@/theme'
+import { animated } from '@react-spring/web'
 
-export const StyledBox = styled('div', {
+export const StyledBox = styled(animated.div, {
   rounded: '$md',
   overflow: 'hidden',
   backgroundColor: '$windowBackgroundColor',
