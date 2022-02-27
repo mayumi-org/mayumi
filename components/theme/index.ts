@@ -33,10 +33,10 @@ const space = {
   '80': '20rem',
   '96': '24rem',
   px: '1px',
-  '0.5': '0.125rem',
-  '1.5': '0.375rem',
-  '2.5': '0.625rem',
-  '3.5': '0.875rem',
+  '0_5': '0.125rem',
+  '1_5': '0.375rem',
+  '2_5': '0.625rem',
+  '3_5': '0.875rem',
 } as const
 
 const stitches = createStitches({
