@@ -30,7 +30,7 @@ function App() {
           </Menu.SubMenu>
         </Menu>
       </div> */}
-      <Tooltip content={<div>test</div>} placement="top">
+      <Tooltip content={<div>test</div>} placement="left">
         tooltip
       </Tooltip>
     </div>
