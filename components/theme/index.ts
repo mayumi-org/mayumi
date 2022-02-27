@@ -1,5 +1,6 @@
 import { createStitches, defaultThemeMap } from '@stitches/react'
 import type * as Stitches from '@stitches/react'
+import { rgba, cssVar } from 'polished'
 
 const space = {
   '0': '0px',
@@ -37,6 +38,8 @@ const space = {
   '1_5': '0.375rem',
   '2_5': '0.625rem',
   '3_5': '0.875rem',
+  '4_5': '1.125rem',
+  '5_5': '1.375rem',
 } as const
 
 const stitches = createStitches({
@@ -368,6 +371,14 @@ const stitches = createStitches({
     text: (value: Stitches.PropertyValue<'lineHeight'>) => ({
       lineHeight: value,
       fontSize: value,
+    }),
+    /**
+     * macos glass filter
+     */
+    glass: (value: Stitches.PropertyValue<'width'>) => ({
+      backgroundColor: rgba(cssVar('--mayumi-colors-underPageBackgroundColor'), 0.85),
+      backdropFilter: `blur(${value})`,
+      '-webkit-backdrop-filter': `blur(${value})`,
     }),
   },
   themeMap: defaultThemeMap,

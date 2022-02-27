@@ -4,7 +4,7 @@ import { animated } from '@react-spring/web'
 export const StyledMenu = styled(animated.div, {
   text: '$sm',
   w: '$full',
-  p: '$4',
+  p: '$2',
   '& p.mayumi-menu-subtitle': {
     py: '$1',
     text: '$xs',

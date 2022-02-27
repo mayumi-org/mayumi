@@ -1,7 +1,6 @@
 import { CSSProperties } from 'react'
 
 export type Animation = 'scale' | 'opacity'
-export type Placement = 'left' | 'top' | 'right' | 'bottom'
 
 export const getAnimationConfig = (animation: Animation = 'scale') => {
   switch (animation) {
@@ -26,7 +25,7 @@ export const getAnimationConfig = (animation: Animation = 'scale') => {
   }
 }
 
-export const getAnimationStyles = (placement: Placement = 'bottom') => {
+export const getAnimationStyles = (placement = 'bottom') => {
   const origins: Record<string, CSSProperties> = {
     left: {
       transformOrigin: 'right center',

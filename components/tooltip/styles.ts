@@ -11,6 +11,13 @@ export const StyledTooltipContent = styled(Box, {
   py: '$1',
   zIndex: '$50',
   boxShadow: '$lg',
+  variants: {
+    glassmorphism: {
+      true: {
+        glass: '4px',
+      },
+    },
+  },
 })
 
 export const StyledTooltip = styled('div', {

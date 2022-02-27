@@ -13,6 +13,10 @@ export type MenuProps = {
   style?: React.CSSProperties
   onClick?: () => void
   selectedKeys?: MenuContextProps['selectedKeys']
+  /**
+   * Menu size
+   * @default `sm`
+   */
   size?: MenuContextProps['size']
   // menuTheme?: MenuContextProps['menuTheme']
 }

@@ -3,7 +3,7 @@ import { config, Transition } from '@react-spring/web'
 import cx from 'clsx'
 import { usePopperTooltip } from 'react-popper-tooltip'
 
-import { getAnimationConfig, Animation, getAnimationStyles, Placement } from './utils'
+import { getAnimationConfig, Animation, getAnimationStyles } from './utils'
 import { StyledTooltip, StyledTooltipContent } from './styles'
 import { Config } from 'react-popper-tooltip/dist/types'
 
@@ -16,6 +16,7 @@ export type TooltipContentProps = {
    */
   animation?: Record<'from' | 'enter' | 'leave', Record<string, any>>
   styles?: React.CSSProperties
+  glassmorphism?: boolean
 }
 
 export const defaultTooltipPosition = {
@@ -47,6 +48,7 @@ const TooltipContent = React.forwardRef<HTMLDivElement, TooltipContentProps>((pr
               ...props.styles,
             }}
             ref={ref}
+            glassmorphism={props.glassmorphism}
           >
             {props.children}
           </StyledTooltipContent>
@@ -61,13 +63,18 @@ TooltipContent.displayName = 'TooltipContent'
 export type ToolTipProps = Pick<React.HTMLAttributes<HTMLDivElement>, 'id'> & {
   /**
    * Tooltip trigger
+   * @default `click`
    */
   children?: React.ReactNode
   /**
    * Tooltip popover content
    */
   content?: React.ReactNode
-  placement?: Placement
+  /**
+   * Tooltip popover content placement
+   * @default `bottom`
+   */
+  placement?: Config['placement']
   offset?: [number, number]
   trigger?: 'hover' | 'click'
   defaultVisible?: boolean
@@ -80,15 +87,20 @@ export type ToolTipProps = Pick<React.HTMLAttributes<HTMLDivElement>, 'id'> & {
    * @default `opacity`
    */
   animation?: Animation
-  onVisibleChange: Config['onVisibleChange']
+  onVisibleChange?: Config['onVisibleChange']
+  glassmorphism?: TooltipContentProps['glassmorphism']
+  /**
+   * @todo implement
+   */
   getPopupContainer?: () => HTMLElement
 }
 
 export const Tooltip = ({
   trigger = 'click',
   defaultVisible = false,
-  animation = 'scale',
-  placement = 'left',
+  animation = 'opacity',
+  placement = 'bottom',
+  outsideCloseable = true,
   ...props
 }: ToolTipProps) => {
   const parent = useRef<HTMLDivElement>(null)
@@ -96,7 +108,7 @@ export const Tooltip = ({
     {
       placement,
       defaultVisible,
-      closeOnOutsideClick: props.outsideCloseable,
+      closeOnOutsideClick: outsideCloseable,
       trigger,
       offset: props.offset,
       visible: props.visible,
@@ -120,6 +132,7 @@ export const Tooltip = ({
         animation={getAnimationConfig(animation)}
         styles={getAnimationStyles(placement)}
         popperTooltipProps={getTooltipProps()}
+        glassmorphism={props.glassmorphism}
       >
         {props.content}
       </TooltipContent>
