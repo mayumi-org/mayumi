@@ -48,9 +48,6 @@ export const Menu = (props: MenuProps) => {
   //   }
   // }, [switchKey, prev, parent, api, isSwitchMode])
   const [subMenuPopupVisible, setSubMenuPopupVisible] = useState(defaultValue.subMenuPopupVisible)
-  const handleSubMenuPopupVisible = useCallback((value: boolean) => {
-    setSubMenuPopupVisible(value)
-  }, [])
   const handleSelect = useCallback((itemKey: string) => {
     setSelectedKeys([itemKey])
   }, [])
@@ -60,7 +57,10 @@ export const Menu = (props: MenuProps) => {
         subMenuPopupVisible,
         selectedKeys: props.selectedKeys || selectedKeys || [],
         size: props.size || defaultValue.size,
-        handleSubMenuPopupVisible,
+        handleSubMenuPopupVisible: (p) => {
+          console.log(p)
+          setSubMenuPopupVisible((prev) => !prev)
+        },
         handleSelect,
         // menuTheme: props.menuTheme,
       }}

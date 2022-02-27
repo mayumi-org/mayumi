@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react'
 
 export type MenuContextProps = {
   subMenuPopupVisible?: boolean
-  handleSubMenuPopupVisible?: (value: boolean) => void
+  handleSubMenuPopupVisible?: React.Dispatch<React.SetStateAction<boolean | undefined>>
   selectedKeys?: string[]
   size?: 'sm' | 'md' | 'lg'
   handleSelect?: (itemKey: string) => void

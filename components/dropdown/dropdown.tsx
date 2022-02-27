@@ -22,6 +22,11 @@ export type DropdownProps = {
   getPopupContainer?: () => HTMLElement
   trigger?: ToolTipProps['trigger']
   /**
+   * Dropdown collapsed menu trigger
+   * @default `hover`
+   */
+  collapsedTrigger?: ToolTipProps['trigger']
+  /**
    * Dropdown popup content placement
    * @default `bottom-start`
    */
@@ -33,12 +38,14 @@ export type DropdownProps = {
 export const Dropdown = ({
   placement = 'bottom-start',
   trigger = 'click',
+  collapsedTrigger = 'click',
+  outsideCloseable = true,
   ...props
 }: DropdownProps) => {
   const child = useRef<HTMLDivElement>(null)
   const mode: DropdownContextProps['mode'] = 'switchKey' in props ? 'switch' : 'nest'
   const [visible, setVisible] = useState(props.visible || defaultValue.visible)
-  const [collapsedVisible, setCollapsedVisible] = useState<boolean>()
+  const [collapsedVisible, setCollapsedVisible] = useState<boolean>(false)
   const controlledVisible = 'visible' in props ? props.visible : visible
   return (
     <DropdownContext.Provider
@@ -52,6 +59,7 @@ export const Dropdown = ({
         collapsedVisible,
         onChangeCollapsedVisible: setCollapsedVisible,
         glassmorphism: props.glassmorphism,
+        collapsedTrigger,
       }}
     >
       <Tooltip
@@ -63,7 +71,7 @@ export const Dropdown = ({
         trigger={trigger}
         animation="opacity"
         glassmorphism={props.glassmorphism}
-        outsideCloseable={props.outsideCloseable}
+        outsideCloseable={outsideCloseable}
         className={cx('mayumi-dropdown', props.className)}
         {...props}
       >

@@ -11,18 +11,18 @@ function App() {
   const DropdownCollapsedMenu1 = (
     <Dropdown.Menu>
       <Dropdown.SubMenu title="iCloud3">
-        <Dropdown.Item itemKey="iCloud3">3.1</Dropdown.Item>
-        <Dropdown.Item itemKey="iCloud3">3.2</Dropdown.Item>
+        <Dropdown.Item itemKey="iCloud3.1">3.1</Dropdown.Item>
+        <Dropdown.Item itemKey="iCloud3.2">3.2</Dropdown.Item>
       </Dropdown.SubMenu>
     </Dropdown.Menu>
   )
   const DropdownCollapsedMenu = (
     <Dropdown.Menu>
       <Dropdown.SubMenu title="iCloud2">
-        <Dropdown.Item collapsedMenu={DropdownCollapsedMenu1} itemKey="iCloud2">
+        <Dropdown.Item collapsedMenu={DropdownCollapsedMenu1} itemKey="iCloud2/1">
           2.1
         </Dropdown.Item>
-        <Dropdown.Item itemKey="iCloud2">2.2</Dropdown.Item>
+        <Dropdown.Item itemKey="iCloud2.2">2.2</Dropdown.Item>
       </Dropdown.SubMenu>
     </Dropdown.Menu>
   )

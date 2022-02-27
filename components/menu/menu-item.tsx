@@ -6,8 +6,8 @@ import cx from 'clsx'
 import { useMenu } from './menu-context'
 import { StyledMenuItem } from './styles'
 
-export type MenuItemProps = React.HTMLAttributes<HTMLLIElement> & {
-  onClick?: (itemKey?: string) => void
+export type MenuItemProps = Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> & {
+  onClick?: (e: any, itemKey?: string) => void
   itemKey?: string
   action?: 'remove' | 'insert'
   onMouseEnter?: () => void
@@ -19,12 +19,15 @@ export const MenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>(
   ({ itemKey, onClick, ...props }: MenuItemProps, ref) => {
     const { selectedKeys, handleSelect, size } = useMenu()
     const isSelected = selectedKeys?.includes(itemKey as string)
-    const handleClick = useCallback(() => {
-      if (itemKey) {
-        handleSelect?.(itemKey)
-      }
-      onClick?.(itemKey)
-    }, [itemKey, handleSelect, onClick])
+    const handleClick = useCallback(
+      (e) => {
+        if (itemKey) {
+          handleSelect?.(itemKey)
+        }
+        onClick?.(e, itemKey)
+      },
+      [itemKey, handleSelect, onClick],
+    )
     const hasAction = 'action' in props
     return (
       <Transition

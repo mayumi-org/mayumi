@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from 'react'
+import React, { useMemo, useRef, useState, useCallback } from 'react'
 import keyby from 'lodash.keyby'
 import cx from 'clsx'
 
@@ -7,7 +7,6 @@ import { ChevronRight } from '@/icons/chevron-right'
 
 import { StyledDropdownCollapsedMenu, StyledDropdownMenu, StyledDropdownMenuItem } from './styles'
 import { useDropdown } from './dropdown-context'
-import { useOnClickOutside } from '../hooks'
 
 type DropdownMenuProps = {
   children?: React.ReactNode
@@ -40,10 +39,10 @@ type CollapsedMenuProps = {
 }
 
 const DropdownCollapsedMenu = (props: CollapsedMenuProps) => {
-  const { glassmorphism } = useDropdown()
+  const { glassmorphism, collapsedTrigger } = useDropdown()
   return (
     <StyledDropdownCollapsedMenu
-      trigger="hover"
+      trigger={collapsedTrigger}
       visible={props.visible}
       content={props.content}
       placement="right-start"
@@ -51,6 +50,7 @@ const DropdownCollapsedMenu = (props: CollapsedMenuProps) => {
       className="mayumi-dropdown-collapsed-menu"
       offset={[-5, 10]}
       glassmorphism={glassmorphism}
+      outsideCloseable={false}
     >
       <div className="mayumi-dropdown-collapsed-menu-inner">
         {props.children}
@@ -71,63 +71,86 @@ type DropdownMenuItemProps = {
 
 export const DropdownMenuItem = ({ collapsedMenu, onClick, ...props }: DropdownMenuItemProps) => {
   const [selected, setSelected] = useState(false)
-  const { onChangeVisible, collapsedVisible, onChangeCollapsedVisible, mode } = useDropdown()
+  const { onChangeVisible, onChangeCollapsedVisible, mode, collapsedTrigger } = useDropdown()
   const { subMenuPopupVisible, handleSubMenuPopupVisible } = useMenu()
   const itemRef = useRef<HTMLLIElement>(null)
   const controlledSelected = 'selected' in props ? props.selected : selected
-  useOnClickOutside(
-    itemRef,
-    () => {
-      handleSubMenuPopupVisible?.(false)
+  const handleCollapsedVisibleChange = useCallback(
+    (e: any, itemKey) => {
+      onClick?.({ itemKey })
+      setSelected((prev) => !prev)
+      e.stopPropagation()
+      /**
+       * In Switch mode, collapsed menu is not allowed
+       */
+      if (mode === 'switch') {
+        return false
+      }
+      /**
+       * Disable on hover trigger
+       */
+      if (collapsedTrigger !== 'click') {
+        return false
+      }
+      /**
+       * Not collapsed menu, click menu item will hidden dropdown popup
+       */
+      if (!collapsedMenu) {
+        onChangeVisible?.(false)
+        return false
+      }
+      handleSubMenuPopupVisible?.(props.itemKey as any)
+      onChangeCollapsedVisible?.((prev) => !prev)
+      return false
     },
-    { disable: false, includes: [] },
+    [
+      mode,
+      onClick,
+      props.itemKey,
+      collapsedMenu,
+      onChangeCollapsedVisible,
+      collapsedTrigger,
+      onChangeVisible,
+      handleSubMenuPopupVisible,
+    ],
   )
-  const handleClickItem = () => {
-    onClick?.({ itemKey: props.itemKey })
-    if (mode === 'switch') {
-      return
-    }
-    if (collapsedVisible && !collapsedMenu) {
-      onChangeCollapsedVisible(false)
-    }
-    if (!collapsedVisible && collapsedMenu) {
-      onChangeCollapsedVisible(true)
-    }
-    if (!collapsedMenu) {
-      onChangeVisible(false)
-    }
-  }
 
   /**
-   * Control original submenu popup visible, only control by mouse hover event
-   * because of dropdown collapsed menu trigger is `hover`
+   * Control original submenu popup visible
    */
-  const handleEnterItem = () => {
-    setSelected(true)
-    if (collapsedMenu) {
-      handleSubMenuPopupVisible?.(true)
-    }
-  }
-  const handleLeaveItem = () => {
-    setSelected(false)
-    handleSubMenuPopupVisible?.(false)
-  }
+  const handleCollapsedVisibleChangeByMouse = useCallback(
+    (visible: boolean) => {
+      setSelected(visible)
+      /**
+       * In Switch mode, collapsed menu is not allowed
+       */
+      if (mode === 'switch') {
+        return
+      }
+      /**
+       * Disable on click trigger
+       */
+      if (collapsedTrigger !== 'hover' || !collapsedMenu) {
+        return
+      }
+      onChangeCollapsedVisible?.(visible)
+      handleSubMenuPopupVisible?.(visible)
+    },
+    [mode, collapsedMenu, onChangeCollapsedVisible, collapsedTrigger, handleSubMenuPopupVisible],
+  )
+
   return (
     <StyledDropdownMenuItem
       ref={itemRef}
       selected={controlledSelected}
       {...props}
-      onClick={handleClickItem}
-      onMouseEnter={handleEnterItem}
-      onMouseLeave={handleLeaveItem}
+      onClick={handleCollapsedVisibleChange}
+      onMouseEnter={() => handleCollapsedVisibleChangeByMouse(true)}
+      onMouseLeave={() => handleCollapsedVisibleChangeByMouse(false)}
       className={cx('mayumi-dropdown-menu-item', props.className)}
     >
       {collapsedMenu ? (
-        <DropdownCollapsedMenu
-          key="drop"
-          visible={collapsedVisible === false ? false : subMenuPopupVisible}
-          content={collapsedMenu}
-        >
+        <DropdownCollapsedMenu key="drop" visible={subMenuPopupVisible} content={collapsedMenu}>
           {props.children}
         </DropdownCollapsedMenu>
       ) : (

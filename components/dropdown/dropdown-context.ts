@@ -10,11 +10,12 @@ export type DropdownContextProps = {
    * Dropdown collapsed menu visible
    */
   collapsedVisible?: boolean
+  collapsedTrigger?: ToolTipProps['trigger']
   /**
    * Control dropdown collapsed menu visible
    */
-  onChangeCollapsedVisible: (value: boolean) => void
-  onChangeVisible: (value: boolean) => void
+  onChangeCollapsedVisible?: React.Dispatch<React.SetStateAction<boolean>>
+  onChangeVisible?: React.Dispatch<React.SetStateAction<boolean | undefined>>
   /**
    * Is under dropdown context
    */
@@ -27,8 +28,7 @@ export const defaultValue: DropdownContextProps = {
   activeKey: undefined,
   visible: false,
   collapsedVisible: false,
-  onChangeCollapsedVisible: (_value: boolean) => undefined,
-  onChangeVisible: (_value: boolean) => undefined,
+  collapsedTrigger: 'hover',
   glassmorphism: false,
 }
 
