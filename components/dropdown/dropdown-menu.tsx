@@ -120,7 +120,6 @@ export const DropdownMenuItem = ({ collapsedMenu, onClick, ...props }: DropdownM
    */
   const handleCollapsedVisibleChangeByMouse = useCallback(
     (visible: boolean) => {
-      setSelected(visible)
       /**
        * In Switch mode, collapsed menu is not allowed
        */

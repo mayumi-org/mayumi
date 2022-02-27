@@ -13,12 +13,14 @@ export type MenuItemProps = Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'>
   onMouseEnter?: () => void
   onMouseLeave?: () => void
   type?: 'default' | 'action'
+  selected?: boolean
 }
 
 export const MenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>(
   ({ itemKey, onClick, ...props }: MenuItemProps, ref) => {
     const { selectedKeys, handleSelect, size } = useMenu()
-    const isSelected = selectedKeys?.includes(itemKey as string)
+    const selected =
+      'selected' in props ? props.selected : selectedKeys?.includes(itemKey as string)
     const handleClick = useCallback(
       (e) => {
         if (itemKey) {
@@ -47,8 +49,8 @@ export const MenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>(
           item && (
             <StyledMenuItem
               ref={ref}
-              selected={isSelected}
-              aria-selected={isSelected}
+              selected={selected}
+              aria-selected={selected}
               {...props}
               onClick={handleClick}
               style={styles}
