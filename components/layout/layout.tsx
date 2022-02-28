@@ -8,6 +8,14 @@ export type LayoutProps = {
   className?: string
 }
 
+/**
+ * Layout display like that
+ * ┌──────────────┐
+ * │  layout      │
+ *┌───────┐──────┐
+ *│ aside │ main │
+ *└──────┘──────┘
+ */
 export const Layout = ({ className, ...props }: LayoutProps) => {
   return <StyledLayout className={cx('mayumi-layout', className)}>{props.children}</StyledLayout>
 }

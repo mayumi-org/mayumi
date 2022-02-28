@@ -67,6 +67,11 @@
       "import": "./es/dropdown/index.mjs",
       "types": "./es/dropdown/index.d.ts"
     },
+    "./layout": {
+      "require": "./cjs/layout/index.cjs",
+      "import": "./es/layout/index.mjs",
+      "types": "./es/layout/index.d.ts"
+    },
     "./icons": {
       "require": "./cjs/icons/index.cjs",
       "import": "./es/icons/index.mjs",
@@ -123,6 +128,9 @@
       "dropdown": [
         "es/dropdown/index.d.ts"
       ],
+      "layout": [
+        "es/layout/index.d.ts"
+      ],
       "icons": [
         "es/icons/index.d.ts"
       ],
@@ -140,6 +148,7 @@
   "scripts": {
     "build": "rimraf cjs es && rollup -c --silent",
     "dev": "rollup -c -w --silent",
+    "play": "pnpm dev --filter=./example",
     "prepare": "husky install",
     "esno": "esno",
     "test": "echo todo",

@@ -8,20 +8,10 @@ export const StyledMain = styled('div', {
   backgroundColor: '$windowBackgroundColor',
 })
 
-export const StyledContent = styled('section', {
-  backgroundColor: '$windowBackgroundColor',
-  w: '$full',
-  h: '$full',
-  boxSizing: 'border-box',
-  display: 'flex',
-  flexDirection: 'column',
-  p: '$4',
-})
-
 export const StyledAside = styled('aside', {
   transformOrigin: '0% 50%',
   w: '$fit',
-  borderRight: '1px solid red',
+  borderRight: '1px solid $quaternaryLabelColor',
   backgroundColor: '$windowBackgroundColor',
   '& .mayumi-aside-inner': {
     w: '$full',
@@ -41,9 +31,4 @@ export const StyledLayout = styled('article', {
   display: 'flex',
   w: '$full',
   h: '$full',
-  // TODO:
-  // '& .toolbar': {
-  //   position: 'relative',
-  //   zIndex: '$10',
-  // },
 })
