@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
 import alias from '@rollup/plugin-alias'
 import size from 'rollup-plugin-size'
+import sourcemaps from 'rollup-plugin-sourcemaps'
 import { defineConfig } from 'rollup'
 
 export default defineConfig([
@@ -14,7 +15,7 @@ export default defineConfig([
   // an array for the `output` option, where we can specify
   // `file` and `format` for each target)
   {
-    input: ['components/**/index.ts', 'components/index.ts', 'components/theme/preflight.ts'],
+    input: ['components/**/*.(ts|tsx)'],
     plugins: [
       multiInput({
         relative: 'components/',
@@ -32,17 +33,25 @@ export default defineConfig([
         resolve: ['.ts', '.js', '.tsx', '.jsx'],
         entries: [{ find: '@/', replacement: './components/' }],
       }),
+      sourcemaps(),
       commonjs(), // so Rollup can convert `ms` to an ES module
       size(),
     ],
     output: [
       {
-        dir: 'cjs',
+        dir: 'dist',
         format: 'cjs',
         entryFileNames: '[name].cjs',
-        chunkFileNames: '[name].cjs',
+        chunkFileNames: '[name]/[name].cjs',
+        sourcemap: true,
       },
-      { dir: 'es', format: 'es', entryFileNames: '[name].mjs', chunkFileNames: '[name].mjs' },
+      {
+        dir: 'dist',
+        format: 'es',
+        entryFileNames: '[name].mjs',
+        chunkFileNames: '[name]/[name].mjs',
+        sourcemap: true,
+      },
     ],
   },
 ])
