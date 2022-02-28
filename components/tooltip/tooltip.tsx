@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import ReactDOM from 'react-dom'
 import { config, Transition } from '@react-spring/web'
 import cx from 'clsx'
 import { usePopperTooltip } from 'react-popper-tooltip'
@@ -89,9 +90,6 @@ export type ToolTipProps = Pick<React.HTMLAttributes<HTMLDivElement>, 'id'> & {
   animation?: Animation
   onVisibleChange?: Config['onVisibleChange']
   glassmorphism?: TooltipContentProps['glassmorphism']
-  /**
-   * @todo implement
-   */
   getPopupContainer?: () => HTMLElement
 }
 
@@ -116,6 +114,7 @@ export const Tooltip = ({
     },
     { strategy: 'absolute' },
   )
+  const hasCustomContainer = 'getPopupContainer' in props
   return (
     <StyledTooltip
       className={cx('mayumi-tooltip', props.className)}
@@ -126,16 +125,32 @@ export const Tooltip = ({
       <div className="mayumi-tooltip-trigger" ref={setTriggerRef}>
         {props.children}
       </div>
-      <TooltipContent
-        visible={visible}
-        ref={setTooltipRef}
-        animation={getAnimationConfig(animation)}
-        styles={getAnimationStyles(placement)}
-        popperTooltipProps={getTooltipProps()}
-        glassmorphism={props.glassmorphism}
-      >
-        {props.content}
-      </TooltipContent>
+      {hasCustomContainer &&
+        ReactDOM.createPortal(
+          <TooltipContent
+            visible={visible}
+            ref={setTooltipRef}
+            animation={getAnimationConfig(animation)}
+            styles={getAnimationStyles(placement)}
+            popperTooltipProps={getTooltipProps()}
+            glassmorphism={props.glassmorphism}
+          >
+            {props.content}
+          </TooltipContent>,
+          props.getPopupContainer() || document.body,
+        )}
+      {!hasCustomContainer && (
+        <TooltipContent
+          visible={visible}
+          ref={setTooltipRef}
+          animation={getAnimationConfig(animation)}
+          styles={getAnimationStyles(placement)}
+          popperTooltipProps={getTooltipProps()}
+          glassmorphism={props.glassmorphism}
+        >
+          {props.content}
+        </TooltipContent>
+      )}
     </StyledTooltip>
   )
 }

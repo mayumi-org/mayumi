@@ -17,9 +17,16 @@ function App() {
         backgroundColor: '#1d1d1d',
       }}
     >
-      <Tooltip content="content" animation="scale" placement="right-end">
-        <div>tooltip</div>
-      </Tooltip>
+      <div id="custom">
+        <Tooltip
+          getPopupContainer={() => document.querySelector('#custom')!}
+          content="content"
+          animation="scale"
+          placement="right-end"
+        >
+          <div>tooltip</div>
+        </Tooltip>
+      </div>
     </div>
   )
 }
