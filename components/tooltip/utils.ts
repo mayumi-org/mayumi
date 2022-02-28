@@ -1,4 +1,5 @@
 import { CSSProperties } from 'react'
+import { Config } from 'react-popper-tooltip/dist/types'
 
 export type Animation = 'scale' | 'opacity'
 
@@ -25,19 +26,43 @@ export const getAnimationConfig = (animation: Animation = 'scale') => {
   }
 }
 
-export const getAnimationStyles = (placement = 'bottom') => {
+export const getAnimationStyles = (placement: Config['placement'] = 'bottom') => {
   const origins: Record<string, CSSProperties> = {
     left: {
       transformOrigin: 'right center',
     },
+    'left-start': {
+      transformOrigin: 'right top',
+    },
+    'left-end': {
+      transformOrigin: 'right bottom',
+    },
     top: {
       transformOrigin: 'bottom center',
+    },
+    'top-start': {
+      transformOrigin: 'bottom left',
+    },
+    'top-end': {
+      transformOrigin: 'bottom right',
     },
     bottom: {
       transformOrigin: 'top center',
     },
+    'bottom-start': {
+      transformOrigin: 'top left',
+    },
+    'bottom-end': {
+      transformOrigin: 'top right',
+    },
     right: {
-      transformOrigin: 'top center',
+      transformOrigin: 'center left',
+    },
+    'right-start': {
+      transformOrigin: 'top left',
+    },
+    'right-end': {
+      transformOrigin: 'bottom left',
     },
   }
   return origins[placement]
