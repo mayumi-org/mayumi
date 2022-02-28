@@ -17,6 +17,7 @@
     "url": "https://twitter.com/jiangweixian"
   },
   "exports": {
+    "./package.json": "./package.json",
     "./button": {
       "require": "./dist/button/index.cjs",
       "import": "./dist/button/index.mjs",
