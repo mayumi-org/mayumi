@@ -11,6 +11,9 @@
     "url": "https://github.com/spring-catponents/rollup-template/issues",
     "email": "jiangweixian1994@gmail.com"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "author": {
     "name": "JW",
     "email": "jiangweixian1994@gmail.com",
