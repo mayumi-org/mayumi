@@ -6,12 +6,13 @@ import useMeasure from 'react-use-measure'
 import { useDropdown } from '@/dropdown/dropdown-context'
 import { defaultValue, MenuContext, MenuContextProps } from './menu-context'
 import { StyledMenu } from './styles'
+import { ClickParams } from './types'
 
 export type MenuProps = {
   children?: React.ReactNode
   className?: string
   style?: React.CSSProperties
-  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void
+  onClick?: (params: ClickParams) => void
   selectedKeys?: MenuContextProps['selectedKeys']
   /**
    * Menu size
@@ -37,10 +38,15 @@ export const Menu = (props: MenuProps) => {
     api.start({ height, opacity: 1 })
   }, [height, api, forceRefresh, isSwitchMode])
   const [subMenuPopupVisible, setSubMenuPopupVisible] = useState(defaultValue.subMenuPopupVisible)
-  const handleSelect = useCallback((itemKey: string) => {
-    // multiple selected is not allowed
-    setSelectedKeys([itemKey])
-  }, [])
+  const handleSelect = useCallback(
+    (params: ClickParams) => {
+      // multiple selected is not allowed
+      // promise `!` is ok
+      setSelectedKeys([params.itemKey!])
+      props.onClick?.({ itemKey: params.itemKey, domEvent: params.domEvent })
+    },
+    [props],
+  )
   return (
     <MenuContext.Provider
       value={{
@@ -53,7 +59,7 @@ export const Menu = (props: MenuProps) => {
       <StyledMenu
         style={{ ...styles, ...props.style }}
         className={cx('mayumi-menu', props.className)}
-        onClick={props.onClick}
+        onClick={(e) => props.onClick?.({ domEvent: e })}
         switch={isSwitchMode}
         size={props.size}
       >

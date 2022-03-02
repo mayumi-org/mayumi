@@ -3,9 +3,10 @@ import cx from 'clsx'
 
 import { useMenu } from './menu-context'
 import { StyledMenuItem } from './styles'
+import { ClickParams } from './types'
 
 export type MenuItemProps = Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'> & {
-  onClick?: (e: any, itemKey?: string) => void
+  onClick?: (params: ClickParams) => void
   itemKey?: string
   onMouseEnter?: () => void
   onMouseLeave?: () => void
@@ -20,9 +21,10 @@ export const MenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>(
     const handleClick = useCallback(
       (e) => {
         if (itemKey) {
-          handleSelect?.(itemKey)
+          handleSelect?.({ domEvent: e, itemKey })
         }
-        onClick?.(e, itemKey)
+        onClick?.({ domEvent: e, itemKey })
+        e.stopPropagation()
       },
       [itemKey, handleSelect, onClick],
     )

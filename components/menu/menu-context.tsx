@@ -1,10 +1,11 @@
 import { createContext, useContext } from 'react'
+import { ClickParams } from './types'
 
 export type MenuContextProps = {
   subMenuPopupVisible?: boolean
   handleSubMenuPopupVisible?: React.Dispatch<React.SetStateAction<boolean | undefined>>
   selectedKeys?: string[]
-  handleSelect?: (itemKey: string) => void
+  handleSelect?: (params: ClickParams) => void
   menuTheme?: 'bgless' | 'default' | 'dark'
 }
 

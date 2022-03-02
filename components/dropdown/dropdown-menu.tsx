@@ -7,6 +7,7 @@ import { ChevronRight } from '@/icons/chevron-right'
 
 import { StyledDropdownCollapsedMenu, StyledDropdownMenu, StyledDropdownMenuItem } from './styles'
 import { useDropdown } from './dropdown-context'
+import { ClickParams } from '@/menu/types'
 
 type DropdownMenuProps = {
   children?: React.ReactNode
@@ -64,7 +65,7 @@ type DropdownMenuItemProps = {
   children?: React.ReactNode
   collapsedMenu?: React.ReactNode
   itemKey?: string
-  onClick?: (params: { itemKey?: React.Key }) => void
+  onClick?: (params: ClickParams) => void
   selected?: boolean
   className?: string
 }
@@ -76,10 +77,10 @@ export const DropdownMenuItem = ({ collapsedMenu, onClick, ...props }: DropdownM
   const itemRef = useRef<HTMLLIElement>(null)
   const controlledSelected = 'selected' in props ? props.selected : selected
   const handleCollapsedVisibleChange = useCallback(
-    (e: any, itemKey) => {
-      onClick?.({ itemKey })
+    (params: ClickParams) => {
+      onClick?.(params)
       setSelected((prev) => !prev)
-      e.stopPropagation()
+      params.domEvent.stopPropagation()
       /**
        * In Switch mode, collapsed menu is not allowed
        */
