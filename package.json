@@ -18,6 +18,11 @@
   },
   "exports": {
     "./package.json": "./package.json",
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    },
     "./button": {
       "require": "./dist/button/index.cjs",
       "import": "./dist/button/index.mjs",
