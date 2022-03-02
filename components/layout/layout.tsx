@@ -6,6 +6,7 @@ import { StyledLayout } from './styles'
 export type LayoutProps = {
   children?: React.ReactNode
   className?: string
+  size?: 'screen' | 'full'
 }
 
 /**
@@ -17,5 +18,9 @@ export type LayoutProps = {
  *└──────┘──────┘
  */
 export const Layout = ({ className, ...props }: LayoutProps) => {
-  return <StyledLayout className={cx('mayumi-layout', className)}>{props.children}</StyledLayout>
+  return (
+    <StyledLayout size={props.size} className={cx('mayumi-layout', className)}>
+      {props.children}
+    </StyledLayout>
+  )
 }

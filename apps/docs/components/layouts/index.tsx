@@ -1,6 +1,7 @@
 import { MDXProvider } from '@mdx-js/react'
 import React from 'react'
 import { Text } from 'mayumi/text'
+import { Layout as DefaultLayout } from 'mayumi/layout'
 
 const components = {
   // code: CodeBlock,
@@ -16,5 +17,11 @@ const components = {
 }
 
 export const Layout = (props: React.PropsWithChildren<any>) => {
-  return <MDXProvider components={components}>{props.children}</MDXProvider>
+  return (
+    <DefaultLayout size="screen">
+      <DefaultLayout.Main>
+        <MDXProvider components={components}>{props.children}</MDXProvider>
+      </DefaultLayout.Main>
+    </DefaultLayout>
+  )
 }
