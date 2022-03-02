@@ -12,6 +12,7 @@
     "strict": true,
     "declaration": true,
     "jsx": "react",
+    "outDir": "dist",
     "resolveJsonModule": true,
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,

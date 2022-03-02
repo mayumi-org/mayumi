@@ -2,13 +2,13 @@
   "name": "mayumi",
   "version": "0.0.0",
   "license": "MIT",
-  "homepage": "https://github.com/spring-catponents/rollup-template#readme",
+  "homepage": "https://github.com/mayumi-org/mayumi#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spring-catponents/rollup-template.git"
+    "url": "git+https://github.com/mayumi-org/mayumi.git"
   },
   "bugs": {
-    "url": "https://github.com/spring-catponents/rollup-template/issues",
+    "url": "https://github.com/mayumi-org/mayumi/issues",
     "email": "jiangweixian1994@gmail.com"
   },
   "author": {
@@ -153,6 +153,7 @@
     "build": "rimraf dist && rollup -c --silent",
     "dev": "rollup -c -w --silent",
     "play": "pnpm dev --filter=./example",
+    "docs": "pnpm dev --filter=./apps/docs",
     "prepare": "husky install",
     "esno": "esno",
     "test": "echo todo",

@@ -26,7 +26,7 @@ export default defineConfig([
       typescript({
         check: false,
         tsconfigOverride: {
-          exclude: ['example'],
+          exclude: ['example', 'apps/docs'],
         },
       }), // so Rollup can convert TypeScript to JavaScript
       alias({

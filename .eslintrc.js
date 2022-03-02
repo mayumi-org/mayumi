@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ['@aiou'],
+  extends: ['@aiou', 'plugin:react/jsx-runtime'],
 }

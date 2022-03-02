@@ -1,0 +1,2 @@
+# eslint lint failed on cjs or mjs format
+next.config.mjs
