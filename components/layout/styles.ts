@@ -12,7 +12,7 @@ export const StyledAside = styled('aside', {
   transformOrigin: '0% 50%',
   w: '$fit',
   borderRight: '1px solid $quaternaryLabelColor',
-  backgroundColor: '$windowBackgroundColor',
+  backgroundColor: '$underPageBackgroundColor',
   '& .mayumi-aside-inner': {
     w: '$full',
     h: '$full',
@@ -23,6 +23,7 @@ export const StyledAside = styled('aside', {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'start',
+      minWidth: '$72',
     },
   },
 })

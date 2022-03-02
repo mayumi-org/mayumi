@@ -3,11 +3,12 @@ import cx from 'clsx'
 
 import { StyledMain } from './styles'
 
-type LayoutMainProps = {
-  children?: React.ReactNode
-  className?: string
-}
+type LayoutMainProps = React.HTMLAttributes<HTMLDivElement>
 
-export const LayoutMain = ({ children, className }: LayoutMainProps) => {
-  return <StyledMain className={cx('mayumi-layout-main', className)}>{children}</StyledMain>
+export const LayoutMain = ({ children, className, ...props }: LayoutMainProps) => {
+  return (
+    <StyledMain {...props} className={cx('mayumi-layout-main', className)}>
+      {children}
+    </StyledMain>
+  )
 }

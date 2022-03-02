@@ -3,9 +3,7 @@ import cx from 'clsx'
 
 import { StyledLayout } from './styles'
 
-export type LayoutProps = {
-  children?: React.ReactNode
-  className?: string
+export type LayoutProps = React.HTMLAttributes<HTMLElement> & {
   size?: 'screen' | 'full'
 }
 
@@ -17,10 +15,10 @@ export type LayoutProps = {
  *│ aside │ main │
  *└──────┘──────┘
  */
-export const Layout = ({ className, ...props }: LayoutProps) => {
+export const Layout = ({ className, children, ...props }: LayoutProps) => {
   return (
-    <StyledLayout size={props.size} className={cx('mayumi-layout', className)}>
-      {props.children}
+    <StyledLayout {...props} size={props.size} className={cx('mayumi-layout', className)}>
+      {children}
     </StyledLayout>
   )
 }

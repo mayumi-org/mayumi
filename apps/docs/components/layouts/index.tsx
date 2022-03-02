@@ -1,5 +1,5 @@
-import { MDXProvider } from '@mdx-js/react'
 import React from 'react'
+import { MDXProvider } from '@mdx-js/react'
 import { Text } from 'mayumi/text'
 import { Layout as DefaultLayout } from 'mayumi/layout'
 import { Menu } from 'mayumi/menu'
@@ -21,13 +21,12 @@ const components = {
 export const Layout = (props: React.PropsWithChildren<any>) => {
   const router = useRouter()
   const handleClickMenuItem = (params: any) => {
-    console.log(params)
     router.push(`/docs/components/${params.itemKey}`)
   }
   return (
     <DefaultLayout size="screen">
       <DefaultLayout.Aside open={true}>
-        <Menu onClick={handleClickMenuItem}>
+        <Menu size="lg" onClick={handleClickMenuItem}>
           <Menu.SubMenu title="Actions">
             <Menu.Item itemKey="button">Button</Menu.Item>
             <Menu.Item itemKey="input">Input</Menu.Item>
