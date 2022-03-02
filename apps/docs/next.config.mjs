@@ -4,7 +4,7 @@ import mdx from '@next/mdx'
 const nextConfig = {
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'tsx', 'md', 'mdx', 'ts'],
-  swcMinify: true
+  swcMinify: true,
 }
 
 const withMDX = mdx({
