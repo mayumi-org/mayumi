@@ -1,4 +1,4 @@
-import { globalCss } from '@/theme'
+import { globalCss } from '@/theme/config'
 
 export const cssBaseline = globalCss({
   '*': {

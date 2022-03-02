@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import cx from 'clsx'
-import { Space, Shadow } from '@/theme'
+import { Space, Shadow } from '@/theme/config'
 
 import { StyledAvatar } from './styles'
 

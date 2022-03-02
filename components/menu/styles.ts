@@ -1,4 +1,4 @@
-import { styled } from '@/theme'
+import { styled } from '@/theme/config'
 import { animated } from '@react-spring/web'
 
 export const StyledMenu = styled(animated.div, {

@@ -9,6 +9,11 @@ const nextConfig = {
 
 const withMDX = mdx({
   extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+    providerImportSource: '@mdx-js/react',
+  },
 })
 
 export default withMDX(nextConfig)

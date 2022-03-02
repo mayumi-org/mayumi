@@ -1,4 +1,4 @@
-import { styled } from '@/theme'
+import { styled } from '@/theme/config'
 
 export const StyledAvatar = styled('span', {
   display: 'inline-block',

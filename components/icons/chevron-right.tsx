@@ -1,4 +1,4 @@
-import { styled } from '@/theme'
+import { styled } from '@/theme/config'
 import { Icon } from './icon'
 
 export const ChevronRight = styled(Icon, {

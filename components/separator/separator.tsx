@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'clsx'
 
 import { StyledSeparator } from './styles'
-import { CSS } from '@/theme'
+import { CSS } from '@/theme/config'
 
 export type SeparatorProps = {
   style?: React.CSSProperties

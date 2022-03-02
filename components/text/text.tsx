@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'clsx'
 
 import { StyledText } from './styles'
-import type { FontWeight, TextSize } from '@/theme'
+import type { FontWeight, TextSize } from '@/theme/config'
 
 export type TextProps = {
   children?: React.ReactNode
