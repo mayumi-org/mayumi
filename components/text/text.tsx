@@ -4,7 +4,7 @@ import cx from 'clsx'
 import { StyledText } from './styles'
 import type { FontWeight, TextSize, CSS } from '@/theme/config'
 
-export type TextProps = {
+export type TextProps = React.HTMLAttributes<HTMLElement> & {
   children?: React.ReactNode
   className?: string
   h1?: boolean
@@ -25,10 +25,11 @@ export const Text = ({ h1, h2, h3, h4, h5, h6, p, size, weight, ...props }: Text
   const tag: any = names[0] || 'p'
   return (
     <StyledText
+      {...props}
       as={tag}
       css={{
-        text: size ? `$${size}` : '',
-        fontWeight: weight ? `$${weight}` : '',
+        text: size ? `$${size}` : undefined,
+        fontWeight: weight ? `$${weight}` : undefined,
         ...props.css,
       }}
       className={cx('mayumi-text', props.className)}
