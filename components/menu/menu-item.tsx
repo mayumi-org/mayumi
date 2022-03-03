@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react'
 import cx from 'clsx'
 
+import type { CSS } from '@/theme/config'
+
 import { useMenu } from './menu-context'
 import { StyledMenuItem } from './styles'
 import { ClickParams } from './types'
@@ -11,6 +13,7 @@ export type MenuItemProps = Omit<React.HTMLAttributes<HTMLLIElement>, 'onClick'>
   onMouseEnter?: () => void
   onMouseLeave?: () => void
   selected?: boolean
+  css?: CSS
 }
 
 export const MenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>(

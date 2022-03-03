@@ -4,14 +4,16 @@ import cx from 'clsx'
 
 import { useMenu } from '@/menu/menu-context'
 import { ChevronRight } from '@/icons/chevron-right'
+import { ClickParams } from '@/menu/types'
+import type { CSS } from '@/theme/config'
 
 import { StyledDropdownCollapsedMenu, StyledDropdownMenu, StyledDropdownMenuItem } from './styles'
 import { useDropdown } from './dropdown-context'
-import { ClickParams } from '@/menu/types'
 
 type DropdownMenuProps = {
   children?: React.ReactNode
   className?: string
+  css?: CSS
 }
 
 export const DropdownMenu = (props: DropdownMenuProps) => {
@@ -21,13 +23,17 @@ export const DropdownMenu = (props: DropdownMenuProps) => {
   }, [mode, props.children])
   if (mode === 'switch') {
     return (
-      <StyledDropdownMenu className={cx('mayumi-dropdown-menu', props.className)} size="sm">
+      <StyledDropdownMenu
+        css={props.css}
+        className={cx('mayumi-dropdown-menu', props.className)}
+        size="sm"
+      >
         {groups[switchKey!]}
       </StyledDropdownMenu>
     )
   }
   return (
-    <StyledDropdownMenu className={cx('mayumi-dropdown-menu', props.className)}>
+    <StyledDropdownMenu css={props.css} className={cx('mayumi-dropdown-menu', props.className)}>
       {props.children}
     </StyledDropdownMenu>
   )
@@ -37,6 +43,7 @@ type CollapsedMenuProps = {
   children?: React.ReactNode
   content?: React.ReactNode
   visible?: boolean
+  css?: CSS
 }
 
 const DropdownCollapsedMenu = (props: CollapsedMenuProps) => {
@@ -51,6 +58,7 @@ const DropdownCollapsedMenu = (props: CollapsedMenuProps) => {
       className="mayumi-dropdown-collapsed-menu"
       offset={[-5, 10]}
       glassmorphism={glassmorphism}
+      css={props.css}
       outsideCloseable={false}
     >
       <div className="mayumi-dropdown-collapsed-menu-inner">

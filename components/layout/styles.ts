@@ -6,6 +6,7 @@ export const StyledMain = styled('div', {
   flexDirection: 'column',
   overflow: 'hidden',
   backgroundColor: '$windowBackgroundColor',
+  p: '$4',
 })
 
 export const StyledAside = styled('aside', {

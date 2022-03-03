@@ -4,9 +4,11 @@ import useMeasure from 'react-use-measure'
 import { StyledAside } from './styles'
 
 import cx from 'clsx'
+import type { CSS } from '@/theme/config'
 
 type LayoutAsideProps = React.HTMLAttributes<HTMLElement> & {
   open?: boolean
+  css?: CSS
 }
 
 export const LayoutAside = ({ children, ...props }: LayoutAsideProps) => {

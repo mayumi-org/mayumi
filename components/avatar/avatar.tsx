@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import cx from 'clsx'
-import { Space, Shadow } from '@/theme/config'
+import type { Space, Shadow, CSS } from '@/theme/config'
 
 import { StyledAvatar } from './styles'
 
@@ -10,6 +10,7 @@ export type AvatarProps = {
   shadow?: Shadow
   className?: string
   style?: React.CSSProperties
+  css?: CSS
 }
 
 export const Avatar = (props: AvatarProps) => {

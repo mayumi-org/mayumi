@@ -4,6 +4,8 @@ import cx from 'clsx'
 import useMeasure from 'react-use-measure'
 
 import { useDropdown } from '@/dropdown/dropdown-context'
+import type { CSS } from '@/theme/config'
+
 import { defaultValue, MenuContext, MenuContextProps } from './menu-context'
 import { StyledMenu } from './styles'
 import { ClickParams } from './types'
@@ -19,6 +21,7 @@ export type MenuProps = {
    * @default `sm`
    */
   size?: 'sm' | 'md' | 'lg'
+  css?: CSS
 }
 
 export const Menu = (props: MenuProps) => {
@@ -62,6 +65,7 @@ export const Menu = (props: MenuProps) => {
         onClick={(e) => props.onClick?.({ domEvent: e })}
         switch={isSwitchMode}
         size={props.size}
+        css={props.css}
       >
         <div ref={parent} className="mayumi-menu-inner">
           {props.children}

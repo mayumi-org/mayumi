@@ -26,7 +26,7 @@ export const Layout = (props: React.PropsWithChildren<any>) => {
   return (
     <DefaultLayout size="screen">
       <DefaultLayout.Aside open={true}>
-        <Menu size="lg" onClick={handleClickMenuItem}>
+        <Menu onClick={handleClickMenuItem}>
           <Menu.SubMenu title="Actions">
             <Menu.Item itemKey="button">Button</Menu.Item>
             <Menu.Item itemKey="input">Input</Menu.Item>

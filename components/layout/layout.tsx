@@ -2,9 +2,11 @@ import React from 'react'
 import cx from 'clsx'
 
 import { StyledLayout } from './styles'
+import type { CSS } from '@/theme/config'
 
 export type LayoutProps = React.HTMLAttributes<HTMLElement> & {
   size?: 'screen' | 'full'
+  css?: CSS
 }
 
 /**
