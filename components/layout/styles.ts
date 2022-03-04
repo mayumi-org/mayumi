@@ -31,6 +31,7 @@ export const StyledAside = styled('aside', {
 
 export const StyledLayout = styled('article', {
   display: 'flex',
+  backgroundColor: '$windowBackgroundColor',
   variants: {
     size: {
       screen: {

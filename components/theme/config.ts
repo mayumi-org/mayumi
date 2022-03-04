@@ -376,7 +376,7 @@ const stitches = createStitches({
      * macos glass filter
      */
     glass: (value: Stitches.PropertyValue<'width'>) => ({
-      backgroundColor: rgba(cssVar('--mayumi-colors-underPageBackgroundColor'), 0.85),
+      backgroundColor: rgba(cssVar('--mayumi-colors-underPageBackgroundColor', '#1e1e1e'), 0.85),
       backdropFilter: `blur(${value})`,
       '-webkit-backdrop-filter': `blur(${value})`,
     }),

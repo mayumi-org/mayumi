@@ -23,9 +23,10 @@ const scope = {
 
 const LiveCodePreviewWrapper = styled('div', {
   minHeight: '100px',
-  padding: '$6',
+  p: '$6',
+  mt: '$6',
   linearGradient: 'to right, #243949 0%, #517fa4 100%',
-  borderRadius: '$md',
+  roundedT: '$md',
   flexBox: 'center',
 })
 
@@ -34,7 +35,7 @@ const LiveCodePreviewContainer = styled(Box, {
 })
 
 const LiveCodeEditor = styled(LiveEditor, {
-  borderRadius: '$md',
+  roundedB: '$md',
   textAlign: 'left',
   overflow: 'auto',
   fonts: '$mono',

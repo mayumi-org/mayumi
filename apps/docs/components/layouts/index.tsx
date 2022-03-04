@@ -17,13 +17,48 @@ const components: MDXProps['components'] = {
   h4: (props: any) => <Text {...props} h4={true} />,
   h5: (props: any) => <Text {...props} h5={true} />,
   h6: (props: any) => <Text {...props} h6={true} />,
+  p: (props: any) => <Text {...props} p={true} />,
 }
 
-const Main = styled('main', {
-  backgroundColor: '$windowBackgroundColor',
+const Main = styled(DefaultLayout, {
   display: 'flex',
-  w: '$full',
+  flexDirection: 'column',
+  w: '100vw',
+  h: '100vh',
+  backgroundColor: '#000000',
+})
+
+const Content = styled('article', {
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '$10',
+  flex: 1,
+  pt: '$8',
+  mx: 'auto',
+  w: '80%',
   h: '$full',
+  '.mdx-container': {
+    minWidth: '70%',
+  },
+})
+
+const Nav = styled('nav', {
+  glass: '5px',
+  backgroundColor: 'rgba(36, 36, 36, 0.7)',
+  w: '$full',
+  h: '$16',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  position: 'sticky',
+  top: '$0',
+  borderStyle: 'solid',
+  borderColor: '$quaternaryLabelColor',
+  borderBottomWidth: '$px',
+  '.nav-content': {
+    w: '80%',
+    fontFamily: "'Inter', sans-serif",
+  },
 })
 
 export const Layout = (props: React.PropsWithChildren<{}>) => {
@@ -32,8 +67,15 @@ export const Layout = (props: React.PropsWithChildren<{}>) => {
     router.push(`/docs/components/${params.itemKey}`)
   }
   return (
-    <DefaultLayout size="screen">
-      <Main>
+    <Main size="screen">
+      <Nav>
+        <div className="nav-content">
+          <Text weight="black" h5={true}>
+            {'mayumi'.toUpperCase()}
+          </Text>
+        </div>
+      </Nav>
+      <Content>
         <div>
           <Menu onClick={handleClickMenuItem}>
             <Menu.SubMenu title="Actions">
@@ -42,11 +84,11 @@ export const Layout = (props: React.PropsWithChildren<{}>) => {
             </Menu.SubMenu>
           </Menu>
         </div>
-        <div>
+        <div className="mdx-container">
           <MDXProvider components={components}>{props.children}</MDXProvider>
         </div>
         <TableOfContent headings={getHeadings(props.children)} />
-      </Main>
-    </DefaultLayout>
+      </Content>
+    </Main>
   )
 }
