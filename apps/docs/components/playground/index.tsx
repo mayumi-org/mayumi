@@ -25,7 +25,7 @@ const StyledPlayground = styled('div', {
   $$gridBgColor: '$colors$gridColor', // or windowFrameTextColor
   border: '4px solid $selectedControlColor',
   rounded: '$xl',
-  mt: '$6',
+  my: '$6',
   overflow: 'hidden',
   '& .playground-preview': {
     minHeight: '200px',

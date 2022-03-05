@@ -33,10 +33,11 @@ const Content = styled('article', {
   justifyContent: 'center',
   gap: '$10',
   flex: 1,
-  pt: '$8',
+  py: '$8',
   mx: 'auto',
   w: '80%',
   h: '$full',
+  overflowY: 'auto',
   '.mdx-container': {
     minWidth: '70%',
   },

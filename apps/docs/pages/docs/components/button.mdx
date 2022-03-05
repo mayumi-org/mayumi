@@ -2,11 +2,25 @@ import { Button } from 'mayumi/button'
 import { Playground } from '@/components/playground'
 import { Layout } from '@/components/layouts'
 
-### Button
+# Button
 
 A Button is a box area that allow user perform actions.
 
+## Default
+
 <Playground code={`<Button>👋 Hello</Button>`} />
+
+## Colors
+
+Change button color with property `color`.
+
+<Playground code={`<Button color="gray">👋 Hello</Button>`} />
+
+## Sizes
+
+Change button size with property `size`.
+
+<Playground code={`<Button size="sm">👋 Hello</Button>`} />
 
 export default ({ children }) => (
   <Layout>
