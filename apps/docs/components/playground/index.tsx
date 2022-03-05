@@ -1,7 +1,6 @@
 import { LiveEditor, LiveError, LivePreview, LiveProvider } from 'react-live'
 import React, { useState, useRef, useEffect } from 'react'
 import { styled } from 'mayumi/theme'
-import { Box } from 'mayumi/box'
 import * as components from 'mayumi'
 import CodeTheme from 'prism-react-renderer/themes/nightOwl'
 import { Language } from 'prism-react-renderer'
@@ -21,17 +20,24 @@ const scope = {
   ...components,
 }
 
-const LiveCodePreviewWrapper = styled('div', {
-  minHeight: '100px',
-  p: '$6',
+const StyledPlayground = styled('div', {
+  $$gridLineColor: '$colors$textBackgroundColor', // or d7f1fc
+  $$gridBgColor: '$colors$gridColor', // or windowFrameTextColor
+  border: '4px solid $selectedControlColor',
+  rounded: '$xl',
   mt: '$6',
-  linearGradient: 'to right, #243949 0%, #517fa4 100%',
-  roundedT: '$md',
-  flexBox: 'center',
-})
-
-const LiveCodePreviewContainer = styled(Box, {
-  padding: '$6',
+  overflow: 'hidden',
+  '& .playground-preview': {
+    minHeight: '200px',
+    p: '$6',
+    backgroundColor: '$gridBgColor',
+    borderBottom: '2px solid $selectedControlColor',
+    flexBox: 'center',
+    backgroundImage:
+      'linear-gradient($$gridLineColor 3.4px, transparent 3.4px), linear-gradient(90deg, $$gridLineColor 3.4px, transparent 3.4px), linear-gradient($$gridLineColor 1.7px, transparent 1.7px), linear-gradient(90deg, $$gridLineColor 1.7px, $$gridBgColor 1.7px);',
+    backgroundSize: '85px 85px, 85px 85px, 17px 17px, 17px 17px',
+    backgroundPosition: '-3.4 -3.4, -3.4 -3.4, -1.7px -1.7px, -1.7px -1.7px',
+  },
 })
 
 const LiveCodeEditor = styled(LiveEditor, {
@@ -55,13 +61,13 @@ export const Playground = ({ code, className, manual, ...props }: CodeBlockProps
   }
   return (
     <LiveProvider {...liveProviderProps}>
-      <LiveCodePreviewWrapper>
-        <LiveCodePreviewContainer>
+      <StyledPlayground>
+        <div className="playground-preview">
           <LivePreview />
-        </LiveCodePreviewContainer>
-      </LiveCodePreviewWrapper>
-      <LiveCodeEditor onChange={onChange} />
-      <LiveError />
+        </div>
+        <LiveCodeEditor onChange={onChange} />
+        <LiveError />
+      </StyledPlayground>
     </LiveProvider>
   )
 }

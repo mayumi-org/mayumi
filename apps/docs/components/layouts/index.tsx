@@ -57,6 +57,7 @@ const Nav = styled('nav', {
   borderBottomWidth: '$px',
   '.nav-content': {
     w: '80%',
+    textAlign: 'center',
     fontFamily: "'Inter', sans-serif",
   },
 })
