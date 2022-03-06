@@ -21,31 +21,25 @@ const components: MDXProps['components'] = {
 }
 
 const Main = styled(DefaultLayout, {
-  display: 'flex',
-  flexDirection: 'column',
-  w: '100vw',
-  h: '100vh',
+  display: 'block',
   backgroundColor: '#000000',
+  overflowY: 'auto',
 })
 
-const Content = styled('article', {
+const Content = styled('section', {
   display: 'flex',
   justifyContent: 'center',
   gap: '$10',
-  flex: 1,
   py: '$8',
   mx: 'auto',
   w: '80%',
-  h: '$full',
-  overflowY: 'auto',
   '.mdx-container': {
     minWidth: '70%',
   },
 })
 
-const Nav = styled('nav', {
+const Header = styled('header', {
   glass: '5px',
-  backgroundColor: 'rgba(36, 36, 36, 0.7)',
   w: '$full',
   h: '$16',
   display: 'flex',
@@ -53,10 +47,11 @@ const Nav = styled('nav', {
   justifyContent: 'center',
   position: 'sticky',
   top: '$0',
+  zIndex: '$50',
   borderStyle: 'solid',
   borderColor: '$quaternaryLabelColor',
   borderBottomWidth: '$px',
-  '.nav-content': {
+  '.header-logo': {
     w: '80%',
     textAlign: 'center',
     fontFamily: "'Inter', sans-serif",
@@ -70,13 +65,13 @@ export const Layout = (props: React.PropsWithChildren<{}>) => {
   }
   return (
     <Main size="screen">
-      <Nav>
-        <div className="nav-content">
+      <Header>
+        <div className="header-logo">
           <Text weight="black" h5={true}>
             {'mayumi'.toUpperCase()}
           </Text>
         </div>
-      </Nav>
+      </Header>
       <Content>
         <div>
           <Menu onClick={handleClickMenuItem}>
@@ -87,6 +82,7 @@ export const Layout = (props: React.PropsWithChildren<{}>) => {
               <Menu.Item itemKey="box">Box</Menu.Item>
               <Menu.Item itemKey="description">Description</Menu.Item>
               <Menu.Item itemKey="separator">Separator</Menu.Item>
+              <Menu.Item itemKey="tooltip">Tooltip</Menu.Item>
             </Menu.SubMenu>
           </Menu>
         </div>
