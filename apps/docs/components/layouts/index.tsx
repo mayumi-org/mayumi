@@ -86,6 +86,7 @@ export const Layout = (props: React.PropsWithChildren<{}>) => {
               <Menu.Item itemKey="dropdown">Dropdown</Menu.Item>
               <Menu.Item itemKey="menu">Menu</Menu.Item>
               <Menu.Item itemKey="text">Text</Menu.Item>
+              <Menu.Item itemKey="icons">Icons</Menu.Item>
             </Menu.SubMenu>
           </Menu>
         </div>

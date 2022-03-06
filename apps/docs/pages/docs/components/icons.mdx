@@ -1,0 +1,23 @@
+import { ChevronRight, Search } from 'mayumi/icons'
+import { Box } from 'mayumi/box'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Icons
+
+Some built-in icons in `mayumi` from [css.gg](https://css.gg/)
+
+## Default
+
+<Playground code={`
+<Box css={{ gap: '$2', }}>
+  <ChevronRight />
+  <Search />
+</Box>
+`} />
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);
