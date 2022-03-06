@@ -1,0 +1,53 @@
+import { Text } from 'mayumi/text'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Text
+
+Text component is the used to render text and paragraphs.
+
+## Default
+
+<Playground code={`
+<>
+  <Text h1={true}>Do not go gentle into that good night.</Text>
+  <Text h2={true}>Do not go gentle into that good night.</Text>
+  <Text h3={true}>Do not go gentle into that good night.</Text>
+  <Text h4={true}>Do not go gentle into that good night.</Text>
+  <Text h5={true}>Do not go gentle into that good night.</Text>
+  <Text h6={true}>Do not go gentle into that good night.</Text>
+  <Text p={true}>Do not go gentle into that good night.</Text>
+</>
+`} />
+
+## Weights
+
+Change font weith with property `weight`.
+
+<Playground code={`
+<Text
+  p={true}
+  weight="bold"
+>
+  Do not go gentle into that good night.
+</Text>
+`} />
+
+## Sizes
+
+Change font size with property `size`.
+
+<Playground code={`
+<Text
+  p={true}
+  size="2xl"
+>
+  Do not go gentle into that good night.
+</Text>
+`} />
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);
