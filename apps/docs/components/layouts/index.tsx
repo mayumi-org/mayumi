@@ -17,7 +17,7 @@ const components: MDXProps['components'] = {
   h4: (props: any) => <Text {...props} h4={true} />,
   h5: (props: any) => <Text {...props} h5={true} />,
   h6: (props: any) => <Text {...props} h6={true} />,
-  p: (props: any) => <Text {...props} p={true} />,
+  p: (props: any) => <Text {...props} type="secondary" p={true} />,
 }
 
 const Main = styled(DefaultLayout, {

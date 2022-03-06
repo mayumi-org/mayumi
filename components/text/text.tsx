@@ -17,6 +17,7 @@ export type TextProps = React.HTMLAttributes<HTMLElement> & {
   size?: TextSize
   weight?: FontWeight
   css?: CSS
+  type?: 'secondary' | 'tertiary' | 'quaternary'
 }
 
 export const Text = ({ h1, h2, h3, h4, h5, h6, p, size, weight, ...props }: TextProps) => {
