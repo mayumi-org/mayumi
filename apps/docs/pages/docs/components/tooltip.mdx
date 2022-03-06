@@ -16,6 +16,23 @@ Display popup content when `click` or `hover`.
 </Tooltip>
 `} />
 
+## Glassmorphism
+
+Make popup content with `glassmorphism` effect. Only working on pass `getPopupContainer = () => document.body`
+
+<Playground code={`
+<>
+  <Tooltip
+    glassmorphism={true}
+    content="tooltip content"
+    getPopupContainer={() => document.body}
+  >
+    tooltip
+  </Tooltip>
+  <Text>text</Text>
+</>
+`} />
+
 ## Placements
 
 Popup content come from another position with property `placement`.
