@@ -80,9 +80,10 @@ export const Layout = (props: React.PropsWithChildren<{}>) => {
       <Content>
         <div>
           <Menu onClick={handleClickMenuItem}>
-            <Menu.SubMenu title="Actions">
+            <Menu.SubMenu title="Components">
               <Menu.Item itemKey="button">Button</Menu.Item>
               <Menu.Item itemKey="input">Input</Menu.Item>
+              <Menu.Item itemKey="avatar">Avatar</Menu.Item>
             </Menu.SubMenu>
           </Menu>
         </div>
