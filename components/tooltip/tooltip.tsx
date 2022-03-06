@@ -140,7 +140,7 @@ export const Tooltip = ({
           >
             {props.content}
           </TooltipContent>,
-          props.getPopupContainer() || document.body,
+          props.getPopupContainer?.() || document.body,
         )}
       {!hasCustomContainer && (
         <TooltipContent
