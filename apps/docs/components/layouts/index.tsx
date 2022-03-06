@@ -74,7 +74,7 @@ export const Layout = (props: React.PropsWithChildren<{}>) => {
       </Header>
       <Content>
         <div>
-          <Menu onClick={handleClickMenuItem}>
+          <Menu light={true} onClick={handleClickMenuItem}>
             <Menu.SubMenu title="Components">
               <Menu.Item itemKey="button">Button</Menu.Item>
               <Menu.Item itemKey="input">Input</Menu.Item>

@@ -8,7 +8,7 @@ export const StyledText = styled('p', {
         color: '$labelColor',
       },
       tertiary: {
-        color: '$selectedControlColor',
+        color: '$secondaryLabelColor',
       },
       quaternary: {
         color: '$tertiaryLabelColor',

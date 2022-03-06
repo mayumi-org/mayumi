@@ -34,11 +34,14 @@ export const MenuItem = React.forwardRef<HTMLLIElement, MenuItemProps>(
     return (
       <StyledMenuItem
         ref={ref}
-        selected={selected}
         aria-selected={selected}
         {...props}
         onClick={handleClick}
-        className={cx('mayumi-menu-item', props.className)}
+        className={cx(
+          'mayumi-menu-item',
+          { 'mayumi-menu-item__selected': selected },
+          props.className,
+        )}
       >
         {props.children}
       </StyledMenuItem>

@@ -22,6 +22,11 @@ export type MenuProps = {
    */
   size?: 'sm' | 'md' | 'lg'
   css?: CSS
+  /**
+   * Menu item hover effect
+   * @default false
+   */
+  light?: boolean
 }
 
 export const Menu = (props: MenuProps) => {
@@ -66,6 +71,7 @@ export const Menu = (props: MenuProps) => {
         switch={isSwitchMode}
         size={props.size}
         css={props.css}
+        light={props.light}
       >
         <div ref={parent} className="mayumi-menu-inner">
           {props.children}

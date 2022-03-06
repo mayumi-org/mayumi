@@ -42,6 +42,10 @@ const space = {
   '5_5': '1.375rem',
 } as const
 
+const getTransition = (propertyValues: string[]) => {
+  return propertyValues.map((p) => `${p} cubic-bezier(0.4, 0, 0.2, 1) 150ms`).join(',')
+}
+
 const stitches = createStitches({
   prefix: 'mayumi',
   theme: {
@@ -214,12 +218,29 @@ const stitches = createStitches({
       focus: '0px 0px 0px 4px $colors$selectedControlColor',
     },
     transitions: {
-      default:
-        'color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter cubic-bezier(0.4, 0, 0.2, 1) 150ms',
+      default: getTransition([
+        'color',
+        'background-color',
+        'border-color',
+        'text-decoration-color',
+        'fill',
+        'stroke',
+        'opacity',
+        'box-shadow',
+        'transform',
+        'filter',
+        'backdrop-filter',
+      ]),
       none: 'none',
       all: 'all cubic-bezier(0.4, 0, 0.2, 1) 150ms',
-      colors:
-        'color, background-color, border-color, text-decoration-color, fill, stroke cubic-bezier(0.4, 0, 0.2, 1) 150ms',
+      colors: getTransition([
+        'color',
+        'background-color',
+        'border-color',
+        'text-decoration-color',
+        'fill',
+        'stroke',
+      ]),
       opacity: 'opacity cubic-bezier(0.4, 0, 0.2, 1) 150ms',
       shadow: 'box-shadow cubic-bezier(0.4, 0, 0.2, 1) 150ms',
       transform: 'transform cubic-bezier(0.4, 0, 0.2, 1) 150ms',

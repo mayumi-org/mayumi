@@ -100,7 +100,8 @@ export function TableOfContent(props: TableOfContentProps) {
           <li data-level={level} data-role="list-item" key={id} title={text}>
             <Text
               p={true}
-              size="sm"
+              size="xs"
+              type="tertiary"
               css={{
                 fontWeight: activeId === id ? '$bold' : '$normal',
               }}

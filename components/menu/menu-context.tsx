@@ -6,7 +6,6 @@ export type MenuContextProps = {
   handleSubMenuPopupVisible?: React.Dispatch<React.SetStateAction<boolean | undefined>>
   selectedKeys?: string[]
   handleSelect?: (params: ClickParams) => void
-  menuTheme?: 'bgless' | 'default' | 'dark'
 }
 
 export const defaultValue: MenuContextProps = {

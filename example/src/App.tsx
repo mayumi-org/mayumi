@@ -1,6 +1,6 @@
 import React from 'react'
 import './App.css'
-import { Text } from 'mayumi/text'
+import { Menu } from 'mayumi/menu'
 import { globalStyles } from 'mayumi/preflight'
 
 function App() {
@@ -17,9 +17,16 @@ function App() {
         backgroundColor: '#1d1d1d',
       }}
     >
-      <Text type="secondary">text</Text>
-      <Text type="tertiary">text</Text>
-      <Text type="quaternary">text</Text>
+      <Menu light={true}>
+        <Menu.Item itemKey="button">Button</Menu.Item>
+        <Menu.Item itemKey="input">Input</Menu.Item>
+        <Menu.Item itemKey="avatar">Avatar</Menu.Item>
+        <Menu.Item itemKey="box">Box</Menu.Item>
+        <Menu.Item itemKey="description">Description</Menu.Item>
+        <Menu.Item itemKey="separator">Separator</Menu.Item>
+        <Menu.Item itemKey="tooltip">Tooltip</Menu.Item>
+        <Menu.Item itemKey="dropdown">Dropdown</Menu.Item>
+      </Menu>
     </div>
   )
 }
