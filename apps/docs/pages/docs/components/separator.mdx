@@ -1,0 +1,29 @@
+import { Separator } from 'mayumi/separator'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Separator
+
+Visual separation of content.
+
+## Default
+
+<Playground code={`
+<Separator
+  css={{
+    w: '$64'
+  }}
+/>
+`} />
+
+## Types
+
+Change separation direction with property `type`.
+
+<Playground code={`<Separator type="vertical" />`} />
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);
