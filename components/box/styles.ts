@@ -5,7 +5,6 @@ export const StyledBox = styled(animated.div, {
   rounded: '$md',
   overflow: 'hidden',
   backgroundColor: '$windowBackgroundColor',
-  padding: '$0',
   flexBox: 'center',
   color: '$textColor',
   px: '$2',

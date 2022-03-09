@@ -1,12 +1,19 @@
 import React from 'react'
 import './App.css'
-import { Menu } from 'mayumi/menu'
+import { Notification } from 'mayumi/notification'
 import { globalStyles } from 'mayumi/preflight'
 
 function App() {
   globalStyles()
+  const handleClick = () => {
+    Notification.info({
+      title: 'loremIpsum()',
+      description: 'loremIpsum()',
+    })
+  }
   return (
     <div
+      onClick={handleClick}
       style={{
         height: '100vh',
         width: '100vw',
@@ -17,16 +24,7 @@ function App() {
         backgroundColor: '#1d1d1d',
       }}
     >
-      <Menu light={true}>
-        <Menu.Item itemKey="button">Button</Menu.Item>
-        <Menu.Item itemKey="input">Input</Menu.Item>
-        <Menu.Item itemKey="avatar">Avatar</Menu.Item>
-        <Menu.Item itemKey="box">Box</Menu.Item>
-        <Menu.Item itemKey="description">Description</Menu.Item>
-        <Menu.Item itemKey="separator">Separator</Menu.Item>
-        <Menu.Item itemKey="tooltip">Tooltip</Menu.Item>
-        <Menu.Item itemKey="dropdown">Dropdown</Menu.Item>
-      </Menu>
+      <Notification />
     </div>
   )
 }

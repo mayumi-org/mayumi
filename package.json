@@ -78,6 +78,11 @@
       "import": "./dist/layout/index.mjs",
       "types": "./dist/layout/index.d.ts"
     },
+    "./notification": {
+      "require": "./dist/notification/index.cjs",
+      "import": "./dist/notification/index.mjs",
+      "types": "./dist/notification/index.d.ts"
+    },
     "./icons": {
       "require": "./dist/icons/index.cjs",
       "import": "./dist/icons/index.mjs",
@@ -139,6 +144,9 @@
       ],
       "layout": [
         "dist/layout/index.d.ts"
+      ],
+      "notification": [
+        "dist/notification/index.d.ts"
       ],
       "icons": [
         "dist/icons/index.d.ts"
