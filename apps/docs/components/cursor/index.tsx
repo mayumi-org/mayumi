@@ -100,7 +100,7 @@ const CursorContext = React.createContext<
 >(undefined)
 
 const fast = { tension: 1200, friction: 40 }
-const slow = { tension: 1200, friction: 160 }
+const slow = { tension: 1200, friction: 80 }
 const trans = (x: number, y: number) => `translate3d(${x}px,${y}px,0) translate3d(-50%,-50%,0)`
 
 export const Cursor = ({ children }: { children?: React.ReactNode }) => {
@@ -109,6 +109,7 @@ export const Cursor = ({ children }: { children?: React.ReactNode }) => {
 
   const [trail, api] = useTrail(2, (i) => ({
     xy: [0, 0],
+    opacity: 0,
     config: i === 0 ? fast : slow,
   }))
   const [ref, { left, top }] = useMeasure()
@@ -121,8 +122,14 @@ export const Cursor = ({ children }: { children?: React.ReactNode }) => {
   useEffect(() => {
     if (!ref) return
 
+    api.start({
+      xy: [window.innerWidth / 2, window.innerHeight / 2],
+      opacity: 0,
+      immediate: true,
+    })
+
     function handleMouseMove(e: MouseEvent) {
-      api.start({ xy: [e.clientX - left, e.clientY - top] })
+      api.start({ xy: [e.clientX - left, e.clientY - top], opacity: 1 })
       if (e.target instanceof HTMLElement || e.target instanceof SVGElement) {
         if (e.target.dataset.cursor) {
           setType(e.target.dataset.cursor as any)
@@ -166,7 +173,7 @@ export const Cursor = ({ children }: { children?: React.ReactNode }) => {
             <animated.div
               key={index}
               className={classNames[index]}
-              style={{ transform: props.xy.to(trans) }}
+              style={{ transform: props.xy.to(trans), opacity: props.opacity }}
             />
           ))}
         </CursorFollower>

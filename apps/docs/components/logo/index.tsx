@@ -7,7 +7,7 @@ const StyledLogo = styled(Text, {
   variants: {
     large: {
       true: {
-        fontSize: '$7xl',
+        text: '$7xl',
       },
     },
   },
