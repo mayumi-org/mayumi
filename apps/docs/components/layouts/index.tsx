@@ -8,6 +8,7 @@ import { useRouter } from 'next/router'
 import { styled } from 'mayumi/theme'
 
 import { TableOfContent, getHeadings } from '@/components/table-of-content'
+import { Logo } from '@/components/logo'
 
 const components: MDXProps['components'] = {
   // code: CodeBlock,
@@ -67,9 +68,7 @@ export const Layout = (props: React.PropsWithChildren<{}>) => {
     <Main size="screen">
       <Header>
         <div className="header-logo">
-          <Text weight="black" h5={true}>
-            {'mayumi'.toUpperCase()}
-          </Text>
+          <Logo />
         </div>
       </Header>
       <Content>

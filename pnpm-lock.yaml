@@ -82,10 +82,13 @@ importers:
       '@mdx-js/loader': 1.5.1
       '@mdx-js/react': 1.6.18
       '@next/mdx': 12.1.0
+      '@react-spring/web': ^9.4.3
       '@types/lodash-es': ^4.17.6
+      '@types/mdx-js__react': ^1.5.5
       '@types/node': 17.0.21
       '@types/react': 17.0.39
       eslint-config-next: 12.1.0
+      is-mobile: ^3.1.0
       lodash-es: 4.17.21
       mayumi: workspace:^0.0.0
       next: 12.1.0
@@ -93,10 +96,13 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2
       react-live: 2.4.1
+      react-use-measure: ^2.1.1
       rehype-slug: 5.0.1
       typescript: 4.6.2
     dependencies:
       '@mdx-js/react': 1.6.18_react@17.0.2
+      '@react-spring/web': 9.4.3_react-dom@17.0.2+react@17.0.2
+      is-mobile: 3.1.0
       lodash-es: 4.17.21
       mayumi: link:../..
       next: 12.1.0_react-dom@17.0.2+react@17.0.2
@@ -104,10 +110,12 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-live: 2.4.1_react-dom@17.0.2+react@17.0.2
+      react-use-measure: 2.1.1_react-dom@17.0.2+react@17.0.2
     devDependencies:
       '@mdx-js/loader': 1.5.1_react@17.0.2
       '@next/mdx': 12.1.0_56a470477175f3f62cc90844701fba48
       '@types/lodash-es': 4.17.6
+      '@types/mdx-js__react': 1.5.5
       '@types/node': 17.0.21
       '@types/react': 17.0.39
       eslint-config-next: 12.1.0_91b99ef72d19920d7e6dded71447bf77
@@ -1577,6 +1585,12 @@ packages:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
     dependencies:
       '@types/unist': 2.0.6
+    dev: true
+
+  /@types/mdx-js__react/1.5.5:
+    resolution: {integrity: sha512-k8pnaP6JXVlQh18HgL5X6sYFNC/qZnzO7R2+HsmwrwUd+JnnsU0d9lyyT0RQrHg1anxDU36S98TI/fsGtmYqqg==}
+    dependencies:
+      '@types/react': 17.0.39
     dev: true
 
   /@types/minimist/1.2.2:
@@ -4349,6 +4363,10 @@ packages:
   /is-hexadecimal/1.0.4:
     resolution: {integrity: sha512-gyPJuv83bHMpocVYoqof5VDiZveEoGoFL8m3BXNb2VW8Xs+rz9kqO8LOQ5DH6EsuvilT1ApazU0pyl+ytbPtlw==}
     dev: true
+
+  /is-mobile/3.1.0:
+    resolution: {integrity: sha512-BUeEDcth3Mj03fZ+Xo+amAvER9snFH8cx8A5GTHmWFZmKcIPqpQ5fAsDH6EGstRoLGdFnSZWXImK5IPh534enw==}
+    dev: false
 
   /is-module/1.0.0:
     resolution: {integrity: sha1-Mlj7afeMFNW4FdZkM2tM/7ZEFZE=}

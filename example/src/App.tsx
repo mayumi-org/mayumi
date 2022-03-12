@@ -1,19 +1,11 @@
 import React from 'react'
 import './App.css'
-import { Notification } from 'mayumi/notification'
 import { globalStyles } from 'mayumi/preflight'
 
 function App() {
   globalStyles()
-  const handleClick = () => {
-    Notification.info({
-      title: 'loremIpsum()',
-      description: 'loremIpsum()',
-    })
-  }
   return (
     <div
-      onClick={handleClick}
       style={{
         height: '100vh',
         width: '100vw',
@@ -24,7 +16,7 @@ function App() {
         backgroundColor: '#1d1d1d',
       }}
     >
-      <Notification />
+      <h1>Mayumi</h1>
     </div>
   )
 }
