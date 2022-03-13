@@ -1,10 +1,10 @@
 import { styled, globalCss } from 'mayumi/theme'
-import React, { useEffect, useState } from 'react'
-import { animated, useTrail } from '@react-spring/web'
+import React, { useEffect, useRef, useState } from 'react'
+import { animated, useSpring } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 import mobile from 'is-mobile'
 
-const CursorFollower = styled('div', {
+const CursorFollower = styled(animated.div, {
   $$size: '14px',
   $$sizeOuter: '32px',
   height: '$$sizeOuter',
@@ -99,18 +99,16 @@ const CursorContext = React.createContext<
   { setType: React.Dispatch<React.SetStateAction<CursorType>> } | undefined
 >(undefined)
 
-const fast = { tension: 1200, friction: 40 }
-const slow = { tension: 1200, friction: 80 }
 const trans = (x: number, y: number) => `translate3d(${x}px,${y}px,0) translate3d(-50%,-50%,0)`
 
 export const Cursor = ({ children }: { children?: React.ReactNode }) => {
   const [type, setType] = useState<CursorType>()
   const [isMobile, setIsMobile] = useState<boolean>()
+  const isCursorInit = useRef<boolean>(false)
 
-  const [trail, api] = useTrail(2, (i) => ({
+  const [trail, api] = useSpring(() => ({
     xy: [0, 0],
     opacity: 0,
-    config: i === 0 ? fast : slow,
   }))
   const [ref, { left, top }] = useMeasure()
 
@@ -122,14 +120,17 @@ export const Cursor = ({ children }: { children?: React.ReactNode }) => {
   useEffect(() => {
     if (!ref) return
 
-    api.start({
-      xy: [window.innerWidth / 2, window.innerHeight / 2],
-      opacity: 0,
-      immediate: true,
-    })
-
     function handleMouseMove(e: MouseEvent) {
-      api.start({ xy: [e.clientX - left, e.clientY - top], opacity: 1 })
+      if (isCursorInit.current) {
+        api.start({ xy: [e.clientX - left, e.clientY - top], opacity: 1 })
+      } else {
+        api.start({
+          xy: [e.clientX, e.clientY],
+          opacity: 1,
+          immediate: true,
+        })
+      }
+      isCursorInit.current = true
       if (e.target instanceof HTMLElement || e.target instanceof SVGElement) {
         if (e.target.dataset.cursor) {
           setType(e.target.dataset.cursor as any)
@@ -168,13 +169,13 @@ export const Cursor = ({ children }: { children?: React.ReactNode }) => {
   return (
     <>
       {isMobile === false && (
-        <CursorFollower ref={ref} type={type}>
-          {trail.map((props, index) => (
-            <animated.div
-              key={index}
-              className={classNames[index]}
-              style={{ transform: props.xy.to(trans), opacity: props.opacity }}
-            />
+        <CursorFollower
+          ref={ref}
+          type={type}
+          style={{ transform: trail.xy.to(trans), opacity: trail.opacity }}
+        >
+          {classNames.map((props, index) => (
+            <div key={index} className={classNames[index]} />
           ))}
         </CursorFollower>
       )}
