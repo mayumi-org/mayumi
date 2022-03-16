@@ -165,6 +165,7 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c --silent",
+    "build:docs": "pnpm build --filter=./apps/docs",
     "dev": "rollup -c -w --silent",
     "play": "pnpm dev --filter=./example",
     "docs": "pnpm dev --filter=./apps/docs",

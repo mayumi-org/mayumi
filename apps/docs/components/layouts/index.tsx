@@ -1,6 +1,5 @@
 import React from 'react'
-import { MDXProvider } from '@mdx-js/react'
-import type { Props as MDXProps } from '@mdx-js/react/lib'
+import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react'
 import { Text } from 'mayumi/text'
 import { Layout as DefaultLayout } from 'mayumi/layout'
 import { Menu } from 'mayumi/menu'
@@ -10,7 +9,7 @@ import { styled } from 'mayumi/theme'
 import { TableOfContent, getHeadings } from '@/components/table-of-content'
 import { Logo } from '@/components/logo'
 
-const components: MDXProps['components'] = {
+const components: MDXProviderComponentsProp = {
   // code: CodeBlock,
   h1: (props: any) => <Text {...props} h1={true} />,
   h2: (props: any) => <Text {...props} h2={true} />,
