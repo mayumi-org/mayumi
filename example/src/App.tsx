@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css'
-import { Tooltip } from 'mayumi/tooltip'
 import { globalStyles } from 'mayumi/preflight'
 
 function App() {
@@ -17,16 +16,7 @@ function App() {
         backgroundColor: '#1d1d1d',
       }}
     >
-      <div id="custom">
-        <Tooltip
-          getPopupContainer={() => document.querySelector('#custom')!}
-          content="content"
-          animation="scale"
-          placement="right-end"
-        >
-          <div>tooltip</div>
-        </Tooltip>
-      </div>
+      <h1>Mayumi</h1>
     </div>
   )
 }

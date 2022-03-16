@@ -1,0 +1,73 @@
+import { Menu } from 'mayumi/menu'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Menu
+
+Interactive menu with items made easy.
+
+## Default
+
+<Playground code={`
+<Box>
+  <Menu>
+    <Menu.Item itemKey="button">Button</Menu.Item>
+    <Menu.Item itemKey="input">Input</Menu.Item>
+    <Menu.Item itemKey="avatar">Avatar</Menu.Item>
+    <Menu.Item itemKey="box">Box</Menu.Item>
+    <Menu.Item itemKey="description">Description</Menu.Item>
+    <Menu.Item itemKey="separator">Separator</Menu.Item>
+    <Menu.Item itemKey="tooltip">Tooltip</Menu.Item>
+    <Menu.Item itemKey="dropdown">Dropdown</Menu.Item>
+  </Menu>
+</Box>
+`
+}/>
+
+## SubMenu
+
+Display groups of items with `SubMenu`.
+
+<Playground code={`
+<Box>
+  <Menu>
+    <Menu.SubMenu title="Actions">
+      <Menu.Item itemKey="button">Button</Menu.Item>
+      <Menu.Item itemKey="input">Input</Menu.Item>
+      <Menu.Item itemKey="tooltip">Tooltip</Menu.Item>
+      <Menu.Item itemKey="dropdown">Dropdown</Menu.Item>
+    </Menu.SubMenu>
+    <Menu.SubMenu title="Display">
+      <Menu.Item itemKey="avatar">Avatar</Menu.Item>
+      <Menu.Item itemKey="box">Box</Menu.Item>
+      <Menu.Item itemKey="description">Description</Menu.Item>
+      <Menu.Item itemKey="separator">Separator</Menu.Item>
+    </Menu.SubMenu>
+  </Menu>
+</Box>
+`
+}/>
+
+## Light
+
+<Playground code={`
+<Box>
+  <Menu light={true}>
+    <Menu.Item itemKey="button">Button</Menu.Item>
+    <Menu.Item itemKey="input">Input</Menu.Item>
+    <Menu.Item itemKey="avatar">Avatar</Menu.Item>
+    <Menu.Item itemKey="box">Box</Menu.Item>
+    <Menu.Item itemKey="description">Description</Menu.Item>
+    <Menu.Item itemKey="separator">Separator</Menu.Item>
+    <Menu.Item itemKey="tooltip">Tooltip</Menu.Item>
+    <Menu.Item itemKey="dropdown">Dropdown</Menu.Item>
+  </Menu>
+</Box>
+`
+}/>
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);

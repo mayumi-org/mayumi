@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import cx from 'clsx'
 
 import { StyledButton } from './styles'
+import type { CSS } from '@/theme/config'
 
 export type ButtonProps = {
   children?: React.ReactNode
@@ -11,6 +12,7 @@ export type ButtonProps = {
   className?: string
   style?: React.CSSProperties
   disabled?: boolean
+  css?: CSS
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

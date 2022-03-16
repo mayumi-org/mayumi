@@ -1,15 +1,11 @@
-import { styled } from '@/theme'
+import { styled } from '@/theme/config'
 import { animated } from '@react-spring/web'
 
 export const StyledBox = styled(animated.div, {
   rounded: '$md',
   overflow: 'hidden',
   backgroundColor: '$windowBackgroundColor',
-  padding: '$0',
   flexBox: 'center',
-  borderStyle: 'solid',
-  borderColor: '$quaternaryLabelColor',
-  borderWidth: '$px',
   color: '$textColor',
   px: '$2',
   py: '$2',
@@ -22,6 +18,9 @@ export const StyledBox = styled(animated.div, {
     bordered: {
       true: {
         boxShadow: '$outline',
+        borderStyle: 'solid',
+        borderColor: '$quaternaryLabelColor',
+        borderWidth: '$px',
       },
     },
   },

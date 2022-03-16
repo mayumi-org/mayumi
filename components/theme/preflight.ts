@@ -1,6 +1,6 @@
-import { globalCSS } from '@/theme'
+import { globalCss } from '@/theme/config'
 
-export const cssBaseline = globalCSS({
+export const cssBaseline = globalCss({
   '*': {
     color: '$textColor',
   },
@@ -35,7 +35,7 @@ export const cssBaseline = globalCSS({
 })
 
 // refs: https://unpkg.com/tailwindcss@3.0.23/src/css/preflight.css
-export const preflight = globalCSS({
+export const preflight = globalCss({
   '*,::before,::after': {
     boxSizing: 'border-box',
     borderWidth: 0,

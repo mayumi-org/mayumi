@@ -1,4 +1,4 @@
-import { styled } from '@/theme'
+import { styled } from '@/theme/config'
 import { animated } from '@react-spring/web'
 
 export const StyledMenu = styled(animated.div, {
@@ -30,6 +30,32 @@ export const StyledMenu = styled(animated.div, {
         overflow: 'hidden',
       },
     },
+    light: {
+      false: {
+        '& li.mayumi-menu-item': {
+          transition: '$colors',
+          '&:hover': {
+            backgroundColor: '$primary',
+          },
+        },
+        '& li.mayumi-menu-item__selected': {
+          backgroundColor: '$unemphasizedSelectedTextBackgroundColor',
+        },
+      },
+      true: {
+        '& li.mayumi-menu-item': {
+          transition: '$colors',
+          color: '$secondaryLabelColor',
+          backgroundColor: 'transparent',
+          '&:hover': {
+            color: '$textColor',
+          },
+        },
+        '& li.mayumi-menu-item__selected': {
+          color: '$textColor',
+        },
+      },
+    },
     size: {
       sm: {
         '& li.mayumi-menu-item': {
@@ -53,6 +79,7 @@ export const StyledMenu = styled(animated.div, {
   },
   defaultVariants: {
     size: 'sm',
+    light: false,
   },
 })
 
@@ -64,15 +91,4 @@ export const StyledMenuItem = styled('li', {
   cursor: 'pointer',
   flexBox: '$center',
   backgroundColor: 'transparent',
-  '&:hover': {
-    backgroundColor: '$primary',
-    transition: '$colors',
-  },
-  variants: {
-    selected: {
-      true: {
-        backgroundColor: '$unemphasizedSelectedTextBackgroundColor',
-      },
-    },
-  },
 })

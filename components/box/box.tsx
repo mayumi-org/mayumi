@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'clsx'
 
 import { StyledBox } from './styles'
+import type { CSS } from '@/theme/config'
 
 export type BoxProps = {
   children?: React.ReactNode
@@ -10,6 +11,7 @@ export type BoxProps = {
   transparent?: boolean
   bordered?: boolean
   onClick?: () => void
+  css?: CSS
 }
 
 export const Box = React.forwardRef<HTMLDivElement, BoxProps>(

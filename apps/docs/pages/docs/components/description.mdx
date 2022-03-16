@@ -1,0 +1,36 @@
+import { Description } from 'mayumi/description'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Description
+
+Description is used to display title and content in groups.
+
+## Default
+
+<Playground code={`
+<Description
+  title="title"
+>
+  content
+</Description>
+`
+}/>
+
+## Sizes
+
+<Playground code={`
+<Description
+  size="md"
+  title="title"
+>
+  content
+</Description>
+`
+}/>
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);

@@ -1,0 +1,22 @@
+import { Link } from 'mayumi/box'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Link
+
+Display styled `<a />` element.
+
+## Default
+
+<Playground code={`
+<Link href="https://github.com/mayumi-org/mayumi">
+  Github
+</Link>
+`
+}/>
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);

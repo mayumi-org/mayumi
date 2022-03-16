@@ -1,0 +1,37 @@
+import { Notification } from 'mayumi/notification'
+import { Search } from 'mayumi/icons'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Notification
+
+Send notification message globally.
+
+## Default
+
+Notification props is global settings.
+
+<Playground code={NotificationDefault} />
+
+export const NotificationDefault = `() => {
+  const handleClick = () => {
+    Notification.info({
+      title: 'loremIpsum()',
+      description: 'loremIpsum()',
+    })
+  }
+  return (
+    <div
+      onClick={handleClick}
+    >
+      notification
+      <Notification />
+    </div>
+  )
+}`
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);

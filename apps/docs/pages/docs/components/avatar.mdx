@@ -1,0 +1,31 @@
+import { Avatar } from 'mayumi/avatar'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Avatar
+
+The Avatar is used to display user profile picture.
+
+## Default
+
+<Playground code={`
+<Avatar
+  src="http://img01.yohoboys.com/contentimg/2017/08/12/21/012a1eab9842a752f8c4d98b8fc2777ad7.jpg"
+/>
+`
+}/>
+
+## Shadows
+
+<Playground code={`
+<Avatar
+  shadow="lg"
+  src="http://img01.yohoboys.com/contentimg/2017/08/12/21/012a1eab9842a752f8c4d98b8fc2777ad7.jpg"
+/>
+`} />
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);

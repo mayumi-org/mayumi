@@ -1,4 +1,4 @@
-import { styled } from '@/theme'
+import { styled } from '@/theme/config'
 import { Tooltip } from '@/tooltip'
 import { Menu } from '@/menu/menu'
 import { MenuItem } from '@/menu/menu-item'

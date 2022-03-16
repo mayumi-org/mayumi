@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom'
 import { config, Transition } from '@react-spring/web'
 import cx from 'clsx'
 import { usePopperTooltip } from 'react-popper-tooltip'
+import { Config } from 'react-popper-tooltip/dist/types'
+
+import type { CSS } from '@/theme/config'
 
 import { getAnimationConfig, Animation, getAnimationStyles } from './utils'
 import { StyledTooltip, StyledTooltipContent } from './styles'
-import { Config } from 'react-popper-tooltip/dist/types'
 
 export type TooltipContentProps = {
   children?: React.ReactNode
@@ -91,6 +93,7 @@ export type ToolTipProps = Pick<React.HTMLAttributes<HTMLDivElement>, 'id'> & {
   onVisibleChange?: Config['onVisibleChange']
   glassmorphism?: TooltipContentProps['glassmorphism']
   getPopupContainer?: () => HTMLElement
+  css?: CSS
 }
 
 export const Tooltip = ({
@@ -137,7 +140,7 @@ export const Tooltip = ({
           >
             {props.content}
           </TooltipContent>,
-          props.getPopupContainer() || document.body,
+          props.getPopupContainer?.() || document.body,
         )}
       {!hasCustomContainer && (
         <TooltipContent

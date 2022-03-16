@@ -1,0 +1,26 @@
+import { Input } from 'mayumi/input'
+import { Search } from 'mayumi/icons'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Input
+
+Get user input in a text field.
+
+## Default
+
+Default `input` contain focus animation effect.
+
+<Playground code={`<Input placeholder="mayumi" />`} />
+
+## Prefix
+
+Add prefix icon to `input` with property `prefix`.
+
+<Playground code={`<Input placeholder="search" prefix={<Search />} />`} />
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);

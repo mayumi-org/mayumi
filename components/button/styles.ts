@@ -1,4 +1,4 @@
-import { styled } from '@/theme'
+import { styled } from '@/theme/config'
 
 export const StyledButton = styled('button', {
   cursor: 'pointer',

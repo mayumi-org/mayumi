@@ -1,6 +1,11 @@
 import React from 'react'
 import cx from 'clsx'
 
-export const Icon = (props: React.HTMLAttributes<HTMLElement>) => {
-  return <i {...props} className={cx('mayumi-icon', props.className)} />
+import { StyledIcon } from './styles'
+import type { CSS } from '@/theme/config'
+
+export type IconProps = React.HTMLAttributes<HTMLElement> & { css?: CSS }
+
+export const Icon = (props: IconProps) => {
+  return <StyledIcon {...props} className={cx('mayumi-icon', props.className)} />
 }

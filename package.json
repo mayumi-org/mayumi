@@ -2,13 +2,13 @@
   "name": "mayumi",
   "version": "0.0.0",
   "license": "MIT",
-  "homepage": "https://github.com/spring-catponents/rollup-template#readme",
+  "homepage": "https://github.com/mayumi-org/mayumi#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spring-catponents/rollup-template.git"
+    "url": "git+https://github.com/mayumi-org/mayumi.git"
   },
   "bugs": {
-    "url": "https://github.com/spring-catponents/rollup-template/issues",
+    "url": "https://github.com/mayumi-org/mayumi/issues",
     "email": "jiangweixian1994@gmail.com"
   },
   "author": {
@@ -18,141 +18,157 @@
   },
   "exports": {
     "./package.json": "./package.json",
-    "./button": {
-      "require": "./dist/button/index.cjs",
-      "import": "./dist/button/index.mjs",
-      "types": "./dist/button/index.d.ts"
-    },
-    "./box": {
-      "require": "./dist/box/index.cjs",
-      "import": "./dist/box/index.mjs",
-      "types": "./dist/box/index.d.ts"
-    },
-    "./text": {
-      "require": "./dist/text/index.cjs",
-      "import": "./dist/text/index.mjs",
-      "types": "./dist/text/index.d.ts"
-    },
-    "./separator": {
-      "require": "./dist/separator/index.cjs",
-      "import": "./dist/separator/index.mjs",
-      "types": "./dist/separator/index.d.ts"
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     },
     "./avatar": {
       "require": "./dist/avatar/index.cjs",
       "import": "./dist/avatar/index.mjs",
       "types": "./dist/avatar/index.d.ts"
     },
-    "./input": {
-      "require": "./dist/input/index.cjs",
-      "import": "./dist/input/index.mjs",
-      "types": "./dist/input/index.d.ts"
+    "./box": {
+      "require": "./dist/box/index.cjs",
+      "import": "./dist/box/index.mjs",
+      "types": "./dist/box/index.d.ts"
+    },
+    "./button": {
+      "require": "./dist/button/index.cjs",
+      "import": "./dist/button/index.mjs",
+      "types": "./dist/button/index.d.ts"
     },
     "./description": {
       "require": "./dist/description/index.cjs",
       "import": "./dist/description/index.mjs",
       "types": "./dist/description/index.d.ts"
     },
-    "./menu": {
-      "require": "./dist/menu/index.cjs",
-      "import": "./dist/menu/index.mjs",
-      "types": "./dist/menu/index.d.ts"
-    },
-    "./tooltip": {
-      "require": "./dist/tooltip/index.cjs",
-      "import": "./dist/tooltip/index.mjs",
-      "types": "./dist/tooltip/index.d.ts"
-    },
     "./dropdown": {
       "require": "./dist/dropdown/index.cjs",
       "import": "./dist/dropdown/index.mjs",
       "types": "./dist/dropdown/index.d.ts"
-    },
-    "./layout": {
-      "require": "./dist/layout/index.cjs",
-      "import": "./dist/layout/index.mjs",
-      "types": "./dist/layout/index.d.ts"
-    },
-    "./icons": {
-      "require": "./dist/icons/index.cjs",
-      "import": "./dist/icons/index.mjs",
-      "types": "./dist/icons/index.d.ts"
     },
     "./hooks": {
       "require": "./dist/hooks/index.cjs",
       "import": "./dist/hooks/index.mjs",
       "types": "./dist/hooks/index.d.ts"
     },
+    "./icons": {
+      "require": "./dist/icons/index.cjs",
+      "import": "./dist/icons/index.mjs",
+      "types": "./dist/icons/index.d.ts"
+    },
+    "./input": {
+      "require": "./dist/input/index.cjs",
+      "import": "./dist/input/index.mjs",
+      "types": "./dist/input/index.d.ts"
+    },
+    "./layout": {
+      "require": "./dist/layout/index.cjs",
+      "import": "./dist/layout/index.mjs",
+      "types": "./dist/layout/index.d.ts"
+    },
+    "./link": {
+      "require": "./dist/link/index.cjs",
+      "import": "./dist/link/index.mjs",
+      "types": "./dist/link/index.d.ts"
+    },
+    "./menu": {
+      "require": "./dist/menu/index.cjs",
+      "import": "./dist/menu/index.mjs",
+      "types": "./dist/menu/index.d.ts"
+    },
+    "./notification": {
+      "require": "./dist/notification/index.cjs",
+      "import": "./dist/notification/index.mjs",
+      "types": "./dist/notification/index.d.ts"
+    },
+    "./separator": {
+      "require": "./dist/separator/index.cjs",
+      "import": "./dist/separator/index.mjs",
+      "types": "./dist/separator/index.d.ts"
+    },
+    "./text": {
+      "require": "./dist/text/index.cjs",
+      "import": "./dist/text/index.mjs",
+      "types": "./dist/text/index.d.ts"
+    },
     "./theme": {
       "require": "./dist/theme/index.cjs",
       "import": "./dist/theme/index.mjs",
       "types": "./dist/theme/index.d.ts"
     },
-    "./preflight": {
-      "require": "./dist/theme/preflight.cjs",
-      "import": "./dist/theme/preflight.mjs",
-      "types": "./dist/theme/preflight.d.ts"
+    "./tooltip": {
+      "require": "./dist/tooltip/index.cjs",
+      "import": "./dist/tooltip/index.mjs",
+      "types": "./dist/tooltip/index.d.ts"
     }
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "typesVersions": {
     "*": {
-      "button": [
-        "dist/button/index.d.ts"
+      "avatar": [
+        "dist/avatar/index.d.ts"
       ],
       "box": [
         "dist/box/index.d.ts"
       ],
-      "text": [
-        "dist/text/index.d.ts"
-      ],
-      "separator": [
-        "dist/separator/index.d.ts"
-      ],
-      "avatar": [
-        "dist/avatar/index.d.ts"
-      ],
-      "input": [
-        "dist/input/index.d.ts"
+      "button": [
+        "dist/button/index.d.ts"
       ],
       "description": [
         "dist/description/index.d.ts"
       ],
-      "menu": [
-        "dist/menu/index.d.ts"
-      ],
-      "tooltip": [
-        "dist/tooltip/index.d.ts"
-      ],
       "dropdown": [
         "dist/dropdown/index.d.ts"
-      ],
-      "layout": [
-        "dist/layout/index.d.ts"
-      ],
-      "icons": [
-        "dist/icons/index.d.ts"
       ],
       "hooks": [
         "dist/hooks/index.d.ts"
       ],
+      "icons": [
+        "dist/icons/index.d.ts"
+      ],
+      "input": [
+        "dist/input/index.d.ts"
+      ],
+      "layout": [
+        "dist/layout/index.d.ts"
+      ],
+      "link": [
+        "dist/link/index.d.ts"
+      ],
+      "menu": [
+        "dist/menu/index.d.ts"
+      ],
+      "notification": [
+        "dist/notification/index.d.ts"
+      ],
+      "separator": [
+        "dist/separator/index.d.ts"
+      ],
+      "text": [
+        "dist/text/index.d.ts"
+      ],
       "theme": [
         "dist/theme/index.d.ts"
       ],
-      "preflight": [
-        "dist/theme/preflight.d.ts"
+      "tooltip": [
+        "dist/tooltip/index.d.ts"
       ]
     }
   },
   "scripts": {
     "build": "rimraf dist && rollup -c --silent",
+    "build:docs": "pnpm build --filter=./apps/docs",
     "dev": "rollup -c -w --silent",
     "play": "pnpm dev --filter=./example",
+    "docs": "pnpm dev --filter=./apps/docs",
     "prepare": "husky install",
     "esno": "esno",
     "test": "echo todo",
@@ -165,7 +181,7 @@
     "lint:fix": "eslint . --fix"
   },
   "lint-staged": {
-    "**/**/*.{js,ts,tsx,vue,json}": [
+    "**/**/*.{js,ts,tsx,cjs,mjs,vue,json}": [
       "eslint --fix"
     ]
   },
@@ -183,7 +199,7 @@
     "react-use-measure": "^2.1.1"
   },
   "devDependencies": {
-    "@aiou/eslint-config": "^0.5.0",
+    "@aiou/eslint-config": "^0.5.1",
     "@changesets/cli": "^2.17.0",
     "@rollup/plugin-alias": "^3.1.4",
     "@rollup/plugin-commonjs": "^21.0.0",
@@ -202,6 +218,7 @@
     "react-dom": "^17.0.2",
     "rimraf": "3.0.2",
     "rollup": "2.58.0",
+    "rollup-plugin-condition-exports": "^1.3.0",
     "rollup-plugin-multi-input": "^1.3.1",
     "rollup-plugin-node-externals": "^4.0.0",
     "rollup-plugin-size": "^0.2.2",

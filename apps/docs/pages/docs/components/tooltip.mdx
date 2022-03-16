@@ -1,0 +1,79 @@
+import { Tooltip } from 'mayumi/tooltip'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Tooltip
+
+Display popup content when `click` or `hover`.
+
+## Default
+
+<Playground code={`
+<Tooltip
+  content="tooltip content"
+>
+  tooltip
+</Tooltip>
+`} />
+
+## Glassmorphism
+
+Make popup content with `glassmorphism` effect. Only working on pass `getPopupContainer = () => document.body`
+
+<Playground code={`
+<>
+  <Tooltip
+    glassmorphism={true}
+    content="tooltip content"
+    getPopupContainer={() => document.body}
+  >
+    tooltip
+  </Tooltip>
+  <Text>text</Text>
+</>
+`} />
+
+## Placements
+
+Popup content come from another position with property `placement`.
+
+<Playground code={`
+<Tooltip
+  placement="left"
+  content="tooltip content"
+>
+  tooltip
+</Tooltip>
+`} />
+
+## Animation
+
+Change default popup animation to `scale` with property `animation`
+
+<Playground code={`
+<Tooltip
+  animation="scale"
+  content="tooltip content"
+>
+  tooltip
+</Tooltip>
+`} />
+
+## Trigger
+
+Change trigger type to `hover`.
+
+<Playground code={`
+<Tooltip
+  trigger="hover"
+  content="tooltip content"
+>
+  tooltip
+</Tooltip>
+`} />
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);

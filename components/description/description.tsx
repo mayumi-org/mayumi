@@ -2,6 +2,7 @@ import React from 'react'
 import cx from 'clsx'
 
 import { StyledDescription } from './styles'
+import type { CSS } from '@/theme/config'
 
 export type DescriptionProps = {
   title: React.ReactNode
@@ -12,6 +13,7 @@ export type DescriptionProps = {
    * @default `sm`
    */
   size?: 'md' | 'sm'
+  css?: CSS
 }
 
 export const Description = React.forwardRef<HTMLDListElement, DescriptionProps>((props, ref) => {

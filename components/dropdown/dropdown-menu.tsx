@@ -4,6 +4,8 @@ import cx from 'clsx'
 
 import { useMenu } from '@/menu/menu-context'
 import { ChevronRight } from '@/icons/chevron-right'
+import { ClickParams } from '@/menu/types'
+import type { CSS } from '@/theme/config'
 
 import { StyledDropdownCollapsedMenu, StyledDropdownMenu, StyledDropdownMenuItem } from './styles'
 import { useDropdown } from './dropdown-context'
@@ -11,6 +13,7 @@ import { useDropdown } from './dropdown-context'
 type DropdownMenuProps = {
   children?: React.ReactNode
   className?: string
+  css?: CSS
 }
 
 export const DropdownMenu = (props: DropdownMenuProps) => {
@@ -20,13 +23,17 @@ export const DropdownMenu = (props: DropdownMenuProps) => {
   }, [mode, props.children])
   if (mode === 'switch') {
     return (
-      <StyledDropdownMenu className={cx('mayumi-dropdown-menu', props.className)} size="sm">
+      <StyledDropdownMenu
+        css={props.css}
+        className={cx('mayumi-dropdown-menu', props.className)}
+        size="sm"
+      >
         {groups[switchKey!]}
       </StyledDropdownMenu>
     )
   }
   return (
-    <StyledDropdownMenu className={cx('mayumi-dropdown-menu', props.className)}>
+    <StyledDropdownMenu css={props.css} className={cx('mayumi-dropdown-menu', props.className)}>
       {props.children}
     </StyledDropdownMenu>
   )
@@ -36,6 +43,7 @@ type CollapsedMenuProps = {
   children?: React.ReactNode
   content?: React.ReactNode
   visible?: boolean
+  css?: CSS
 }
 
 const DropdownCollapsedMenu = (props: CollapsedMenuProps) => {
@@ -50,6 +58,7 @@ const DropdownCollapsedMenu = (props: CollapsedMenuProps) => {
       className="mayumi-dropdown-collapsed-menu"
       offset={[-5, 10]}
       glassmorphism={glassmorphism}
+      css={props.css}
       outsideCloseable={false}
     >
       <div className="mayumi-dropdown-collapsed-menu-inner">
@@ -64,7 +73,7 @@ type DropdownMenuItemProps = {
   children?: React.ReactNode
   collapsedMenu?: React.ReactNode
   itemKey?: string
-  onClick?: (params: { itemKey?: React.Key }) => void
+  onClick?: (params: ClickParams) => void
   selected?: boolean
   className?: string
 }
@@ -76,10 +85,10 @@ export const DropdownMenuItem = ({ collapsedMenu, onClick, ...props }: DropdownM
   const itemRef = useRef<HTMLLIElement>(null)
   const controlledSelected = 'selected' in props ? props.selected : selected
   const handleCollapsedVisibleChange = useCallback(
-    (e: any, itemKey) => {
-      onClick?.({ itemKey })
+    (params: ClickParams) => {
+      onClick?.(params)
       setSelected((prev) => !prev)
-      e.stopPropagation()
+      params.domEvent.stopPropagation()
       /**
        * In Switch mode, collapsed menu is not allowed
        */

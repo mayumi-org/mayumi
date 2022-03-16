@@ -2,10 +2,11 @@ import React from 'react'
 import cx from 'clsx'
 
 import { StyledLayout } from './styles'
+import type { CSS } from '@/theme/config'
 
-export type LayoutProps = {
-  children?: React.ReactNode
-  className?: string
+export type LayoutProps = React.HTMLAttributes<HTMLElement> & {
+  size?: 'screen' | 'full'
+  css?: CSS
 }
 
 /**
@@ -16,6 +17,10 @@ export type LayoutProps = {
  *│ aside │ main │
  *└──────┘──────┘
  */
-export const Layout = ({ className, ...props }: LayoutProps) => {
-  return <StyledLayout className={cx('mayumi-layout', className)}>{props.children}</StyledLayout>
+export const Layout = ({ className, children, ...props }: LayoutProps) => {
+  return (
+    <StyledLayout {...props} size={props.size} className={cx('mayumi-layout', className)}>
+      {children}
+    </StyledLayout>
+  )
 }

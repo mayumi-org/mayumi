@@ -4,17 +4,14 @@ import useMeasure from 'react-use-measure'
 import { StyledAside } from './styles'
 
 import cx from 'clsx'
+import type { CSS } from '@/theme/config'
 
-const MinWidth = 300
-
-type LayoutAsideProps = {
-  children?: React.ReactNode
+type LayoutAsideProps = React.HTMLAttributes<HTMLElement> & {
   open?: boolean
-  className?: string
-  style?: React.CSSProperties
+  css?: CSS
 }
 
-export const LayoutAside = (props: LayoutAsideProps) => {
+export const LayoutAside = ({ children, ...props }: LayoutAsideProps) => {
   const [w, setW] = useState<number>()
   /**
    * Spring animate ref
@@ -37,14 +34,18 @@ export const LayoutAside = (props: LayoutAsideProps) => {
       return
     }
     forceUpdate()
-    setW(Math.max(width, MinWidth))
+    setW(width)
   }, [forceUpdate, width, contentRef])
   useChain(props.open ? [widthRef, opacityRef] : [opacityRef, widthRef], [0, 0.2])
   return (
-    <StyledAside style={props.style} className={cx('mayumi-layout-aside', props.className)}>
+    <StyledAside
+      {...props}
+      style={props.style}
+      className={cx('mayumi-layout-aside', props.className)}
+    >
       <animated.div className="mayumi-aside-inner" style={widthStyle}>
         <animated.div className="mayumi-aside-content" style={opacityStyle} ref={contentRef}>
-          {props.children}
+          {children}
         </animated.div>
       </animated.div>
     </StyledAside>

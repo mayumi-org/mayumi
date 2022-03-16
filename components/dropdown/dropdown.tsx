@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import cx from 'clsx'
 
 import { Tooltip, ToolTipProps } from '@/tooltip'
+import type { CSS } from '@/theme/config'
 
 import { DropdownContext, defaultValue, DropdownContextProps } from './dropdown-context'
 
@@ -33,6 +34,7 @@ export type DropdownProps = {
   placement?: ToolTipProps['placement']
   outsideCloseable?: ToolTipProps['outsideCloseable']
   glassmorphism?: ToolTipProps['glassmorphism']
+  css?: CSS
 } & Pick<React.HTMLAttributes<HTMLDivElement>, 'id' | 'className'>
 
 export const Dropdown = ({
