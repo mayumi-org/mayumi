@@ -5,6 +5,7 @@ import typescript from 'rollup-plugin-typescript2'
 import alias from '@rollup/plugin-alias'
 import size from 'rollup-plugin-size'
 import sourcemaps from 'rollup-plugin-sourcemaps'
+import ce from 'rollup-plugin-condition-exports'
 import { defineConfig } from 'rollup'
 
 export default defineConfig([
@@ -32,6 +33,11 @@ export default defineConfig([
       alias({
         resolve: ['.ts', '.js', '.tsx', '.jsx'],
         entries: [{ find: '@/', replacement: './components/' }],
+      }),
+      ce({
+        glob: ['components/**/index.ts'],
+        base: 'components/',
+        dirs: 'dist',
       }),
       sourcemaps(),
       commonjs(), // so Rollup can convert `ms` to an ES module
