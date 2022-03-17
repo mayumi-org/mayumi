@@ -40,6 +40,11 @@ const space = {
   '3_5': '0.875rem',
   '4_5': '1.125rem',
   '5_5': '1.375rem',
+  '1-2': '50%',
+  '1-5': '20%',
+  '2-5': '40%',
+  '3-5': '60%',
+  '4-5': '80%',
 } as const
 
 const getTransition = (propertyValues: string[]) => {
