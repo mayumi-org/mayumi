@@ -1,9 +1,10 @@
 import React, { useMemo, useState, useRef, useImperativeHandle } from 'react'
 import { animated, useSpring } from '@react-spring/web'
 import cx from 'clsx'
-import { useOnClickOutside } from '@/hooks'
 
+import { useOnClickOutside } from '@/hooks'
 import { StyledInput } from './styles'
+import type { CSS } from '@/theme/config'
 
 export type InputProps = {
   style?: React.CSSProperties
@@ -17,6 +18,7 @@ export type InputProps = {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   onClick?: () => void
   defaultValue?: string
+  css?: CSS
 }
 
 const springConfig = { mass: 1, tension: 210, friction: 26, precision: 0.01, velocity: 0 }
@@ -42,7 +44,12 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     })
     useOnClickOutside(inputRef, () => setFocus(false))
     return (
-      <StyledInput focus={focus} style={style} className={cx('mayumi-input', className)}>
+      <StyledInput
+        css={props.css}
+        focus={focus}
+        style={style}
+        className={cx('mayumi-input', className)}
+      >
         {prefix && <span className="mayumi-input-icon">{prefix}</span>}
         <animated.div className="mayumi-input-effect" style={styles as any} />
         <input

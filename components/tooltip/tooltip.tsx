@@ -118,6 +118,9 @@ export const Tooltip = ({
     { strategy: 'absolute' },
   )
   const hasCustomContainer = 'getPopupContainer' in props
+  if (typeof window === 'undefined') {
+    return null
+  }
   return (
     <StyledTooltip
       className={cx('mayumi-tooltip', props.className)}
