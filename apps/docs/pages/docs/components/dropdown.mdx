@@ -109,7 +109,7 @@ export const DropdownInAutoComplete = `() => {
     </Dropdown.Menu>
   )
   return (
-    <Dropdown content={DropdownMenu}>
+    <Dropdown trigger={['click', 'focus']} content={DropdownMenu}>
       <Input css={{ width: '$20' }} />
     </Dropdown>
   )
