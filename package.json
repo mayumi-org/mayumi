@@ -43,6 +43,11 @@
       "import": "./dist/description/index.mjs",
       "types": "./dist/description/index.d.ts"
     },
+    "./dot": {
+      "require": "./dist/dot/index.cjs",
+      "import": "./dist/dot/index.mjs",
+      "types": "./dist/dot/index.d.ts"
+    },
     "./dropdown": {
       "require": "./dist/dropdown/index.cjs",
       "import": "./dist/dropdown/index.mjs",
@@ -124,6 +129,9 @@
       ],
       "description": [
         "dist/description/index.d.ts"
+      ],
+      "dot": [
+        "dist/dot/index.d.ts"
       ],
       "dropdown": [
         "dist/dropdown/index.d.ts"
