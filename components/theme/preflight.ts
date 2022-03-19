@@ -1,12 +1,8 @@
 import { globalCss } from '@/theme/config'
 
 export const cssBaseline = globalCss({
-  '*': {
-    color: '$textColor',
-  },
   p: {
     text: '$base',
-    fontWeight: '$normal',
   },
   h1: {
     text: '$4xl',

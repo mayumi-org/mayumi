@@ -45,10 +45,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     useOnClickOutside(inputRef, () => setFocus(false))
     return (
       <StyledInput
-        css={props.css}
         focus={focus}
         style={style}
         className={cx('mayumi-input', className)}
+        css={props.css}
       >
         {prefix && <span className="mayumi-input-icon">{prefix}</span>}
         <animated.div className="mayumi-input-effect" style={styles as any} />
