@@ -24,6 +24,15 @@ export const StyledMenu = styled(animated.div, {
   '& div.mayumi-separator:last-child': {
     display: 'none',
   },
+  '& li.mayumi-menu-item': {
+    transition: '$colors',
+    '&:hover': {
+      backgroundColor: '$primary',
+    },
+  },
+  '& li.mayumi-menu-item__selected': {
+    backgroundColor: '$unemphasizedSelectedTextBackgroundColor',
+  },
   color: '$textColor',
   variants: {
     switch: {
@@ -32,18 +41,6 @@ export const StyledMenu = styled(animated.div, {
       },
     },
     light: {
-      // TODO: default style
-      false: {
-        '& li.mayumi-menu-item': {
-          transition: '$colors',
-          '&:hover': {
-            backgroundColor: '$primary',
-          },
-        },
-        '& li.mayumi-menu-item__selected': {
-          backgroundColor: '$unemphasizedSelectedTextBackgroundColor',
-        },
-      },
       true: {
         '& li.mayumi-menu-item': {
           transition: '$colors',
@@ -59,17 +56,6 @@ export const StyledMenu = styled(animated.div, {
       },
     },
     ghost: {
-      false: {
-        '& li.mayumi-menu-item': {
-          transition: '$colors',
-          '&:hover': {
-            backgroundColor: '$primary',
-          },
-        },
-        '& li.mayumi-menu-item__selected': {
-          backgroundColor: '$unemphasizedSelectedTextBackgroundColor',
-        },
-      },
       true: {
         '& li.mayumi-menu-item': {
           transition: '$colors',
