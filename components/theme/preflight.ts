@@ -44,6 +44,7 @@ export const preflight = globalCss({
     '-moz-tab-size': 4,
     tabSize: 4,
     fontFamily: '$sans',
+    '-webkit-font-smoothing': 'antialiased',
   },
   body: {
     m: '$0',

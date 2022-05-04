@@ -176,6 +176,7 @@ const stitches = createStitches({
       loose: '2',
     },
     fonts: {
+      // TODO: remove default
       default: '"SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif',
       sans: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       serif: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
