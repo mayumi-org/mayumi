@@ -43,7 +43,7 @@ export const preflight = globalCss({
     '-webkit-text-size-adjust': '100%',
     '-moz-tab-size': 4,
     tabSize: 4,
-    font: '$default',
+    fontFamily: '$sans',
   },
   body: {
     m: '$0',
@@ -66,7 +66,7 @@ export const preflight = globalCss({
     fontWeight: 'bolder',
   },
   'code, kbd,samp, pre': {
-    fonts: '$mono',
+    fontFamily: '$mono',
     fontSize: '$base',
   },
   small: {
@@ -126,7 +126,7 @@ export const preflight = globalCss({
   },
   '::-webkit-file-upload-button': {
     '-webkit-appearance': 'button',
-    font: 'inherit',
+    fontFamily: 'inherit',
   },
   summary: {
     display: 'list-item',
