@@ -70,5 +70,6 @@ export const StyledNav = styled('div', {
     flexDirection: 'column',
     alignItems: 'center',
     gap: '$8',
+    w: '$full',
   },
 })

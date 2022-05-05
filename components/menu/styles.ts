@@ -102,6 +102,7 @@ export const StyledMenuItem = styled('li', {
   mx: '$0',
   px: '$2',
   cursor: 'pointer',
-  flexBox: '$center',
+  display: 'flex',
+  alignItems: 'center',
   backgroundColor: 'transparent',
 })
