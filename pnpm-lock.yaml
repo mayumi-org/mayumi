@@ -26,6 +26,7 @@ importers:
       prettier: 2.4.1
       react: ^17.0.2
       react-dom: ^17.0.2
+      react-hotkeys-hook: ^3.4.4
       react-popper-tooltip: 4.3.1
       react-use-measure: 2.1.1
       rimraf: 3.0.2
@@ -46,6 +47,7 @@ importers:
       clsx: 1.1.1
       lodash.keyby: 4.6.0
       polished: 4.1.4
+      react-hotkeys-hook: 3.4.4_react-dom@17.0.2+react@17.0.2
       react-popper-tooltip: 4.3.1_react-dom@17.0.2+react@17.0.2
       react-use-measure: 2.1.1_react-dom@17.0.2+react@17.0.2
     devDependencies:
@@ -4044,6 +4046,10 @@ packages:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
     dev: true
 
+  /hotkeys-js/3.8.7:
+    resolution: {integrity: sha512-ckAx3EkUr5XjDwjEHDorHxRO2Kb7z6Z2Sxul4MbBkN8Nho7XDslQsgMJT+CiJ5Z4TgRxxvKHEpuLE3imzqy4Lg==}
+    dev: false
+
   /html-encoding-sniffer/2.0.1:
     resolution: {integrity: sha512-D5JbOMBIR/TVZkubHT+OyT2705QvogUW4IBn6nHd756OwieSF9aDYFj4dv6HHEVGYbHaLETa3WggZYWWMyy3ZQ==}
     engines: {node: '>=10'}
@@ -5991,6 +5997,17 @@ packages:
 
   /react-fast-compare/3.2.0:
     resolution: {integrity: sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==}
+    dev: false
+
+  /react-hotkeys-hook/3.4.4_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-vaORq07rWgmuF3owWRhgFV/3VL8/l2q9lz0WyVEddJnWTtKW+AOgU5YgYKuwN6h6h7bCcLG3MFsJIjCrM/5DvQ==}
+    peerDependencies:
+      react: '>=16.8.1'
+      react-dom: '>=16.8.1'
+    dependencies:
+      hotkeys-js: 3.8.7
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /react-is/16.13.1:

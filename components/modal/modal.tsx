@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { animated, Transition, config } from '@react-spring/web'
 import cx from 'clsx'
+import { useHotkeys } from 'react-hotkeys-hook'
 
 import { useOnClickOutside } from '@/hooks/use-click-outside'
 import { CloseIcon } from '@/icons/close'
@@ -14,15 +15,23 @@ export type ModalProps = React.PropsWithChildren<{
   style?: React.CSSProperties
   visible?: boolean
   /**
+   * Trigger on open modal
+   */
+  onOpen?(): void
+  /**
    * Trigger on click close icon
    */
   onClose?(): void
   /**
    * Trigger on click mask
    */
-  onMask?(): void
+  onClickMask?(): void
+  /**
+   * Custom or disable default close icon
+   * - disable default close icon pass `false`
+   */
+  closeIcon?: React.Component
   title?: React.ReactNode
-  closeable?: boolean
   /**
    * Display modal mask
    */
@@ -70,23 +79,37 @@ const ModalWrapper = React.forwardRef<
 ModalWrapper.displayName = 'modal-wrapper'
 
 export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
-  ({ closeable = true, onClose, onMask, maskable = true, ...props }, ref) => {
+  ({ onClose, onClickMask, onOpen, maskable = true, closeIcon, ...props }, ref) => {
     const modalRef = useRef<HTMLDivElement>(null)
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(false)
     const controlled = typeof props.visible === 'boolean'
     const controlledVisible = useMemo(() => {
       return controlled ? props.visible : visible
     }, [visible, controlled, props.visible])
     const handleClickOutside = useCallback(() => {
       setVisible(false)
-      onMask?.()
-    }, [onMask])
+      onClickMask?.()
+    }, [onClickMask])
     const handleClose = useCallback(() => {
       setVisible(false)
       onClose?.()
     }, [onClose])
+    useHotkeys('command+k', () => {
+      setVisible((prev) => {
+        if (!prev) {
+          onOpen?.()
+        } else {
+          onClose?.()
+        }
+        return !prev
+      })
+    })
+    useHotkeys('esc', () => {
+      setVisible(false)
+      onClose?.()
+    })
     useOnClickOutside(modalRef, handleClickOutside)
-    const hasTitle = closeable || props.title !== undefined
+    const hasTitle = props.title !== undefined
     if (typeof window === 'undefined') {
       return null
     }
@@ -96,9 +119,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
           <ModalWrapper ref={modalRef} visible={controlledVisible} maskable={maskable}>
             {hasTitle ? (
               <div className="mayumi-modal-title" style={props.style}>
-                {closeable ? (
-                  <CloseIcon className="mayumi-close-icon" onClick={handleClose} />
-                ) : null}
+                {closeIcon ?? <CloseIcon className="mayumi-close-icon" onClick={handleClose} />}
               </div>
             ) : null}
             <div className="mayumi-modal-body" style={props.bodyStyle}>

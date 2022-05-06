@@ -1,24 +1,21 @@
 import { Modal } from 'mayumi/modal'
+import { Button } from 'mayumi/button'
 import { Playground } from '@/components/playground'
 import { Layout } from '@/components/layouts'
 
 # Modal
+
+Display a dialog with a custom content that requires attention or provides additional information.
 
 ## Default
 
 <Playground code={ModalDefault}/>
 
 export const ModalDefault = `() => {
-  const [visible, setVisible] = useState(false)
-  const handleClick = () => {
-    setVisible(prev => !prev)
-  }
   return (
-    <div
-      onClick={handleClick}
-    >
-      open modal
-      <Modal visible={visible}>modal</Modal>
+    <div>
+      <Button>command+k</Button>
+      <Modal>modal</Modal>
     </div>
   )
 }`

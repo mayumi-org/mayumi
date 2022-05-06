@@ -51,6 +51,7 @@ export const Container = styled('div', {
     opacity: 0.2,
     pointerEvents: 'all',
     zIndex: '$10',
+    cursor: 'pointer',
     backgroundColor: '$shadowColor',
   },
 })
