@@ -31,7 +31,7 @@ export type ModalProps = React.PropsWithChildren<{
    * Custom or disable default close icon
    * - disable default close icon pass `false`
    */
-  closeIcon?: React.Component
+  closeIcon?: React.ReactNode
   title?: React.ReactNode
   /**
    * Display modal mask
@@ -115,7 +115,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       onClose?.()
     })
     useOnClickOutside(modalRef, handleClickOutside)
-    const hasTitle = props.title !== undefined
+    const hasTitle = closeIcon !== false || props.title !== undefined
     if (typeof window === 'undefined') {
       return null
     }
@@ -129,7 +129,10 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
           <ModalWrapper ref={modalRef} visible={controlledVisible} maskable={maskable}>
             {hasTitle ? (
               <div className="mayumi-modal-title" style={props.style}>
-                {closeIcon ?? <CloseIcon className="mayumi-close-icon" onClick={handleClose} />}
+                {closeIcon ||
+                  (closeIcon === false ? null : (
+                    <CloseIcon className="mayumi-close-icon" onClick={handleClose} />
+                  ))}
               </div>
             ) : null}
             <div className="mayumi-modal-body" style={props.bodyStyle}>

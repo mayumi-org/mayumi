@@ -9,11 +9,13 @@ import type { CSS } from '@/theme/config'
 
 import { StyledDropdownCollapsedMenu, StyledDropdownMenu, StyledDropdownMenuItem } from './styles'
 import { useDropdown } from './dropdown-context'
+import { MenuProps } from '@/menu'
 
 type DropdownMenuProps = {
   children?: React.ReactNode
   className?: string
   css?: CSS
+  ghost?: MenuProps['ghost']
 }
 
 export const DropdownMenu = (props: DropdownMenuProps) => {
@@ -27,13 +29,18 @@ export const DropdownMenu = (props: DropdownMenuProps) => {
         css={props.css}
         className={cx('mayumi-dropdown-menu', props.className)}
         size="sm"
+        ghost={props.ghost}
       >
         {groups[switchKey!]}
       </StyledDropdownMenu>
     )
   }
   return (
-    <StyledDropdownMenu css={props.css} className={cx('mayumi-dropdown-menu', props.className)}>
+    <StyledDropdownMenu
+      ghost={props.ghost}
+      css={props.css}
+      className={cx('mayumi-dropdown-menu', props.className)}
+    >
       {props.children}
     </StyledDropdownMenu>
   )
