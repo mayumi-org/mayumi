@@ -19,12 +19,20 @@ export type InputProps = {
   onClick?: () => void
   defaultValue?: string
   css?: CSS
+  /**
+   * Disable default focus effect and outline
+   * @default false
+   */
+  ghost?: boolean
 }
 
 const springConfig = { mass: 1, tension: 210, friction: 26, precision: 0.01, velocity: 0 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ style, className, prefix, ...props }, ref: React.Ref<HTMLInputElement | null>) => {
+  (
+    { style, className, prefix, ghost = false, ...props },
+    ref: React.Ref<HTMLInputElement | null>,
+  ) => {
     const inputRef = useRef<HTMLInputElement>(null)
     const [focus, setFocus] = useState(false)
     const [selfValue, setSelfValue] = useState(props.defaultValue)
@@ -36,6 +44,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const controlledValue = useMemo(() => {
       return isControlled ? props.value : selfValue
     }, [isControlled, selfValue, props.value])
+    // forward <input />.ref to ref, instead of <StyledInput />.ref
     useImperativeHandle(ref, () => inputRef.current)
     const styles = useSpring({
       transform: focus ? 'scale(1, 1)' : 'scale(1.2, 1.5)',
@@ -49,9 +58,10 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         style={style}
         className={cx('mayumi-input', className)}
         css={props.css}
+        ghost={ghost}
       >
         {prefix && <span className="mayumi-input-icon">{prefix}</span>}
-        <animated.div className="mayumi-input-effect" style={styles as any} />
+        {!ghost && <animated.div className="mayumi-input-effect" style={styles as any} />}
         <input
           {...props}
           value={controlledValue}
