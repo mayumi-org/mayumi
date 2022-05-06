@@ -24,7 +24,6 @@ export const StyledAside = styled('aside', {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'start',
-      minWidth: '$72',
     },
   },
 })
