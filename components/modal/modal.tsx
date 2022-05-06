@@ -8,6 +8,7 @@ import { useOnClickOutside } from '@/hooks/use-click-outside'
 import { CloseIcon } from '@/icons/close'
 import { Container } from './styles'
 import { ModalContext, useModal } from './modal-context'
+import { Box } from '@/box'
 
 export type ModalProps = React.PropsWithChildren<{
   children?: React.ReactNode
@@ -37,6 +38,8 @@ export type ModalProps = React.PropsWithChildren<{
    */
   maskable?: boolean
   bodyStyle?: React.CSSProperties
+  glassmorphism?: boolean
+  bordered?: boolean
 }>
 
 const ModalWrapper = React.forwardRef<
@@ -59,9 +62,9 @@ const ModalWrapper = React.forwardRef<
       {(styles, item) => (
         <>
           {item && (
-            <animated.div className="mayumi-modal" style={styles} ref={ref}>
+            <Box className="mayumi-modal" bordered={true} style={styles} ref={ref}>
               {props.children}
-            </animated.div>
+            </Box>
           )}
           {item && props.maskable && (
             <animated.div
@@ -79,7 +82,10 @@ const ModalWrapper = React.forwardRef<
 ModalWrapper.displayName = 'modal-wrapper'
 
 export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
-  ({ onClose, onClickMask, onOpen, maskable = true, closeIcon, ...props }, ref) => {
+  (
+    { onClose, onClickMask, onOpen, glassmorphism = false, maskable = true, closeIcon, ...props },
+    ref,
+  ) => {
     const modalRef = useRef<HTMLDivElement>(null)
     const [visible, setVisible] = useState(false)
     const controlled = typeof props.visible === 'boolean'
@@ -115,7 +121,11 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     }
     return createPortal(
       <ModalContext.Provider value={{ visible: controlledVisible, handleClickOutside }}>
-        <Container ref={ref} className={cx('mayumi-modal-container', props.className)}>
+        <Container
+          glassmorphism={glassmorphism}
+          ref={ref}
+          className={cx('mayumi-modal-container', props.className)}
+        >
           <ModalWrapper ref={modalRef} visible={controlledVisible} maskable={maskable}>
             {hasTitle ? (
               <div className="mayumi-modal-title" style={props.style}>

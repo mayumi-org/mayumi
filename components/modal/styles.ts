@@ -11,8 +11,8 @@ export const Container = styled('div', {
   pointerEvents: 'none',
   flexBox: 'center',
   '.mayumi-modal': {
-    width: '$screenSM',
-    height: 'fit-content(20rem)',
+    w: '$screenSM',
+    h: 'fit-content(20rem)',
     boxShadow: '$lg',
     rounded: '$lg',
     display: 'flex',
@@ -21,18 +21,20 @@ export const Container = styled('div', {
     backgroundColor: '$windowBackgroundColor',
     pointerEvents: 'all',
     position: 'relative',
+    p: '$0',
     zIndex: '$50',
     '.mayumi-close-icon': {
       cursor: 'pointer',
     },
     '.mayumi-modal-body': {
+      w: '$full',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       padding: '$4',
     },
     '.mayumi-modal-title': {
-      height: '$16',
+      h: '$16',
       padding: '$2',
       display: 'flex',
       alignItems: 'center',
@@ -53,5 +55,14 @@ export const Container = styled('div', {
     zIndex: '$10',
     cursor: 'pointer',
     backgroundColor: '$shadowColor',
+  },
+  variants: {
+    glassmorphism: {
+      true: {
+        '.mayumi-modal': {
+          glass: '8px',
+        },
+      },
+    },
   },
 })
