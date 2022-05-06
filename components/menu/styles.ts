@@ -73,16 +73,19 @@ export const StyledMenu = styled(animated.div, {
       sm: {
         '& li.mayumi-menu-item': {
           my: '$0_5',
+          rounded: '$default',
         },
       },
       md: {
         '& li.mayumi-menu-item': {
+          rounded: '$default',
           py: '$1',
           my: '$0_5',
         },
       },
       lg: {
         '& li.mayumi-menu-item': {
+          rounded: '$lg',
           py: '$2',
           px: '$4',
           my: '$0_5',
@@ -97,7 +100,6 @@ export const StyledMenu = styled(animated.div, {
 })
 
 export const StyledMenuItem = styled('li', {
-  rounded: '$lg',
   my: '$0',
   mx: '$0',
   px: '$2',
