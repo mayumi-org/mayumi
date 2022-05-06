@@ -83,6 +83,11 @@
       "import": "./dist/menu/index.mjs",
       "types": "./dist/menu/index.d.ts"
     },
+    "./modal": {
+      "require": "./dist/modal/index.cjs",
+      "import": "./dist/modal/index.mjs",
+      "types": "./dist/modal/index.d.ts"
+    },
     "./notification": {
       "require": "./dist/notification/index.cjs",
       "import": "./dist/notification/index.mjs",
@@ -153,6 +158,9 @@
       ],
       "menu": [
         "dist/menu/index.d.ts"
+      ],
+      "modal": [
+        "dist/modal/index.d.ts"
       ],
       "notification": [
         "dist/notification/index.d.ts"

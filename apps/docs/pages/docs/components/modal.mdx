@@ -1,0 +1,30 @@
+import { Modal } from 'mayumi/modal'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Modal
+
+## Default
+
+<Playground code={ModalDefault}/>
+
+export const ModalDefault = `() => {
+  const [visible, setVisible] = useState(false)
+  const handleClick = () => {
+    setVisible(prev => !prev)
+  }
+  return (
+    <div
+      onClick={handleClick}
+    >
+      open modal
+      <Modal visible={visible}>modal</Modal>
+    </div>
+  )
+}`
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);
