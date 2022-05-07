@@ -1,5 +1,5 @@
 import { Modal } from 'mayumi/modal'
-import { Button } from 'mayumi/button'
+import { Kbd } from 'mayumi/kbd'
 import { Playground } from '@/components/playground'
 import { Layout } from '@/components/layouts'
 
@@ -14,7 +14,7 @@ Display a dialog with a custom content that requires attention or provides addit
 export const ModalDefault = `() => {
   return (
     <div>
-      <Button>command+k</Button>
+      <span style={{ color: 'white' }}><Kbd>⌘</Kbd> + <Kbd>k</Kbd></span>
       <Modal>modal</Modal>
     </div>
   )

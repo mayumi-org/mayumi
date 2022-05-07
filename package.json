@@ -68,6 +68,11 @@
       "import": "./dist/input/index.mjs",
       "types": "./dist/input/index.d.ts"
     },
+    "./kbd": {
+      "require": "./dist/kbd/index.cjs",
+      "import": "./dist/kbd/index.mjs",
+      "types": "./dist/kbd/index.d.ts"
+    },
     "./layout": {
       "require": "./dist/layout/index.cjs",
       "import": "./dist/layout/index.mjs",
@@ -149,6 +154,9 @@
       ],
       "input": [
         "dist/input/index.d.ts"
+      ],
+      "kbd": [
+        "dist/kbd/index.d.ts"
       ],
       "layout": [
         "dist/layout/index.d.ts"
