@@ -6,7 +6,7 @@ import { useOnClickOutside } from '@/hooks'
 import { StyledInput } from './styles'
 import type { CSS } from '@/theme/config'
 
-export type InputProps = {
+export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   style?: React.CSSProperties
   className?: string
   placeholder?: string
