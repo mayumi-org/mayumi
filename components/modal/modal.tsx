@@ -40,6 +40,10 @@ export type ModalProps = React.PropsWithChildren<{
   bodyStyle?: React.CSSProperties
   glassmorphism?: boolean
   bordered?: boolean
+  /**
+   * Modal always at center
+   */
+  center?: boolean
 }>
 
 const ModalWrapper = React.forwardRef<
@@ -83,7 +87,16 @@ ModalWrapper.displayName = 'modal-wrapper'
 
 export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
   (
-    { onClose, onClickMask, onOpen, glassmorphism = false, maskable = true, closeIcon, ...props },
+    {
+      onClose,
+      onClickMask,
+      onOpen,
+      glassmorphism = false,
+      center = false,
+      maskable = true,
+      closeIcon,
+      ...props
+    },
     ref,
   ) => {
     const modalRef = useRef<HTMLDivElement>(null)
@@ -125,6 +138,7 @@ export const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
           glassmorphism={glassmorphism}
           ref={ref}
           className={cx('mayumi-modal-container', props.className)}
+          center={center}
         >
           <ModalWrapper ref={modalRef} visible={controlledVisible} maskable={maskable}>
             {hasTitle ? (

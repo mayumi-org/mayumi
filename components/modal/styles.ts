@@ -9,13 +9,12 @@ export const Container = styled('div', {
   bottom: 0,
   margin: '$auto',
   pointerEvents: 'none',
-  flexBox: 'center',
   '.mayumi-modal': {
     w: '$screenSM',
-    h: 'fit-content(20rem)',
+    h: '$96',
     boxShadow: '$lg',
     rounded: '$lg',
-    display: 'flex',
+    flexBox: 'flex-start',
     flexDirection: 'column',
     overflow: 'hidden',
     backgroundColor: '$underPageBackgroundColor',
@@ -62,6 +61,22 @@ export const Container = styled('div', {
       true: {
         '.mayumi-modal': {
           glass: '8px',
+        },
+      },
+    },
+    center: {
+      true: {
+        '&': {
+          flexBox: 'center',
+        },
+      },
+      false: {
+        '.mayumi-modal': {
+          position: 'absolute',
+          top: '20%',
+          left: 0,
+          right: 0,
+          m: 'auto',
         },
       },
     },
