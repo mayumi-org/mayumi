@@ -10,7 +10,7 @@ import { defaultValue, MenuContext, MenuContextProps } from './menu-context'
 import { StyledMenu } from './styles'
 import { ClickParams } from './types'
 
-export type MenuProps = {
+export type MenuProps = React.HTMLAttributes<HTMLDivElement> & {
   children?: React.ReactNode
   className?: string
   style?: React.CSSProperties
@@ -70,6 +70,7 @@ export const Menu = (props: MenuProps) => {
       }}
     >
       <StyledMenu
+        {...props}
         style={{ ...styles, ...props.style }}
         className={cx('mayumi-menu', props.className)}
         onClick={(e) => props.onClick?.({ domEvent: e })}
