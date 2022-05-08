@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom'
 import { config, Transition } from '@react-spring/web'
 import cx from 'clsx'
 import { usePopperTooltip } from 'react-popper-tooltip'
-import { Config } from 'react-popper-tooltip/dist/types'
+import { Config, TriggerType } from 'react-popper-tooltip/dist/types'
 
 import type { CSS } from '@/theme/config'
 
 import { getAnimationConfig, Animation, getAnimationStyles } from './utils'
 import { StyledTooltip, StyledTooltipContent } from './styles'
+
+export type Trigger = Exclude<TriggerType, 'right-click'>
 
 export type TooltipContentProps = {
   children?: React.ReactNode
@@ -79,7 +81,7 @@ export type ToolTipProps = Pick<React.HTMLAttributes<HTMLDivElement>, 'id'> & {
    */
   placement?: Config['placement']
   offset?: [number, number]
-  trigger?: 'hover' | 'click'
+  trigger?: Trigger | Trigger[] | null
   defaultVisible?: boolean
   visible?: boolean
   className?: string
@@ -118,6 +120,9 @@ export const Tooltip = ({
     { strategy: 'absolute' },
   )
   const hasCustomContainer = 'getPopupContainer' in props
+  if (typeof window === 'undefined') {
+    return null
+  }
   return (
     <StyledTooltip
       className={cx('mayumi-tooltip', props.className)}

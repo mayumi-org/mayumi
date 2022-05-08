@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "esnext",
+    "target": "ESNext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "importHelpers": false,
     "esModuleInterop": true,
     "sourceMap": true,
+    "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "experimentalDecorators": true,
@@ -21,5 +22,6 @@
     "paths": {
       "@/*": ["components/*"]
     }
-  }
+  },
+  "exclude": ["example", "apps", "dist"]
 }

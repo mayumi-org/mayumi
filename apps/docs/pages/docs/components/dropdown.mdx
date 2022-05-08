@@ -1,4 +1,5 @@
 import { Dropdown } from 'mayumi/dropdown'
+import { Input } from 'mayumi/input'
 import { Playground } from '@/components/playground'
 import { Layout } from '@/components/layouts'
 
@@ -15,6 +16,12 @@ Display multiple menu with tootip. Accept partial props of `tooltip` like `glass
 Change collapsed menu in `switch` mode.
 
 <Playground code={SwitchDropdownDemo} />
+
+## AutoComplete
+
+Combine Dropdown with input.
+
+<Playground code={DropdownInAutoComplete} />
 
 export const SwitchDropdownDemo = `() => {
   const [activeKey2, setActiveKey2] = useState('test')
@@ -68,6 +75,42 @@ export const DefaultDropdownDemo = `() => {
   return (
     <Dropdown content={DropdownMenu} placement="bottom">
       dropdown
+    </Dropdown>
+  )
+}`
+
+export const DropdownInAutoComplete = `() => {
+  const DropdownCollapsedMenu1 = (
+    <Dropdown.Menu>
+      <Dropdown.SubMenu title="iCloud3">
+        <Dropdown.Item itemKey="iCloud3.1">3.1</Dropdown.Item>
+        <Dropdown.Item itemKey="iCloud3.2">3.2</Dropdown.Item>
+      </Dropdown.SubMenu>
+    </Dropdown.Menu>
+  )
+  const DropdownCollapsedMenu = (
+    <Dropdown.Menu>
+      <Dropdown.SubMenu title="iCloud2">
+        <Dropdown.Item collapsedMenu={DropdownCollapsedMenu1} itemKey="iCloud2/1">
+          2.1
+        </Dropdown.Item>
+        <Dropdown.Item itemKey="iCloud2.2">2.2</Dropdown.Item>
+      </Dropdown.SubMenu>
+    </Dropdown.Menu>
+  )
+  const DropdownMenu = (
+    <Dropdown.Menu>
+      <Dropdown.SubMenu title="iCloud">
+        <Dropdown.Item>1.2</Dropdown.Item>
+        <Dropdown.Item collapsedMenu={DropdownCollapsedMenu} itemKey="test1.1">
+          1.1
+        </Dropdown.Item>
+      </Dropdown.SubMenu>
+    </Dropdown.Menu>
+  )
+  return (
+    <Dropdown trigger={['click', 'focus']} content={DropdownMenu}>
+      <Input css={{ width: '$20' }} />
     </Dropdown>
   )
 }`
