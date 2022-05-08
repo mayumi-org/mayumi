@@ -87,6 +87,9 @@ export const Layout = (props: React.PropsWithChildren<{}>) => {
               <Menu.Item itemKey="icons">Icons</Menu.Item>
               <Menu.Item itemKey="notification">Notification</Menu.Item>
               <Menu.Item itemKey="link">Link</Menu.Item>
+              <Menu.Item itemKey="dot">Dot</Menu.Item>
+              <Menu.Item itemKey="modal">Modal</Menu.Item>
+              <Menu.Item itemKey="kbd">kbd</Menu.Item>
             </Menu.SubMenu>
           </Menu>
         </div>

@@ -1,4 +1,4 @@
-import nodeexternals from 'rollup-plugin-node-externals'
+import { externals } from 'rollup-plugin-node-externals'
 import multiInput from 'rollup-plugin-multi-input'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
@@ -7,6 +7,7 @@ import size from 'rollup-plugin-size'
 import sourcemaps from 'rollup-plugin-sourcemaps'
 import ce from 'rollup-plugin-condition-exports'
 import { defineConfig } from 'rollup'
+import path from 'path'
 
 export default defineConfig([
   // CommonJS (for Node) and ES module (for bundlers) build.
@@ -21,7 +22,7 @@ export default defineConfig([
       multiInput({
         relative: 'components/',
       }),
-      nodeexternals({
+      externals({
         devDeps: false,
       }),
       typescript({
@@ -29,10 +30,14 @@ export default defineConfig([
         tsconfigOverride: {
           exclude: ['example', 'apps/docs'],
         },
-      }), // so Rollup can convert TypeScript to JavaScript
+      }),
       alias({
-        resolve: ['.ts', '.js', '.tsx', '.jsx'],
-        entries: [{ find: '@/', replacement: './components/' }],
+        entries: [
+          {
+            find: '@',
+            replacement: path.resolve(__dirname, './components'),
+          },
+        ],
       }),
       ce({
         glob: ['components/**/index.ts'],

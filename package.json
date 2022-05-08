@@ -43,6 +43,11 @@
       "import": "./dist/description/index.mjs",
       "types": "./dist/description/index.d.ts"
     },
+    "./dot": {
+      "require": "./dist/dot/index.cjs",
+      "import": "./dist/dot/index.mjs",
+      "types": "./dist/dot/index.d.ts"
+    },
     "./dropdown": {
       "require": "./dist/dropdown/index.cjs",
       "import": "./dist/dropdown/index.mjs",
@@ -63,6 +68,11 @@
       "import": "./dist/input/index.mjs",
       "types": "./dist/input/index.d.ts"
     },
+    "./kbd": {
+      "require": "./dist/kbd/index.cjs",
+      "import": "./dist/kbd/index.mjs",
+      "types": "./dist/kbd/index.d.ts"
+    },
     "./layout": {
       "require": "./dist/layout/index.cjs",
       "import": "./dist/layout/index.mjs",
@@ -77,6 +87,11 @@
       "require": "./dist/menu/index.cjs",
       "import": "./dist/menu/index.mjs",
       "types": "./dist/menu/index.d.ts"
+    },
+    "./modal": {
+      "require": "./dist/modal/index.cjs",
+      "import": "./dist/modal/index.mjs",
+      "types": "./dist/modal/index.d.ts"
     },
     "./notification": {
       "require": "./dist/notification/index.cjs",
@@ -106,7 +121,6 @@
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
-  "typings": "dist/index.d.ts",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
@@ -125,6 +139,9 @@
       "description": [
         "dist/description/index.d.ts"
       ],
+      "dot": [
+        "dist/dot/index.d.ts"
+      ],
       "dropdown": [
         "dist/dropdown/index.d.ts"
       ],
@@ -137,6 +154,9 @@
       "input": [
         "dist/input/index.d.ts"
       ],
+      "kbd": [
+        "dist/kbd/index.d.ts"
+      ],
       "layout": [
         "dist/layout/index.d.ts"
       ],
@@ -145,6 +165,9 @@
       ],
       "menu": [
         "dist/menu/index.d.ts"
+      ],
+      "modal": [
+        "dist/modal/index.d.ts"
       ],
       "notification": [
         "dist/notification/index.d.ts"
@@ -174,10 +197,10 @@
     "test": "echo todo",
     "pretest": "pnpm run build",
     "release": "pnpm run build && np --no-cleanup --yolo --no-publish --any-branch",
-    "ci:version": "pnpx changeset version",
-    "ci:publish": "pnpx changeset publish",
-    "ci:snapshot": "pnpx changeset version --snapshot beta",
-    "ci:prerelease": "pnpm run build && pnpx changeset publish --tag beta",
+    "ci:version": "pnpm changeset version",
+    "ci:publish": "pnpm changeset publish",
+    "ci:snapshot": "pnpm changeset version --snapshot beta",
+    "ci:prerelease": "pnpm run build && pnpm changeset publish --tag beta",
     "lint:fix": "eslint . --fix"
   },
   "lint-staged": {
@@ -190,20 +213,21 @@
     "react-dom": ">=17"
   },
   "dependencies": {
-    "@react-spring/web": "^9.4.3",
-    "@stitches/react": "^1.2.6",
-    "clsx": "^1.1.1",
-    "lodash.keyby": "^4.6.0",
-    "polished": "^4.1.4",
-    "react-popper-tooltip": "^4.3.1",
-    "react-use-measure": "^2.1.1"
+    "@react-spring/web": "9.4.3",
+    "@stitches/react": "1.2.7",
+    "clsx": "1.1.1",
+    "lodash.keyby": "4.6.0",
+    "polished": "4.1.4",
+    "react-hotkeys-hook": "^3.4.4",
+    "react-popper-tooltip": "4.3.1",
+    "react-use-measure": "2.1.1"
   },
   "devDependencies": {
     "@aiou/eslint-config": "^0.5.1",
     "@changesets/cli": "^2.17.0",
-    "@rollup/plugin-alias": "^3.1.4",
+    "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^21.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-node-resolve": "^13.1.3",
     "@types/jest": "27.0.2",
     "@types/lodash.keyby": "^4.6.6",
     "@types/react": "^17.0.39",
