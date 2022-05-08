@@ -20,8 +20,15 @@
     "noUnusedLocals": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["components/*"]
-    }
+      "@/*": ["./components/*"]
+    },
+    "plugins": [
+      { "transform": "typescript-transform-paths" },
+      {
+        "transform": "typescript-transform-paths",
+        "afterDeclarations": true
+      }
+    ]
   },
   "exclude": ["example", "apps", "dist"]
 }

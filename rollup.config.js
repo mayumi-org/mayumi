@@ -26,16 +26,14 @@ export default defineConfig([
         devDeps: false,
       }),
       typescript({
+        typescript: require('ttypescript'),
         check: false,
-        tsconfigOverride: {
-          exclude: ['example', 'apps/docs'],
-        },
       }),
       alias({
         entries: [
           {
-            find: '@',
-            replacement: path.resolve(__dirname, './components'),
+            find: '@/',
+            replacement: path.resolve(__dirname, './components/'),
           },
         ],
       }),
