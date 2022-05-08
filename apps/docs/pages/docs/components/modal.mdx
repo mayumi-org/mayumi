@@ -9,6 +9,12 @@ Display a dialog with a custom content that requires attention or provides addit
 
 ## Default
 
+<Playground code={`<Modal>modal</Modal>`}/>
+
+## Hot keys
+
+Control Modal visible with `commnd+k` and `esc`.
+
 <Playground code={ModalDefault}/>
 
 export const ModalDefault = `() => {
@@ -19,6 +25,28 @@ export const ModalDefault = `() => {
     </div>
   )
 }`
+
+## Border
+
+Enable modal outline border with property `bordered`.
+
+<Playground code={`<Modal bordered={true}>modal</Modal>`}/>
+
+## Center
+
+Center modal placement with with property `center`.
+
+<Playground code={`<Modal center={true}>modal</Modal>`}/>
+
+## Glassmorphism
+
+Blur Modal.
+
+<Playground code={`<Modal glassmorphism={true}>modal</Modal>`}/>
+
+## Events
+
+Provide `onClose` `onOpen` and `onClickMask` callback.
 
 export default ({ children }) => (
   <Layout>
