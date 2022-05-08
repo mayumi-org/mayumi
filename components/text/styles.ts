@@ -1,7 +1,6 @@
 import { styled } from '@/theme/config'
 
 export const StyledText = styled('p', {
-  color: '$textColor',
   variants: {
     type: {
       secondary: {
@@ -13,6 +12,12 @@ export const StyledText = styled('p', {
       quaternary: {
         color: '$tertiaryLabelColor',
       },
+      default: {
+        color: '$textColor',
+      },
     },
+  },
+  defaultVariants: {
+    type: 'default',
   },
 })
