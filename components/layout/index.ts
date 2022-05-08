@@ -2,7 +2,7 @@ import { Layout as _Layout } from './layout'
 import { LayoutAside } from './layout-aside'
 import { LayoutMain } from './layout-main'
 import { LayoutNavigate } from './layout-navigate'
-export { LayoutProps } from './layout'
+export type { LayoutProps } from './layout'
 
 type InnerLayout = typeof _Layout
 interface LayoutInterface extends InnerLayout {

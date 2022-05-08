@@ -1,1 +1,2 @@
-export { Description, DescriptionProps } from './description'
+export { Description } from './description'
+export type { DescriptionProps } from './description'
