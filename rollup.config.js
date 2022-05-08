@@ -1,7 +1,6 @@
 import { externals } from 'rollup-plugin-node-externals'
 import multiInput from 'rollup-plugin-multi-input'
 import commonjs from '@rollup/plugin-commonjs'
-import resolve from '@rollup/plugin-node-resolve'
 import typescript from 'rollup-plugin-typescript2'
 import alias from '@rollup/plugin-alias'
 import size from 'rollup-plugin-size'
@@ -22,9 +21,6 @@ export default defineConfig([
     plugins: [
       multiInput({
         relative: 'components/',
-      }),
-      resolve({
-        preferBuiltins: true,
       }),
       externals({
         devDeps: false,
