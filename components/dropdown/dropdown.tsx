@@ -69,7 +69,6 @@ export const Dropdown = ({
         visible={controlledVisible}
         placement={placement}
         onVisibleChange={setVisible}
-        getPopupContainer={props.getPopupContainer}
         trigger={trigger}
         animation="opacity"
         glassmorphism={props.glassmorphism}
