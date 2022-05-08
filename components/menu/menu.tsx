@@ -39,7 +39,7 @@ export const Menu = (props: MenuProps) => {
   const [selectedKeys, setSelectedKeys] = useState<string[]>([])
   const isSwitchMode = mode === 'switch'
   const [styles, api] = useSpring(() => ({
-    height: isSwitchMode ? 0 : 'auto',
+    height: isSwitchMode ? 0 : undefined,
     opacity: isSwitchMode ? 0 : 1,
   }))
   const [parent, { height }, forceRefresh] = useMeasure()

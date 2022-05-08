@@ -1,1 +1,1 @@
-export { Modal } from './modal'
+export { Modal, ModalProps } from './modal'

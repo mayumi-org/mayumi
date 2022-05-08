@@ -3,7 +3,7 @@ import cx from 'clsx'
 
 import { StyledKbd } from './styles'
 
-type KbdProps = React.HTMLAttributes<HTMLDivElement> & {
+export type KbdProps = React.HTMLAttributes<HTMLDivElement> & {
   children?: React.ReactText
   className?: string
 }
