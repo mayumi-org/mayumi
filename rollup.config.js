@@ -7,7 +7,6 @@ import alias from '@rollup/plugin-alias'
 import size from 'rollup-plugin-size'
 import sourcemaps from 'rollup-plugin-sourcemaps'
 import ce from 'rollup-plugin-condition-exports'
-import esbuild from 'rollup-plugin-esbuild'
 import { defineConfig } from 'rollup'
 import path from 'path'
 
@@ -24,27 +23,30 @@ export default defineConfig([
       multiInput({
         relative: 'components/',
       }),
-      alias({
-        resolve: ['.ts', '.js', '.tsx', '.jsx'],
-        entries: [{ find: '@', replacement: path.resolve(__dirname, './components') }],
+      resolve({
+        preferBuiltins: true,
       }),
       externals({
         devDeps: false,
       }),
-      esbuild(),
-      // typescript({
-      //   check: false,
-      //   tsconfigOverride: {
-      //     exclude: ['example', 'apps/docs'],
-      //   },
-      // }),
+      typescript({
+        check: false,
+        tsconfigOverride: {
+          exclude: ['example', 'apps/docs'],
+        },
+      }),
+      alias({
+        entries: [
+          {
+            find: '@',
+            replacement: path.resolve(__dirname, './components'),
+          },
+        ],
+      }),
       ce({
         glob: ['components/**/index.ts'],
         base: 'components/',
         dirs: 'dist',
-      }),
-      resolve({
-        preferBuiltins: true,
       }),
       sourcemaps(),
       commonjs(), // so Rollup can convert `ms` to an ES module
