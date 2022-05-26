@@ -214,11 +214,11 @@
   },
   "dependencies": {
     "@react-spring/web": "9.4.5",
-    "@stitches/react": "1.2.7",
+    "@stitches/react": "^1.2.7",
     "clsx": "1.1.1",
     "lodash.keyby": "4.6.0",
     "polished": "4.1.4",
-    "react-hotkeys-hook": "^3.4.4",
+    "react-hotkeys-hook": "3.4.4",
     "react-popper-tooltip": "4.3.1",
     "react-use-measure": "2.1.1"
   },
