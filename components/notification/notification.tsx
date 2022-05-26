@@ -8,7 +8,7 @@ import { Close } from '@/icons/close'
 import { StyledNotification } from './styles'
 
 let id = 0
-interface MessageHubProps {
+export interface NotificationProps {
   config?: {
     tension: number
     friction: number
@@ -49,7 +49,7 @@ export function Notification({
   // inf will never close
   timeout = Infinity,
   ...props
-}: MessageHubProps) {
+}: NotificationProps) {
   const refMap = useMemo(() => new WeakMap(), [])
   const [items, setItems] = useState<Item[]>([])
 

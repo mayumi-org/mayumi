@@ -4,13 +4,9 @@ import cx from 'clsx'
 import { StyledBox } from './styles'
 import type { CSS } from '@/theme/config'
 
-export type BoxProps = {
-  children?: React.ReactNode
-  className?: string
-  style?: React.CSSProperties
+export type BoxProps = React.HTMLAttributes<HTMLDivElement> & {
   transparent?: boolean
   bordered?: boolean
-  onClick?: () => void
   css?: CSS
 }
 

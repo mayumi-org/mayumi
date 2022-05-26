@@ -24,7 +24,6 @@ export const StyledAside = styled('aside', {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'start',
-      minWidth: '$72',
     },
   },
 })
@@ -46,5 +45,30 @@ export const StyledLayout = styled('article', {
   },
   defaultVariants: {
     size: 'full',
+  },
+})
+
+export const StyledNav = styled('div', {
+  backgroundColor: '$underPageBackgroundColor',
+  borderColor: '$quaternaryLabelColor',
+  '-webkit-app-region': 'drag',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  w: '$20',
+  h: '$full',
+  borderRightWidth: '1px',
+  gap: '$8',
+  py: '$4',
+  '.mayumi-icon': {
+    cursor: 'pointer',
+  },
+  '.mayumi-layout-navigate-top, .mayumi-layout-navigate-top': {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '$8',
+    w: '$full',
   },
 })

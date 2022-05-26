@@ -1,4 +1,5 @@
 import { Notification as _Notification, info } from './notification'
+export type { NotificationProps } from './notification'
 
 type InnerNotification = typeof _Notification
 

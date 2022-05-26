@@ -1,0 +1,55 @@
+import { Modal } from 'mayumi/modal'
+import { Kbd } from 'mayumi/kbd'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Modal
+
+Display a dialog with a custom content that requires attention or provides additional information.
+
+## Default
+
+<Playground code={`<Modal>modal</Modal>`}/>
+
+## Hot keys
+
+Control Modal visible with `commnd+k` and `esc`.
+
+<Playground code={ModalDefault}/>
+
+export const ModalDefault = `() => {
+  return (
+    <div>
+      <span style={{ color: 'white' }}><Kbd>⌘</Kbd> + <Kbd>k</Kbd></span>
+      <Modal>modal</Modal>
+    </div>
+  )
+}`
+
+## Border
+
+Enable modal outline border with property `bordered`.
+
+<Playground code={`<Modal bordered={true}>modal</Modal>`}/>
+
+## Center
+
+Center modal placement with with property `center`.
+
+<Playground code={`<Modal center={true}>modal</Modal>`}/>
+
+## Glassmorphism
+
+Blur Modal.
+
+<Playground code={`<Modal glassmorphism={true}>modal</Modal>`}/>
+
+## Events
+
+Provide `onClose` `onOpen` and `onClickMask` callback.
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);

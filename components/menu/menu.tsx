@@ -10,7 +10,7 @@ import { defaultValue, MenuContext, MenuContextProps } from './menu-context'
 import { StyledMenu } from './styles'
 import { ClickParams } from './types'
 
-export type MenuProps = {
+export type MenuProps = React.HTMLAttributes<HTMLDivElement> & {
   children?: React.ReactNode
   className?: string
   style?: React.CSSProperties
@@ -27,6 +27,11 @@ export type MenuProps = {
    * @default false
    */
   light?: boolean
+  /**
+   * Menu item hover effect
+   * @default false
+   */
+  ghost?: boolean
 }
 
 export const Menu = (props: MenuProps) => {
@@ -34,7 +39,7 @@ export const Menu = (props: MenuProps) => {
   const [selectedKeys, setSelectedKeys] = useState<string[]>([])
   const isSwitchMode = mode === 'switch'
   const [styles, api] = useSpring(() => ({
-    height: isSwitchMode ? 0 : 'auto',
+    height: isSwitchMode ? 0 : undefined,
     opacity: isSwitchMode ? 0 : 1,
   }))
   const [parent, { height }, forceRefresh] = useMeasure()
@@ -65,6 +70,7 @@ export const Menu = (props: MenuProps) => {
       }}
     >
       <StyledMenu
+        {...props}
         style={{ ...styles, ...props.style }}
         className={cx('mayumi-menu', props.className)}
         onClick={(e) => props.onClick?.({ domEvent: e })}
@@ -72,6 +78,7 @@ export const Menu = (props: MenuProps) => {
         size={props.size}
         css={props.css}
         light={props.light}
+        ghost={props.ghost}
       >
         <div ref={parent} className="mayumi-menu-inner">
           {props.children}

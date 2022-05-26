@@ -4,7 +4,7 @@ import { animated } from '@react-spring/web'
 export const StyledMenu = styled(animated.div, {
   text: '$sm',
   w: '$full',
-  p: '$2',
+  p: '$3',
   '& p.mayumi-menu-subtitle': {
     py: '$1',
     text: '$xs',
@@ -24,6 +24,16 @@ export const StyledMenu = styled(animated.div, {
   '& div.mayumi-separator:last-child': {
     display: 'none',
   },
+  '& li.mayumi-menu-item': {
+    transition: '$colors',
+    '&:hover': {
+      backgroundColor: '$primary',
+    },
+  },
+  '& li.mayumi-menu-item__selected': {
+    backgroundColor: '$unemphasizedSelectedTextBackgroundColor',
+  },
+  color: '$textColor',
   variants: {
     switch: {
       true: {
@@ -31,17 +41,6 @@ export const StyledMenu = styled(animated.div, {
       },
     },
     light: {
-      false: {
-        '& li.mayumi-menu-item': {
-          transition: '$colors',
-          '&:hover': {
-            backgroundColor: '$primary',
-          },
-        },
-        '& li.mayumi-menu-item__selected': {
-          backgroundColor: '$unemphasizedSelectedTextBackgroundColor',
-        },
-      },
       true: {
         '& li.mayumi-menu-item': {
           transition: '$colors',
@@ -56,20 +55,37 @@ export const StyledMenu = styled(animated.div, {
         },
       },
     },
+    ghost: {
+      true: {
+        '& li.mayumi-menu-item': {
+          transition: '$colors',
+          backgroundColor: 'transparent',
+          '&:hover': {
+            backgroundColor: '$windowBackgroundColor',
+          },
+        },
+        '& li.mayumi-menu-item__selected': {
+          backgroundColor: '$unemphasizedSelectedTextBackgroundColor',
+        },
+      },
+    },
     size: {
       sm: {
         '& li.mayumi-menu-item': {
           my: '$0_5',
+          rounded: '$default',
         },
       },
       md: {
         '& li.mayumi-menu-item': {
+          rounded: '$default',
           py: '$1',
           my: '$0_5',
         },
       },
       lg: {
         '& li.mayumi-menu-item': {
+          rounded: '$lg',
           py: '$2',
           px: '$4',
           my: '$0_5',
@@ -84,11 +100,11 @@ export const StyledMenu = styled(animated.div, {
 })
 
 export const StyledMenuItem = styled('li', {
-  rounded: '$default',
   my: '$0',
   mx: '$0',
   px: '$2',
   cursor: 'pointer',
-  flexBox: '$center',
+  display: 'flex',
+  alignItems: 'center',
   backgroundColor: 'transparent',
 })

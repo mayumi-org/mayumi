@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ToolTipProps } from '@/tooltip'
+import { ToolTipProps, Trigger } from '@/tooltip/tooltip'
 
 export type DropdownContextProps = {
   mode: 'switch' | 'nest'
@@ -9,7 +9,7 @@ export type DropdownContextProps = {
    * Dropdown collapsed menu visible
    */
   collapsedVisible?: boolean
-  collapsedTrigger?: ToolTipProps['trigger']
+  collapsedTrigger?: Trigger
   /**
    * Control dropdown collapsed menu visible
    */

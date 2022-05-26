@@ -40,6 +40,11 @@ const space = {
   '3_5': '0.875rem',
   '4_5': '1.125rem',
   '5_5': '1.375rem',
+  '1-2': '50%',
+  '1-5': '20%',
+  '2-5': '40%',
+  '3-5': '60%',
+  '4-5': '80%',
 } as const
 
 const getTransition = (propertyValues: string[]) => {
@@ -124,6 +129,24 @@ const stitches = createStitches({
       min: 'min-content',
       max: 'max-content',
       fit: 'fit-content',
+      // width only
+      xs: '20rem',
+      sm: '24rem',
+      md: '28rem',
+      lg: '32rem',
+      xl: '36rem',
+      '2xl': '42rem',
+      '3xl': '48rem',
+      '4xl': '56rem',
+      '5xl': '64rem',
+      '6xl': '72rem',
+      '7xl': '80rem',
+      prose: '65ch',
+      screenSM: '640px',
+      screenMD: '768px',
+      screenLG: '1024px',
+      screenXL: '1280px',
+      screen2XL: '1536px',
     },
     fontSizes: {
       xs: '0.75rem',
@@ -171,6 +194,7 @@ const stitches = createStitches({
       loose: '2',
     },
     fonts: {
+      // TODO: remove default
       default: '"SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif',
       sans: 'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
       serif: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',

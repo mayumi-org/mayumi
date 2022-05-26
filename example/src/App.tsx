@@ -1,23 +1,26 @@
 import React from 'react'
 import './App.css'
-import { globalStyles } from 'mayumi/preflight'
+import { ThemeProvider } from 'mayumi/theme'
+import { Separator } from 'mayumi/separator'
 
 function App() {
-  globalStyles()
   return (
-    <div
-      style={{
-        height: '100vh',
-        width: '100vw',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '12px',
-        backgroundColor: '#1d1d1d',
-      }}
-    >
-      <h1>Mayumi</h1>
-    </div>
+    <ThemeProvider>
+      <div
+        style={{
+          height: '100vh',
+          width: '100vw',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '12px',
+          backgroundColor: '#1d1d1d',
+        }}
+      >
+        <h1>Mayumi</h1>
+        <Separator css={{ padding: '-$2' }} />
+      </div>
+    </ThemeProvider>
   )
 }
 

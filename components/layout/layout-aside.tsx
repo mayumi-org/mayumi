@@ -30,11 +30,16 @@ export const LayoutAside = ({ children, ...props }: LayoutAsideProps) => {
   })
   const [contentRef, { width }, forceUpdate] = useMeasure()
   useEffect(() => {
-    if (!contentRef || !width) {
-      return
+    if (width) {
+      forceUpdate()
+      // only save max-width, toggle between max-width and 0
+      setW((prev) => {
+        if (prev) {
+          return prev
+        }
+        return width
+      })
     }
-    forceUpdate()
-    setW(width)
   }, [forceUpdate, width, contentRef])
   useChain(props.open ? [widthRef, opacityRef] : [opacityRef, widthRef], [0, 0.2])
   return (

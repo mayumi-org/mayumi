@@ -11,8 +11,13 @@ export type SeparatorProps = {
   css?: CSS
 }
 
-export const Separator = ({ type = 'horizontal', ...props }: SeparatorProps) => {
+export const Separator = ({ type = 'horizontal', css, ...props }: SeparatorProps) => {
   return (
-    <StyledSeparator className={cx('mayumi-separator', props.className)} type={type} {...props} />
+    <StyledSeparator
+      className={cx('mayumi-separator', props.className)}
+      type={type}
+      css={css}
+      {...props}
+    />
   )
 }

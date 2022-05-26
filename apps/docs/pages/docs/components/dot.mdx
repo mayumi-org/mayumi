@@ -1,0 +1,23 @@
+import { Dot } from 'mayumi/button'
+import { Playground } from '@/components/playground'
+import { Layout } from '@/components/layouts'
+
+# Dot
+
+Dot is used to display status.
+
+## Default
+
+<Playground code={`<Dot />`} />
+
+## Type
+
+Change dot color with property `type`.
+
+<Playground code={`<Dot type="success" />`} />
+
+export default ({ children }) => (
+  <Layout>
+    {children}
+  </Layout>
+);

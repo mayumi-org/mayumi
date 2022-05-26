@@ -44,7 +44,7 @@ const LiveCodeEditor = styled(LiveEditor, {
   roundedB: '$md',
   textAlign: 'left',
   overflow: 'auto',
-  fonts: '$mono',
+  fontFamily: '$mono',
 })
 
 export const Playground = ({ code, className, manual, ...props }: CodeBlockProps) => {

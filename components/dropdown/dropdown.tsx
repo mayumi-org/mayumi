@@ -5,6 +5,7 @@ import { Tooltip, ToolTipProps } from '@/tooltip'
 import type { CSS } from '@/theme/config'
 
 import { DropdownContext, defaultValue, DropdownContextProps } from './dropdown-context'
+import { Trigger } from '@/tooltip/tooltip'
 
 export type DropdownProps = {
   /**
@@ -61,7 +62,7 @@ export const Dropdown = ({
         collapsedVisible,
         onChangeCollapsedVisible: setCollapsedVisible,
         glassmorphism: props.glassmorphism,
-        collapsedTrigger,
+        collapsedTrigger: collapsedTrigger as Trigger,
       }}
     >
       <Tooltip
@@ -69,7 +70,6 @@ export const Dropdown = ({
         visible={controlledVisible}
         placement={placement}
         onVisibleChange={setVisible}
-        getPopupContainer={props.getPopupContainer}
         trigger={trigger}
         animation="opacity"
         glassmorphism={props.glassmorphism}
