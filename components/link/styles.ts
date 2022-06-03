@@ -7,8 +7,25 @@ export const StyledLink = styled('a', {
   lineHeight: 'inherit',
   textDecoration: 'none',
   width: 'fitContent',
-  '&:hover': {
-    opacity: 0.8,
-  },
+  cursor: 'pointer',
   transition: '$all',
+  variants: {
+    animation: {
+      light: {
+        '&:hover': {
+          opacity: 0.8,
+        },
+        transition: '$all',
+      },
+      reverse: {
+        '&:hover': {
+          color: '$white',
+        },
+        transition: '$colors',
+      },
+    },
+  },
+  defaultVariants: {
+    animation: 'light',
+  },
 })
