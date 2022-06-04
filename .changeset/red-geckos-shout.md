@@ -1,5 +1,0 @@
----
-"mayumi": patch
----
-
-upgrade stitches
