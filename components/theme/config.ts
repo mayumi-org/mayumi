@@ -425,6 +425,23 @@ const stitches = createStitches({
       backdropFilter: `blur(${value})`,
       '-webkit-backdrop-filter': `blur(${value})`,
     }),
+    aspect: (value: 'video' | 'square' | string) => {
+      let _value = 'auto'
+      switch (value) {
+        case 'video':
+          _value = '16 / 9'
+          break
+        case 'square':
+          _value = '1 / 1'
+          break
+        default:
+          _value = value
+          break
+      }
+      return {
+        aspectRatio: _value,
+      }
+    },
   },
   themeMap: defaultThemeMap,
 })
