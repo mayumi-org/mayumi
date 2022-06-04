@@ -1,7 +1,7 @@
 import { Dropdown as InnerDropdown } from './dropdown'
 import { DropdownMenuItem, DropdownMenu } from './dropdown-menu'
 import { SubMenu } from '@/menu/menu-submenu'
-export { DropdownProps } from './dropdown'
+export type { DropdownProps } from './dropdown'
 
 type _InnerDropdownMenu = typeof InnerDropdown
 

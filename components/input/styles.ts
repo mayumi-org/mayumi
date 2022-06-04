@@ -54,5 +54,11 @@ export const StyledInput = styled('div', {
         },
       },
     },
+    ghost: {
+      true: {
+        border: 'none',
+        backgroundColor: 'transparent',
+      },
+    },
   },
 })
