@@ -188,10 +188,10 @@
   },
   "scripts": {
     "build": "rimraf dist && rollup -c --silent",
-    "build:docs": "pnpm build --filter=./apps/docs",
+    "build:docs": "pnpm --filter=./apps/docs build",
     "dev": "rollup -c -w --silent",
-    "play": "pnpm dev --filter=./example",
-    "docs": "pnpm dev --filter=./apps/docs",
+    "play": "pnpm --filter=./example dev",
+    "docs": "pnpm --filter=./apps/docs dev",
     "prepare": "husky install",
     "esno": "esno",
     "test": "echo todo",
