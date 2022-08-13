@@ -271,14 +271,17 @@ const stitches = createStitches({
     },
   },
   media: {
-    sm: '640px',
-    md: '960px',
-    lg: '1024px',
-    xl: '1280px',
-    '2xl': '1536px',
-    tablet: '640px',
-    laptop: '1024px',
-    desktop: '1280px',
+    sm: '(min-width: 640px)',
+    md: '(min-width: 960px)',
+    lg: '(min-width: 1024px)',
+    xl: '(min-width: 1280px)',
+    '2xl': '(min-width: 1536px)',
+    // alias of sm
+    tablet: '(min-width: 640px)',
+    // alias of lg
+    laptop: '(min-width: 1024px)',
+    // alias of xl
+    desktop: '(min-width: 1280px)',
   },
   utils: {
     /**
