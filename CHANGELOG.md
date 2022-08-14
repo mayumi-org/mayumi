@@ -1,5 +1,11 @@
 # mayumi
 
+## 0.0.3
+
+### Patch Changes
+
+- ac5cddb: fix media query
+
 ## 0.0.2
 
 ### Patch Changes
