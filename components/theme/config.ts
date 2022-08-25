@@ -445,6 +445,29 @@ const stitches = createStitches({
         aspectRatio: _value,
       }
     },
+    transitionFn: (value: string) => {
+      let _value = 'auto'
+      switch (value) {
+        case 'linear':
+          _value = 'linear'
+          break
+        case 'ease-in':
+          _value = 'cubic-bezier(0.4, 0, 1, 1)'
+          break
+        case 'ease-out':
+          _value = 'cubic-bezier(0, 0, 0.2, 1)'
+          break
+        case 'ease-in-out':
+          _value = 'cubic-bezier(0.4, 0, 0.2, 1)'
+          break
+        default:
+          _value = value
+          break
+      }
+      return {
+        'transition-timing-function': _value,
+      }
+    },
   },
   themeMap: defaultThemeMap,
 })
