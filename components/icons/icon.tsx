@@ -6,6 +6,8 @@ import type { CSS } from '@/theme/config'
 
 export type IconProps = React.HTMLAttributes<HTMLElement> & { css?: CSS }
 
-export const Icon = (props: IconProps) => {
-  return <StyledIcon {...props} className={cx('mayumi-icon', props.className)} />
-}
+export const Icon = React.forwardRef<HTMLElement, IconProps>((props, ref) => {
+  return <StyledIcon ref={ref} {...props} className={cx('mayumi-icon', props.className)} />
+})
+
+Icon.displayName = 'Icon'

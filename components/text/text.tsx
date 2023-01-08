@@ -14,14 +14,15 @@ export type TextProps = React.HTMLAttributes<HTMLElement> & {
   h5?: boolean
   h6?: boolean
   p?: boolean
+  span?: boolean
   size?: TextSize
   weight?: FontWeight
   css?: CSS
   type?: 'secondary' | 'tertiary' | 'quaternary'
 }
 
-export const Text = ({ h1, h2, h3, h4, h5, h6, p, size, weight, ...props }: TextProps) => {
-  const elements = { h1, h2, h3, h4, h5, h6, p }
+export const Text = ({ h1, h2, h3, h4, h5, h6, p, span, size, weight, ...props }: TextProps) => {
+  const elements = { h1, h2, h3, h4, h5, h6, p, span }
   const names = Object.keys(elements).filter((name) => elements[name])
   const tag: any = names[0] || 'p'
   return (
