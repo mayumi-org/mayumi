@@ -1,5 +1,11 @@
 # mayumi
 
+## 0.0.0-beta-20230108022822
+
+### Patch Changes
+
+- c3e332e: text as span & forward icon ref
+
 ## 0.0.3
 
 ### Patch Changes
