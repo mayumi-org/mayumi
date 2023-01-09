@@ -1,5 +1,11 @@
 # mayumi
 
+## 0.0.4
+
+### Patch Changes
+
+- c54227c: text as span & forward icon ref
+
 ## 0.0.3
 
 ### Patch Changes
