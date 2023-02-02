@@ -7,7 +7,7 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "mayumi": "workspace:^0.0.4",
+    "mayumi": "workspace:*",
     "react": "^17.0.0",
     "react-dom": "^17.0.0"
   },
