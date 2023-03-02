@@ -20,7 +20,7 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   defaultValue?: string
   css?: CSS
   /**
-   * Disable default focus effect and outline
+   * Disable default focus effect and outline, transparent background
    * @default false
    */
   ghost?: boolean
@@ -31,7 +31,7 @@ const springConfig = { mass: 1, tension: 210, friction: 26, precision: 0.01, vel
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
-    { style, className, prefix, size, ghost = false, ...props },
+    { style, className, prefix, size, css, ghost = false, ...props },
     ref: React.Ref<HTMLInputElement | null>,
   ) => {
     const inputRef = useRef<HTMLInputElement>(null)
@@ -58,7 +58,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         focus={focus}
         style={style}
         className={cx('mayumi-input', className)}
-        css={props.css}
+        css={css}
         ghost={ghost}
         size={size}
       >
