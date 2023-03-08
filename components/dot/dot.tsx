@@ -8,6 +8,7 @@ export type DotProps = React.HTMLAttributes<HTMLSpanElement> & {
   className?: string
   css?: CSS
   type?: 'success' | 'warning' | 'danger' | 'info'
+  size?: 'sm' | 'md'
 }
 
 export const Dot = ({ className, ...props }: DotProps) => {

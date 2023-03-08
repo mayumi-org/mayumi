@@ -1,7 +1,12 @@
 /* debug menu */
 .Container {
   width: 800px;
-  height: 500px;
+}
+
+.bg-happyfisher {
+  filter: blur(64px);
+  background-size: 120%;
+  background-image: radial-gradient(at 71% 77%, #259BE5 0, transparent 21%), radial-gradient(at 36% 47%, #66a6ff 0, transparent 50%), radial-gradient(at 54% 29%, #66a6ff 0, transparent 28%), radial-gradient(at 45% 51%, #259BE5 0, transparent 53%), radial-gradient(at 73% 44%, #89f7fe 0, transparent 54%), radial-gradient(at 24% 7%, #89f7fe 0, transparent 40%), radial-gradient(at 75% 46%, #259BE5 0, transparent 50%)
 }
 
 .gg-search {
