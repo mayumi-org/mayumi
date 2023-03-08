@@ -1,7 +1,32 @@
 import React from 'react'
 import './App.css'
-import { ThemeProvider } from 'mayumi/theme'
-import { Separator } from 'mayumi/separator'
+import { ThemeProvider, styled } from 'mayumi/theme'
+import * as AspectRatio from '@radix-ui/react-aspect-ratio'
+import { Menu } from 'mayumi/menu'
+import { Box } from 'mayumi/box'
+
+const FrameDemo = () => (
+  <div className="Container">
+    <AspectRatio.Root ratio={16 / 9}>
+      <Box>
+        <Menu size="md" ghost={true}>
+          <Menu.SubMenu title="Actions">
+            <Menu.Item itemKey="button">Button</Menu.Item>
+            <Menu.Item itemKey="input">Input</Menu.Item>
+            <Menu.Item itemKey="tooltip">Tooltip</Menu.Item>
+            <Menu.Item itemKey="dropdown">Dropdown</Menu.Item>
+          </Menu.SubMenu>
+          <Menu.SubMenu title="Display">
+            <Menu.Item itemKey="avatar">Avatar</Menu.Item>
+            <Menu.Item itemKey="box">Box</Menu.Item>
+            <Menu.Item itemKey="description">Description</Menu.Item>
+            <Menu.Item itemKey="separator">Separator</Menu.Item>
+          </Menu.SubMenu>
+        </Menu>
+      </Box>
+    </AspectRatio.Root>
+  </div>
+)
 
 function App() {
   return (
@@ -17,8 +42,7 @@ function App() {
           backgroundColor: '#1d1d1d',
         }}
       >
-        <h1>Mayumi</h1>
-        <Separator css={{ padding: '-$2' }} />
+        <FrameDemo />
       </div>
     </ThemeProvider>
   )
