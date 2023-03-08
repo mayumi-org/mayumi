@@ -57,7 +57,7 @@ const stitches = createStitches({
     colors: {
       // macos dev color palette - system main color
       blue: '#106bff',
-      read: '#fc2b2d',
+      red: '#fc2b2d',
       yellow: '#fecf0f',
       green: '#30d33b',
       gray: 'rgb(152,152,157)',
