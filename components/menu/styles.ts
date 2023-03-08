@@ -7,9 +7,10 @@ export const StyledMenu = styled(animated.div, {
   p: '$3',
   '& p.mayumi-menu-subtitle': {
     py: '$1',
+    px: '$2',
     text: '$xs',
     fontWeight: '$bold',
-    color: '$highlightColor',
+    color: '$disabledControlTextColor',
   },
   // TODO: check color
   '& ul.mayumi-menu-submenu-content': {
@@ -73,12 +74,12 @@ export const StyledMenu = styled(animated.div, {
       sm: {
         '& li.mayumi-menu-item': {
           my: '$0_5',
-          rounded: '$default',
+          rounded: '$sm',
         },
       },
       md: {
         '& li.mayumi-menu-item': {
-          rounded: '$default',
+          rounded: '$md',
           py: '$1',
           my: '$0_5',
         },

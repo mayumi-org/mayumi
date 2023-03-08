@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useSpring, useSpringRef, useChain, animated, config } from '@react-spring/web'
 import useMeasure from 'react-use-measure'
 import { StyledAside } from './styles'
@@ -9,6 +9,7 @@ import type { CSS } from '@/theme/config'
 type LayoutAsideProps = React.HTMLAttributes<HTMLElement> & {
   open?: boolean
   css?: CSS
+  width?: number
 }
 
 export const LayoutAside = ({ children, ...props }: LayoutAsideProps) => {
@@ -29,18 +30,21 @@ export const LayoutAside = ({ children, ...props }: LayoutAsideProps) => {
     ref: widthRef,
   })
   const [contentRef, { width }, forceUpdate] = useMeasure()
+  const resolvedWidth = useMemo(() => {
+    return props.width ?? width
+  }, [props.width, width])
   useEffect(() => {
-    if (width) {
+    if (resolvedWidth) {
       forceUpdate()
       // only save max-width, toggle between max-width and 0
       setW((prev) => {
         if (prev) {
           return prev
         }
-        return width
+        return resolvedWidth
       })
     }
-  }, [forceUpdate, width, contentRef])
+  }, [forceUpdate, resolvedWidth, contentRef])
   useChain(props.open ? [widthRef, opacityRef] : [opacityRef, widthRef], [0, 0.2])
   return (
     <StyledAside

@@ -31,13 +31,10 @@ export const StyledInput = styled('div', {
     outline: 'none',
     w: '$full',
     boxSizing: 'border-box',
-    leading: '$4',
     textIndent: '$1',
   },
   '& .mayumi-input-icon': {
     flexBox: 'center',
-    w: '$4',
-    h: '$4',
     mr: '$1',
     color: '$placeholderTextColor',
     '--ggs': 0.75,
@@ -46,6 +43,28 @@ export const StyledInput = styled('div', {
     },
   },
   variants: {
+    size: {
+      sm: {
+        '& .mayumi-input-icon': {
+          w: '$3',
+          h: '$3',
+        },
+        '& input': {
+          leading: '$3',
+          h: '$3',
+        },
+      },
+      md: {
+        '& .mayumi-input-icon': {
+          w: '$4',
+          h: '$4',
+        },
+        '& input': {
+          leading: '$4',
+          h: '$4',
+        },
+      },
+    },
     focus: {
       true: {
         borderColor: 'transparent',
@@ -60,5 +79,8 @@ export const StyledInput = styled('div', {
         backgroundColor: 'transparent',
       },
     },
+  },
+  defaultVariants: {
+    size: 'md',
   },
 })
