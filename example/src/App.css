@@ -15,7 +15,6 @@
 .Container {
   width: 800px;
   border-radius: 6px;
-  overflow: hidden;
   box-shadow: 0 2px 10px var(--blackA7);
 }
 
@@ -68,24 +67,23 @@ button {
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(var(--ggs,1));
-  width: 16px;
-  height: 16px;
-  border: 2px solid;
+  width: calc(16px * var(--ggs,1));
+  height: calc(16px * var(--ggs,1));
+  border: calc(2px * var(--ggs,1)) solid;
   border-radius: 100%;
-  margin-left: -4px;
-  margin-top: -4px
+  margin-left: -calc(4px * var(--ggs,1));
+  margin-top: -calc(4px * var(--ggs,1));
 }
 .gg-search::after {
   content: "";
   display: block;
   box-sizing: border-box;
   position: absolute;
-  border-radius: 3px;
-  width: 2px;
-  height: 8px;
+  border-radius: calc(3px * var(--ggs,1));;
+  width: calc(2px * var(--ggs,1));;
+  height: calc(8px * var(--ggs,1));
   background: currentColor;
   transform: rotate(-45deg);
-  top: 10px;
-  left: 12px
+  top: calc(10px * var(--ggs,1));
+  left: calc(12px * var(--ggs,1));
 }
