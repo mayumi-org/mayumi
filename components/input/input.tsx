@@ -24,13 +24,14 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
    * @default false
    */
   ghost?: boolean
+  size?: 'sm' | 'md'
 }
 
 const springConfig = { mass: 1, tension: 210, friction: 26, precision: 0.01, velocity: 0 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
-    { style, className, prefix, ghost = false, ...props },
+    { style, className, prefix, size, ghost = false, ...props },
     ref: React.Ref<HTMLInputElement | null>,
   ) => {
     const inputRef = useRef<HTMLInputElement>(null)
@@ -59,6 +60,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         className={cx('mayumi-input', className)}
         css={props.css}
         ghost={ghost}
+        size={size}
       >
         {prefix && <span className="mayumi-input-icon">{prefix}</span>}
         {!ghost && <animated.div className="mayumi-input-effect" style={styles as any} />}

@@ -6,6 +6,7 @@ import { Menu } from 'mayumi/menu'
 import { Dot } from 'mayumi/dot'
 import { Text } from 'mayumi/text'
 import { Layout } from 'mayumi/layout'
+import { Input } from 'mayumi/input'
 
 const FrameDemo = () => (
   <div className="Container rounded-xl overflow-hidden shadow-xl bg-slate-900">
@@ -20,8 +21,11 @@ const FrameDemo = () => (
       </div>
       {/* non-transparent box will make menu hover style wired */}
       <Layout>
-        <Layout.Aside open={true}>
-          <Menu size="md" ghost={true} css={{ minWidth: '150px' }}>
+        <Layout.Aside open={true} className="box-border">
+          <div className="w-full box-border p-4">
+            <Input size="sm" />
+          </div>
+          <Menu size="md" ghost={true} css={{ minWidth: '150px', pt: '$0' }}>
             <Menu.SubMenu title="Actions">
               <Menu.Item itemKey="button">
                 <i
