@@ -21,8 +21,8 @@ const FrameDemo = () => (
       </div>
       {/* non-transparent box will make menu hover style wired */}
       <Layout>
-        <Layout.Aside open={true} className="box-border">
-          <div className="w-full box-border p-4">
+        <Layout.Aside open={true} width={200} className="box-border">
+          <div className="w-full box-border p-4 pb-2">
             <Input size="sm" />
           </div>
           <Menu size="md" ghost={true} css={{ minWidth: '150px', pt: '$0' }}>
