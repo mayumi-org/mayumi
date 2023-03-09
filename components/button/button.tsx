@@ -3,8 +3,7 @@ import cx from 'clsx'
 
 import { StyledButton } from './styles'
 import type { CSS } from '@/theme/config'
-
-export type ButtonProps = {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   color?: 'primary' | 'gray'
