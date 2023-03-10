@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import cx from 'clsx'
 
-import { StyledButton } from './styles'
+import { StyledButton, button } from './styles'
 import type { CSS } from '@/theme/config'
 
 export type ButtonProps = {
@@ -28,11 +28,17 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         onClick={handleClick}
         color={props.color}
-        size={props.size}
-        disabled={props.disabled}
-        className={cx('mayumi-button', props.className, {
-          'mayumi-button__enabled': !props.disabled,
-        })}
+        className={cx(
+          'mayumi-button',
+          props.className,
+          button({
+            disabled: props.disabled,
+            size: props.size,
+          }),
+          {
+            'mayumi-button__enabled': !props.disabled,
+          },
+        )}
         {...props}
       >
         {props.children}
