@@ -1,38 +1,46 @@
 import { styled } from '@/theme/config'
+import { tv } from 'tailwind-variants'
+
+export const input = tv({
+  slots: {
+    base: 'outline-none relative w-full border-box inline-flex items-center justify-start overflow-visible rounded-md p-2 text-sm',
+    input:
+      'appearance-none border-none bg-transparent outline-none w-full box-border indent-1 rounded-md',
+    effect:
+      'absolute top-0 left-0 w-full h-full rounded-md pointer-events-none transform-origin-center',
+  },
+  variants: {
+    light: {
+      true: {
+        base: 'outline-none outline-[0px]',
+      },
+    },
+    focus: {
+      true: {
+        base: 'outline-none outline-[0px] border-none',
+      },
+    },
+    ghost: {
+      true: 'border-none bg-transparent',
+    },
+  },
+  compoundVariants: [
+    {
+      light: true,
+      focus: true,
+      class: 'focus:outline outline-4 outline-offset-[0px] outline-mayumi-primary-800',
+    },
+  ],
+  defaultVariants: {
+    light: false,
+    focus: false,
+  },
+})
 
 export const StyledInput = styled('div', {
-  position: 'relative',
-  w: '$full',
-  boxSizing: 'border-box',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'start',
-  overflow: 'visible',
-  rounded: '$md',
-  p: '$2',
   color: '$textColor',
-  text: '$sm',
   border: '1px solid $quaternaryLabelColor',
   backgroundColor: '$windowBackgroundColor',
-  '& .mayumi-input-effect': {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    w: '$full',
-    h: '$full',
-    rounded: '$md',
-    pointerEvents: 'none',
-    transformOrigin: 'center',
-  },
-  '& input': {
-    appearance: 'none',
-    border: 'none',
-    backgroundColor: 'transparent',
-    outline: 'none',
-    w: '$full',
-    boxSizing: 'border-box',
-    textIndent: '$1',
-  },
   '& .mayumi-input-icon': {
     flexBox: 'center',
     mr: '$1',
@@ -41,6 +49,9 @@ export const StyledInput = styled('div', {
     '& i': {
       color: '$placeholderTextColor',
     },
+  },
+  '& input': {
+    backgroundColor: '$windowBackgroundColor',
   },
   variants: {
     size: {
@@ -67,16 +78,9 @@ export const StyledInput = styled('div', {
     },
     focus: {
       true: {
-        borderColor: 'transparent',
         '& .mayumi-input-effect': {
           boxShadow: '$focus',
         },
-      },
-    },
-    ghost: {
-      true: {
-        border: 'none',
-        backgroundColor: 'transparent',
       },
     },
   },

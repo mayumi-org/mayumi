@@ -2,6 +2,16 @@ import { createStitches, defaultThemeMap } from '@stitches/react'
 import type * as Stitches from '@stitches/react'
 import { rgba, cssVar } from 'polished'
 
+// refs: https://github.com/shuding/nextra/blob/main/packages/nextra-theme-docs/tailwind.config.js
+const makePrimaryColor =
+  (l: number) =>
+  ({ opacityValue }: { opacityValue?: number }) => {
+    if (opacityValue === undefined) {
+      return `hsl(204deg 100% ${l}%)`
+    }
+    return `hsl(204deg 100% ${l}% / ${opacityValue})`
+  }
+
 const space = {
   '0': '0px',
   '1': '0.25rem',
@@ -103,6 +113,17 @@ const stitches = createStitches({
       highlightColor: '#b4b4b4',
       shadowColor: '$black',
 
+      primary50: makePrimaryColor(97)({ opacityValue: 1 }),
+      primary100: makePrimaryColor(94)({ opacityValue: 1 }),
+      primary200: makePrimaryColor(86)({ opacityValue: 1 }),
+      primary300: makePrimaryColor(77)({ opacityValue: 1 }),
+      primary400: makePrimaryColor(66)({ opacityValue: 1 }),
+      primary500: makePrimaryColor(50)({ opacityValue: 1 }),
+      primary600: makePrimaryColor(45)({ opacityValue: 1 }),
+      primary700: makePrimaryColor(39)({ opacityValue: 1 }),
+      primary750: makePrimaryColor(35)({ opacityValue: 1 }),
+      primary800: makePrimaryColor(32)({ opacityValue: 1 }),
+      primary900: makePrimaryColor(24)({ opacityValue: 1 }),
       // rename
       primary: '$blue',
       danger: '$red',
@@ -239,7 +260,7 @@ const stitches = createStitches({
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       none: 'none',
       outline: '0px 0px 0px 1px $colors$shadowColor',
-      focus: '0px 0px 0px 4px $colors$selectedControlColor',
+      focus: '0px 0px 0px 4px $colors$primary800',
     },
     transitions: {
       default: getTransition([

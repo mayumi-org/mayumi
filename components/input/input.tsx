@@ -3,7 +3,7 @@ import { animated, useSpring } from '@react-spring/web'
 import cx from 'clsx'
 
 import { useOnClickOutside } from '@/hooks'
-import { StyledInput } from './styles'
+import { input, StyledInput } from './styles'
 import type { CSS } from '@/theme/config'
 
 export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
@@ -24,6 +24,11 @@ export type InputProps = React.InputHTMLAttributes<HTMLInputElement> & {
    * @default false
    */
   ghost?: boolean
+  /**
+   * Disable focuse effect animation
+   * @default false
+   */
+  light?: boolean
   size?: 'sm' | 'md'
 }
 
@@ -31,7 +36,7 @@ const springConfig = { mass: 1, tension: 210, friction: 26, precision: 0.01, vel
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
-    { style, className, prefix, size, css, ghost = false, ...props },
+    { style, className, prefix, size, css, ghost = false, light = false, ...props },
     ref: React.Ref<HTMLInputElement | null>,
   ) => {
     const inputRef = useRef<HTMLInputElement>(null)
@@ -53,23 +58,26 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       config: springConfig,
     })
     useOnClickOutside(inputRef, () => setFocus(false))
+    const { base, effect, input: _input } = input({ focus, light, ghost })
     return (
       <StyledInput
         focus={focus}
         style={style}
-        className={cx('mayumi-input', className)}
+        className={cx('mayumi-input', base(), className)}
         css={css}
-        ghost={ghost}
         size={size}
       >
         {prefix && <span className="mayumi-input-icon">{prefix}</span>}
-        {!ghost && <animated.div className="mayumi-input-effect" style={styles as any} />}
+        {!ghost && !light && (
+          <animated.div className={cx('mayumi-input-effect', effect())} style={styles as any} />
+        )}
         <input
           {...props}
           value={controlledValue}
           onFocus={() => {
             setFocus(true)
           }}
+          className={_input()}
           ref={inputRef}
           onChange={handleChange}
         />

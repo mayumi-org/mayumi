@@ -27,8 +27,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         onClick={handleClick}
         color={props.color}
-        size={props.size}
         disabled={props.disabled}
+        size={props.size}
         className={cx('mayumi-button', props.className, {
           'mayumi-button__enabled': !props.disabled,
         })}
