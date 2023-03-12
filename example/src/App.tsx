@@ -167,18 +167,22 @@ const SelectDemo = () => (
 function App() {
   return (
     // <ThemeProvider>
-    <div className="w-screen h-screen flex justify-center items-center gap-3 bg-slate-900 relative">
+    <div className="w-screen h-[200vh] flex justify-center items-center gap-3 bg-slate-900 relative">
       <div className="bg-happyfisher w-full h-full absolute top-0 left-0 -z-1" />
-      <div className="w-full h-full grid grid-cols-2 grid-rows-2 absolute top-0 left-0 z-10">
+      <div className="w-full h-full grid grid-cols-2 grid-rows-4 absolute top-0 left-0 z-10">
         <div className="row-start-1 row-end-2 flex justify-center items-center">
           <FrameDemo />
         </div>
-        <div className="row-start-1 row-end-2 flex justify-center items-center bg-black">
+        <div className="row-start-1 row-end-2 flex flex-col gap-2 justify-center items-center">
           {/* <DropdownDemo /> */}
           {/* <SelectDemo /> */}
           {/* <Button>button</Button> */}
           {/* <Input size="md" css={{ width: '200px' }} /> */}
           <Input size="md" css={{ width: '200px' }} light={true} />
+          <Input size="md" css={{ width: '200px' }} />
+        </div>
+        <div className="row-start-2 row-end-3 flex flex-col gap-2 justify-center items-center">
+          <Button>Click me!</Button>
         </div>
       </div>
     </div>

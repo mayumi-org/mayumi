@@ -17,7 +17,7 @@ export const input = tv({
     },
     focus: {
       true: {
-        base: 'outline-none outline-[0px] border-none',
+        base: 'outline-none outline-[0px] border-transparent',
       },
     },
     ghost: {
@@ -28,7 +28,7 @@ export const input = tv({
     {
       light: true,
       focus: true,
-      class: 'focus:outline outline-4 outline-offset-[0px] outline-mayumi-primary-800',
+      class: 'focus:ring ring-4 ring-offset-[0px] ring-mayumi-primary-800',
     },
   ],
   defaultVariants: {
