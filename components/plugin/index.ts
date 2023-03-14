@@ -17,9 +17,9 @@ const makePrimaryColor =
 
 // as any, skip wrong type refs in pnpm
 export const mayumi = plugin(
-  (props) => {
+  () => {
     // props.config('content.files', ['./node_modules/mayumi/dist/**/*.{js,cjs,mjs}'])
-    console.log(props.config('content.files', ['./node_modules/mayumi/dist/**/*.{js,cjs,mjs}']))
+    // console.log(props.config('content.files', ['./node_modules/mayumi/dist/**/*.{js,cjs,mjs}']))
   },
   {
     theme: {
@@ -38,6 +38,7 @@ export const mayumi = plugin(
             800: makePrimaryColor(32),
             900: makePrimaryColor(24),
           },
+          'mayumi-window-background-color': '#262626',
         },
       },
     },

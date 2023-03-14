@@ -9,6 +9,7 @@ import { Layout } from 'mayumi/layout'
 import { Dropdown } from 'mayumi/dropdown'
 import { Input } from 'mayumi/input'
 import { Button } from 'mayumi/button'
+import { Box } from 'mayumi/box'
 import * as Select from '@radix-ui/react-select'
 import classnames from 'clsx'
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from '@radix-ui/react-icons'
@@ -168,18 +169,23 @@ function App() {
   return (
     // <ThemeProvider>
     <div className="w-screen h-[200vh] flex justify-center items-center gap-3 bg-slate-900 relative">
-      <div className="bg-happyfisher w-full h-full absolute top-0 left-0 -z-1" />
+      <div className="bg-black w-full h-full absolute top-0 left-0 -z-1" />
       <div className="w-full h-full grid grid-cols-2 grid-rows-4 absolute top-0 left-0 z-10">
-        <div className="row-start-1 row-end-2 flex justify-center items-center">
+        <div className="row-start-1 row-end-2 flex justify-center items-center p-8">
           <FrameDemo />
         </div>
-        <div className="row-start-1 row-end-2 flex flex-col gap-2 justify-center items-center">
+        <div className="row-start-1 row-end-2 p-8">
           {/* <DropdownDemo /> */}
           {/* <SelectDemo /> */}
           {/* <Button>button</Button> */}
           {/* <Input size="md" css={{ width: '200px' }} /> */}
-          <Input size="md" css={{ width: '200px' }} light={true} />
-          <Input size="md" css={{ width: '200px' }} />
+          <Box
+            bordered={false}
+            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-[#1e1e1e] rounded-3xl"
+          >
+            <Input size="md" css={{ width: '200px' }} light={true} />
+            <Input size="md" css={{ width: '200px' }} />
+          </Box>
         </div>
         <div className="row-start-2 row-end-3 flex flex-col gap-2 justify-center items-center">
           <Button>Click me!</Button>

@@ -1,30 +1,27 @@
 import { styled } from '@/theme/config'
 import { animated } from '@react-spring/web'
+import { tv } from 'tailwind-variants'
 
-export const StyledBox = styled(animated.div, {
-  rounded: '$md',
-  overflow: 'hidden',
-  backgroundColor: '$windowBackgroundColor',
-  flexBox: 'center',
-  color: '$textColor',
-  px: '$2',
-  py: '$2',
+export const box = tv({
+  base: 'rounded-md overflow-hidden flex p-2 bg-mayumi-window-background-color',
   variants: {
-    transparent: {
-      true: {
-        backgroundColor: 'transparent',
-      },
-    },
     bordered: {
-      true: {
-        boxShadow: '$outline',
-        borderStyle: 'solid',
-        borderColor: '$quaternaryLabelColor',
-        borderWidth: '$px',
-      },
+      true: 'ring-1 ring-black',
+      false: 'ring-0 ring-transparent',
+    },
+    transparent: {
+      true: 'bg-transparent',
     },
   },
   defaultVariants: {
-    bordered: 'true',
+    bordered: true,
   },
+})
+
+export const StyledBox = styled(animated.div, {
+  flexBox: 'center',
+  color: '$textColor',
+  borderStyle: 'solid',
+  borderColor: '$quaternaryLabelColor',
+  borderWidth: '$px',
 })

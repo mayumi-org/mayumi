@@ -1,4 +1,3 @@
-console.log(require('mayumi/plugin'))
 const { mayumi, patterns } = require('mayumi/plugin')
 
 /** @type {import('tailwindcss').Config} */
