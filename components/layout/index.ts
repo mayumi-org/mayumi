@@ -2,6 +2,7 @@ import { Layout as _Layout } from './layout'
 import { LayoutAside } from './layout-aside'
 import { LayoutMain } from './layout-main'
 import { LayoutNavigate } from './layout-navigate'
+export { Toolbar, ToolbarToggleGroup, ToolbarToggleItem } from './layout-toolbar'
 export type { LayoutProps } from './layout'
 
 type InnerLayout = typeof _Layout

@@ -85,6 +85,7 @@ const stitches = createStitches({
       textColor: '$white',
       textBackgroundColor: '#1d1d1d',
       linkColor: '#3586ff',
+      // For placeholder text & with $unemphasizedSelectedContentBackgroundColor
       placeholderTextColor: '$tertiaryLabelColor',
       selectedTextColor: '$white',
       selectedTextBackgroundColor: '#314f78',
@@ -92,6 +93,7 @@ const stitches = createStitches({
       unemphasizedSelectedTextColor: '$white',
       unemphasizedSelectedTextBackgroundColor: '#363636',
       separatorColor: '$quaternaryLabelColor',
+      // For hover and selected item background color
       unemphasizedSelectedContentBackgroundColor: '$unemphasizedSelectedTextBackgroundColor',
       selectedMenuItemTextColor: '$white',
       gridColor: '#141414',
