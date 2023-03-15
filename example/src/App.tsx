@@ -168,7 +168,7 @@ const SelectDemo = () => (
 function App() {
   return (
     // <ThemeProvider>
-    <div className="w-screen h-[200vh] flex justify-center items-center gap-3 bg-slate-900 relative">
+    <div className="w-screen h-[200vh] flex justify-center items-center gap-3 relative">
       <div className="bg-black w-full h-full absolute top-0 left-0 -z-1" />
       <div className="w-full h-full grid grid-cols-2 grid-rows-4 absolute top-0 left-0 z-10">
         <div className="row-start-1 row-end-2 flex justify-center items-center p-8">
@@ -190,7 +190,7 @@ function App() {
         <div className="row-start-2 row-end-3 p-8">
           <Box
             bordered={false}
-            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-[#1e1e1e] bg-black rounded-3xl"
+            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-black rounded-3xl"
           >
             <Button size="md">Click me!</Button>
             <Button color="gray" size="md">Click me!</Button>

@@ -2,16 +2,6 @@ import { createStitches, defaultThemeMap } from '@stitches/react'
 import type * as Stitches from '@stitches/react'
 import { rgba, cssVar } from 'polished'
 
-// refs: https://github.com/shuding/nextra/blob/main/packages/nextra-theme-docs/tailwind.config.js
-const makePrimaryColor =
-  (l: number) =>
-  ({ opacityValue }: { opacityValue?: number }) => {
-    if (opacityValue === undefined) {
-      return `hsl(204deg 100% ${l}%)`
-    }
-    return `hsl(204deg 100% ${l}% / ${opacityValue})`
-  }
-
 const space = {
   '0': '0px',
   '1': '0.25rem',
@@ -60,72 +50,127 @@ const space = {
 const getTransition = (propertyValues: string[]) => {
   return propertyValues.map((p) => `${p} cubic-bezier(0.4, 0, 0.2, 1) 150ms`).join(',')
 }
+export const blue = {
+  100: ({ opacityValue }: { opacityValue?: number }) => `hsla(212, 35.0%, 9.2%, ${opacityValue})`,
+  200: ({ opacityValue }: { opacityValue?: number }) => `hsla(216, 50.0%, 11.8%, ${opacityValue})`,
+  300: ({ opacityValue }: { opacityValue?: number }) => `hsla(214, 59.4%, 15.3%, ${opacityValue})`,
+  400: ({ opacityValue }: { opacityValue?: number }) => `hsla(214, 65.8%, 17.9%, ${opacityValue})`,
+  500: ({ opacityValue }: { opacityValue?: number }) => `hsla(213, 71.2%, 20.2%, ${opacityValue})`,
+  600: ({ opacityValue }: { opacityValue?: number }) => `hsla(212, 77.4%, 23.1%, ${opacityValue})`,
+  700: ({ opacityValue }: { opacityValue?: number }) => `hsla(211, 85.1%, 27.4%, ${opacityValue})`,
+  800: ({ opacityValue }: { opacityValue?: number }) => `hsla(211, 89.7%, 34.1%, ${opacityValue})`,
+  900: ({ opacityValue }: { opacityValue?: number }) => `hsla(206, 100%, 50.0%, ${opacityValue})`,
+  1000: ({ opacityValue }: { opacityValue?: number }) => `hsla(209, 100%, 60.6%, ${opacityValue})`,
+  1100: ({ opacityValue }: { opacityValue?: number }) => `hsla(210, 100%, 66.1%, ${opacityValue})`,
+  1200: ({ opacityValue }: { opacityValue?: number }) => `hsla(210, 100%, 66.1%, ${opacityValue})`,
+}
+export const gray = {
+  100: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 8.5%, ${opacityValue})`,
+  200: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 11.0%, ${opacityValue})`,
+  300: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 13.6%, ${opacityValue})`,
+  400: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 15.8%, ${opacityValue})`,
+  500: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 17.9%, ${opacityValue})`,
+  600: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 20.5%, ${opacityValue})`,
+  700: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 24.3%, ${opacityValue})`,
+  800: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 31.2%, ${opacityValue})`,
+  900: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 43.9%, ${opacityValue})`,
+  1000: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 49.4%, ${opacityValue})`,
+  1100: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 62.8%, ${opacityValue})`,
+  1200: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 93.0%, ${opacityValue})`,
+}
 
 const stitches = createStitches({
   prefix: 'mayumi',
   theme: {
     colors: {
+      // refs: https://www.radix-ui.com/docs/colors/palette-composition/the-scales#colors
+      // scale refs: https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale
+      blue100: blue[100]({ opacityValue: 1 }),
+      blue200: blue[200]({ opacityValue: 1 }),
+      blue300: blue[300]({ opacityValue: 1 }),
+      blue400: blue[400]({ opacityValue: 1 }),
+      blue500: blue[500]({ opacityValue: 1 }),
+      blue600: blue[600]({ opacityValue: 1 }),
+      blue700: blue[700]({ opacityValue: 1 }),
+      blue800: blue[800]({ opacityValue: 1 }),
+      blue900: blue[900]({ opacityValue: 1 }),
+      blue1000: blue[1000]({ opacityValue: 1 }),
+      blue1100: blue[1100]({ opacityValue: 1 }),
+      blue1200: blue[1200]({ opacityValue: 1 }),
+      gray100: gray[100]({ opacityValue: 1 }),
+      gray200: gray[200]({ opacityValue: 1 }),
+      gray300: gray[300]({ opacityValue: 1 }),
+      gray400: gray[400]({ opacityValue: 1 }),
+      gray500: gray[500]({ opacityValue: 1 }),
+      gray600: gray[600]({ opacityValue: 1 }),
+      gray700: gray[700]({ opacityValue: 1 }),
+      gray800: gray[800]({ opacityValue: 1 }),
+      gray900: gray[900]({ opacityValue: 1 }),
+      gray1000: gray[1000]({ opacityValue: 1 }),
+      gray1100: gray[1100]({ opacityValue: 1 }),
+      gray1200: gray[1200]({ opacityValue: 1 }),
       // macos dev color palette - system main color
+      // refs: https://developer.apple.com/design/human-interface-guidelines/foundations/color/
       blue: '#106bff',
       red: '#fc2b2d',
       yellow: '#fecf0f',
       green: '#30d33b',
       gray: 'rgb(152,152,157)',
       cyan: '#4cbcf2',
+      // Background --- #0
+      base: '$gray100',
+      // Background --- #1
+      elevated: '$gray200',
 
       white: 'rgb(255 255 255)',
       black: 'rgb(0 0 0)',
       current: 'currentColor',
 
       // mac dark theme color preset
+      // === Main === //
+      textColor: '$gray1200',
       labelColor: '#dddddd',
-      secondaryLabelColor: '#999999',
+      secondaryLabelColor: '$gray1100',
       tertiaryLabelColor: '#555555',
-      quaternaryLabelColor: '#333333',
-      textColor: '$white',
-      textBackgroundColor: '#1d1d1d',
+      quaternaryLabelColor: '$gray600',
+      textBackgroundColor: '$gray200',
       linkColor: '#3586ff',
       // For placeholder text & with $unemphasizedSelectedContentBackgroundColor
       placeholderTextColor: '$tertiaryLabelColor',
       selectedTextColor: '$white',
-      selectedTextBackgroundColor: '#314f78',
-      keyboardFocusIndicatorColor: '#1c96ff',
-      unemphasizedSelectedTextColor: '$white',
-      unemphasizedSelectedTextBackgroundColor: '#363636',
+      selectedTextBackgroundColor: '$blue500',
+      // Ring color
+      keyboardFocusIndicatorColor: '$blue700',
+      // Ring color
       separatorColor: '$quaternaryLabelColor',
+      // For unactive window
+      unemphasizedSelectedTextBackgroundColor: '$gray600',
       // For hover and selected item background color
       unemphasizedSelectedContentBackgroundColor: '$unemphasizedSelectedTextBackgroundColor',
-      selectedMenuItemTextColor: '$white',
-      gridColor: '#141414',
+      // === Tables === //
+      // Table grid line colors
+      gridColor: '$gray100',
+      // Table header text colors
       headerTextColor: '$white',
       alternateSelectedControlTextColor: '$white',
+      // Odd table row background color
       alternatingContentBackgroundColor0: '$textBackgroundColor',
-      alternatingContentBackgroundColor1: '#282828',
+      // Even table row background color
+      alternatingContentBackgroundColor1: '$gray400',
+      // Icon color
       controlAccentColor: '#0a60ff',
       controlColor: '$tertiaryLabelColor',
       controlBackgroundColor: '$textBackgroundColor',
       controlTextColor: '#d9d9d9',
       disabledControlTextColor: '#606060',
-      selectedControlColor: '#314f78',
+      selectedControlColor: '$blue500',
       selectedControlTextColor: '$white',
-      windowBackgroundColor: '#262626',
-      windowFrameTextColor: '$white',
-      underPageBackgroundColor: '#1e1e1e',
+      // Modal mask
+      windowBackgroundColor: '$gray400',
+      underPageBackgroundColor: '$gray200',
       findHighlightColor: '#ffff0b',
-      highlightColor: '#b4b4b4',
       shadowColor: '$black',
 
-      primary50: makePrimaryColor(97)({ opacityValue: 1 }),
-      primary100: makePrimaryColor(94)({ opacityValue: 1 }),
-      primary200: makePrimaryColor(86)({ opacityValue: 1 }),
-      primary300: makePrimaryColor(77)({ opacityValue: 1 }),
-      primary400: makePrimaryColor(66)({ opacityValue: 1 }),
-      primary500: makePrimaryColor(50)({ opacityValue: 1 }),
-      primary600: makePrimaryColor(45)({ opacityValue: 1 }),
-      primary700: makePrimaryColor(39)({ opacityValue: 1 }),
-      primary750: makePrimaryColor(35)({ opacityValue: 1 }),
-      primary800: makePrimaryColor(32)({ opacityValue: 1 }),
-      primary900: makePrimaryColor(24)({ opacityValue: 1 }),
       // rename
       primary: '$blue',
       danger: '$red',
@@ -262,7 +307,7 @@ const stitches = createStitches({
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       none: 'none',
       outline: '0px 0px 0px 1px $colors$shadowColor',
-      focus: '0px 0px 0px 4px $colors$primary800',
+      focus: '0px 0px 0px 4px $colors$blue700',
     },
     transitions: {
       default: getTransition([

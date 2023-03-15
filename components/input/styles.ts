@@ -28,7 +28,7 @@ export const input = tv({
     {
       light: true,
       focus: true,
-      class: 'focus:ring ring-4 ring-offset-[0px] ring-mayumi-primary-800',
+      class: 'focus:ring ring-4 ring-offset-[0px] ring-mayumi-primary-700',
     },
   ],
   defaultVariants: {

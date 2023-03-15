@@ -21,7 +21,6 @@ import { tv } from 'tailwind-variants'
 // background-color: hsla(0,0%,100%,.1);
 // box-shadow: inset 0 0 0 1px #343434;
 // color: hsla(0,0%,100%,.6);
-
 export const button = tv({
   base: 'cursor-pointer border-none text-center appearance-none shadow',
   variants: {
