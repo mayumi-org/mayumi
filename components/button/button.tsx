@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import cx from 'clsx'
 
-import { StyledButton } from './styles'
+import { StyledButton, button } from './styles'
 import type { CSS } from '@/theme/config'
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode
@@ -15,7 +15,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ onClick, ...props }, ref) => {
+  ({ onClick, color, disabled, size, className, ...props }, ref) => {
     const handleClick = useCallback(
       (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         onClick?.(e)
@@ -26,11 +26,11 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <StyledButton
         ref={ref}
         onClick={handleClick}
-        color={props.color}
-        disabled={props.disabled}
-        size={props.size}
-        className={cx('mayumi-button', props.className, {
-          'mayumi-button__enabled': !props.disabled,
+        color={color}
+        disabled={disabled}
+        size={size}
+        className={cx('mayumi-button', button({ color, className }), {
+          'mayumi-button__enabled': !disabled,
         })}
         {...props}
       >

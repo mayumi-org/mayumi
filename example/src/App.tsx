@@ -187,8 +187,16 @@ function App() {
             <Input size="md" css={{ width: '200px' }} />
           </Box>
         </div>
-        <div className="row-start-2 row-end-3 flex flex-col gap-2 justify-center items-center">
-          <Button>Click me!</Button>
+        <div className="row-start-2 row-end-3 p-8">
+          <Box
+            bordered={false}
+            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-[#1e1e1e] bg-black rounded-3xl"
+          >
+            <Button size="md">Click me!</Button>
+            <Button color="gray" size="md">Click me!</Button>
+            <Button size="sm">Click me!</Button>
+            <button className="gray-button">gray button</button>
+          </Box>
         </div>
       </div>
     </div>
