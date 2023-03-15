@@ -193,9 +193,10 @@ function App() {
             className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-black rounded-3xl"
           >
             <Button size="md">Click me!</Button>
-            <Button color="gray" size="md">Click me!</Button>
+            <Button color="gray" size="md">
+              Click me!
+            </Button>
             <Button size="sm">Click me!</Button>
-            <button className="gray-button">gray button</button>
           </Box>
         </div>
       </div>

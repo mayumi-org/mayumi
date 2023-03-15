@@ -62,7 +62,7 @@ export const blue = {
   900: ({ opacityValue }: { opacityValue?: number }) => `hsla(206, 100%, 50.0%, ${opacityValue})`,
   1000: ({ opacityValue }: { opacityValue?: number }) => `hsla(209, 100%, 60.6%, ${opacityValue})`,
   1100: ({ opacityValue }: { opacityValue?: number }) => `hsla(210, 100%, 66.1%, ${opacityValue})`,
-  1200: ({ opacityValue }: { opacityValue?: number }) => `hsla(210, 100%, 66.1%, ${opacityValue})`,
+  1200: ({ opacityValue }: { opacityValue?: number }) => `hsla(206, 98.0%, 95.8%, ${opacityValue})`,
 }
 export const gray = {
   100: ({ opacityValue }: { opacityValue?: number }) => `hsla(0, 0%, 8.5%, ${opacityValue})`,
@@ -111,7 +111,7 @@ const stitches = createStitches({
       gray1200: gray[1200]({ opacityValue: 1 }),
       // macos dev color palette - system main color
       // refs: https://developer.apple.com/design/human-interface-guidelines/foundations/color/
-      blue: '#106bff',
+      blue: 'hsla(217.15,100%,53%,1)',
       red: '#fc2b2d',
       yellow: '#fecf0f',
       green: '#30d33b',

@@ -3,7 +3,7 @@ import { animated } from '@react-spring/web'
 import { tv } from 'tailwind-variants'
 
 export const box = tv({
-  base: 'rounded-md overflow-hidden flex p-2 bg-mayumi-window-background-color',
+  base: 'rounded-md overflow-hidden flex p-2 bg-mayumi-gray-400',
   variants: {
     bordered: {
       true: 'ring-1 ring-black',

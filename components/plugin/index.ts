@@ -23,9 +23,8 @@ export const mayumi = plugin(
           'mayumi-gray': {
             ...gray,
           },
-          'mayumi-window-background-color': '#262626',
-          'mayumi-keyboard-focus-indicator-color': blue['700'],
-          // 'mayumi-keyboard-focus-indicator-color': 'hsla(208deg,100%,35%,1)',
+          'mayumi-primary': ({ opacityValue }: { opacityValue?: number }) =>
+            `hsla(217.15,100%,53%, ${opacityValue})`,
         },
       },
     },
