@@ -2,7 +2,7 @@ import { styled } from '@/theme/config'
 import { tv } from 'tailwind-variants'
 
 export const text = tv({
-  base: 'text-base text-mayumi-gray-1200',
+  base: 'text-base',
   variants: {
     as: {
       h1: 'text-4xl font-bold',
@@ -31,7 +31,12 @@ export const StyledText = styled('p', {
       quaternary: {
         color: '$tertiaryLabelColor',
       },
-      default: {},
+      default: {
+        color: '$textColor',
+      },
     },
+  },
+  defaultVariants: {
+    type: 'default',
   },
 })

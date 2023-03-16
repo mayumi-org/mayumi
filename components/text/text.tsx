@@ -21,13 +21,27 @@ export type TextProps = React.HTMLAttributes<HTMLElement> & {
   type?: 'secondary' | 'tertiary' | 'quaternary'
 }
 
-export const Text = ({ h1, h2, h3, h4, h5, h6, p, span, size, weight, ...props }: TextProps) => {
+export const Text = ({
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  size,
+  weight,
+  type,
+  ...props
+}: TextProps) => {
   const elements = { h1, h2, h3, h4, h5, h6, p, span }
   const names = Object.keys(elements).filter((name) => elements[name])
   const tag: any = names[0] || 'p'
   return (
     <StyledText
       {...props}
+      type={type}
       as={tag}
       css={{
         text: size ? `$${size}` : undefined,

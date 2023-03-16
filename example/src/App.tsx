@@ -264,6 +264,12 @@ function App() {
             <Description title="description title">description content</Description>
           </Box>
         </div>
+        <div className="row-start-5 row-end-6 p-8">
+          <div className="card shadow-md">
+            <div className="card child-1 h-[400px]"></div>
+            <div className="card child-2 h-[400px]"></div>
+          </div>
+        </div>
       </div>
     </div>
     // </ThemeProvider>

@@ -1,41 +1,80 @@
-.gray-button {
-  --arc-palette-foregroundTertiary:  #3139FBFF;
-  --arc-palette-minContrastColor:  #212AFBFF;
-  --arc-palette-subtitle:  #797A82F9;
-  --arc-background-gradient-color1:  #17011EFF;
-  --arc-palette-maxContrastColor:  #ECEDFEFF;
-  --arc-palette-backgroundExtra:  #050727F4;
-  --arc-palette-cutoutColor:  #212AFBFF;
-  --arc-palette-background:  #0A0D4EF6;
-  --arc-palette-hover:  #5D64FB7A;
-  --arc-palette-focus:  #4D54FBCE;
-  --arc-palette-foregroundSecondary:  #8489FBFF;
-  --arc-palette-foregroundPrimary:  #ECEDFEFF;
-  --arc-palette-title:  #DCDEFDF4;
-  --arc-background-gradient-color0:  #01021EFF;
-  --scrollbar-size: 10px;
-  --radix-scroll-area-corner-width: 0px;
-  --radix-scroll-area-corner-height: 0px;
+.card {
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+  --font-settings: "cv01","cv10";
+  font-feature-settings: var(--font-settings);
+  --font-variations: "opsz" auto;
+  font-variation-settings: var(--font-variations);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  text-size-adjust: none;
+  color: rgb(247, 248, 248);
+  --border-shine-opacity: 0;
   box-sizing: border-box;
-  margin: 0;
-  font-family: Inter,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
-  -webkit-text-size-adjust: 100%;
-  cursor: default;
-  appearance: none;
-  border: none;
-  height: 30px;
-  display: inline-flex;
-  gap: 8px;
-  align-items: center;
-  border-radius: 6px;
-  padding: 0 12px;
-  font-weight: 500;
-  font-size: 14px;
+  padding: 0px;
+  border: 0px;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  --radius: 12px;
+  --border: 1px;
+  user-select: none;
+  /* contain: strict; */
+  margin: 0px;
   position: relative;
-  justify-content: center;
-  background-color: hsla(0,0%,100%,.1);
-  box-shadow: inset 0 0 0 1px #343434;
-  color: hsla(0,0%,100%,.6);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 12px 12px;
+  border-radius: var(--radius);
+  /* background: rgba(255, 255, 255, 0.12); */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  /* TODO: should dynamic */
+  /* height: 280px; */
+  overflow: hidden;
+  --y: calc((var(--cursor-y) * 1px));
+  --x: calc((var(--cursor-x) * 1px));
+  --cursor-x: 818.387;
+  --cursor-y: 42.207;
+}
+
+
+.card .child-2 {
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+  --font-settings: "cv01","cv10";
+  font-feature-settings: var(--font-settings);
+  --font-variations: "opsz" auto;
+  font-variation-settings: var(--font-variations);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  text-size-adjust: none;
+  --border-shine-opacity: 0;
+  --radius: 12px;
+  --border: 1px;
+  user-select: none;
+  --y: calc((var(--cursor-y) * 1px));
+  --x: calc((var(--cursor-x) * 1px));
+  --cursor-x: 860.629;
+  --cursor-y: 44.945;
+  box-sizing: border-box;
+  margin: 0px;
+  border: 0px;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(130, 143, 255);
+  transition: color var(--speed-regularTransition);
+  position: absolute;
+  top: var(--border);
+  bottom: var(--border);
+  left: var(--border);
+  right: var(--border);
+  border-radius: var(--radius);
+  background: rgb(19, 19, 21);
 }
 
 /* debug menu */
