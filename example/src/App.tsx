@@ -9,6 +9,8 @@ import { Layout } from 'mayumi/layout'
 import { Dropdown } from 'mayumi/dropdown'
 import { Input } from 'mayumi/input'
 import { Button } from 'mayumi/button'
+import { Separator } from 'mayumi/separator'
+import { Description } from 'mayumi/description'
 import { Link } from 'mayumi/link'
 import { Box } from 'mayumi/box'
 import * as Select from '@radix-ui/react-select'
@@ -171,7 +173,7 @@ function App() {
     // <ThemeProvider>
     <div className="w-screen h-[300vh] flex justify-center items-center gap-3 relative">
       <div className="bg-black w-full h-full absolute top-0 left-0 -z-1" />
-      <div className="w-full h-full grid grid-cols-2 grid-rows-4 absolute top-0 left-0 z-10">
+      <div className="w-full h-full grid grid-cols-2 grid-rows-5 absolute top-0 left-0 z-10">
         <div className="row-start-1 row-end-2 flex justify-center items-center p-8">
           <FrameDemo />
         </div>
@@ -228,6 +230,38 @@ function App() {
             <Text h6={true}>Do not go gentle into that good night.</Text>
             <Text p={true}>Do not go gentle into that good night.</Text>
             <Text span={true}>Do not go gentle into that good night.</Text>
+          </Box>
+        </div>
+        <div className="row-start-4 row-end-5 p-8">
+          <Box
+            bordered={false}
+            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-mayumi-gray-200 rounded-3xl"
+          >
+            <Separator />
+            <Separator type="vertical" />
+          </Box>
+        </div>
+        <div className="row-start-4 row-end-5 p-8">
+          <Box
+            bordered={false}
+            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-mayumi-gray-200 rounded-3xl"
+          >
+            <Dot type="info" />
+            <Dot type="success" />
+            <Dot type="warning" />
+            <Dot type="danger" />
+            <Dot type="info" size="md" />
+            <Dot type="success" size="md" />
+            <Dot type="warning" size="md" />
+            <Dot type="danger" size="md" />
+          </Box>
+        </div>
+        <div className="row-start-5 row-end-6 p-8">
+          <Box
+            bordered={false}
+            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-mayumi-gray-200 rounded-3xl"
+          >
+            <Description title="description title">description content</Description>
           </Box>
         </div>
       </div>
