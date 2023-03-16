@@ -9,6 +9,7 @@ import { Layout } from 'mayumi/layout'
 import { Dropdown } from 'mayumi/dropdown'
 import { Input } from 'mayumi/input'
 import { Button } from 'mayumi/button'
+import { Link } from 'mayumi/link'
 import { Box } from 'mayumi/box'
 import * as Select from '@radix-ui/react-select'
 import classnames from 'clsx'
@@ -168,7 +169,7 @@ const SelectDemo = () => (
 function App() {
   return (
     // <ThemeProvider>
-    <div className="w-screen h-[200vh] flex justify-center items-center gap-3 relative">
+    <div className="w-screen h-[300vh] flex justify-center items-center gap-3 relative">
       <div className="bg-black w-full h-full absolute top-0 left-0 -z-1" />
       <div className="w-full h-full grid grid-cols-2 grid-rows-4 absolute top-0 left-0 z-10">
         <div className="row-start-1 row-end-2 flex justify-center items-center p-8">
@@ -181,7 +182,7 @@ function App() {
           {/* <Input size="md" css={{ width: '200px' }} /> */}
           <Box
             bordered={false}
-            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-[#1e1e1e] rounded-3xl"
+            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-mayumi-gray-200 rounded-3xl"
           >
             <Input size="md" css={{ width: '200px' }} light={true} />
             <Input size="md" css={{ width: '200px' }} />
@@ -197,6 +198,36 @@ function App() {
               Click me!
             </Button>
             <Button size="sm">Click me!</Button>
+          </Box>
+        </div>
+        <div className="row-start-2 row-end-3 p-8">
+          <Box
+            bordered={false}
+            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-mayumi-gray-200 rounded-3xl"
+          >
+            <Link>Click me!</Link>
+            <Link animation="reverse">Click me!</Link>
+          </Box>
+        </div>
+        <div className="row-start-3 row-end-4 col-start-1 col-end-3 p-8">
+          <Box
+            bordered={false}
+            className="w-full h-full flex flex-col gap-2 justify-center items-center shadow-xl bg-mayumi-gray-200 rounded-3xl"
+          >
+            <Text h1={true} type="secondary">
+              Do not go gentle into that good night.
+            </Text>
+            <Text h2={true} type="tertiary">
+              Do not go gentle into that good night.
+            </Text>
+            <Text h3={true} type="quaternary">
+              Do not go gentle into that good night.
+            </Text>
+            <Text h4={true}>Do not go gentle into that good night.</Text>
+            <Text h5={true}>Do not go gentle into that good night.</Text>
+            <Text h6={true}>Do not go gentle into that good night.</Text>
+            <Text p={true}>Do not go gentle into that good night.</Text>
+            <Text span={true}>Do not go gentle into that good night.</Text>
           </Box>
         </div>
       </div>
