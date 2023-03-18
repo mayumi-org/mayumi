@@ -91,6 +91,11 @@
       "import": "./dist/menu/index.mjs",
       "types": "./dist/menu/index.d.ts"
     },
+    "./menu-bar": {
+      "require": "./dist/menu-bar/index.cjs",
+      "import": "./dist/menu-bar/index.mjs",
+      "types": "./dist/menu-bar/index.d.ts"
+    },
     "./modal": {
       "require": "./dist/modal/index.cjs",
       "import": "./dist/modal/index.mjs",
@@ -174,6 +179,9 @@
       "menu": [
         "dist/menu/index.d.ts"
       ],
+      "menu-bar": [
+        "dist/menu-bar/index.d.ts"
+      ],
       "modal": [
         "dist/modal/index.d.ts"
       ],
@@ -225,7 +233,7 @@
     "tailwindcss": ">=3"
   },
   "dependencies": {
-    "@radix-ui/react-select": "^1.2.1",
+    "@radix-ui/react-menubar": "^1.0.2",
     "@radix-ui/react-toolbar": "^1.0.3",
     "@react-spring/web": "9.4.5",
     "@stitches/react": "^1.2.7",
@@ -240,6 +248,7 @@
   "devDependencies": {
     "@aiou/eslint-config": "^0.5.1",
     "@changesets/cli": "^2.17.0",
+    "@radix-ui/react-menu": "^2.0.4",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^21.0.0",
     "@rollup/plugin-node-resolve": "^13.1.3",

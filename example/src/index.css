@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.glass {
+  background: hsla(0, 0%, 18%, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsla(0, 0%, 20%);
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

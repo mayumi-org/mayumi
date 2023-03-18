@@ -9,9 +9,17 @@ export const patterns = `${root}/dist/**/*.{js,cjs,mjs}`
 
 // as any, skip wrong type refs in pnpm
 export const mayumi = plugin(
-  () => {
-    // props.config('content.files', ['./node_modules/mayumi/dist/**/*.{js,cjs,mjs}'])
-    // console.log(props.config('content.files', ['./node_modules/mayumi/dist/**/*.{js,cjs,mjs}']))
+  (props) => {
+    props.matchUtilities(
+      {
+        // TODO: glass style in plugin not same as theme/config, merge it later.
+        // apply glass blur style into background, recommend gray-500/60 or gray-200/80
+        'mayumi-glass': (value) => ({
+          backdropFilter: `blur(${value})`,
+        }),
+      },
+      { values: props.theme('space') },
+    )
   },
   {
     theme: {
