@@ -85,30 +85,30 @@ const stitches = createStitches({
     colors: {
       // refs: https://www.radix-ui.com/docs/colors/palette-composition/the-scales#colors
       // scale refs: https://www.radix-ui.com/docs/colors/palette-composition/understanding-the-scale
-      blue100: blue[100]({ opacityValue: 1 }),
-      blue200: blue[200]({ opacityValue: 1 }),
-      blue300: blue[300]({ opacityValue: 1 }),
-      blue400: blue[400]({ opacityValue: 1 }),
-      blue500: blue[500]({ opacityValue: 1 }),
-      blue600: blue[600]({ opacityValue: 1 }),
-      blue700: blue[700]({ opacityValue: 1 }),
-      blue800: blue[800]({ opacityValue: 1 }),
-      blue900: blue[900]({ opacityValue: 1 }),
-      blue1000: blue[1000]({ opacityValue: 1 }),
-      blue1100: blue[1100]({ opacityValue: 1 }),
-      blue1200: blue[1200]({ opacityValue: 1 }),
-      gray100: gray[100]({ opacityValue: 1 }),
-      gray200: gray[200]({ opacityValue: 1 }),
-      gray300: gray[300]({ opacityValue: 1 }),
-      gray400: gray[400]({ opacityValue: 1 }),
-      gray500: gray[500]({ opacityValue: 1 }),
-      gray600: gray[600]({ opacityValue: 1 }),
-      gray700: gray[700]({ opacityValue: 1 }),
-      gray800: gray[800]({ opacityValue: 1 }),
-      gray900: gray[900]({ opacityValue: 1 }),
-      gray1000: gray[1000]({ opacityValue: 1 }),
-      gray1100: gray[1100]({ opacityValue: 1 }),
-      gray1200: gray[1200]({ opacityValue: 1 }),
+      'blue-100': blue[100]({ opacityValue: 1 }),
+      'blue-200': blue[200]({ opacityValue: 1 }),
+      'blue-300': blue[300]({ opacityValue: 1 }),
+      'blue-400': blue[400]({ opacityValue: 1 }),
+      'blue-500': blue[500]({ opacityValue: 1 }),
+      'blue-600': blue[600]({ opacityValue: 1 }),
+      'blue-700': blue[700]({ opacityValue: 1 }),
+      'blue-800': blue[800]({ opacityValue: 1 }),
+      'blue-900': blue[900]({ opacityValue: 1 }),
+      'blue-1000': blue[1000]({ opacityValue: 1 }),
+      'blue-1100': blue[1100]({ opacityValue: 1 }),
+      'blue-1200': blue[1200]({ opacityValue: 1 }),
+      'gray-100': gray[100]({ opacityValue: 1 }),
+      'gray-200': gray[200]({ opacityValue: 1 }),
+      'gray-300': gray[300]({ opacityValue: 1 }),
+      'gray-400': gray[400]({ opacityValue: 1 }),
+      'gray-500': gray[500]({ opacityValue: 1 }),
+      'gray-600': gray[600]({ opacityValue: 1 }),
+      'gray-700': gray[700]({ opacityValue: 1 }),
+      'gray-800': gray[800]({ opacityValue: 1 }),
+      'gray-900': gray[900]({ opacityValue: 1 }),
+      'gray-1000': gray[1000]({ opacityValue: 1 }),
+      'gray-1100': gray[1100]({ opacityValue: 1 }),
+      'gray-1200': gray[1200]({ opacityValue: 1 }),
       // macos dev color palette - system main color
       // refs: https://developer.apple.com/design/human-interface-guidelines/foundations/color/
       blue: 'hsla(217.15,100%,53%,1)',
@@ -118,9 +118,9 @@ const stitches = createStitches({
       gray: 'rgb(152,152,157)',
       cyan: '#4cbcf2',
       // Background --- #0
-      base: '$gray100',
+      base: '$gray-100',
       // Background --- #1
-      elevated: '$gray200',
+      elevated: '$gray-200',
 
       white: 'rgb(255 255 255)',
       black: 'rgb(0 0 0)',
@@ -128,46 +128,46 @@ const stitches = createStitches({
 
       // mac dark theme color preset
       // === Main === //
-      textColor: '$gray1200',
+      textColor: '$gray-1200',
       labelColor: '#dddddd',
-      secondaryLabelColor: '$gray1100',
+      secondaryLabelColor: '$gray-1100',
       tertiaryLabelColor: '#555555',
-      quaternaryLabelColor: '$gray600',
-      textBackgroundColor: '$gray200',
+      quaternaryLabelColor: '$gray-600',
+      textBackgroundColor: '$gray-200',
       linkColor: '#3586ff',
       // For placeholder text & with $unemphasizedSelectedContentBackgroundColor
       placeholderTextColor: '$tertiaryLabelColor',
       selectedTextColor: '$white',
-      selectedTextBackgroundColor: '$blue500',
+      selectedTextBackgroundColor: '$blue-500',
       // Ring color
-      keyboardFocusIndicatorColor: '$blue700',
+      keyboardFocusIndicatorColor: '$blue-700',
       // Ring color
       separatorColor: '$quaternaryLabelColor',
       // For unactive window
-      unemphasizedSelectedTextBackgroundColor: '$gray600',
+      unemphasizedSelectedTextBackgroundColor: '$gray-600',
       // For hover and selected item background color
       unemphasizedSelectedContentBackgroundColor: '$unemphasizedSelectedTextBackgroundColor',
       // === Tables === //
       // Table grid line colors
-      gridColor: '$gray100',
+      gridColor: '$gray-100',
       // Table header text colors
       headerTextColor: '$white',
       alternateSelectedControlTextColor: '$white',
       // Odd table row background color
       alternatingContentBackgroundColor0: '$textBackgroundColor',
       // Even table row background color
-      alternatingContentBackgroundColor1: '$gray400',
+      alternatingContentBackgroundColor1: '$gray-400',
       // Icon color
       controlAccentColor: '#0a60ff',
       controlColor: '$tertiaryLabelColor',
       controlBackgroundColor: '$textBackgroundColor',
       controlTextColor: '#d9d9d9',
       disabledControlTextColor: '#606060',
-      selectedControlColor: '$blue500',
+      selectedControlColor: '$blue-500',
       selectedControlTextColor: '$white',
       // Modal mask
-      windowBackgroundColor: '$gray400',
-      underPageBackgroundColor: '$gray200',
+      windowBackgroundColor: '$gray-400',
+      underPageBackgroundColor: '$gray-200',
       findHighlightColor: '#ffff0b',
       shadowColor: '$black',
 

@@ -27,7 +27,7 @@ export const StyledToolbar = styled(ToolBarRoot, {
 
 export const toolbar = tv({
   slots: {
-    base: 'sticky top-0 left-0 z-50 flex w-full min-w-max rounded-sm px-2 py-3 shadow-sm',
+    base: 'sticky top-0 left-0 z-auto flex w-full min-w-max rounded-sm px-2 py-3 shadow-sm bg-mayumi-gray-200',
     item: 'ml-1 flex items-center justify-center rounded-md px-2 py-1',
   },
 })

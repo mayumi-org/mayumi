@@ -4,7 +4,7 @@ import { Root } from '@radix-ui/react-menubar'
 
 export const menubar = tv({
   slots: {
-    base: 'flex bg-mayumi-gray-300',
+    base: 'flex bg-mayumi-gray-200',
     trigger: [
       'py-2',
       'px-3',
@@ -166,4 +166,6 @@ export const menubar = tv({
   },
 })
 
-export const StyledMenuBarRoot = styled(Root, {})
+export const StyledMenuBarRoot = styled(Root, {
+  color: '$textColor',
+})
