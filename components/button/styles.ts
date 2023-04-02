@@ -1,13 +1,23 @@
 import { styled } from '@/theme/config'
+import { tv } from 'tailwind-variants'
+
+export const button = tv({
+  base: 'cursor-pointer border-none text-center appearance-none shadow text-mayumi-gray-1200',
+  variants: {
+    color: {
+      primary: 'bg-mayumi-primary hover:bg-mayumi-primary/80',
+      gray: 'bg-mayumi-gray-1200/10 hover:bg-mayumi-gray-1200/20 text-mayumi-gray-1200/60 shadow-[inset_0_0_0_1px_#343434]',
+    },
+  },
+  defaultVariants: {
+    color: 'primary',
+  },
+})
 
 export const StyledButton = styled('button', {
-  cursor: 'pointer',
-  border: 'none',
-  textAlign: 'center',
-  appearance: 'none',
   fontFamily: '$default',
-  boxShadow: '$default',
   fontWeight: '$normal',
+  transition: '$colors',
   '&:focus': {
     outline: 'none',
     border: 'none',
@@ -20,17 +30,13 @@ export const StyledButton = styled('button', {
     },
     color: {
       primary: {
-        backgroundColor: '$primary',
-        color: '$textColor',
         '&.mayumi-button__enabled:active': {
-          backgroundColor: '$keyboardFocusIndicatorColor',
+          backgroundColor: 'hsla(217.15,100%,53%,.8)',
         },
       },
       gray: {
-        backgroundColor: '$tertiaryLabelColor',
-        color: '$textColor',
         '&.mayumi-button__enabled:active': {
-          backgroundColor: '$secondaryLabelColor',
+          backgroundColor: '$gray500',
         },
       },
     },
@@ -42,7 +48,7 @@ export const StyledButton = styled('button', {
         rounded: '$md',
       },
       sm: {
-        py: '$0.5',
+        py: '$1',
         px: '$2',
         text: '$xs',
         rounded: '$md',

@@ -1,7 +1,7 @@
 import React from 'react'
 import cx from 'clsx'
 
-import { StyledText } from './styles'
+import { StyledText, text } from './styles'
 import type { FontWeight, TextSize, CSS } from '@/theme/config'
 
 export type TextProps = React.HTMLAttributes<HTMLElement> & {
@@ -21,20 +21,37 @@ export type TextProps = React.HTMLAttributes<HTMLElement> & {
   type?: 'secondary' | 'tertiary' | 'quaternary'
 }
 
-export const Text = ({ h1, h2, h3, h4, h5, h6, p, span, size, weight, ...props }: TextProps) => {
+export const Text = ({
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  size,
+  weight,
+  type,
+  ...props
+}: TextProps) => {
   const elements = { h1, h2, h3, h4, h5, h6, p, span }
   const names = Object.keys(elements).filter((name) => elements[name])
   const tag: any = names[0] || 'p'
   return (
     <StyledText
       {...props}
+      type={type}
       as={tag}
+      className={cx('mayumi-text', text({ as: tag, className: props.className }))}
       css={{
-        text: size ? `$${size}` : undefined,
-        fontWeight: weight ? `$${weight}` : undefined,
-        ...props.css,
+        // &.mayumi-text make sure that the css prop is high priority than className
+        '&.mayumi-text': {
+          text: size ? `$${size}` : undefined,
+          fontWeight: weight ? `$${weight}` : undefined,
+          ...props.css,
+        },
       }}
-      className={cx('mayumi-text', props.className)}
     >
       {props.children}
     </StyledText>

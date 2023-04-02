@@ -19,6 +19,7 @@
   "engines": {
     "node": ">=14"
   },
+  "packageManager": "pnpm@7.29.3",
   "exports": {
     "./package.json": "./package.json",
     ".": {
@@ -91,6 +92,11 @@
       "import": "./dist/menu/index.mjs",
       "types": "./dist/menu/index.d.ts"
     },
+    "./menu-bar": {
+      "require": "./dist/menu-bar/index.cjs",
+      "import": "./dist/menu-bar/index.mjs",
+      "types": "./dist/menu-bar/index.d.ts"
+    },
     "./modal": {
       "require": "./dist/modal/index.cjs",
       "import": "./dist/modal/index.mjs",
@@ -100,6 +106,11 @@
       "require": "./dist/notification/index.cjs",
       "import": "./dist/notification/index.mjs",
       "types": "./dist/notification/index.d.ts"
+    },
+    "./plugin": {
+      "require": "./dist/plugin/index.cjs",
+      "import": "./dist/plugin/index.mjs",
+      "types": "./dist/plugin/index.d.ts"
     },
     "./separator": {
       "require": "./dist/separator/index.cjs",
@@ -169,11 +180,17 @@
       "menu": [
         "dist/menu/index.d.ts"
       ],
+      "menu-bar": [
+        "dist/menu-bar/index.d.ts"
+      ],
       "modal": [
         "dist/modal/index.d.ts"
       ],
       "notification": [
         "dist/notification/index.d.ts"
+      ],
+      "plugin": [
+        "dist/plugin/index.d.ts"
       ],
       "separator": [
         "dist/separator/index.d.ts"
@@ -213,9 +230,12 @@
   },
   "peerDependencies": {
     "react": ">=17",
-    "react-dom": ">=17"
+    "react-dom": ">=17",
+    "tailwindcss": ">=3"
   },
   "dependencies": {
+    "@radix-ui/react-menubar": "^1.0.2",
+    "@radix-ui/react-toolbar": "^1.0.3",
     "@react-spring/web": "9.4.5",
     "@stitches/react": "^1.2.7",
     "clsx": "1.1.1",
@@ -223,15 +243,18 @@
     "polished": "4.1.4",
     "react-hotkeys-hook": "3.4.4",
     "react-popper-tooltip": "4.3.1",
-    "react-use-measure": "2.1.1"
+    "react-use-measure": "2.1.1",
+    "tailwind-variants": "^0.0.31"
   },
   "devDependencies": {
     "@aiou/eslint-config": "^0.5.1",
     "@changesets/cli": "^2.17.0",
+    "@radix-ui/react-menu": "^2.0.4",
     "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^21.0.0",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@types/jest": "27.0.2",
+    "@types/lodash-es": "^4.17.6",
     "@types/lodash.keyby": "^4.6.6",
     "@types/node": "17.0.21",
     "@types/react": "^17.0.39",
@@ -241,6 +264,9 @@
     "husky": "^7.0.0",
     "jest": "27.2.5",
     "lint-staged": "^11.0.1",
+    "lodash-es": "4.17.21",
+    "lodash.mapkeys": "^4.6.0",
+    "postcss": "8.4.16",
     "prettier": "2.4.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -252,6 +278,7 @@
     "rollup-plugin-size": "^0.2.2",
     "rollup-plugin-sourcemaps": "^0.6.3",
     "rollup-plugin-typescript2": "0.30.0",
+    "tailwindcss": "^3.2.7",
     "ts-jest": "27.0.5",
     "ts-node": "10.2.1",
     "tslib": "^2.3.1",
@@ -261,7 +288,7 @@
   },
   "config": {
     "commitizen": {
-      "path": "cz-emoji"
+      "path": "node_modules/cz-emoji"
     }
   }
 }

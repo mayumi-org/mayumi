@@ -11,11 +11,13 @@ export type LayoutProps = React.HTMLAttributes<HTMLElement> & {
 
 /**
  * Layout display like that
- * ┌──────────────┐
- * │  layout      │
- *┌───────┐──────┐
- *│ aside │ main │
- *└──────┘──────┘
+ * n ┌──────────────┐
+ * a │  layout      │
+ * v ┌───────┐──────┐
+ * g │ aside │ main │
+ * a └──────┘──────┘
+ * t
+ * e
  */
 export const Layout = ({ className, children, ...props }: LayoutProps) => {
   return (

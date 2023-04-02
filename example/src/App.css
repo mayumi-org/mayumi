@@ -1,83 +1,114 @@
-/* cursor */
-
-*, :active, :focus {
-  outline: none;
-  cursor: none;
+.card {
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+  --font-settings: "cv01","cv10";
+  font-feature-settings: var(--font-settings);
+  --font-variations: "opsz" auto;
+  font-variation-settings: var(--font-variations);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  text-size-adjust: none;
+  color: rgb(247, 248, 248);
+  --border-shine-opacity: 0;
+  box-sizing: border-box;
+  padding: 0px;
+  border: 0px;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  --radius: 12px;
+  --border: 1px;
+  user-select: none;
+  /* contain: strict; */
+  margin: 0px;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 12px 12px;
+  border-radius: var(--radius);
+  /* background: rgba(255, 255, 255, 0.12); */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  /* TODO: should dynamic */
+  /* height: 280px; */
+  overflow: hidden;
+  --y: calc((var(--cursor-y) * 1px));
+  --x: calc((var(--cursor-x) * 1px));
+  --cursor-x: 818.387;
+  --cursor-y: 42.207;
 }
 
-::selection {
-  background-color: #fff;
-  color: #000;
-  -webkit-text-fill-color: #000;
+
+.card .child-2 {
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+  --font-settings: "cv01","cv10";
+  font-feature-settings: var(--font-settings);
+  --font-variations: "opsz" auto;
+  font-variation-settings: var(--font-variations);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+  text-size-adjust: none;
+  --border-shine-opacity: 0;
+  --radius: 12px;
+  --border: 1px;
+  user-select: none;
+  --y: calc((var(--cursor-y) * 1px));
+  --x: calc((var(--cursor-x) * 1px));
+  --cursor-x: 860.629;
+  --cursor-y: 44.945;
+  box-sizing: border-box;
+  margin: 0px;
+  border: 0px;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  cursor: pointer;
+  color: rgb(130, 143, 255);
+  transition: color var(--speed-regularTransition);
+  position: absolute;
+  top: var(--border);
+  bottom: var(--border);
+  left: var(--border);
+  right: var(--border);
+  border-radius: var(--radius);
+  background: rgb(19, 19, 21);
 }
 
-/* original global style */
-
-.App {
-  text-align: center;
+/* debug menu */
+.Container {
+  width: 800px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-button {
-  font-size: calc(10px + 2vmin);
+.bg-happyfisher {
+  filter: blur(64px);
+  background-size: 120%;
+  background-image: radial-gradient(at 71% 77%, #259BE5 0, transparent 21%), radial-gradient(at 36% 47%, #66a6ff 0, transparent 50%), radial-gradient(at 54% 29%, #66a6ff 0, transparent 28%), radial-gradient(at 45% 51%, #259BE5 0, transparent 53%), radial-gradient(at 73% 44%, #89f7fe 0, transparent 54%), radial-gradient(at 24% 7%, #89f7fe 0, transparent 40%), radial-gradient(at 75% 46%, #259BE5 0, transparent 50%)
 }
 
 .gg-search {
   box-sizing: border-box;
   position: relative;
   display: block;
-  transform: scale(var(--ggs,1));
-  width: 16px;
-  height: 16px;
-  border: 2px solid;
+  width: calc(16px * var(--ggs,1));
+  height: calc(16px * var(--ggs,1));
+  border: calc(2px * var(--ggs,1)) solid;
   border-radius: 100%;
-  margin-left: -4px;
-  margin-top: -4px
+  margin-left: -calc(4px * var(--ggs,1));
+  margin-top: -calc(4px * var(--ggs,1));
 }
 .gg-search::after {
   content: "";
   display: block;
   box-sizing: border-box;
   position: absolute;
-  border-radius: 3px;
-  width: 2px;
-  height: 8px;
+  border-radius: calc(3px * var(--ggs,1));;
+  width: calc(2px * var(--ggs,1));;
+  height: calc(8px * var(--ggs,1));
   background: currentColor;
   transform: rotate(-45deg);
-  top: 10px;
-  left: 12px
+  top: calc(10px * var(--ggs,1));
+  left: calc(12px * var(--ggs,1));
 }

@@ -1,4 +1,36 @@
 import { styled } from '@/theme/config'
+import { tv } from 'tailwind-variants'
+import { Root as ToolBarRoot } from '@radix-ui/react-toolbar'
+
+export const StyledToolbar = styled(ToolBarRoot, {
+  borderBottom: '1px solid $quaternaryLabelColor',
+  glass: '12px',
+  '.mayumi-toolbar-toggle-item': {
+    transition: '$colors',
+  },
+  '.mayumi-toolbar-toggle-item:hover': {
+    backgroundColor: '$unemphasizedSelectedTextBackgroundColor',
+    color: '$tertiaryLabelColor',
+    '.gg-chevron-left': {
+      color: '$white',
+    },
+  },
+  i: {
+    transition: '$colors',
+    color: '$tertiaryLabelColor',
+    '&:hover': {
+      opacity: '0.8',
+      transition: '$all',
+    },
+  },
+})
+
+export const toolbar = tv({
+  slots: {
+    base: 'sticky top-0 left-0 z-auto flex w-full min-w-max rounded-sm px-2 py-3 shadow-sm bg-mayumi-gray-200',
+    item: 'ml-1 flex items-center justify-center rounded-md px-2 py-1',
+  },
+})
 
 export const StyledMain = styled('div', {
   flex: 1,
