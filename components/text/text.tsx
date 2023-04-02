@@ -43,12 +43,15 @@ export const Text = ({
       {...props}
       type={type}
       as={tag}
-      css={{
-        text: size ? `$${size}` : undefined,
-        fontWeight: weight ? `$${weight}` : undefined,
-        ...props.css,
-      }}
       className={cx('mayumi-text', text({ as: tag, className: props.className }))}
+      css={{
+        // &.mayumi-text make sure that the css prop is high priority than className
+        '&.mayumi-text': {
+          text: size ? `$${size}` : undefined,
+          fontWeight: weight ? `$${weight}` : undefined,
+          ...props.css,
+        },
+      }}
     >
       {props.children}
     </StyledText>

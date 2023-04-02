@@ -307,7 +307,7 @@ const stitches = createStitches({
       inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
       none: 'none',
       outline: '0px 0px 0px 1px $colors$shadowColor',
-      focus: '0px 0px 0px 4px $colors$blue700',
+      focus: '0px 0px 0px 4px $colors$blue-700',
     },
     transitions: {
       default: getTransition([

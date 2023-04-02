@@ -58,10 +58,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
       config: springConfig,
     })
     useOnClickOutside(inputRef, () => setFocus(false))
-    const { base, effect, input: _input } = input({ focus, light, ghost })
+    const { base, effect, input: _input } = input({ focus, light, ghost, size })
     return (
       <StyledInput
-        focus={focus}
         style={style}
         className={cx('mayumi-input', base(), className)}
         css={css}
