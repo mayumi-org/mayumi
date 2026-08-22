@@ -53,4 +53,17 @@ describe("GroupedList", () => {
     )
     expect(screen.getByTestId("row").querySelector("svg")).not.toBeNull()
   })
+
+  it("supports disabled on interactive rows", async () => {
+    const onClick = vi.fn()
+    render(
+      <GroupedList>
+        <GroupedListItem label="受限项" onClick={onClick} disabled />
+      </GroupedList>
+    )
+    const row = screen.getByRole("button", { name: "受限项" })
+    expect(row).toBeDisabled()
+    await userEvent.click(row)
+    expect(onClick).not.toHaveBeenCalled()
+  })
 })
