@@ -1,0 +1,51 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "mayumi",
+  "homepage": "https://mayumi.netlify.app",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:item",
+      "title": "Mayumi Theme",
+      "description": "Mac-style design tokens (dark-first).",
+      "files": [
+        {
+          "path": "registry/mayumi/styles/theme.css",
+          "type": "registry:file",
+          "target": "~/app/mayumi-theme.css"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "title": "cn utility",
+      "dependencies": ["clsx", "tailwind-merge"],
+      "files": [
+        { "path": "registry/mayumi/lib/utils.ts", "type": "registry:lib" }
+      ]
+    },
+    {
+      "name": "motion",
+      "type": "registry:lib",
+      "title": "Spring presets",
+      "dependencies": ["motion"],
+      "files": [
+        { "path": "registry/mayumi/lib/motion.ts", "type": "registry:lib" }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/button.tsx", "type": "registry:ui" }
+      ]
+    }
+  ]
+}

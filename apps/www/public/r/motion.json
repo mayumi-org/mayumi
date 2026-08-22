@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "motion",
+  "title": "Spring presets",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/lib/motion.ts",
+      "content": "import type { Transition } from \"motion/react\"\n\n/**\n * Canonical spring presets. snappy = popovers/dialogs, smooth = layout\n * (sidebar collapse, reorder), gentle = hover-level micro interactions.\n */\nexport const springs = {\n  snappy: { type: \"spring\", stiffness: 480, damping: 34, mass: 0.9 },\n  smooth: { type: \"spring\", stiffness: 260, damping: 30, mass: 1 },\n  gentle: { type: \"spring\", stiffness: 170, damping: 26, mass: 1 },\n} satisfies Record<string, Transition>\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:lib"
+}
