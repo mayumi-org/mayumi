@@ -1,11 +1,12 @@
-
-[build.environment]
-  NPM_FLAGS="--prefix=/"
-  NODE_VERSION = "14"
-
 [build]
-  command = "npx pnpm i --store=node_modules/.pnpm-store --frozen-lockfile=false && npx pnpm run build && npx pnpm run build:docs"
-  publish = "apps/docs/.next"
+  base = "apps/www"
+  command = "pnpm build"
+  publish = ".next"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[headers]]
+  for = "/r/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
