@@ -1,3 +1,8 @@
-<img width="800" alt="image" src="https://user-images.githubusercontent.com/6839576/158634175-668e70e9-ed61-423e-940e-f6649fbede85.png">
+# mayumi
 
-[![docs](https://img.shields.io/badge/MAYUMI-DOCS-black?style=flat&colorA=000000&colorB=000000)](https://mayumi.netlify.app)
+Mac-style React components for building desktop-grade app UIs (Raycast / Linear aesthetic). Distributed as a [shadcn registry](https://ui.shadcn.com/docs/registry) — you own the code.
+
+> v2 rewrite in progress. The legacy npm package (`mayumi@0.0.4`) is frozen and unrelated to this codebase.
+
+- Docs & registry: https://mayumi.netlify.app
+- Add a component: `npx shadcn add @mayumi/button`
