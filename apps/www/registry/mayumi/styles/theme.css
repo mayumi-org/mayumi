@@ -1,0 +1,51 @@
+/* mayumi design tokens — dark-first, light supported. Raycast/Linear aesthetic. */
+:root {
+  --background: #f2f2f4;
+  --surface: #ffffff;
+  --surface-2: #ececef;
+  --overlay: rgba(252, 252, 253, 0.78);
+  --border: rgba(0, 0, 0, 0.1);
+  --highlight: rgba(255, 255, 255, 0.65);
+  --fg: rgba(0, 0, 0, 0.88);
+  --fg-secondary: rgba(0, 0, 0, 0.56);
+  --fg-tertiary: rgba(0, 0, 0, 0.36);
+  --accent: #5e6ad2;
+  --accent-fg: #ffffff;
+  --danger: #e5484d;
+  --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06);
+}
+
+.dark {
+  --background: #0a0a0c;
+  --surface: #141416;
+  --surface-2: #1c1c20;
+  --overlay: rgba(22, 22, 26, 0.72);
+  --border: rgba(255, 255, 255, 0.08);
+  --highlight: rgba(255, 255, 255, 0.06);
+  --fg: rgba(255, 255, 255, 0.9);
+  --fg-secondary: rgba(255, 255, 255, 0.6);
+  --fg-tertiary: rgba(255, 255, 255, 0.4);
+  --accent: #6e79d6;
+  --accent-fg: #ffffff;
+  --danger: #ec5d64;
+  --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-overlay: var(--overlay);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-fg-secondary: var(--fg-secondary);
+  --color-fg-tertiary: var(--fg-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-danger: var(--danger);
+  --radius-window: 14px;
+  --radius-card: 10px;
+  --radius-control: 6px;
+  --font-sans: var(--font-inter, "Inter"), -apple-system, system-ui,
+    "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+}
