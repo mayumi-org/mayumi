@@ -35,6 +35,19 @@ mayumi/
 - **技术基线**：React 19、Tailwind CSS v4（CSS-first，`@theme` 定义 tokens）、Base UI primitives、motion、TypeScript 全量。
 - **Netlify 构建**：`shadcn build && next build`。
 
+### 版本基线（2026-08-22 查证的最新版）
+
+| 依赖 | 版本 | | 依赖 | 版本 |
+| --- | --- | --- | --- | --- |
+| react | 19.2.x | | cmdk | 1.1.x |
+| next | 16.3.x | | sonner | 2.0.x |
+| tailwindcss | 4.3.x | | storybook | 10.5.x |
+| @base-ui-components/react | 1.0.0-rc | | vitest | 4.1.x |
+| motion | 13.1.x | | typescript | 7.0.x |
+| shadcn (CLI) | 4.19.x | | next-themes | 0.4.x |
+
+说明：Base UI 处于 1.0 RC 阶段，API 已冻结，正式版发布后跟进小版本即可。TypeScript 7（原生编译器）与 Vitest 4 均为当前稳定线。依赖策略：初始化时取上表版本，后续用 `pnpm up --latest` 保持跟进，不锁旧版。
+
 ## 3. 设计系统（tokens）
 
 全部 tokens 以 CSS variables 定义于 `styles/theme.css`，dark-first，亮色模式同等支持（文档站用 next-themes 切换）。
