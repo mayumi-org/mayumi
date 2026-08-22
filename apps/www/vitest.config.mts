@@ -9,5 +9,5 @@ export default defineConfig({
     setupFiles: "./vitest.setup.ts",
     include: ["registry/**/*.test.{ts,tsx}"],
   },
-  resolve: { alias: { "@": path.resolve(__dirname, ".") } },
+  resolve: { alias: { "@": path.resolve(import.meta.dirname, ".") } },
 })
