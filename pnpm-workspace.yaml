@@ -4,3 +4,5 @@ packages:
 allowBuilds:
   esbuild: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - shadcn@4.19.0
