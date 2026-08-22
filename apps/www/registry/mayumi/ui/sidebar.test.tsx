@@ -28,4 +28,15 @@ describe("Sidebar", () => {
     expect(el).not.toHaveAttribute("data-collapsed")
     expect(el).not.toHaveAttribute("aria-hidden")
   })
+
+  it("keeps the collapse contract even if a consumer passes conflicting props", () => {
+    render(
+      <Sidebar data-testid="sb" collapsed aria-hidden={false} inert={undefined}>
+        nav
+      </Sidebar>
+    )
+    const el = screen.getByTestId("sb")
+    expect(el).toHaveAttribute("aria-hidden", "true")
+    expect(el).toHaveAttribute("inert")
+  })
 })

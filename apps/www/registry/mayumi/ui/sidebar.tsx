@@ -22,6 +22,7 @@ function Sidebar({
   const reduce = useReducedMotion()
   return (
     <motion.aside
+      {...props}
       data-slot="sidebar"
       data-collapsed={collapsed || undefined}
       aria-hidden={collapsed || undefined}
@@ -33,7 +34,6 @@ function Sidebar({
         "mayumi-vibrancy flex h-full shrink-0 flex-col overflow-hidden border-r border-border",
         className
       )}
-      {...props}
     >
       <div style={{ width }} className="flex min-h-0 flex-1 flex-col gap-2 p-2">
         {children}
