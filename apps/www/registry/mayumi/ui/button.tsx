@@ -3,7 +3,7 @@ import { type VariantProps, cva } from "class-variance-authority"
 import { cn } from "@/registry/mayumi/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex select-none items-center justify-center gap-1.5 whitespace-nowrap rounded-control text-[13px] font-medium outline-none transition-colors duration-150 focus-visible:ring-2 focus-visible:ring-accent/60 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex select-none items-center justify-center gap-1.5 whitespace-nowrap rounded-control text-[13px] font-medium outline-none transition-[background-color,border-color,color,scale] duration-150 ease-out focus-visible:ring-2 focus-visible:ring-accent/60 disabled:pointer-events-none disabled:opacity-50 motion-safe:active:scale-97",
   {
     variants: {
       variant: {
