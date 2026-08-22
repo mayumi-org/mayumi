@@ -1,0 +1,16 @@
+{
+  "name": "storybook",
+  "private": true,
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "^10.5.10",
+    "@tailwindcss/vite": "^4.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "storybook": "^10.5.10",
+    "vite": "^8.2.2"
+  }
+}
