@@ -57,7 +57,7 @@ mayumi/
 - **毛玻璃 (vibrancy)**：`backdrop-blur` + 半透明背景，仅用于弹层（Dialog、DropdownMenu、Command、Toast）与 Sidebar，内容区不使用。
 - **圆角**：窗口 12–16px、卡片 8–10px、控件 6px。
 - **排版**：`--font-sans: Inter, -apple-system, system-ui, "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif`。Inter 覆盖拉丁字符（Raycast/Linear 质感），中文自动 fallback 到苹方/雅黑，与 macOS 原生混排逻辑一致；未安装 Inter 时降级到系统字体（Mac 上即 SF Pro）。正文 13–14px 桌面密度。
-- **动效基调**：motion 的 spring 预设统一定义在 `lib/motion.ts`（`snappy` 弹层 / `smooth` 布局 / `gentle` hover），全库组件从同一处 import。简单 hover/fade 用纯 CSS 过渡，不引入 motion。
+- **动效基调**：motion 的 spring 预设统一定义在 `lib/motion.ts`，采用 Apple damping/response 思路（motion 的 `duration + bounce` API）：UI 三档全部临界阻尼（`snappy` 弹层 0.3s / `smooth` 布局 0.4s / `gentle` hover 0.25s，bounce 0——刚出现的表面没有用户动量，不许过冲），第四档 `momentum`（0.3s / bounce 0.2）仅用于继承手势速度的交互（拖拽释放、甩动）。全库组件从同一处 import，禁止内联 spring 参数。简单 hover/fade 用纯 CSS 过渡（强化曲线 `--ease-out`/`--ease-in-out` 已进 tokens），不引入 motion。
 
 ## 4. 组件清单（v1，共 24 个）
 
