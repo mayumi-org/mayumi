@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tooltip",
+  "title": "Tooltip",
+  "dependencies": [
+    "@base-ui-components/react"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/tooltip.tsx",
+      "content": "import { Tooltip as BaseTooltip } from \"@base-ui-components/react/tooltip\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nconst TooltipProvider = BaseTooltip.Provider\nconst Tooltip = BaseTooltip.Root\nconst TooltipTrigger = BaseTooltip.Trigger\n\nfunction TooltipContent({\n  className,\n  sideOffset = 6,\n  children,\n  ...props\n}: React.ComponentProps<typeof BaseTooltip.Popup> & { sideOffset?: number }) {\n  return (\n    <BaseTooltip.Portal>\n      <BaseTooltip.Positioner sideOffset={sideOffset}>\n        <BaseTooltip.Popup\n          {...props}\n          data-slot=\"tooltip-content\"\n          className={cn(\n            \"origin-(--transform-origin) rounded-control border border-border bg-surface px-2 py-1 text-xs leading-tight text-fg shadow-[var(--shadow-overlay)] transition-[scale,opacity] duration-[125ms] ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 motion-safe:data-ending-style:scale-97 motion-safe:data-starting-style:scale-97\",\n            className\n          )}\n        >\n          {children}\n        </BaseTooltip.Popup>\n      </BaseTooltip.Positioner>\n    </BaseTooltip.Portal>\n  )\n}\n\nexport { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

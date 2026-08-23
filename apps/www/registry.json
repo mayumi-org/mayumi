@@ -139,6 +139,148 @@
       "files": [
         { "path": "registry/mayumi/ui/grouped-list.tsx", "type": "registry:ui" }
       ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/input.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "title": "Kbd",
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/kbd.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/switch.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "dependencies": ["@base-ui-components/react", "lucide-react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/checkbox.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/slider.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/tooltip.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:ui",
+      "title": "SegmentedControl",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/segmented-control.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "dependencies": ["@base-ui-components/react", "lucide-react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/select.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "DropdownMenu",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/dropdown-menu.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/dialog.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "title": "ScrollArea",
+      "dependencies": ["@base-ui-components/react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/scroll-area.tsx", "type": "registry:ui" }
+      ]
     }
   ]
 }

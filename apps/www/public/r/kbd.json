@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "kbd",
+  "title": "Kbd",
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/kbd.tsx",
+      "content": "import { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction Kbd({ className, ...props }: React.ComponentProps<\"kbd\">) {\n  return (\n    <kbd\n      {...props}\n      data-slot=\"kbd\"\n      className={cn(\n        \"inline-flex h-5 min-w-5 items-center justify-center rounded-icon border border-border bg-surface-2 px-1 font-sans text-xs text-fg-secondary\",\n        className\n      )}\n    />\n  )\n}\n\nexport { Kbd }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

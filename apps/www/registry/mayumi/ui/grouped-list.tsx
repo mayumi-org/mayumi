@@ -15,7 +15,7 @@ function GroupedList({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-type GroupedListItemProps = React.ComponentProps<"button"> & {
+type GroupedListItemProps = Omit<React.ComponentProps<"button">, "value"> & {
   icon?: React.ReactNode
   label: React.ReactNode
   description?: React.ReactNode
