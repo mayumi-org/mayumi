@@ -42,11 +42,11 @@ mayumi/
 | react | 19.2.x | | cmdk | 1.1.x |
 | next | 16.3.x | | sonner | 2.0.x |
 | tailwindcss | 4.3.x | | storybook | 10.5.x |
-| @base-ui-components/react | 1.0.0-rc | | vitest | 4.1.x |
+| @base-ui/react | 1.7.x | | vitest | 4.1.x |
 | motion | 13.1.x | | typescript | 7.0.x |
 | shadcn (CLI) | 4.19.x | | next-themes | 0.4.x |
 
-说明：Base UI 处于 1.0 RC 阶段，API 已冻结，正式版发布后跟进小版本即可。TypeScript 7（原生编译器）与 Vitest 4 均为当前稳定线。依赖策略：初始化时取上表版本，后续用 `pnpm up --latest` 保持跟进，不锁旧版。
+说明：Base UI 已迁移至稳定版新包名（旧名 npm deprecated）。TypeScript 7（原生编译器）与 Vitest 4 均为当前稳定线。依赖策略：初始化时取上表版本，后续用 `pnpm up --latest` 保持跟进，不锁旧版。
 
 ## 3. 设计系统（tokens）
 

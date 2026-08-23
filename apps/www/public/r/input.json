@@ -3,7 +3,7 @@
   "name": "input",
   "title": "Input",
   "dependencies": [
-    "@base-ui-components/react"
+    "@base-ui/react"
   ],
   "registryDependencies": [
     "https://mayumi.netlify.app/r/theme.json",
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "registry/mayumi/ui/input.tsx",
-      "content": "import { Input as BaseInput } from \"@base-ui-components/react/input\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction Input({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseInput>) {\n  return (\n    <BaseInput\n      {...props}\n      data-slot=\"input\"\n      className={cn(\n        \"h-7 w-full rounded-control border border-border bg-surface-2/50 px-2 text-ui text-fg outline-none transition-[border-color,background-color] duration-150 ease-out placeholder:text-fg-tertiary focus:border-accent/60 focus:ring-2 focus:ring-accent/30 disabled:pointer-events-none disabled:opacity-50\",\n        className\n      )}\n    />\n  )\n}\n\nexport { Input }\n",
+      "content": "import { Input as BaseInput } from \"@base-ui/react/input\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction Input({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseInput>) {\n  return (\n    <BaseInput\n      {...props}\n      data-slot=\"input\"\n      className={cn(\n        \"h-7 w-full rounded-control border border-border bg-surface-2/50 px-2 text-ui text-fg outline-none transition-[border-color,background-color] duration-150 ease-out placeholder:text-fg-tertiary focus:border-accent/60 focus:ring-2 focus:ring-accent/30 disabled:pointer-events-none disabled:opacity-50\",\n        className\n      )}\n    />\n  )\n}\n\nexport { Input }\n",
       "type": "registry:ui"
     }
   ],

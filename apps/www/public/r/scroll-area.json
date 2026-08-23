@@ -3,7 +3,7 @@
   "name": "scroll-area",
   "title": "ScrollArea",
   "dependencies": [
-    "@base-ui-components/react"
+    "@base-ui/react"
   ],
   "registryDependencies": [
     "https://mayumi.netlify.app/r/theme.json",
@@ -12,7 +12,7 @@
   "files": [
     {
       "path": "registry/mayumi/ui/scroll-area.tsx",
-      "content": "import { ScrollArea as BaseScrollArea } from \"@base-ui-components/react/scroll-area\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction ScrollArea({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<typeof BaseScrollArea.Root>) {\n  return (\n    <BaseScrollArea.Root\n      {...props}\n      data-slot=\"scroll-area\"\n      className={cn(\"relative overflow-hidden\", className)}\n    >\n      <BaseScrollArea.Viewport className=\"size-full overscroll-contain\">\n        {children}\n      </BaseScrollArea.Viewport>\n      <BaseScrollArea.Scrollbar\n        data-slot=\"scroll-area-scrollbar\"\n        orientation=\"vertical\"\n        className=\"flex w-2 justify-center py-0.5 opacity-0 transition-opacity duration-150 ease-out data-hovering:opacity-100 data-scrolling:opacity-100\"\n      >\n        <BaseScrollArea.Thumb className=\"w-1 rounded-full bg-fg-tertiary/60\" />\n      </BaseScrollArea.Scrollbar>\n    </BaseScrollArea.Root>\n  )\n}\n\nexport { ScrollArea }\n",
+      "content": "import { ScrollArea as BaseScrollArea } from \"@base-ui/react/scroll-area\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction ScrollArea({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<typeof BaseScrollArea.Root>) {\n  return (\n    <BaseScrollArea.Root\n      {...props}\n      data-slot=\"scroll-area\"\n      className={cn(\"relative overflow-hidden\", className)}\n    >\n      <BaseScrollArea.Viewport className=\"size-full overscroll-contain\">\n        {children}\n      </BaseScrollArea.Viewport>\n      <BaseScrollArea.Scrollbar\n        data-slot=\"scroll-area-scrollbar\"\n        orientation=\"vertical\"\n        className=\"flex w-2 justify-center py-0.5 opacity-0 transition-opacity duration-150 ease-out data-hovering:opacity-100 data-scrolling:opacity-100\"\n      >\n        <BaseScrollArea.Thumb className=\"w-1 rounded-full bg-fg-tertiary/60\" />\n      </BaseScrollArea.Scrollbar>\n    </BaseScrollArea.Root>\n  )\n}\n\nexport { ScrollArea }\n",
       "type": "registry:ui"
     }
   ],

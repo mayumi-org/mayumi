@@ -144,7 +144,7 @@
       "name": "input",
       "type": "registry:ui",
       "title": "Input",
-      "dependencies": ["@base-ui-components/react"],
+      "dependencies": ["@base-ui/react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -169,7 +169,7 @@
       "name": "switch",
       "type": "registry:ui",
       "title": "Switch",
-      "dependencies": ["@base-ui-components/react"],
+      "dependencies": ["@base-ui/react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -182,7 +182,7 @@
       "name": "checkbox",
       "type": "registry:ui",
       "title": "Checkbox",
-      "dependencies": ["@base-ui-components/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -195,7 +195,7 @@
       "name": "slider",
       "type": "registry:ui",
       "title": "Slider",
-      "dependencies": ["@base-ui-components/react"],
+      "dependencies": ["@base-ui/react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -208,7 +208,7 @@
       "name": "tooltip",
       "type": "registry:ui",
       "title": "Tooltip",
-      "dependencies": ["@base-ui-components/react"],
+      "dependencies": ["@base-ui/react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -221,7 +221,7 @@
       "name": "segmented-control",
       "type": "registry:ui",
       "title": "SegmentedControl",
-      "dependencies": ["@base-ui-components/react"],
+      "dependencies": ["@base-ui/react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -234,7 +234,7 @@
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
-      "dependencies": ["@base-ui-components/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -247,7 +247,7 @@
       "name": "dropdown-menu",
       "type": "registry:ui",
       "title": "DropdownMenu",
-      "dependencies": ["@base-ui-components/react"],
+      "dependencies": ["@base-ui/react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -260,7 +260,7 @@
       "name": "dialog",
       "type": "registry:ui",
       "title": "Dialog",
-      "dependencies": ["@base-ui-components/react"],
+      "dependencies": ["@base-ui/react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -273,7 +273,7 @@
       "name": "scroll-area",
       "type": "registry:ui",
       "title": "ScrollArea",
-      "dependencies": ["@base-ui-components/react"],
+      "dependencies": ["@base-ui/react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"

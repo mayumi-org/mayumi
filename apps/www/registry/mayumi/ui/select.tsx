@@ -1,4 +1,4 @@
-import { Select as BaseSelect } from "@base-ui-components/react/select"
+import { Select as BaseSelect } from "@base-ui/react/select"
 import { Check, ChevronsUpDown } from "lucide-react"
 
 import { cn } from "@/registry/mayumi/lib/utils"
