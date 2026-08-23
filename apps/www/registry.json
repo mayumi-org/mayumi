@@ -281,6 +281,26 @@
       "files": [
         { "path": "registry/mayumi/ui/scroll-area.tsx", "type": "registry:ui" }
       ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "dependencies": ["cmdk", "lucide-react"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json",
+        "https://mayumi.netlify.app/r/dialog.json"
+      ],
+      "files": [{ "path": "registry/mayumi/ui/command.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast",
+      "dependencies": ["sonner"],
+      "registryDependencies": ["https://mayumi.netlify.app/r/theme.json"],
+      "files": [{ "path": "registry/mayumi/ui/toast.tsx", "type": "registry:ui" }]
     }
   ]
 }
