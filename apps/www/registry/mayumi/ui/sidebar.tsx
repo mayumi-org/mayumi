@@ -31,7 +31,7 @@ function Sidebar({
       animate={{ width: collapsed ? 0 : width }}
       transition={reduce ? { duration: 0 } : springs.smooth}
       className={cn(
-        "mayumi-vibrancy flex h-full shrink-0 flex-col overflow-hidden border-r border-border",
+        "mayumi-vibrancy flex h-full shrink-0 flex-col overflow-hidden border-r border-border data-collapsed:border-r-0",
         className
       )}
     >

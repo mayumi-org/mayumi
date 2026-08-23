@@ -1,3 +1,5 @@
+import { Minus, Plus, X } from "lucide-react"
+
 import { cn } from "@/registry/mayumi/lib/utils"
 
 type TrafficLightsProps = React.ComponentProps<"div"> & {
@@ -12,19 +14,19 @@ const lights = [
     key: "close",
     label: "Close window",
     dot: "bg-traffic-close",
-    glyph: <path d="M2 2l4 4M6 2L2 6" />,
+    glyph: X,
   },
   {
     key: "minimize",
     label: "Minimize window",
     dot: "bg-traffic-minimize",
-    glyph: <path d="M1.5 4h5" />,
+    glyph: Minus,
   },
   {
     key: "zoom",
     label: "Zoom window",
     dot: "bg-traffic-zoom",
-    glyph: <path d="M4 1.5v5M1.5 4h5" />,
+    glyph: Plus,
   },
 ] as const
 
@@ -67,17 +69,7 @@ function TrafficLights({
             light.dot
           )}
         >
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 8 8"
-            className="size-2"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-          >
-            {light.glyph}
-          </svg>
+          <light.glyph aria-hidden="true" className="size-2" strokeWidth={3} />
         </button>
       ))}
     </div>

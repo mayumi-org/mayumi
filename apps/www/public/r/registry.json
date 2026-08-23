@@ -81,6 +81,7 @@
       "name": "traffic-lights",
       "type": "registry:ui",
       "title": "TrafficLights",
+      "dependencies": ["lucide-react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -93,6 +94,7 @@
       "name": "search-field",
       "type": "registry:ui",
       "title": "SearchField",
+      "dependencies": ["lucide-react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"
@@ -129,6 +131,7 @@
       "name": "grouped-list",
       "type": "registry:ui",
       "title": "GroupedList",
+      "dependencies": ["lucide-react"],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json"

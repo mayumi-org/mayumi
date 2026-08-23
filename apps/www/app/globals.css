@@ -6,5 +6,5 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 body {
-  @apply bg-background font-sans text-[13px] text-fg antialiased;
+  @apply bg-background font-sans text-ui text-fg antialiased;
 }

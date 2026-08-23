@@ -9,7 +9,7 @@ function Window({
     <div
       data-slot="window"
       className={cn(
-        "relative flex h-full min-h-0 flex-col overflow-hidden rounded-window border border-border text-[13px] text-fg shadow-[var(--shadow-overlay)]",
+        "relative flex h-full min-h-0 flex-col overflow-hidden rounded-window border border-border text-ui text-fg shadow-[var(--shadow-overlay)]",
         vibrancy ? "mayumi-vibrancy" : "bg-background",
         className
       )}

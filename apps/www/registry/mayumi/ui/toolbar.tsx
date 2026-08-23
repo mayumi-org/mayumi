@@ -14,7 +14,7 @@ function ToolbarTitle({ className, ...props }: React.ComponentProps<"h1">) {
   return (
     <h1
       data-slot="toolbar-title"
-      className={cn("truncate text-[13px] font-semibold text-fg", className)}
+      className={cn("truncate text-ui font-semibold text-fg", className)}
       {...props}
     />
   )

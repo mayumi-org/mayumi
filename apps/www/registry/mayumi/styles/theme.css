@@ -13,6 +13,7 @@
   --accent-fg: #ffffff;
   --danger: #e5484d;
   --traffic-glyph: rgba(0, 0, 0, 0.55);
+  --scrim: rgba(0, 0, 0, 0.35);
   --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
 
@@ -30,6 +31,7 @@
   --accent-fg: #ffffff;
   --danger: #ec5d64;
   --traffic-glyph: rgba(0, 0, 0, 0.55);
+  --scrim: rgba(0, 0, 0, 0.6);
   --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
 
@@ -53,6 +55,9 @@
   --color-traffic-close: #ff5f57;
   --color-traffic-minimize: #febc2e;
   --color-traffic-zoom: #28c840;
+  --color-scrim: var(--scrim);
+  --radius-icon: 5px;
+  --text-ui: 13px;
   --font-sans: var(--font-inter, "Inter"), -apple-system, system-ui,
     "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
 }

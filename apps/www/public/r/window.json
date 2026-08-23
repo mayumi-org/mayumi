@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/mayumi/ui/window.tsx",
-      "content": "import { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction Window({\n  className,\n  vibrancy = false,\n  ...props\n}: React.ComponentProps<\"div\"> & { vibrancy?: boolean }) {\n  return (\n    <div\n      data-slot=\"window\"\n      className={cn(\n        \"relative flex h-full min-h-0 flex-col overflow-hidden rounded-window border border-border text-[13px] text-fg shadow-[var(--shadow-overlay)]\",\n        vibrancy ? \"mayumi-vibrancy\" : \"bg-background\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction WindowBody({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"window-body\"\n      className={cn(\"flex min-h-0 flex-1\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Window, WindowBody }\n",
+      "content": "import { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction Window({\n  className,\n  vibrancy = false,\n  ...props\n}: React.ComponentProps<\"div\"> & { vibrancy?: boolean }) {\n  return (\n    <div\n      data-slot=\"window\"\n      className={cn(\n        \"relative flex h-full min-h-0 flex-col overflow-hidden rounded-window border border-border text-ui text-fg shadow-[var(--shadow-overlay)]\",\n        vibrancy ? \"mayumi-vibrancy\" : \"bg-background\",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nfunction WindowBody({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      data-slot=\"window-body\"\n      className={cn(\"flex min-h-0 flex-1\", className)}\n      {...props}\n    />\n  )\n}\n\nexport { Window, WindowBody }\n",
       "type": "registry:ui"
     }
   ],
