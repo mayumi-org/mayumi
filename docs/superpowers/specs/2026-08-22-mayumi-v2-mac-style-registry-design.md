@@ -69,7 +69,7 @@ mayumi/
 | --- | --- |
 | `Window` | 圆角窗口容器、vibrancy 背景，无边框窗口根元素 |
 | `TitleBar` | 拖拽区（`data-tauri-drag-region` / `-webkit-app-region`）+ 红绿灯插槽 |
-| `TrafficLights` | 双模式：自绘（`onClose/onMinimize/onMaximize` 回调）与原生占位（仅预留 inset 空间）。不依赖 Tauri/Electron API，文档提供两平台接线示例 |
+| `TrafficLights` | 双模式：自绘（`onClose/onMinimize/onZoom` 回调）与原生占位（仅预留 inset 空间）。不依赖 Tauri/Electron API，文档提供两平台接线示例 |
 | `Toolbar` | 标题栏工具条：导航按钮、标题、右侧 actions |
 | `Sidebar` | 侧边栏容器，半透明材质，可收合（motion spring） |
 

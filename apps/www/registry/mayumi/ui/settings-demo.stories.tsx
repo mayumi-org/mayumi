@@ -7,7 +7,7 @@ import { SidebarNav, SidebarNavIcon, SidebarNavItem } from "./sidebar-nav"
 import { TitleBar } from "./titlebar"
 import { Toolbar, ToolbarTitle } from "./toolbar"
 import { TrafficLights } from "./traffic-lights"
-import { Window, WindowBody } from "./window"
+import { Window } from "./window"
 
 const meta: Meta = { title: "demo/Settings" }
 export default meta

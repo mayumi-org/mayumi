@@ -39,10 +39,10 @@ function TrafficLights({
   if (mode === "inset") {
     return (
       <div
+        {...props}
         data-slot="traffic-lights"
         aria-hidden="true"
         className={cn("w-[52px] shrink-0", className)}
-        {...props}
       />
     )
   }
