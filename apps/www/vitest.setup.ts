@@ -24,3 +24,7 @@ if (typeof window !== "undefined" && !window.ResizeObserver) {
     disconnect() {}
   } as unknown as typeof window.ResizeObserver
 }
+
+if (typeof window !== "undefined" && !Element.prototype.scrollIntoView) {
+  Element.prototype.scrollIntoView = () => {}
+}
