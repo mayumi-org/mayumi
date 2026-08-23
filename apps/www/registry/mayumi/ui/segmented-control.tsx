@@ -40,7 +40,7 @@ function SegmentedControlItem({
       {...props}
       data-slot="segmented-control-item"
       className={cn(
-        "inline-flex h-6 flex-1 items-center justify-center rounded-icon px-3 text-ui leading-tight text-fg-secondary outline-none transition-colors duration-150 ease-out select-none focus-visible:ring-2 focus-visible:ring-accent/60 data-selected:bg-surface data-selected:text-fg data-selected:shadow-sm disabled:pointer-events-none disabled:opacity-50",
+        "inline-flex h-6 flex-1 items-center justify-center rounded-icon px-3 text-ui leading-tight text-fg-secondary outline-none transition-colors duration-150 ease-out select-none focus-visible:ring-2 focus-visible:ring-accent/60 data-active:bg-surface-raised data-active:text-fg data-active:shadow-sm disabled:pointer-events-none disabled:opacity-50",
         className
       )}
     />

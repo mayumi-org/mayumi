@@ -3,6 +3,7 @@
   --background: #f2f2f4;
   --surface: #ffffff;
   --surface-2: #ececef;
+  --surface-raised: #ffffff;
   --overlay: rgba(252, 252, 253, 0.78);
   --border: rgba(0, 0, 0, 0.1);
   --highlight: rgba(255, 255, 255, 0.65);
@@ -21,6 +22,7 @@
   --background: #0a0a0c;
   --surface: #141416;
   --surface-2: #1c1c20;
+  --surface-raised: rgba(255, 255, 255, 0.16);
   --overlay: rgba(22, 22, 26, 0.72);
   --border: rgba(255, 255, 255, 0.08);
   --highlight: rgba(255, 255, 255, 0.06);
@@ -39,6 +41,7 @@
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-surface-raised: var(--surface-raised);
   --color-overlay: var(--overlay);
   --color-border: var(--border);
   --color-fg: var(--fg);

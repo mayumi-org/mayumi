@@ -31,6 +31,16 @@ describe("SegmentedControl", () => {
     expect(screen.getByText("列表内容")).toBeInTheDocument()
   })
 
+  it("carries the styling hook on the active tab only", () => {
+    render(<Demo />)
+    expect(screen.getByRole("tab", { name: "列表" })).toHaveAttribute(
+      "data-active"
+    )
+    expect(screen.getByRole("tab", { name: "网格" })).not.toHaveAttribute(
+      "data-active"
+    )
+  })
+
   it("switches panel on click", async () => {
     render(<Demo />)
     await userEvent.click(screen.getByRole("tab", { name: "网格" }))
