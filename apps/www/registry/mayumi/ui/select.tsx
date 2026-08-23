@@ -28,14 +28,23 @@ function SelectTrigger({
   )
 }
 
+type SelectContentProps = React.ComponentProps<typeof BaseSelect.Popup> &
+  Pick<
+    React.ComponentProps<typeof BaseSelect.Positioner>,
+    "side" | "align" | "sideOffset"
+  >
+
 function SelectContent({
   className,
+  side,
+  align,
+  sideOffset = 4,
   children,
   ...props
-}: React.ComponentProps<typeof BaseSelect.Popup>) {
+}: SelectContentProps) {
   return (
     <BaseSelect.Portal>
-      <BaseSelect.Positioner sideOffset={4}>
+      <BaseSelect.Positioner side={side} align={align} sideOffset={sideOffset}>
         <BaseSelect.Popup
           {...props}
           data-slot="select-content"

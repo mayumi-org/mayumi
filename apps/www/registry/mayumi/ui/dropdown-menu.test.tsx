@@ -9,11 +9,17 @@ import {
   DropdownMenuTrigger,
 } from "./dropdown-menu"
 
-function Demo({ onSelect }: { onSelect?: () => void }) {
+function Demo({
+  onSelect,
+  side,
+}: {
+  onSelect?: () => void
+  side?: "top" | "bottom" | "left" | "right"
+}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>操作</DropdownMenuTrigger>
-      <DropdownMenuContent>
+      <DropdownMenuContent side={side}>
         <DropdownMenuItem onClick={onSelect}>重命名</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>删除</DropdownMenuItem>
@@ -41,5 +47,12 @@ describe("DropdownMenu", () => {
     render(<Demo />)
     await userEvent.click(screen.getByRole("button", { name: "操作" }))
     expect(await screen.findByRole("separator")).toBeInTheDocument()
+  })
+
+  it("forwards side to the positioner", async () => {
+    render(<Demo side="right" />)
+    await userEvent.click(screen.getByRole("button", { name: "操作" }))
+    const item = await screen.findByRole("menuitem", { name: "重命名" })
+    expect(item.closest("[data-side]")).toHaveAttribute("data-side", "right")
   })
 })

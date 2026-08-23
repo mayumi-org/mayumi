@@ -5,12 +5,12 @@ import { cn } from "@/registry/mayumi/lib/utils"
 function GroupedList({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      {...props}
       data-slot="grouped-list"
       className={cn(
         "divide-y divide-border overflow-hidden rounded-card border border-border bg-surface",
         className
       )}
-      {...props}
     />
   )
 }
@@ -37,6 +37,7 @@ function GroupedListItem({
   const Comp = (interactive ? "button" : "div") as "button"
   return (
     <Comp
+      {...props}
       {...(interactive ? { type: "button" as const } : {})}
       data-slot="grouped-list-item"
       onClick={onClick}
@@ -46,7 +47,6 @@ function GroupedListItem({
           "outline-none transition-colors duration-150 ease-out hover:bg-surface-2/50 focus-visible:bg-surface-2/50 active:bg-surface-2 disabled:pointer-events-none disabled:opacity-50",
         className
       )}
-      {...props}
     >
       {icon}
       <span className="flex min-w-0 flex-1 flex-col gap-0.5">

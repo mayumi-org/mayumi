@@ -20,14 +20,23 @@ function DropdownMenuTrigger({
   )
 }
 
+type DropdownMenuContentProps = React.ComponentProps<typeof BaseMenu.Popup> &
+  Pick<
+    React.ComponentProps<typeof BaseMenu.Positioner>,
+    "side" | "align" | "sideOffset"
+  >
+
 function DropdownMenuContent({
   className,
+  side,
+  align,
+  sideOffset = 4,
   children,
   ...props
-}: React.ComponentProps<typeof BaseMenu.Popup>) {
+}: DropdownMenuContentProps) {
   return (
     <BaseMenu.Portal>
-      <BaseMenu.Positioner sideOffset={4}>
+      <BaseMenu.Positioner side={side} align={align} sideOffset={sideOffset}>
         <BaseMenu.Popup
           {...props}
           data-slot="dropdown-menu-content"

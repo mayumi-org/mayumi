@@ -32,9 +32,9 @@ function Button({
 }: React.ComponentProps<"button"> & VariantProps<typeof buttonVariants>) {
   return (
     <button
+      {...props}
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
     />
   )
 }

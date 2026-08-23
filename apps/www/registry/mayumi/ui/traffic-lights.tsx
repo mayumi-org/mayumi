@@ -51,12 +51,12 @@ function TrafficLights({
   const handlers = { close: onClose, minimize: onMinimize, zoom: onZoom }
   return (
     <div
+      {...props}
       data-slot="traffic-lights"
       className={cn(
         "group/traffic app-region-no-drag flex shrink-0 items-center gap-2",
         className
       )}
-      {...props}
     >
       {lights.map((light) => (
         <button

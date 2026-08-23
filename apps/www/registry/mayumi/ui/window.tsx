@@ -7,13 +7,13 @@ function Window({
 }: React.ComponentProps<"div"> & { vibrancy?: boolean }) {
   return (
     <div
+      {...props}
       data-slot="window"
       className={cn(
         "relative flex h-full min-h-0 flex-col overflow-hidden rounded-window border border-border text-ui text-fg shadow-[var(--shadow-overlay)]",
         vibrancy ? "mayumi-vibrancy" : "bg-background",
         className
       )}
-      {...props}
     />
   )
 }
@@ -21,9 +21,9 @@ function Window({
 function WindowBody({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
+      {...props}
       data-slot="window-body"
       className={cn("flex min-h-0 flex-1", className)}
-      {...props}
     />
   )
 }

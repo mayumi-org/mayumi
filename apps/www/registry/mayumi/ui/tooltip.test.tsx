@@ -26,4 +26,19 @@ describe("Tooltip", () => {
     )
     expect(screen.queryByText("提示文本")).toBeNull()
   })
+
+  it("forwards side to the positioner", () => {
+    render(
+      <TooltipProvider>
+        <Tooltip open>
+          <TooltipTrigger>目标</TooltipTrigger>
+          <TooltipContent side="bottom">提示文本</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    )
+    expect(screen.getByText("提示文本").closest("[data-side]")).toHaveAttribute(
+      "data-side",
+      "bottom"
+    )
+  })
 })

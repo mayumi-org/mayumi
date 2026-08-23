@@ -6,15 +6,23 @@ const TooltipProvider = BaseTooltip.Provider
 const Tooltip = BaseTooltip.Root
 const TooltipTrigger = BaseTooltip.Trigger
 
+type TooltipContentProps = React.ComponentProps<typeof BaseTooltip.Popup> &
+  Pick<
+    React.ComponentProps<typeof BaseTooltip.Positioner>,
+    "side" | "align" | "sideOffset"
+  >
+
 function TooltipContent({
   className,
+  side,
+  align,
   sideOffset = 6,
   children,
   ...props
-}: React.ComponentProps<typeof BaseTooltip.Popup> & { sideOffset?: number }) {
+}: TooltipContentProps) {
   return (
     <BaseTooltip.Portal>
-      <BaseTooltip.Positioner sideOffset={sideOffset}>
+      <BaseTooltip.Positioner side={side} align={align} sideOffset={sideOffset}>
         <BaseTooltip.Popup
           {...props}
           data-slot="tooltip-content"
