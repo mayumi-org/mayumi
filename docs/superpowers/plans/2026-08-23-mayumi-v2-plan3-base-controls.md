@@ -6,7 +6,7 @@
 
 **Architecture:** 延续既有模式：组件在 `apps/www/registry/mayumi/ui/<name>.tsx`，测试与 stories 同目录，最后统一注册 registry。交互行为全部来自 `@base-ui-components/react`（1.0.0-rc.0）；弹层动效走 Base UI 的 `data-starting-style`/`data-ending-style` + CSS 过渡（无需 motion），`transform-origin` 取 Positioner 提供的 `--transform-origin`。
 
-**Tech Stack:** React 19 / Tailwind v4 / @base-ui-components/react 1.0.0-rc / cn / Vitest 4 + Testing Library / Storybook 10 / shadcn CLI。
+**Tech Stack:** React 19 / Tailwind v4 / @base-ui-components/react 1.0.0-rc / lucide-react（图标统一来源；SF Symbols 授权不允许 web 分发，lucide 为最接近的 shadcn 生态标准）/ cn / Vitest 4 + Testing Library / Storybook 10 / shadcn CLI。
 
 **Spec:** `docs/superpowers/specs/2026-08-22-mayumi-v2-mac-style-registry-design.md`
 
@@ -19,6 +19,7 @@
 - 组件根元素带 `data-slot`；类名合并用 `cn()`；受控/契约属性写在 `{...props}` **之后**（契约恒胜原则，Plan 2 裁决）。
 - 弹层动效规则（animate skill 配方）：CSS 过渡显式列属性（Tailwind v4 的 scale 工具输出 `scale` 属性，故过渡列表写 `transition-[scale,opacity]`）；曲线 `ease-out`；时长 Tooltip 125ms、Dropdown/Select/Dialog 200ms；进出场对称（starting/ending-style 同值）；缩放起点 0.95–0.97 **严禁 scale(0)**；弹层 `origin-(--transform-origin)`（Dialog 居中豁免）；scale 类挂 `motion-safe:`（reduced-motion 保留淡入淡出）。
 - 弹层材质：Dropdown/Select/Dialog 用 `.mayumi-vibrancy`（a11y 降级内建）；Tooltip 用实色 `bg-surface`（小面积不用毛玻璃）。
+- **图标规则（维护者决策，替代此前的内联 SVG 约定）**：图标一律来自 `lucide-react`，组件内禁止手写内联 SVG；图标元素带 `aria-hidden="true"`；任何 `files` 源码 import 了 lucide 的 registry item 必须在 `dependencies` 中声明 `"lucide-react"`。Task 1 会先把 Plan 2 存量组件的内联 SVG 一并换掉。
 - **Base UI RC API 漂移适配**：计划代码按 1.0.0-rc.0 的公开 API 编写；若安装版的部件名/props/data 属性不符，以 `node_modules/@base-ui-components/react` 的类型声明为准做最小适配并在报告记录 forcing error——判定标准是行为与样式意图不变。jsdom 缺的浏览器 API（ResizeObserver 等）在 vitest.setup.ts 补 stub（Task 2 起步就加，后续任务遇到新缺口按此模式补，记录即可）。
 - TDD：先失败测试后实现；测试输出 pristine；弹层测试用受控/`defaultOpen` 模式保证 jsdom 确定性。
 - 每个组件任务交付：组件 + 测试 + story；验证 `pnpm --filter www test` 全绿 + `pnpm --filter storybook typecheck`。
@@ -26,14 +27,14 @@
 
 ---
 
-### Task 1: Plan 2 遗留清理（token 化 + CI 加固 + Sidebar 边框）
+### Task 1: Plan 2 遗留清理（token 化 + lucide 化 + CI 加固 + Sidebar 边框）
 
 **Files:**
-- Modify: `apps/www/registry/mayumi/styles/theme.css`、`apps/www/app/globals.css`、`apps/www/registry/mayumi/ui/{button,window,toolbar,search-field,sidebar-nav,grouped-list,sidebar}.tsx`、`.github/workflows/ci.yml`
+- Modify: `apps/www/registry/mayumi/styles/theme.css`、`apps/www/app/globals.css`、`apps/www/registry/mayumi/ui/{button,window,toolbar,search-field,sidebar-nav,grouped-list,sidebar,traffic-lights}.tsx`、`apps/www/registry.json`、`.github/workflows/ci.yml`
 - Regenerate: `apps/www/public/r/*.json`（提交）
 
 **Interfaces:**
-- Produces: 工具类 `text-ui`（13px）、`rounded-icon`（5px）、`bg-scrim`；Sidebar 收合时无边框残留；CI 带 concurrency 组与 untracked 检查。后续任务必须用这些 tokens。
+- Produces: 工具类 `text-ui`（13px）、`rounded-icon`（5px）、`bg-scrim`；`lucide-react` 进入 www 依赖且存量组件不再有内联 SVG（`Search`/`ChevronRight`/`X`/`Minus`/`Plus`）；Sidebar 收合时无边框残留；CI 带 concurrency 组与 untracked 检查。后续任务必须用这些 tokens 与 lucide。
 
 - [ ] **Step 1: theme.css 增补**
 
@@ -63,7 +64,21 @@
 - `rounded-[5px]` → `rounded-icon`：`sidebar-nav.tsx`（SidebarNavIcon）
 - `sidebar.tsx`：aside 类名 `"... border-r border-border"` 追加 `data-collapsed:border-r-0`（收合到 0 宽时不残留 1px 边框）
 
-- [ ] **Step 3: CI 加固**
+- [ ] **Step 3: lucide 化（去除存量内联 SVG）**
+
+```bash
+pnpm --filter www add lucide-react
+```
+
+三个组件的内联 `<svg>` 替换为 lucide 图标（保持既有尺寸类与 `aria-hidden`，其余代码不动）：
+
+- `search-field.tsx`：放大镜 → `<Search aria-hidden="true" className="pointer-events-none absolute top-1/2 left-2 size-3.5 -translate-y-1/2 text-fg-tertiary" strokeWidth={1.5} />`（`import { Search } from "lucide-react"`）
+- `grouped-list.tsx`：chevron → `<ChevronRight aria-hidden="true" className="size-3 shrink-0 text-fg-tertiary" strokeWidth={2} />`
+- `traffic-lights.tsx`：三个 glyph → `X` / `Minus` / `Plus`，`lights` 数组的 `glyph` 字段改存组件（如 `glyph: X`），按钮内渲染 `<light.glyph aria-hidden="true" className="size-2" strokeWidth={3} />`（8px 显示尺寸下 strokeWidth 3 视觉等效原 1.2；若类型上组件字段写法不畅，最小适配并记录）
+
+`apps/www/registry.json` 中 `search-field`、`grouped-list`、`traffic-lights` 三项各增加 `"dependencies": ["lucide-react"]`。
+
+- [ ] **Step 4: CI 加固**
 
 `.github/workflows/ci.yml` 在 `on:` 块之后插入：
 
@@ -82,15 +97,15 @@ registry freshness step 的 `run` 改为：
           test -z "$(git status --porcelain apps/www/public/r)"
 ```
 
-- [ ] **Step 4: 验证**
+- [ ] **Step 5: 验证**
 
 Run: `pnpm --filter www test && pnpm typecheck && pnpm --filter www exec shadcn build && git status --short`
-Expected: 35/35 绿（无测试断言这些字面量类）；typecheck 绿；再生的 public/r JSON 反映替换。
+Expected: 35/35 绿（存量测试对 svg 的断言用 `querySelector("svg")`/aria-hidden，lucide 渲染的同样是 svg，依然通过）；typecheck 绿；再生的 public/r JSON 反映替换与新依赖。
 
-- [ ] **Step 5: Commit（含再生产物）**
+- [ ] **Step 6: Commit（含再生产物）**
 
 ```bash
-git add -A && git commit -m "refactor: tokenize text/radius literals, harden ci, sidebar border fix"
+git add -A && git commit -m "refactor: tokenize literals, lucide icons, harden ci, sidebar border fix"
 ```
 
 ---
@@ -392,6 +407,7 @@ export { Switch }
 ```tsx
 // checkbox.tsx
 import { Checkbox as BaseCheckbox } from "@base-ui-components/react/checkbox"
+import { Check } from "lucide-react"
 
 import { cn } from "@/registry/mayumi/lib/utils"
 
@@ -412,18 +428,7 @@ function Checkbox({
         data-slot="checkbox-indicator"
         className="flex text-accent-fg data-unchecked:hidden"
       >
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 10 10"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="size-2.5"
-        >
-          <path d="M1.5 5.5 4 8l4.5-6" />
-        </svg>
+        <Check aria-hidden="true" className="size-2.5" strokeWidth={3} />
       </BaseCheckbox.Indicator>
     </BaseCheckbox.Root>
   )
@@ -976,6 +981,7 @@ Expected: FAIL（模块不存在）。
 ```tsx
 // select.tsx
 import { Select as BaseSelect } from "@base-ui-components/react/select"
+import { Check, ChevronsUpDown } from "lucide-react"
 
 import { cn } from "@/registry/mayumi/lib/utils"
 
@@ -998,18 +1004,7 @@ function SelectTrigger({
     >
       {children}
       <BaseSelect.Icon className="flex text-fg-tertiary">
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 8 12"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="size-3"
-        >
-          <path d="M1.5 4.5 4 2l2.5 2.5M1.5 7.5 4 10l2.5-2.5" />
-        </svg>
+        <ChevronsUpDown aria-hidden="true" className="size-3" strokeWidth={2} />
       </BaseSelect.Icon>
     </BaseSelect.Trigger>
   )
@@ -1053,18 +1048,7 @@ function SelectItem({
       )}
     >
       <BaseSelect.ItemIndicator className="col-start-1 flex justify-center">
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 10 10"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="size-2.5"
-        >
-          <path d="M1.5 5.5 4 8l4.5-6" />
-        </svg>
+        <Check aria-hidden="true" className="size-2.5" strokeWidth={3} />
       </BaseSelect.ItemIndicator>
       <BaseSelect.ItemText className="col-start-2">{children}</BaseSelect.ItemText>
     </BaseSelect.Item>
@@ -1660,7 +1644,7 @@ git add -A && git commit -m "feat: scroll area component"
 }
 ```
 
-例外：`kbd` 无 Base UI 依赖——去掉它的 `dependencies` 字段。
+例外：`kbd` 无 Base UI 依赖——去掉它的 `dependencies` 字段；`checkbox` 与 `select` 的源码 import 了 lucide——它们的 `dependencies` 为 `["@base-ui-components/react", "lucide-react"]`（图标规则：见 Global Constraints）。
 
 - [ ] **Step 2: settings demo 升级**
 
@@ -1719,4 +1703,5 @@ git add -A && git commit -m "feat: register base controls in registry with upgra
 
 - **Spec coverage**：spec §4 基础控件 12 项中 11 项落地（Input/Switch/Checkbox/Slider/Select/SegmentedControl/Tooltip/DropdownMenu/Dialog/ScrollArea/Kbd）——Button 已于 Plan 1 交付，故本计划为余下全部；重交互组件（Command/Toast）与文档站属 Plan 4，非缺口。Plan 2 终审遗留四项全部进 Task 1。弹层动效符合 spec §3 动效基调（CSS 过渡 + 强化曲线，不引入 motion）。
 - **Placeholder scan**：无 TBD/TODO；各 Base UI 适配点均为显式两分支决策（以安装版类型为准、须记录 forcing error），非占位。测试累计数因 RC API 语义不确定允许 ±1 且以 Task 11 全量运行为准——这是显式核算规则而非模糊。
+- **图标规则一致性**：lucide-react 于 Task 1 安装并完成存量替换（SearchField/GroupedList/TrafficLights），Task 3/7 的 Checkbox/Select 直接引用；registry 依赖声明同步（T1 改 3 个存量 item，T11 的 checkbox/select 带 lucide）——全库无内联 SVG 残留。
 - **Type consistency**：`text-ui`/`rounded-icon`/`bg-scrim` 在 Task 1 定义后才被 Task 2–10 引用；所有 `React.ComponentProps<typeof BaseX.Part>` 签名模式统一；`{...props}` 前置 + 契约属性后写的顺序在全部组件中一致（Plan 2 裁决的延续）；Task 11 demo 升级引用的导出（Switch/Select 五件套/Slider）均在 Task 3/7/4 定义。

@@ -81,7 +81,7 @@ mayumi/
 
 **共享基建**（同样经 registry 分发）：`lib/utils.ts`、`lib/motion.ts`、`styles/theme.css`。每个组件在 `registry.json` 中声明自身 npm 依赖（base-ui、motion、sonner、cmdk 等），`shadcn add` 时自动安装。
 
-依赖选型（按 pick-ui-library 清单核定）：Base UI（primitives）、cmdk、Sonner、motion、cva、clsx、next-themes（仅文档站）。
+依赖选型（按 pick-ui-library 清单核定）：Base UI（primitives）、cmdk、Sonner、motion、cva、clsx、next-themes（仅文档站）、lucide-react（图标统一来源——SF Symbols 授权不允许 web 分发，lucide 为最接近的生态标准；组件禁止内联 SVG，引用 lucide 的 registry item 须声明该依赖）。
 
 ## 5. 文档站与测试
 
