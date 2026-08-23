@@ -135,20 +135,22 @@ function CommandShortcut({
 function CommandDialog({
   children,
   className,
+  title = "命令面板",
   ...props
 }: Omit<React.ComponentProps<typeof Dialog>, "children"> & {
   children?: React.ReactNode
   className?: string
+  title?: string
 }) {
   return (
     <Dialog {...props}>
       <DialogContent
         className={cn(
-          "top-[20%] w-[560px] -translate-y-0 overflow-hidden p-0",
+          "top-[20%] w-[560px] max-w-[calc(100vw-2rem)] -translate-y-0 overflow-hidden p-0",
           className
         )}
       >
-        <DialogTitle className="sr-only">命令面板</DialogTitle>
+        <DialogTitle className="sr-only">{title}</DialogTitle>
         <Command>{children}</Command>
       </DialogContent>
     </Dialog>
