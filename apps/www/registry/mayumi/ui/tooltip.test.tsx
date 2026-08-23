@@ -27,6 +27,27 @@ describe("Tooltip", () => {
     expect(screen.queryByText("提示文本")).toBeNull()
   })
 
+  it("renders the arrow tail by default and hides it on demand", () => {
+    const { rerender } = render(
+      <TooltipProvider>
+        <Tooltip open>
+          <TooltipTrigger>目标</TooltipTrigger>
+          <TooltipContent>提示文本</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    )
+    expect(document.querySelector('[data-slot="tooltip-arrow"]')).not.toBeNull()
+    rerender(
+      <TooltipProvider>
+        <Tooltip open>
+          <TooltipTrigger>目标</TooltipTrigger>
+          <TooltipContent arrow={false}>提示文本</TooltipContent>
+        </Tooltip>
+      </TooltipProvider>
+    )
+    expect(document.querySelector('[data-slot="tooltip-arrow"]')).toBeNull()
+  })
+
   it("forwards side to the positioner", () => {
     render(
       <TooltipProvider>
