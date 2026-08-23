@@ -46,6 +46,96 @@
       "files": [
         { "path": "registry/mayumi/ui/button.tsx", "type": "registry:ui" }
       ]
+    },
+    {
+      "name": "window",
+      "type": "registry:ui",
+      "title": "Window",
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [{ "path": "registry/mayumi/ui/window.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "titlebar",
+      "type": "registry:ui",
+      "title": "TitleBar",
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [{ "path": "registry/mayumi/ui/titlebar.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "toolbar",
+      "type": "registry:ui",
+      "title": "Toolbar",
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [{ "path": "registry/mayumi/ui/toolbar.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "traffic-lights",
+      "type": "registry:ui",
+      "title": "TrafficLights",
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/traffic-lights.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "search-field",
+      "type": "registry:ui",
+      "title": "SearchField",
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/search-field.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "sidebar-nav",
+      "type": "registry:ui",
+      "title": "SidebarNav",
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/sidebar-nav.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "dependencies": ["motion"],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json",
+        "https://mayumi.netlify.app/r/motion.json"
+      ],
+      "files": [{ "path": "registry/mayumi/ui/sidebar.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "grouped-list",
+      "type": "registry:ui",
+      "title": "GroupedList",
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        { "path": "registry/mayumi/ui/grouped-list.tsx", "type": "registry:ui" }
+      ]
     }
   ]
 }
