@@ -7,7 +7,7 @@
     "dev": "pnpm --filter www dev",
     "build": "pnpm --filter www build",
     "test": "pnpm --filter www test",
-    "typecheck": "pnpm --filter storybook typecheck",
+    "typecheck": "pnpm --filter www typecheck && pnpm --filter storybook typecheck",
     "storybook": "pnpm --filter storybook dev"
   }
 }

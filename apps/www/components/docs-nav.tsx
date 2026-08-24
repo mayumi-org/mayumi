@@ -4,20 +4,16 @@ import { useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-import type { DocEntry } from "@/lib/docs"
+import type { DocMeta } from "@/lib/docs-meta"
 import { SearchField } from "@/registry/mayumi/ui/search-field"
 import {
   SidebarNav,
   SidebarNavItem,
 } from "@/registry/mayumi/ui/sidebar-nav"
 
-const GROUPS: DocEntry["group"][] = ["窗口层", "列表层", "基础控件", "重交互"]
+const GROUPS: DocMeta["group"][] = ["窗口层", "列表层", "基础控件", "重交互"]
 
-// entries 是 Server Component 传给 Client Component 的 props：DocEntry.Demo 是函数，
-// RSC 边界不允许直接传函数，这里裁剪成可序列化的子集（调用方负责剔除 Demo）。
-type DocsNavEntry = Omit<DocEntry, "Demo">
-
-export function DocsNav({ entries }: { entries: DocsNavEntry[] }) {
+export function DocsNav({ entries }: { entries: DocMeta[] }) {
   const pathname = usePathname()
   const [query, setQuery] = useState("")
   const filtered = entries.filter((e) =>
@@ -37,7 +33,7 @@ export function DocsNav({ entries }: { entries: DocsNavEntry[] }) {
           return (
             <div key={group}>
               <p className="px-2 pb-1 text-xs text-fg-tertiary">{group}</p>
-              <SidebarNav>
+              <SidebarNav aria-label={group}>
                 {items.map((e) => (
                   <Link key={e.slug} href={`/components/${e.slug}`}>
                     <SidebarNavItem

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
 
-import { docs } from "@/lib/docs"
+import { docsMeta } from "@/lib/docs-meta"
 import {
   CommandDialog,
   CommandEmpty,
@@ -34,7 +34,7 @@ export function CommandMenu() {
       <CommandList>
         <CommandEmpty>无结果</CommandEmpty>
         <CommandGroup heading="组件">
-          {docs.map((d) => (
+          {docsMeta.map((d) => (
             <CommandItem
               key={d.slug}
               value={`${d.title} ${d.slug}`}

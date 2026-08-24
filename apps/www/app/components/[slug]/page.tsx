@@ -43,8 +43,8 @@ export default async function ComponentPage({
           code={`npx shadcn@latest add https://mayumi.netlify.app/r/${slug}.json`}
         />
         <p className="text-xs text-fg-tertiary">
-          在 components.json 配置 registries 后也可用
-          `npx shadcn add @mayumi/{slug}`（见首页快速开始）。
+          在 components.json 配置 registries 后也可用{" "}
+          <code>{`npx shadcn add @mayumi/${slug}`}</code>（见首页快速开始）。
         </p>
       </section>
 

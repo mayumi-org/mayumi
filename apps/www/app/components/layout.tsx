@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import { DocsNav } from "@/components/docs-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { docs } from "@/lib/docs"
+import { docsMeta } from "@/lib/docs-meta"
 import { Kbd } from "@/registry/mayumi/ui/kbd"
 import { Sidebar } from "@/registry/mayumi/ui/sidebar"
 
@@ -20,15 +20,7 @@ export default function ComponentsLayout({
           </Link>
           <ThemeToggle />
         </div>
-        <DocsNav
-          entries={docs.map(({ slug, title, description, group, notes }) => ({
-            slug,
-            title,
-            description,
-            group,
-            notes,
-          }))}
-        />
+        <DocsNav entries={docsMeta} />
         <p className="flex items-center gap-1 px-1 text-xs text-fg-tertiary">
           随处可按 <Kbd>⌘</Kbd>
           <Kbd>K</Kbd>
