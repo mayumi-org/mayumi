@@ -75,8 +75,8 @@ export const AgentChat: StoryObj = {
   render: () => (
     <div className="flex min-h-screen items-center justify-center p-8">
       <Window className="h-[720px] w-[1000px] flex-col">
-        {/* 标签栏：红绿灯 + 导航 + 标签页 */}
-        <TitleBar className="gap-3 border-b border-border">
+        {/* 标签栏：红绿灯 + 导航 + 标签页；无分隔线，与下方内容共用窗口背景（Linear 一体感） */}
+        <TitleBar className="h-10 gap-3">
           <TrafficLights />
           <div className="app-region-no-drag flex items-center gap-1">
             <Button variant="ghost" size="sm" aria-label="历史">
@@ -90,7 +90,7 @@ export const AgentChat: StoryObj = {
             </Button>
           </div>
           <div className="app-region-no-drag flex items-center gap-1">
-            <span className="flex h-7 items-center gap-2 rounded-control bg-surface-raised px-3 text-ui text-fg">
+            <span className="flex h-8 items-center gap-2 rounded-t-card rounded-b-none bg-surface-raised px-3 text-ui text-fg">
               <Send aria-hidden="true" className="size-3.5 text-fg-secondary" />
               New chat
             </span>
@@ -102,7 +102,7 @@ export const AgentChat: StoryObj = {
 
         <div className="flex min-h-0 flex-1">
           {/* plain 侧栏：融进窗口背景，内容区才是岛 */}
-          <Sidebar variant="plain" width={250} className="p-1">
+          <Sidebar variant="plain" width={250} className="pt-0 pb-1 pl-1">
             <div className="flex items-center justify-between px-1 py-1">
               <button
                 type="button"
@@ -188,7 +188,7 @@ export const AgentChat: StoryObj = {
           </Sidebar>
 
           {/* 内容岛：圆角 + 边框 + 自身背景 */}
-          <div className="flex min-w-0 flex-1 flex-col rounded-card border border-border bg-surface/40 m-1 ml-0 overflow-hidden">
+          <div className="mr-1 mb-1 flex min-w-0 flex-1 flex-col overflow-hidden rounded-card border border-border bg-surface/40">
             <Toolbar className="h-11 shrink-0 px-4">
               <button
                 type="button"
