@@ -76,6 +76,9 @@
           "path": "registry/mayumi/ui/window.tsx",
           "type": "registry:ui"
         }
+      ],
+      "dependencies": [
+        "class-variance-authority"
       ]
     },
     {
@@ -164,7 +167,8 @@
       "type": "registry:ui",
       "title": "Sidebar",
       "dependencies": [
-        "motion"
+        "motion",
+        "class-variance-authority"
       ],
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
