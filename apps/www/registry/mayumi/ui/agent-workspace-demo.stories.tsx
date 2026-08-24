@@ -90,7 +90,7 @@ export const AgentChat: StoryObj = {
             </Button>
           </div>
           <div className="app-region-no-drag flex items-center gap-1">
-            <span className="flex h-8 items-center gap-2 rounded-t-card rounded-b-none bg-surface-raised px-3 text-ui text-fg">
+            <span className="flex h-7 items-center gap-2 rounded-card bg-surface-raised px-3 text-ui text-fg">
               <Send aria-hidden="true" className="size-3.5 text-fg-secondary" />
               New chat
             </span>
