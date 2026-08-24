@@ -67,7 +67,7 @@ const win = getCurrentWindow()
     group: "窗口层",
     notes: [
       "collapsed 为受控属性；收合时自动 aria-hidden + inert；reduced-motion 下瞬时切换。",
-      "floating 开启悬浮岛式（macOS Tahoe 风格）：圆角独立面板、与窗口边缘留距。",
+      "variant 三档：default 通栏贴边（Ventura 设置风格）、floating 悬浮岛式（Tahoe 风格）、plain 透明融入窗口（内容区作岛时用，如 Linear）。",
     ],
   },
   {
@@ -117,6 +117,12 @@ const win = getCurrentWindow()
     slug: "input",
     title: "Input",
     description: "表单文本输入，与 SearchField 同一视觉体系。",
+    group: "基础控件",
+  },
+  {
+    slug: "textarea",
+    title: "Textarea",
+    description: "多行文本输入，与 Input 同一视觉体系；默认不可拖拽缩放。",
     group: "基础控件",
   },
   {

@@ -42,7 +42,7 @@ export const ScreenRecording: StoryObj = {
   render: () => (
     <div className="flex min-h-screen items-center justify-center p-8">
       <Window className="h-[640px] w-[900px] flex-row">
-        <Sidebar floating width={230}>
+        <Sidebar variant="floating" width={230}>
           <div className="flex h-10 shrink-0 items-center px-1">
             <TrafficLights />
           </div>

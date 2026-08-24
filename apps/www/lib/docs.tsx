@@ -3,6 +3,7 @@ import type { ComponentType } from "react"
 import { ButtonDemo } from "@/components/demos/button-demo"
 import { TooltipDemo } from "@/components/demos/tooltip-demo"
 import { InputDemo } from "@/components/demos/input-demo"
+import { TextareaDemo } from "@/components/demos/textarea-demo"
 import { KbdDemo } from "@/components/demos/kbd-demo"
 import { SwitchDemo } from "@/components/demos/switch-demo"
 import { CheckboxDemo } from "@/components/demos/checkbox-demo"
@@ -44,6 +45,7 @@ const demos: Record<string, ComponentType> = {
   button: ButtonDemo,
   tooltip: TooltipDemo,
   input: InputDemo,
+  textarea: TextareaDemo,
   kbd: KbdDemo,
   switch: SwitchDemo,
   checkbox: CheckboxDemo,

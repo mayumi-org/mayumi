@@ -29,19 +29,27 @@ describe("Sidebar", () => {
     expect(el).not.toHaveAttribute("aria-hidden")
   })
 
-  it("switches to the floating island style on demand", () => {
+  it("supports the three layout variants", () => {
     const { rerender } = render(<Sidebar data-testid="sb">nav</Sidebar>)
     const el = screen.getByTestId("sb")
-    expect(el).not.toHaveAttribute("data-floating")
+    expect(el).toHaveAttribute("data-variant", "default")
     expect(el).toHaveClass("border-r")
     rerender(
-      <Sidebar data-testid="sb" floating>
+      <Sidebar data-testid="sb" variant="floating">
         nav
       </Sidebar>
     )
-    expect(el).toHaveAttribute("data-floating")
+    expect(el).toHaveAttribute("data-variant", "floating")
     expect(el).toHaveClass("rounded-card")
     expect(el).not.toHaveClass("border-r")
+    rerender(
+      <Sidebar data-testid="sb" variant="plain">
+        nav
+      </Sidebar>
+    )
+    expect(el).toHaveAttribute("data-variant", "plain")
+    expect(el).toHaveClass("bg-transparent")
+    expect(el).not.toHaveClass("mayumi-vibrancy")
   })
 
   it("keeps the collapse contract even if a consumer passes conflicting props", () => {
