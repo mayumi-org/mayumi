@@ -59,6 +59,20 @@ export default async function ComponentPage({
         </section>
       ) : null}
 
+      {doc.wiring?.length ? (
+        <section className="space-y-4">
+          <h2 className="text-ui font-semibold text-fg">接线示例</h2>
+          {doc.wiring.map((w) => (
+            <div key={w.label} className="space-y-2">
+              <h3 className="text-xs font-medium text-fg-secondary">
+                {w.label}
+              </h3>
+              <CodeBlock lang="tsx" code={w.code} />
+            </div>
+          ))}
+        </section>
+      ) : null}
+
       <section className="space-y-2">
         <h2 className="text-ui font-semibold text-fg">源码</h2>
         <CodeBlock code={source} />
