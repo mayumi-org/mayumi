@@ -67,6 +67,7 @@ const win = getCurrentWindow()
     group: "窗口层",
     notes: [
       "collapsed 为受控属性；收合时自动 aria-hidden + inert；reduced-motion 下瞬时切换。",
+      "floating 开启悬浮岛式（macOS Tahoe 风格）：圆角独立面板、与窗口边缘留距。",
     ],
   },
   {
