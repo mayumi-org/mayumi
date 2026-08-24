@@ -35,25 +35,10 @@ function TooltipContent({
           {arrow ? (
             <BaseTooltip.Arrow
               data-slot="tooltip-arrow"
-              className="flex data-[side=bottom]:top-[-6px] data-[side=bottom]:rotate-180 data-[side=left]:right-[-10px] data-[side=left]:-rotate-90 data-[side=right]:left-[-10px] data-[side=right]:rotate-90 data-[side=top]:bottom-[-6px]"
+              className="flex size-2.5 data-[side=bottom]:-top-[5px] data-[side=bottom]:rotate-180 data-[side=left]:-right-[5px] data-[side=left]:-rotate-90 data-[side=right]:-left-[5px] data-[side=right]:rotate-90 data-[side=top]:-bottom-[5px]"
             >
-              <svg
-                aria-hidden="true"
-                width="14"
-                height="6"
-                viewBox="0 0 14 6"
-                fill="none"
-              >
-                <path
-                  d="M0 0h14L8.06 5.35a1.6 1.6 0 0 1-2.12 0L0 0Z"
-                  className="fill-surface"
-                />
-                <path
-                  d="M0.5 0.5 5.94 5.35a1.6 1.6 0 0 0 2.12 0L13.5 0.5"
-                  className="stroke-border"
-                  strokeLinecap="round"
-                />
-              </svg>
+              {/* 半嵌入菱形：上半嵌进胶囊盖住其边框，露出的下尖与胶囊描边连续 */}
+              <div className="size-2.5 rotate-45 rounded-[2px] border-r border-b border-border bg-surface" />
             </BaseTooltip.Arrow>
           ) : null}
           {children}
