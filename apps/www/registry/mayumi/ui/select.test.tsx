@@ -54,6 +54,35 @@ describe("Select", () => {
     )
   })
 
+  it("appears without scaling when it covers the trigger", async () => {
+    render(<Demo />)
+    await userEvent.click(screen.getByRole("combobox", { name: "外观" }))
+    const popup = (await screen.findByRole("option", { name: "自动" })).closest(
+      "[data-slot='select-content']"
+    )
+    // AppKit 的弹出式菜单是瞬间出现的：盖在触发器上时只淡入、不缩放
+    expect(popup).toHaveClass("data-[side=none]:duration-[120ms]")
+    expect(popup).toHaveClass(
+      "motion-safe:not-data-[side=none]:data-starting-style:scale-95"
+    )
+    expect(popup).not.toHaveClass("motion-safe:data-starting-style:scale-95")
+  })
+
+  it("highlights the selected item while nothing else is active", async () => {
+    render(<Demo />)
+    await userEvent.click(screen.getByRole("combobox", { name: "外观" }))
+    const option = await screen.findByRole("option", { name: "自动" })
+    expect(option).toHaveAttribute("data-selected")
+    // 指针移出浮层后 active 会被清空，整个菜单一行都不高亮；
+    // 这条 :has() 规则负责把当前项重新画成蓝底
+    expect(option).toHaveClass(
+      "group-[&:not(:has([data-highlighted]))]/content:data-selected:bg-accent"
+    )
+    expect(option.closest("[data-slot='select-content']")).toHaveClass(
+      "group/content"
+    )
+  })
+
   it("forwards side to the positioner", async () => {
     render(<Demo side="bottom" />)
     await userEvent.click(screen.getByRole("combobox", { name: "外观" }))

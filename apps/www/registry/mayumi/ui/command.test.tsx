@@ -8,6 +8,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandSeparator,
 } from "./command"
 
 function Demo({ onSelect }: { onSelect?: (v: string) => void }) {
@@ -46,6 +47,19 @@ describe("Command", () => {
     render(<Demo onSelect={onSelect} />)
     await userEvent.click(screen.getByText("打开设置"))
     expect(onSelect).toHaveBeenCalledWith("打开设置")
+  })
+
+  it("draws the separator full-bleed, aligned with the input's border", () => {
+    render(
+      <Command>
+        <CommandInput placeholder="搜索命令…" />
+        <CommandList>
+          <CommandSeparator data-testid="sep" />
+        </CommandList>
+      </Command>
+    )
+    // 列表有 p-1，分隔线要用 -mx-1 抵消掉才能和输入框的 border-b 对齐
+    expect(screen.getByTestId("sep")).toHaveClass("-mx-1")
   })
 
   it("renders as a centered palette dialog", () => {

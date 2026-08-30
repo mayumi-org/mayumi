@@ -63,7 +63,12 @@ function SelectContent({
             // px-2 8px = 16px）。此时浮层若只有触发器那么宽，右侧就会露出 16px
             // 触发器残边（连同 chevron）—— AppKit 的菜单永远完全盖住按钮，所以
             // 这里补 1.5rem：16px 用来盖住右边，剩 8px 做与 pr-2 对称的出挑。
-            "mayumi-vibrancy-thick origin-(--transform-origin) min-w-[var(--anchor-width,6rem)] rounded-card border border-border p-1 shadow-[var(--shadow-overlay)] transition-[scale,opacity] duration-200 ease-out outline-none data-[side=none]:min-w-[calc(var(--anchor-width,6rem)+1.5rem)] data-ending-style:opacity-0 data-starting-style:opacity-0 motion-safe:data-ending-style:scale-95 motion-safe:data-starting-style:scale-95",
+            //
+            // 动画也按模式分叉：AppKit 的弹出式菜单是「瞬间出现」的，一个盖在
+            // 按钮上的面板再从 95% 长出来会读成位置错乱，所以 side=none 时只淡入
+            // 并把时长压到 120ms；掉在下方时（传了 side/align 或自动回退）保留
+            // 缩放，那才是常规浮层的语言。
+            "group/content mayumi-vibrancy-thick origin-(--transform-origin) min-w-[var(--anchor-width,6rem)] rounded-card border border-border p-1 shadow-[var(--shadow-overlay)] transition-[scale,opacity] duration-200 ease-out outline-none data-[side=none]:min-w-[calc(var(--anchor-width,6rem)+1.5rem)] data-[side=none]:duration-[120ms] data-ending-style:opacity-0 data-starting-style:opacity-0 motion-safe:not-data-[side=none]:data-ending-style:scale-95 motion-safe:not-data-[side=none]:data-starting-style:scale-95",
             className
           )}
         >
@@ -84,7 +89,13 @@ function SelectItem({
       {...props}
       data-slot="select-item"
       className={cn(
-        "grid cursor-default grid-cols-[1rem_1fr] items-center gap-1 rounded-icon py-1 pr-2 text-ui leading-tight text-fg outline-none select-none data-highlighted:bg-accent data-highlighted:text-accent-fg",
+        // data-highlighted 只跟随 active 项（hover / 键盘导航）。鼠标点开时浮层
+        // 正好把选中项放在指针底下，那一刻是有高亮的；可指针一移出浮层 active
+        // 就被清空，整个菜单一行都不高亮 —— 而 macOS 的弹出式菜单在这种时候仍然
+        // 把当前项画成蓝底。这里补上：浮层里没有任何 active 项时，data-selected
+        // 就当作高亮；一旦有别的项被 active，:has() 不再成立，高亮干净地交接过去，
+        // 不会出现两行同时蓝底。
+        "grid cursor-default grid-cols-[1rem_1fr] items-center gap-1 rounded-icon py-1 pr-2 text-ui leading-tight text-fg outline-none select-none group-[&:not(:has([data-highlighted]))]/content:data-selected:bg-accent group-[&:not(:has([data-highlighted]))]/content:data-selected:text-accent-fg data-highlighted:bg-accent data-highlighted:text-accent-fg",
         className
       )}
     >
