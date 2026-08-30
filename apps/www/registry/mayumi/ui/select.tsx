@@ -55,7 +55,15 @@ function SelectContent({
           {...props}
           data-slot="select-content"
           className={cn(
-            "mayumi-vibrancy-thick origin-(--transform-origin) min-w-24 rounded-card border border-border p-1 shadow-[var(--shadow-overlay)] transition-[scale,opacity] duration-200 ease-out outline-none data-ending-style:opacity-0 data-starting-style:opacity-0 motion-safe:data-ending-style:scale-95 motion-safe:data-starting-style:scale-95",
+            // 宽度跟随触发器（--anchor-width 由 Positioner 写在浮层上）。
+            // data-side=none 是 Base UI 表示「浮层盖在触发器上」的状态，也就是
+            // macOS 弹出式按钮（NSPopUpButton）的行为：Base UI 会把选中项的文字
+            // 左边对齐到触发器里 SelectValue 的文字左边，于是浮层整体左移一个
+            // 「勾选槽 + 内边距」的距离（p-1 4px + 槽 1rem + gap-1 4px − 触发器
+            // px-2 8px = 16px）。此时浮层若只有触发器那么宽，右侧就会露出 16px
+            // 触发器残边（连同 chevron）—— AppKit 的菜单永远完全盖住按钮，所以
+            // 这里补 1.5rem：16px 用来盖住右边，剩 8px 做与 pr-2 对称的出挑。
+            "mayumi-vibrancy-thick origin-(--transform-origin) min-w-[var(--anchor-width,6rem)] rounded-card border border-border p-1 shadow-[var(--shadow-overlay)] transition-[scale,opacity] duration-200 ease-out outline-none data-[side=none]:min-w-[calc(var(--anchor-width,6rem)+1.5rem)] data-ending-style:opacity-0 data-starting-style:opacity-0 motion-safe:data-ending-style:scale-95 motion-safe:data-starting-style:scale-95",
             className
           )}
         >

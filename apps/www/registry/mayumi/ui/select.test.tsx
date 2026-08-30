@@ -39,6 +39,21 @@ describe("Select", () => {
     expect(onValueChange).toHaveBeenCalledWith("dark", expect.anything())
   })
 
+  it("covers the trigger like a macOS pop-up button", async () => {
+    render(<Demo />)
+    await userEvent.click(screen.getByRole("combobox", { name: "外观" }))
+    const popup = (await screen.findByRole("option", { name: "自动" })).closest(
+      "[data-slot='select-content']"
+    )
+    // 浮层至少和触发器一样宽；data-side=none（Base UI 的「盖在触发器上」状态，
+    // jsdom 里量不到 rect 所以永远退化成 bottom）时还要更宽 —— 那时浮层被左移
+    // 一个勾选槽的距离，不加宽右边就会露出一截触发器残边。
+    expect(popup).toHaveClass("min-w-[var(--anchor-width,6rem)]")
+    expect(popup).toHaveClass(
+      "data-[side=none]:min-w-[calc(var(--anchor-width,6rem)+1.5rem)]"
+    )
+  })
+
   it("forwards side to the positioner", async () => {
     render(<Demo side="bottom" />)
     await userEvent.click(screen.getByRole("combobox", { name: "外观" }))
