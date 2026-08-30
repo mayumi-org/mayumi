@@ -4,6 +4,15 @@ import { describe, expect, it, vi } from "vitest"
 import { Button } from "./button"
 
 describe("Button", () => {
+  it("draws the bevel highlight inside the border, not as a second one", () => {
+    render(<Button variant="secondary">按钮</Button>)
+    const el = screen.getByRole("button")
+    // 边框 + inset 高光在几何上就是 2px 顶边；能不能读成斜面取决于两条线的对比。
+    // 暗色下 --highlight 被置为 transparent，只留一条 hairline（见 theme.css）。
+    expect(el).toHaveClass("border")
+    expect(el).toHaveClass("shadow-[inset_0_1px_0_0_var(--highlight)]")
+  })
+
   it("renders children and fires onClick", async () => {
     const onClick = vi.fn()
     render(<Button onClick={onClick}>Save</Button>)

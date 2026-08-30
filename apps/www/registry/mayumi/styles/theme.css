@@ -42,7 +42,12 @@
   --fill-hover: rgba(255, 255, 255, 0.1);
   --fill-active: rgba(255, 255, 255, 0.14);
   --border: rgba(255, 255, 255, 0.08);
-  --highlight: rgba(255, 255, 255, 0.06);
+  /*
+   * 暗色下不给凸起控件加内高光。斜面靠的是「暗边 + 亮高光」的对比，而暗色主题里
+   * 边框本身就是浅色，再叠一条同亮度的浅线只会读成 2px 的双边框，不会读成光。
+   * Linear/Raycast 的暗色控件同样是单条 hairline。亮色仍保留高光（见 :root）。
+   */
+  --highlight: transparent;
   --fg: rgba(255, 255, 255, 0.9);
   --fg-secondary: rgba(255, 255, 255, 0.6);
   --fg-tertiary: rgba(255, 255, 255, 0.4);
