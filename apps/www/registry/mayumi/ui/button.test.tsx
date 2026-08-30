@@ -33,4 +33,12 @@ describe("Button", () => {
     expect(el).toHaveAttribute("data-slot", "button")
     expect(el).toHaveClass("w-full")
   })
+
+  // 减少动态效果时按下仍要有反馈，只是从缩放降级为压暗
+  it("keeps a press affordance under reduced motion", () => {
+    render(<Button>Go</Button>)
+    const el = screen.getByRole("button")
+    expect(el).toHaveClass("motion-safe:active:scale-97")
+    expect(el).toHaveClass("motion-reduce:active:brightness-90")
+  })
 })

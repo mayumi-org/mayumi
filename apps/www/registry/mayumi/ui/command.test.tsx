@@ -60,4 +60,17 @@ describe("Command", () => {
     expect(screen.getByRole("dialog")).toBeInTheDocument()
     expect(screen.getByText("动作 A")).toBeInTheDocument()
   })
+
+  // 快捷键高频唤起的界面立即出现，不做开合动效
+  it("opens without a transition", () => {
+    render(
+      <CommandDialog open>
+        <CommandInput placeholder="搜索命令…" />
+      </CommandDialog>
+    )
+    const dialog = screen.getByRole("dialog")
+    expect(dialog).toHaveAttribute("data-transition", "instant")
+    expect(dialog.className).not.toMatch(/transition-\[scale,opacity\]/)
+    expect(dialog.className).not.toMatch(/data-starting-style:/)
+  })
 })

@@ -24,4 +24,13 @@ describe("Switch", () => {
     await userEvent.click(screen.getByRole("switch"))
     expect(onCheckedChange).not.toHaveBeenCalled()
   })
+
+  // 减少动态效果时旋钮直接落位，位移动画必须走 motion-safe 门控
+  it("gates the thumb travel behind motion-safe", () => {
+    const { container } = render(<Switch aria-label="启用" />)
+    const thumb = container.querySelector('[data-slot="switch-thumb"]')
+    expect(thumb).not.toBeNull()
+    expect(thumb?.className).toContain("motion-safe:transition-transform")
+    expect(thumb?.className).not.toMatch(/(^|\s)transition-transform/)
+  })
 })

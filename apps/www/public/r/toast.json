@@ -11,7 +11,7 @@
   "files": [
     {
       "path": "registry/mayumi/ui/toast.tsx",
-      "content": "\"use client\"\n\nimport { Toaster as SonnerToaster, toast } from \"sonner\"\n\nfunction Toaster(props: React.ComponentProps<typeof SonnerToaster>) {\n  return (\n    <SonnerToaster\n      position=\"top-right\"\n      offset={16}\n      gap={8}\n      toastOptions={{\n        unstyled: true,\n        classNames: {\n          toast:\n            \"mayumi-vibrancy flex w-80 items-start gap-3 rounded-card border border-border p-3 shadow-[var(--shadow-overlay)]\",\n          title: \"text-ui leading-tight font-medium text-fg\",\n          description: \"text-xs leading-tight text-fg-secondary\",\n        },\n      }}\n      {...props}\n    />\n  )\n}\n\nexport { toast, Toaster }\n",
+      "content": "\"use client\"\n\nimport { Toaster as SonnerToaster, toast } from \"sonner\"\n\nfunction Toaster(props: React.ComponentProps<typeof SonnerToaster>) {\n  return (\n    <SonnerToaster\n      position=\"top-right\"\n      offset={16}\n      gap={8}\n      toastOptions={{\n        unstyled: true,\n        classNames: {\n          toast:\n            \"mayumi-vibrancy-thick flex w-80 items-start gap-3 rounded-card border border-border p-3 shadow-[var(--shadow-overlay)]\",\n          title: \"text-ui leading-tight font-medium text-fg\",\n          description: \"text-xs leading-tight text-fg-secondary\",\n        },\n      }}\n      {...props}\n    />\n  )\n}\n\nexport { toast, Toaster }\n",
       "type": "registry:ui"
     }
   ],

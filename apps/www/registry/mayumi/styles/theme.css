@@ -3,8 +3,18 @@
   --background: #f2f2f4;
   --surface: #ffffff;
   --surface-2: #ececef;
+  --surface-2-hover: #e2e2e6;
   --surface-raised: #ffffff;
   --overlay: rgba(252, 252, 253, 0.78);
+  --overlay-thick: rgba(250, 250, 252, 0.92);
+  /*
+   * fill：中性 tint，不是「某个面 + alpha」。凹陷控件（输入框）与瞬时态
+   * （hover/active）都用它——tint 叠在毛玻璃、实色面、任意背景上合成结果都一致，
+   * 而 bg-surface-2/50 会二次稀释成一团浑浊。
+   */
+  --fill: rgba(0, 0, 0, 0.05);
+  --fill-hover: rgba(0, 0, 0, 0.08);
+  --fill-active: rgba(0, 0, 0, 0.12);
   --border: rgba(0, 0, 0, 0.1);
   --highlight: rgba(255, 255, 255, 0.65);
   --fg: rgba(0, 0, 0, 0.88);
@@ -16,14 +26,21 @@
   --traffic-glyph: rgba(0, 0, 0, 0.55);
   --scrim: rgba(0, 0, 0, 0.35);
   --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  /* 悬浮岛用：抬离窗口一层，但远轻于 overlay（浮层）的投影 */
+  --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
 
 .dark {
   --background: #0a0a0c;
   --surface: #141416;
   --surface-2: #1c1c20;
+  --surface-2-hover: #26262b;
   --surface-raised: rgba(255, 255, 255, 0.16);
   --overlay: rgba(22, 22, 26, 0.72);
+  --overlay-thick: rgba(30, 30, 34, 0.9);
+  --fill: rgba(255, 255, 255, 0.06);
+  --fill-hover: rgba(255, 255, 255, 0.1);
+  --fill-active: rgba(255, 255, 255, 0.14);
   --border: rgba(255, 255, 255, 0.08);
   --highlight: rgba(255, 255, 255, 0.06);
   --fg: rgba(255, 255, 255, 0.9);
@@ -35,14 +52,19 @@
   --traffic-glyph: rgba(0, 0, 0, 0.55);
   --scrim: rgba(0, 0, 0, 0.6);
   --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-surface-2-hover: var(--surface-2-hover);
   --color-surface-raised: var(--surface-raised);
   --color-overlay: var(--overlay);
+  --color-fill: var(--fill);
+  --color-fill-hover: var(--fill-hover);
+  --color-fill-active: var(--fill-active);
   --color-border: var(--border);
   --color-fg: var(--fg);
   --color-fg-secondary: var(--fg-secondary);
@@ -74,8 +96,15 @@
 }
 
 /*
- * Translucent chrome material. Accessibility fallbacks are baked in:
- * reduced-transparency / increased-contrast get a solid surface.
+ * Translucent materials, in two weights.
+ *
+ * .mayumi-vibrancy       — 大面积窗体 chrome（窗口、侧栏）。薄一些，让桌面透上来。
+ * .mayumi-vibrancy-thick — 瞬时浮层（菜单、下拉、Toast、对话框）。它们会落在任意内容
+ *                          之上且尺寸小，模糊半径大于自身宽度时会「吸不进」足够背景，
+ *                          所以加厚模糊 + 提高底色不透明度，保证文字始终可读。
+ *
+ * Accessibility fallbacks are baked in: reduced-transparency / increased-contrast
+ * get a solid surface.
  */
 .mayumi-vibrancy {
   background-color: var(--overlay);
@@ -83,8 +112,15 @@
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
+.mayumi-vibrancy-thick {
+  background-color: var(--overlay-thick);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+}
+
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
-  .mayumi-vibrancy {
+  .mayumi-vibrancy,
+  .mayumi-vibrancy-thick {
     background-color: var(--surface);
     backdrop-filter: none;
     -webkit-backdrop-filter: none;

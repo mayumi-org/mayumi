@@ -12,7 +12,7 @@ function Toaster(props: React.ComponentProps<typeof SonnerToaster>) {
         unstyled: true,
         classNames: {
           toast:
-            "mayumi-vibrancy flex w-80 items-start gap-3 rounded-card border border-border p-3 shadow-[var(--shadow-overlay)]",
+            "mayumi-vibrancy-thick flex w-80 items-start gap-3 rounded-card border border-border p-3 shadow-[var(--shadow-overlay)]",
           title: "text-ui leading-tight font-medium text-fg",
           description: "text-xs leading-tight text-fg-secondary",
         },

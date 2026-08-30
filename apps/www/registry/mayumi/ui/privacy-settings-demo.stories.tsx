@@ -1,5 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
-import { ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react"
+import {
+  Accessibility,
+  BatteryCharging,
+  Bluetooth,
+  ChevronLeft,
+  ChevronRight,
+  Globe,
+  Hand,
+  Minus,
+  Plus,
+  Settings,
+  Wifi,
+} from "lucide-react"
 import { Button } from "./button"
 import { GroupedList, GroupedListItem } from "./grouped-list"
 import { ScrollArea } from "./scroll-area"
@@ -15,14 +27,15 @@ import { Window } from "./window"
 const meta: Meta = { title: "demo/PrivacySettings" }
 export default meta
 
+// tint 自带前景色，避免浅色底座配白字导致首字母看不清
 const APPS: { name: string; tint: string; on: boolean }[] = [
-  { name: "微信", tint: "bg-traffic-zoom", on: true },
-  { name: "Bartender 5", tint: "bg-fg", on: true },
-  { name: "ChromeRemoteDesktopHost", tint: "bg-traffic-close", on: true },
-  { name: "DockDoor", tint: "bg-traffic-minimize", on: false },
-  { name: "iShot", tint: "bg-accent", on: false },
-  { name: "Kap", tint: "bg-surface-2", on: true },
-  { name: "Shottr", tint: "bg-traffic-close", on: true },
+  { name: "微信", tint: "bg-traffic-zoom text-accent-fg", on: true },
+  { name: "Bartender 5", tint: "bg-fg text-background", on: true },
+  { name: "ChromeRemoteDesktopHost", tint: "bg-traffic-close text-accent-fg", on: true },
+  { name: "DockDoor", tint: "bg-traffic-minimize text-accent-fg", on: false },
+  { name: "iShot", tint: "bg-accent text-accent-fg", on: false },
+  { name: "Kap", tint: "bg-surface-2 text-fg", on: true },
+  { name: "Shottr", tint: "bg-traffic-close text-accent-fg", on: true },
 ]
 
 function ListFooter() {
@@ -70,31 +83,45 @@ export const ScreenRecording: StoryObj = {
           <ScrollArea className="min-h-0 flex-1">
             <SidebarNav>
               <SidebarNavItem>
-                <SidebarNavIcon className="bg-accent" />
+                <SidebarNavIcon className="bg-accent">
+                  <Wifi aria-hidden="true" />
+                </SidebarNavIcon>
                 Wi-Fi
               </SidebarNavItem>
               <SidebarNavItem>
-                <SidebarNavIcon className="bg-accent" />
+                <SidebarNavIcon className="bg-accent">
+                  <Bluetooth aria-hidden="true" />
+                </SidebarNavIcon>
                 蓝牙
               </SidebarNavItem>
               <SidebarNavItem>
-                <SidebarNavIcon className="bg-traffic-zoom" />
+                <SidebarNavIcon className="bg-traffic-zoom">
+                  <Globe aria-hidden="true" />
+                </SidebarNavIcon>
                 网络
               </SidebarNavItem>
               <SidebarNavItem>
-                <SidebarNavIcon className="bg-traffic-minimize" />
+                <SidebarNavIcon className="bg-traffic-minimize">
+                  <BatteryCharging aria-hidden="true" />
+                </SidebarNavIcon>
                 能耗
               </SidebarNavItem>
               <SidebarNavItem active>
-                <SidebarNavIcon className="bg-traffic-close" />
+                <SidebarNavIcon className="bg-traffic-close">
+                  <Hand aria-hidden="true" />
+                </SidebarNavIcon>
                 隐私与安全性
               </SidebarNavItem>
               <SidebarNavItem>
-                <SidebarNavIcon className="bg-surface-raised" />
+                <SidebarNavIcon className="bg-surface-raised text-fg">
+                  <Settings aria-hidden="true" />
+                </SidebarNavIcon>
                 通用
               </SidebarNavItem>
               <SidebarNavItem>
-                <SidebarNavIcon className="bg-accent" />
+                <SidebarNavIcon className="bg-accent">
+                  <Accessibility aria-hidden="true" />
+                </SidebarNavIcon>
                 辅助功能
               </SidebarNavItem>
             </SidebarNav>
@@ -139,7 +166,7 @@ export const ScreenRecording: StoryObj = {
                     key={app.name}
                     icon={
                       <span
-                        className={`flex size-6 shrink-0 items-center justify-center rounded-icon text-[10px] text-accent-fg ${app.tint}`}
+                        className={`flex size-6 shrink-0 items-center justify-center rounded-icon text-[10px] ${app.tint}`}
                       >
                         {app.name.slice(0, 1)}
                       </span>

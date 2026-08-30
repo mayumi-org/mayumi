@@ -19,7 +19,7 @@ function SearchField({
       <input
         type="search"
         {...props}
-        className="h-7 w-full rounded-control border border-border bg-surface-2/50 pr-2 pl-7 text-ui text-fg outline-none transition-[border-color,background-color] duration-150 ease-out placeholder:text-fg-tertiary focus:border-accent/60 focus:ring-2 focus:ring-accent/30 [&::-webkit-search-cancel-button]:hidden"
+        className="h-7 w-full rounded-control border border-border bg-fill pr-2 pl-7 text-ui text-fg outline-none transition-[border-color,background-color] duration-150 ease-out placeholder:text-fg-tertiary focus:border-accent/60 focus:ring-2 focus:ring-accent/30 [&::-webkit-search-cancel-button]:hidden"
       />
     </div>
   )

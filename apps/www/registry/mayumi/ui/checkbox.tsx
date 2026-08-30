@@ -12,7 +12,7 @@ function Checkbox({
       {...props}
       data-slot="checkbox"
       className={cn(
-        "flex size-4 shrink-0 items-center justify-center rounded-icon border border-border bg-surface-2/50 outline-none transition-colors duration-150 ease-out focus-visible:ring-2 focus-visible:ring-accent/60 data-checked:border-accent data-checked:bg-accent disabled:pointer-events-none disabled:opacity-50",
+        "flex size-4 shrink-0 items-center justify-center rounded-icon border border-border bg-fill outline-none transition-colors duration-150 ease-out focus-visible:ring-2 focus-visible:ring-accent/60 data-checked:border-accent data-checked:bg-accent disabled:pointer-events-none disabled:opacity-50",
         className
       )}
     >

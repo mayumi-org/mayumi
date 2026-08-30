@@ -1,5 +1,6 @@
 import { useState } from "react"
 import type { Meta, StoryObj } from "@storybook/react-vite"
+import { Bluetooth, Wifi } from "lucide-react"
 import { Button } from "./button"
 import { SearchField } from "./search-field"
 import { Sidebar } from "./sidebar"
@@ -24,11 +25,15 @@ function CollapsibleDemo() {
             <SearchField placeholder="搜索" />
             <SidebarNav>
               <SidebarNavItem active>
-                <SidebarNavIcon className="bg-traffic-zoom" />
+                <SidebarNavIcon className="bg-traffic-zoom">
+                  <Wifi aria-hidden="true" />
+                </SidebarNavIcon>
                 Wi-Fi
               </SidebarNavItem>
               <SidebarNavItem>
-                <SidebarNavIcon className="bg-traffic-minimize" />
+                <SidebarNavIcon className="bg-traffic-minimize">
+                  <Bluetooth aria-hidden="true" />
+                </SidebarNavIcon>
                 蓝牙
               </SidebarNavItem>
             </SidebarNav>

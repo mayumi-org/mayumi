@@ -43,7 +43,7 @@ function NavSection({
     <div className="pt-4">
       <button
         type="button"
-        className="flex w-full items-center gap-1 rounded-icon px-2 py-1 text-xs text-fg-tertiary transition-colors duration-150 ease-out hover:text-fg-secondary"
+        className="flex w-full items-center gap-1 rounded-icon px-2 py-1 text-xs text-fg-tertiary outline-none transition-colors duration-150 ease-out hover:text-fg-secondary focus-visible:ring-2 focus-visible:ring-accent/60"
       >
         {title}
         <ChevronDown aria-hidden="true" className="size-3" />
@@ -106,7 +106,7 @@ export const AgentChat: StoryObj = {
             <div className="flex items-center justify-between px-1 py-1">
               <button
                 type="button"
-                className="flex items-center gap-2 rounded-icon px-1 py-1 text-ui font-medium text-fg transition-colors duration-150 ease-out hover:bg-surface-2/60"
+                className="flex items-center gap-2 rounded-icon px-1 py-1 text-ui font-medium text-fg outline-none transition-colors duration-150 ease-out hover:bg-fill-hover focus-visible:ring-2 focus-visible:ring-accent/60"
               >
                 <span className="flex size-5 items-center justify-center rounded-full bg-traffic-minimize text-[10px] text-accent-fg">
                   q
@@ -188,11 +188,11 @@ export const AgentChat: StoryObj = {
           </Sidebar>
 
           {/* 内容岛：圆角 + 边框 + 自身背景 */}
-          <div className="mr-1 mb-1 flex min-w-0 flex-1 flex-col overflow-hidden rounded-card border border-border bg-surface/40">
+          <div className="mr-1 mb-1 flex min-w-0 flex-1 flex-col overflow-hidden rounded-card border border-border bg-surface shadow-[var(--shadow-raised)]">
             <Toolbar className="h-11 shrink-0 px-4">
               <button
                 type="button"
-                className="flex items-center gap-1.5 rounded-icon px-1 py-1 text-ui font-medium text-fg transition-colors duration-150 ease-out hover:bg-surface-2/60"
+                className="flex items-center gap-1.5 rounded-icon px-1 py-1 text-ui font-medium text-fg outline-none transition-colors duration-150 ease-out hover:bg-fill-hover focus-visible:ring-2 focus-visible:ring-accent/60"
               >
                 New chat
                 <ChevronDown aria-hidden="true" className="size-3 text-fg-tertiary" />
@@ -215,12 +215,12 @@ export const AgentChat: StoryObj = {
                 </div>
 
                 <div className="w-full max-w-2xl space-y-4">
-                  {/* 输入卡 */}
-                  <div className="rounded-card border border-border bg-surface-2/40 p-3">
+                  {/* 输入卡：焦点环画在卡片上，输入框本身无边框（Linear 的做法） */}
+                  <div className="rounded-card border border-border bg-fill p-3 transition-[border-color,box-shadow] duration-150 ease-out focus-within:border-accent/60 focus-within:ring-2 focus-within:ring-accent/30">
                     <Textarea
                       placeholder="Ask Linear..."
                       rows={3}
-                      className="border-0 bg-transparent px-1 focus:ring-0 focus:border-0"
+                      className="border-0 bg-transparent px-1 focus:border-0 focus:ring-0"
                     />
                     <div className="mt-2 flex items-center justify-between">
                       <Button variant="ghost" size="sm">
@@ -253,7 +253,7 @@ export const AgentChat: StoryObj = {
                       <button
                         key={title}
                         type="button"
-                        className="flex flex-col gap-2 rounded-card border border-border bg-surface-2/30 p-4 text-left transition-colors duration-150 ease-out hover:bg-surface-2/60"
+                        className="flex flex-col gap-2 rounded-card border border-border bg-fill p-4 text-left outline-none transition-colors duration-150 ease-out hover:bg-fill-hover focus-visible:ring-2 focus-visible:ring-accent/60"
                       >
                         <Icon aria-hidden="true" className="size-4 text-fg-tertiary" />
                         <span className="text-ui font-medium text-fg">{title}</span>

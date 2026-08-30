@@ -1,7 +1,16 @@
 "use client"
 
 import { useState } from "react"
-import { PanelLeft } from "lucide-react"
+import {
+  AppWindow,
+  Bluetooth,
+  Globe,
+  Hand,
+  Moon,
+  PanelLeft,
+  Wifi,
+  Zap,
+} from "lucide-react"
 
 import { Button } from "@/registry/mayumi/ui/button"
 import { GroupedList, GroupedListItem } from "@/registry/mayumi/ui/grouped-list"
@@ -45,19 +54,27 @@ export function SettingsWindow() {
         <SearchField placeholder="搜索" />
         <SidebarNav>
           <SidebarNavItem>
-            <SidebarNavIcon className="bg-traffic-zoom" />
+            <SidebarNavIcon className="bg-traffic-zoom">
+              <Wifi aria-hidden="true" />
+            </SidebarNavIcon>
             Wi-Fi
           </SidebarNavItem>
           <SidebarNavItem>
-            <SidebarNavIcon />
+            <SidebarNavIcon>
+              <Bluetooth aria-hidden="true" />
+            </SidebarNavIcon>
             蓝牙
           </SidebarNavItem>
           <SidebarNavItem>
-            <SidebarNavIcon className="bg-traffic-minimize" />
+            <SidebarNavIcon className="bg-traffic-minimize">
+              <Globe aria-hidden="true" />
+            </SidebarNavIcon>
             网络
           </SidebarNavItem>
           <SidebarNavItem active>
-            <SidebarNavIcon className="bg-traffic-close" />
+            <SidebarNavIcon className="bg-traffic-close">
+              <Hand aria-hidden="true" />
+            </SidebarNavIcon>
             隐私与安全性
           </SidebarNavItem>
         </SidebarNav>
@@ -80,21 +97,33 @@ export function SettingsWindow() {
         <div className="min-h-0 flex-1 space-y-4 overflow-y-auto px-6 pb-6">
           <GroupedList>
             <GroupedListItem
-              icon={<SidebarNavIcon className="bg-traffic-minimize" />}
+              icon={
+                <SidebarNavIcon className="bg-traffic-minimize">
+                  <Moon aria-hidden="true" />
+                </SidebarNavIcon>
+              }
               label="专注模式"
               value="0"
               chevron
               onClick={() => {}}
             />
             <GroupedListItem
-              icon={<SidebarNavIcon />}
+              icon={
+                <SidebarNavIcon>
+                  <Zap aria-hidden="true" />
+                </SidebarNavIcon>
+              }
               label="自动化"
               value="10"
               chevron
               onClick={() => {}}
             />
             <GroupedListItem
-              icon={<SidebarNavIcon className="bg-traffic-close" />}
+              icon={
+                <SidebarNavIcon className="bg-traffic-close">
+                  <AppWindow aria-hidden="true" />
+                </SidebarNavIcon>
+              }
               label="App 管理"
               value="2"
               chevron

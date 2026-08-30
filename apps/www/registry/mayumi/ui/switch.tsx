@@ -17,7 +17,8 @@ function Switch({
     >
       <BaseSwitch.Thumb
         data-slot="switch-thumb"
-        className="aspect-square h-full rounded-full bg-accent-fg shadow-sm transition-transform duration-150 ease-out data-checked:translate-x-3"
+        // 减少动态效果时旋钮直接落位，不做位移动画（颜色变化仍保留，它不是运动）
+        className="aspect-square h-full rounded-full bg-accent-fg shadow-sm data-checked:translate-x-3 motion-safe:transition-transform motion-safe:duration-150 motion-safe:ease-out"
       />
     </BaseSwitch.Root>
   )

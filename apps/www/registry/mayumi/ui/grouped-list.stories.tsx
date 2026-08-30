@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
+import { AppWindow, Moon, Zap } from "lucide-react"
 import { GroupedList, GroupedListItem } from "./grouped-list"
 import { SidebarNavIcon } from "./sidebar-nav"
 
@@ -15,21 +16,33 @@ export const Settings: Story = {
     <div className="w-[480px] space-y-4 p-6">
       <GroupedList>
         <GroupedListItem
-          icon={<SidebarNavIcon className="bg-traffic-minimize" />}
+          icon={
+            <SidebarNavIcon className="bg-traffic-minimize">
+              <Moon aria-hidden="true" />
+            </SidebarNavIcon>
+          }
           label="专注模式"
           value="0"
           chevron
           onClick={() => {}}
         />
         <GroupedListItem
-          icon={<SidebarNavIcon />}
+          icon={
+            <SidebarNavIcon>
+              <Zap aria-hidden="true" />
+            </SidebarNavIcon>
+          }
           label="自动化"
           value="10"
           chevron
           onClick={() => {}}
         />
         <GroupedListItem
-          icon={<SidebarNavIcon className="bg-traffic-close" />}
+          icon={
+            <SidebarNavIcon className="bg-traffic-close">
+              <AppWindow aria-hidden="true" />
+            </SidebarNavIcon>
+          }
           label="App 管理"
           value="2"
           chevron

@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Bluetooth, Wifi } from "lucide-react"
 
 import { Button } from "@/registry/mayumi/ui/button"
 import { SearchField } from "@/registry/mayumi/ui/search-field"
@@ -21,11 +22,15 @@ export function SidebarDemo() {
           <SearchField placeholder="搜索" />
           <SidebarNav>
             <SidebarNavItem active>
-              <SidebarNavIcon className="bg-traffic-zoom" />
+              <SidebarNavIcon className="bg-traffic-zoom">
+                <Wifi aria-hidden="true" />
+              </SidebarNavIcon>
               Wi-Fi
             </SidebarNavItem>
             <SidebarNavItem>
-              <SidebarNavIcon className="bg-traffic-minimize" />
+              <SidebarNavIcon className="bg-traffic-minimize">
+                <Bluetooth aria-hidden="true" />
+              </SidebarNavIcon>
               蓝牙
             </SidebarNavItem>
           </SidebarNav>

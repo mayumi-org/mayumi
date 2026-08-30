@@ -144,7 +144,9 @@ function CommandDialog({
 }) {
   return (
     <Dialog {...props}>
+      {/* 命令面板靠快捷键高频唤起，开合不做动效——动画只会拖慢肌肉记忆 */}
       <DialogContent
+        transition="instant"
         className={cn(
           "top-[20%] w-[560px] max-w-[calc(100vw-2rem)] -translate-y-0 overflow-hidden p-0",
           className

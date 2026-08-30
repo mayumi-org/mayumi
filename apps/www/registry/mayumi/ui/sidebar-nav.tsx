@@ -26,7 +26,7 @@ function SidebarNavItem({
         "flex h-7 w-full items-center gap-2 rounded-control px-2 text-left text-ui leading-tight select-none outline-none transition-colors duration-150 ease-out focus-visible:ring-2 focus-visible:ring-accent/60",
         active
           ? "bg-accent text-accent-fg"
-          : "text-fg hover:bg-surface-2/70 active:bg-surface-2",
+          : "text-fg hover:bg-fill-hover active:bg-fill-active",
         className
       )}
     />

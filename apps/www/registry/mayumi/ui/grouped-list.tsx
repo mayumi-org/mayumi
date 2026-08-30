@@ -44,7 +44,7 @@ function GroupedListItem({
       className={cn(
         "flex min-h-10 w-full items-center gap-3 px-3 py-2 text-left leading-tight",
         interactive &&
-          "outline-none transition-colors duration-150 ease-out hover:bg-surface-2/50 focus-visible:bg-surface-2/50 active:bg-surface-2 disabled:pointer-events-none disabled:opacity-50",
+          "outline-none transition-colors duration-150 ease-out hover:bg-fill focus-visible:bg-fill active:bg-fill-active disabled:pointer-events-none disabled:opacity-50",
         className
       )}
     >

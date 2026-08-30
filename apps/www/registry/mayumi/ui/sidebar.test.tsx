@@ -42,6 +42,8 @@ describe("Sidebar", () => {
     expect(el).toHaveAttribute("data-variant", "floating")
     expect(el).toHaveClass("rounded-card")
     expect(el).not.toHaveClass("border-r")
+    // 悬浮岛必须有投影才读得出「抬离窗口一层」
+    expect(el).toHaveClass("shadow-[var(--shadow-raised)]")
     rerender(
       <Sidebar data-testid="sb" variant="plain">
         nav
