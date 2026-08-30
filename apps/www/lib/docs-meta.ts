@@ -98,6 +98,39 @@ const win = getCurrentWindow()
     ],
   },
   {
+    slug: "card",
+    title: "Card",
+    description: "内容卡片，flat 中性填充与 raised 抬起两档。",
+    group: "列表层",
+    notes: [
+      "flat 用 --fill 中性 tint，叠在毛玻璃或实色面上合成结果一致；raised 是实色面 + 投影，用作抬离窗口一层的内容岛。",
+    ],
+  },
+  {
+    slug: "collapsible-section",
+    title: "CollapsibleSection",
+    description: "可折叠分组标题，用于边栏的收藏 / 位置分区。",
+    group: "列表层",
+    notes: [
+      "展开高度来自 Base UI 的 --collapsible-panel-height；高度动画走 motion-safe，减少动态效果时瞬时展开。",
+    ],
+  },
+  {
+    slug: "list-toolbar",
+    title: "ListToolbar",
+    description: "源列表底部的 +/− 操作条。",
+    group: "列表层",
+    notes: [
+      "基于 Base UI Toolbar：整条只占一个 Tab 站，组内用方向键漫游焦点。图标按钮务必带 aria-label。",
+    ],
+  },
+  {
+    slug: "empty-state",
+    title: "EmptyState",
+    description: "空列表占位，图标 + 标题 + 说明 + 操作。",
+    group: "列表层",
+  },
+  {
     slug: "button",
     title: "Button",
     description: "四种语义变体与三档尺寸的按钮，带按压反馈。",
@@ -171,6 +204,24 @@ const win = getCurrentWindow()
     group: "基础控件",
     notes: [
       "side/align/sideOffset 透传给定位器。",
+    ],
+  },
+  {
+    slug: "avatar",
+    title: "Avatar",
+    description: "头像，图片未就绪时回落到首字母。",
+    group: "基础控件",
+    notes: [
+      "图片解码完成前不挂到 DOM，加载中显示 fallback，不会闪出空白方框。",
+    ],
+  },
+  {
+    slug: "tabs",
+    title: "Tabs",
+    description: "下划线式标签页，指示条跟随选中项滑动。",
+    group: "基础控件",
+    notes: [
+      "与 SegmentedControl 同为 Tabs 语义：分区导航用 Tabs，同一内容的视图切换用 SegmentedControl。",
     ],
   },
   {

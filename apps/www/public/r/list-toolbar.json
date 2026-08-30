@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "list-toolbar",
+  "title": "ListToolbar",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/list-toolbar.tsx",
+      "content": "import { Toolbar as BaseToolbar } from \"@base-ui/react/toolbar\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\n/**\n * 源列表底部的 +/− 条（Finder 边栏、系统设置权限列表的那一条）。\n * 用 Base UI Toolbar 而不是裸 div：它给出 role=\"toolbar\" 和方向键漫游焦点，\n * 一组图标按钮在 Tab 序列里只占一站。\n */\nfunction ListToolbar({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseToolbar.Root>) {\n  return (\n    <BaseToolbar.Root\n      {...props}\n      data-slot=\"list-toolbar\"\n      className={cn(\n        \"flex h-8 items-center gap-0.5 border-t border-border px-1\",\n        className\n      )}\n    />\n  )\n}\n\nfunction ListToolbarButton({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseToolbar.Button>) {\n  return (\n    <BaseToolbar.Button\n      {...props}\n      data-slot=\"list-toolbar-button\"\n      className={cn(\n        \"inline-flex size-6 shrink-0 items-center justify-center rounded-icon text-fg-secondary outline-none transition-colors duration-150 ease-out select-none hover:bg-fill-hover hover:text-fg focus-visible:ring-2 focus-visible:ring-accent/60 active:bg-fill-active data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:size-3.5 [&_svg]:shrink-0\",\n        className\n      )}\n    />\n  )\n}\n\nfunction ListToolbarSeparator({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseToolbar.Separator>) {\n  return (\n    <BaseToolbar.Separator\n      {...props}\n      data-slot=\"list-toolbar-separator\"\n      className={cn(\"mx-1 h-4 w-px shrink-0 bg-border\", className)}\n    />\n  )\n}\n\n/** 把工具条推到右侧，用于「左边 +/−、右边操作」的布局 */\nfunction ListToolbarSpacer({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      {...props}\n      aria-hidden=\"true\"\n      data-slot=\"list-toolbar-spacer\"\n      className={cn(\"flex-1\", className)}\n    />\n  )\n}\n\nexport {\n  ListToolbar,\n  ListToolbarButton,\n  ListToolbarSeparator,\n  ListToolbarSpacer,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

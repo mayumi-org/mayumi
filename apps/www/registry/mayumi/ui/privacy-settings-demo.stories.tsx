@@ -12,8 +12,15 @@ import {
   Settings,
   Wifi,
 } from "lucide-react"
+import { Avatar, AvatarFallback } from "./avatar"
 import { Button } from "./button"
+import {
+  EmptyState,
+  EmptyStateDescription,
+  EmptyStateTitle,
+} from "./empty-state"
 import { GroupedList, GroupedListItem } from "./grouped-list"
+import { ListToolbar, ListToolbarButton } from "./list-toolbar"
 import { ScrollArea } from "./scroll-area"
 import { SearchField } from "./search-field"
 import { Sidebar } from "./sidebar"
@@ -38,16 +45,16 @@ const APPS: { name: string; tint: string; on: boolean }[] = [
   { name: "Shottr", tint: "bg-traffic-close text-accent-fg", on: true },
 ]
 
-function ListFooter() {
+function ListFooter({ label }: { label: string }) {
   return (
-    <div className="flex items-center gap-1 px-2 py-1">
-      <Button variant="ghost" size="sm" aria-label="添加">
-        <Plus aria-hidden="true" className="size-3.5" />
-      </Button>
-      <Button variant="ghost" size="sm" aria-label="移除">
-        <Minus aria-hidden="true" className="size-3.5" />
-      </Button>
-    </div>
+    <ListToolbar aria-label={label}>
+      <ListToolbarButton aria-label="添加">
+        <Plus aria-hidden="true" />
+      </ListToolbarButton>
+      <ListToolbarButton aria-label="移除">
+        <Minus aria-hidden="true" />
+      </ListToolbarButton>
+    </ListToolbar>
   )
 }
 
@@ -60,12 +67,12 @@ export const ScreenRecording: StoryObj = {
             <TrafficLights />
           </div>
           <SearchField placeholder="搜索" />
-          {/* 账户区：头像行用图标槽放圆形底座近似（Avatar 组件是后续候选） */}
+          {/* 账户区 */}
           <div className="space-y-0.5 py-1">
             <SidebarNavItem>
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-accent text-xs text-accent-fg">
-                蒋
-              </span>
+              <Avatar className="bg-accent text-accent-fg">
+                <AvatarFallback>蒋</AvatarFallback>
+              </Avatar>
               <span className="flex min-w-0 flex-col leading-tight">
                 <span className="truncate text-fg">蒋威</span>
                 <span className="truncate text-xs text-fg-tertiary">
@@ -74,9 +81,9 @@ export const ScreenRecording: StoryObj = {
               </span>
             </SidebarNavItem>
             <SidebarNavItem>
-              <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-traffic-minimize text-xs text-accent-fg">
-                家
-              </span>
+              <Avatar className="bg-traffic-minimize text-accent-fg">
+                <AvatarFallback>家</AvatarFallback>
+              </Avatar>
               家人共享
             </SidebarNavItem>
           </div>
@@ -177,7 +184,7 @@ export const ScreenRecording: StoryObj = {
                     }
                   />
                 ))}
-                <ListFooter />
+                <ListFooter label="屏幕与系统录音列表操作" />
               </GroupedList>
               <section className="space-y-1">
                 <h2 className="text-ui leading-tight font-semibold text-fg">
@@ -188,10 +195,13 @@ export const ScreenRecording: StoryObj = {
                 </p>
               </section>
               <GroupedList>
-                <div className="py-2.5 text-center text-ui text-fg-tertiary">
-                  无项目
-                </div>
-                <ListFooter />
+                <EmptyState className="py-6">
+                  <EmptyStateTitle>无项目</EmptyStateTitle>
+                  <EmptyStateDescription>
+                    还没有 App 请求过系统录音权限。
+                  </EmptyStateDescription>
+                </EmptyState>
+                <ListFooter label="仅系统录音列表操作" />
               </GroupedList>
             </div>
           </ScrollArea>

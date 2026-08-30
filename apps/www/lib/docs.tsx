@@ -23,6 +23,12 @@ import { GroupedListDemo } from "@/components/demos/grouped-list-demo"
 import { SearchFieldDemo } from "@/components/demos/search-field-demo"
 import { CommandDemo } from "@/components/demos/command-demo"
 import { ToastDemo } from "@/components/demos/toast-demo"
+import { AvatarDemo } from "@/components/demos/avatar-demo"
+import { CardDemo } from "@/components/demos/card-demo"
+import { TabsDemo } from "@/components/demos/tabs-demo"
+import { CollapsibleSectionDemo } from "@/components/demos/collapsible-section-demo"
+import { EmptyStateDemo } from "@/components/demos/empty-state-demo"
+import { ListToolbarDemo } from "@/components/demos/list-toolbar-demo"
 import { docsMeta, type DocMeta } from "@/lib/docs-meta"
 
 export type { DocMeta }
@@ -32,7 +38,7 @@ export type DocEntry = DocMeta & { Demo: ComponentType }
 // 按 slug 索引的 demo 组件表。这个文件只应被 Server Component（[slug]/page.tsx）
 // 静态导入 —— 每个 Demo 自身及其依赖都会被打进导入方的模块图。客户端组件（如
 // command-menu.tsx）和跨路由共享的 layout 应改用 @/lib/docs-meta 里纯数据的
-// docsMeta，避免把全部 22 个 demo 一起塞进每个页面的 client bundle。
+// docsMeta，避免把全部 29 个 demo 一起塞进每个页面的 client bundle。
 const demos: Record<string, ComponentType> = {
   window: WindowDemo,
   titlebar: TitlebarDemo,
@@ -41,6 +47,10 @@ const demos: Record<string, ComponentType> = {
   sidebar: SidebarDemo,
   "sidebar-nav": SidebarNavDemo,
   "grouped-list": GroupedListDemo,
+  card: CardDemo,
+  "collapsible-section": CollapsibleSectionDemo,
+  "list-toolbar": ListToolbarDemo,
+  "empty-state": EmptyStateDemo,
   "search-field": SearchFieldDemo,
   button: ButtonDemo,
   tooltip: TooltipDemo,
@@ -52,6 +62,8 @@ const demos: Record<string, ComponentType> = {
   slider: SliderDemo,
   select: SelectDemo,
   "segmented-control": SegmentedControlDemo,
+  avatar: AvatarDemo,
+  tabs: TabsDemo,
   "dropdown-menu": DropdownMenuDemo,
   dialog: DialogDemo,
   "scroll-area": ScrollAreaDemo,

@@ -18,6 +18,7 @@ import {
   Target,
   Users,
 } from "lucide-react"
+import { Avatar, AvatarFallback } from "./avatar"
 import { Button } from "./button"
 import { Kbd } from "./kbd"
 import { ScrollArea } from "./scroll-area"
@@ -108,9 +109,9 @@ export const AgentChat: StoryObj = {
                 type="button"
                 className="flex items-center gap-2 rounded-icon px-1 py-1 text-ui font-medium text-fg outline-none transition-colors duration-150 ease-out hover:bg-fill-hover focus-visible:ring-2 focus-visible:ring-accent/60"
               >
-                <span className="flex size-5 items-center justify-center rounded-full bg-traffic-minimize text-[10px] text-accent-fg">
-                  q
-                </span>
+                <Avatar size="sm" className="bg-traffic-minimize text-accent-fg">
+                  <AvatarFallback>q</AvatarFallback>
+                </Avatar>
                 qidanta
                 <ChevronDown aria-hidden="true" className="size-3 text-fg-tertiary" />
               </button>
