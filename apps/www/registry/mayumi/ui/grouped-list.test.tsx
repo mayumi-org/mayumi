@@ -54,6 +54,18 @@ describe("GroupedList", () => {
     expect(screen.getByTestId("row").querySelector("svg")).not.toBeNull()
   })
 
+  it("draws row dividers on the top edge so a child's own border-t merges", () => {
+    render(
+      <GroupedList data-testid="list">
+        <GroupedListItem label="a" />
+      </GroupedList>
+    )
+    const list = screen.getByTestId("list")
+    // divide-y 会给「前一行」加 border-b，和自带 border-t 的 ListToolbar 叠成两条 1px
+    expect(list).not.toHaveClass("divide-y")
+    expect(list).toHaveClass("[&>*+*]:border-t")
+  })
+
   it("supports disabled on interactive rows", async () => {
     const onClick = vi.fn()
     render(

@@ -8,7 +8,10 @@ function GroupedList({ className, ...props }: React.ComponentProps<"div">) {
       {...props}
       data-slot="grouped-list"
       className={cn(
-        "divide-y divide-border overflow-hidden rounded-card border border-border bg-surface",
+        // 分隔线画在「后一行的上边」而不是 divide-y 的「前一行的下边」：
+        // 这样自带 border-t 的子元素（如 ListToolbar）落在同一条边上，
+        // 合成一条 1px，而不是和上一行的 border-b 叠成两条。
+        "overflow-hidden rounded-card border border-border bg-surface [&>*+*]:border-t [&>*+*]:border-border",
         className
       )}
     />

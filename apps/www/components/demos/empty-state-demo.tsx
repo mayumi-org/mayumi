@@ -11,9 +11,10 @@ import {
   EmptyStateTitle,
 } from "@/registry/mayumi/ui/empty-state"
 
+// 容器不带边框：文档页的预览框已经是同色描边，再来一层会读成两个同心框
 export function EmptyStateDemo() {
   return (
-    <div className="w-full max-w-sm rounded-card border border-border bg-surface">
+    <div className="w-full max-w-sm rounded-card bg-fill">
       <EmptyState>
         <EmptyStateIcon>
           <Inbox />

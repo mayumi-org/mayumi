@@ -36,6 +36,12 @@ describe("ListToolbar", () => {
     expect(screen.getByRole("button", { name: "更多" })).not.toHaveFocus()
   })
 
+  it("owns its top hairline", () => {
+    render(<Demo />)
+    // 独立使用时工具条自己画分隔线；放进 GroupedList 时与列表的行分隔线合成一条
+    expect(screen.getByRole("toolbar")).toHaveClass("border-t")
+  })
+
   it("fires onClick", async () => {
     const onClick = vi.fn()
     render(
