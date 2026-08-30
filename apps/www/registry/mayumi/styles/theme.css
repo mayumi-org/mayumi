@@ -25,7 +25,12 @@
   --danger: #e5484d;
   --traffic-glyph: rgba(0, 0, 0, 0.55);
   --scrim: rgba(0, 0, 0, 0.35);
-  --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  /*
+   * 只有柔和投影，不带 0 0 0 1px 的描边环。所有浮层（Dialog/Select/DropdownMenu/
+   * Tooltip/Toast/Window）本身都写了 border border-border，再叠一圈紧贴外侧的
+   * hairline 就是 2px 双边框。环只在「浮层没有真边框」时才该出现。
+   */
+  --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.18);
   /* 悬浮岛用：抬离窗口一层，但远轻于 overlay（浮层）的投影 */
   --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
@@ -56,7 +61,7 @@
   --danger: #ec5d64;
   --traffic-glyph: rgba(0, 0, 0, 0.55);
   --scrim: rgba(0, 0, 0, 0.6);
-  --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.55);
   --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
