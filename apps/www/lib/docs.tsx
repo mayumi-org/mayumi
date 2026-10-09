@@ -11,6 +11,8 @@ import { SliderDemo } from "@/components/demos/slider-demo"
 import { SelectDemo } from "@/components/demos/select-demo"
 import { SegmentedControlDemo } from "@/components/demos/segmented-control-demo"
 import { DropdownMenuDemo } from "@/components/demos/dropdown-menu-demo"
+import { PopoverDemo } from "@/components/demos/popover-demo"
+import { ContextMenuDemo } from "@/components/demos/context-menu-demo"
 import { DialogDemo } from "@/components/demos/dialog-demo"
 import { ScrollAreaDemo } from "@/components/demos/scroll-area-demo"
 import { WindowDemo } from "@/components/demos/window-demo"
@@ -38,7 +40,7 @@ export type DocEntry = DocMeta & { Demo: ComponentType }
 // 按 slug 索引的 demo 组件表。这个文件只应被 Server Component（[slug]/page.tsx）
 // 静态导入 —— 每个 Demo 自身及其依赖都会被打进导入方的模块图。客户端组件（如
 // command-menu.tsx）和跨路由共享的 layout 应改用 @/lib/docs-meta 里纯数据的
-// docsMeta，避免把全部 29 个 demo 一起塞进每个页面的 client bundle。
+// docsMeta，避免把全部 demo 一起塞进每个页面的 client bundle。
 const demos: Record<string, ComponentType> = {
   window: WindowDemo,
   titlebar: TitlebarDemo,
@@ -65,6 +67,8 @@ const demos: Record<string, ComponentType> = {
   avatar: AvatarDemo,
   tabs: TabsDemo,
   "dropdown-menu": DropdownMenuDemo,
+  popover: PopoverDemo,
+  "context-menu": ContextMenuDemo,
   dialog: DialogDemo,
   "scroll-area": ScrollAreaDemo,
   command: CommandDemo,

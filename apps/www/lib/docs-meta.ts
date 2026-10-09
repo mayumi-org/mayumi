@@ -207,6 +207,24 @@ const win = getCurrentWindow()
     ],
   },
   {
+    slug: "popover",
+    title: "Popover",
+    description: "锚在触发器上的非模态浮层，页面其余部分仍可操作。",
+    group: "基础控件",
+    notes: [
+      "不渲染遮罩。side/align/sideOffset 透传给定位器。",
+    ],
+  },
+  {
+    slug: "context-menu",
+    title: "Context Menu",
+    description: "右键菜单，外观与 Dropdown Menu 一致。",
+    group: "基础控件",
+    notes: [
+      "在触发区域上右键或长按打开。主键点击不会打开。",
+    ],
+  },
+  {
     slug: "avatar",
     title: "Avatar",
     description: "头像，图片未就绪时回落到首字母。",
