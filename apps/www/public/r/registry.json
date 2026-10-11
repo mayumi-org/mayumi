@@ -548,6 +548,24 @@
       ]
     },
     {
+      "name": "bento",
+      "type": "registry:ui",
+      "title": "Bento",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "registry/mayumi/ui/bento.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "tabs",
       "type": "registry:ui",
       "title": "Tabs",
