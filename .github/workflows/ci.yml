@@ -1,33 +1,30 @@
-name: Node.js CI
+name: ci
 
 on:
   push:
+    branches: [master, bigsur]
   pull_request:
-    branches: [master,release]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
 
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
-    name: test
-
-    strategy:
-      matrix:
-        node-version: [14.x, 16.x]
-
     steps:
-      - name: checkout code repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
         with:
-          fetch-depth: 0
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install pnpm
-        run: npm i pnpm@latest -g
-      - name: Install 
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test
+      - run: pnpm typecheck
+      - name: registry artifacts are fresh
         run: |
-          pnpm install --frozen-lockfile=false
-      - name: Test
-        run: |
-          pnpm test
+          pnpm --filter www exec shadcn build
+          git diff --exit-code apps/www/public/r
+          test -z "$(git status --porcelain apps/www/public/r)"
+      - run: pnpm --filter www build

@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@import "../registry/mayumi/styles/theme.css";
+
+@source "../registry";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+body {
+  @apply bg-background font-sans text-ui text-fg antialiased;
+}
+
+/* 暗亮切换的明度过渡（曲线同 --ease-out token，apple review 要求缓和跳变） */
+html,
+body {
+  transition:
+    background-color 200ms cubic-bezier(0.23, 1, 0.32, 1),
+    color 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* shiki 双主题（defaultColor:false 输出的 CSS 变量按主题切换） */
+.shiki,
+.shiki code {
+  background-color: transparent !important;
+}
+.shiki span {
+  color: var(--shiki-dark);
+}
+html:not(.dark) .shiki span {
+  color: var(--shiki-light);
+}

@@ -1,0 +1,192 @@
+/* mayumi design tokens — dark-first, light supported. Raycast/Linear aesthetic. */
+:root {
+  --background: #f2f2f4;
+  --surface: #ffffff;
+  --surface-2: #ececef;
+  --surface-2-hover: #e2e2e6;
+  --surface-raised: #ffffff;
+  --overlay: rgba(252, 252, 253, 0.78);
+  --overlay-thick: rgba(250, 250, 252, 0.92);
+  /*
+   * fill：中性 tint，不是「某个面 + alpha」。凹陷控件（输入框）与瞬时态
+   * （hover/active）都用它——tint 叠在毛玻璃、实色面、任意背景上合成结果都一致，
+   * 而 bg-surface-2/50 会二次稀释成一团浑浊。
+   */
+  --fill: rgba(0, 0, 0, 0.05);
+  --fill-hover: rgba(0, 0, 0, 0.08);
+  --fill-active: rgba(0, 0, 0, 0.12);
+  --border: rgba(0, 0, 0, 0.1);
+  --highlight: rgba(255, 255, 255, 0.65);
+  --fg: rgba(0, 0, 0, 0.88);
+  --fg-secondary: rgba(0, 0, 0, 0.56);
+  --fg-tertiary: rgba(0, 0, 0, 0.36);
+  --accent: #5e6ad2;
+  --accent-fg: #ffffff;
+  --danger: #e5484d;
+  --traffic-glyph: rgba(0, 0, 0, 0.55);
+  --scrim: rgba(0, 0, 0, 0.35);
+  /*
+   * 只有柔和投影，不带 0 0 0 1px 的描边环。所有浮层（Dialog/Select/DropdownMenu/
+   * Tooltip/Toast/Window）本身都写了 border border-border，再叠一圈紧贴外侧的
+   * hairline 就是 2px 双边框。环只在「浮层没有真边框」时才该出现。
+   */
+  --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.18);
+  /*
+   * tactile 按钮只在这里放颜色，几何（厚度、偏移）由组件按尺寸拼。
+   * face：近乎平的顶面，只有很浅的上亮下暗。
+   * rim：顶面四周一圈半透明亮边。bevel：顶面和侧壁交接处的受光线。
+   * wall：侧壁，只比 accent 深三成左右，再深就成黑边。
+   * ground：落在背景上的影子，偏 accent 的暗色、又宽又淡。
+   */
+  --tactile-face: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--accent), white 12%),
+    var(--accent) 55%,
+    color-mix(in oklab, var(--accent), black 6%)
+  );
+  --tactile-rim: rgba(255, 255, 255, 0.22);
+  /* 只降亮度、不降彩度：和黑 color-mix 会把侧壁一起洗灰 */
+  --tactile-bevel: oklch(from var(--accent) calc(l + 0.1) c h);
+  --tactile-wall: oklch(from var(--accent) calc(l - 0.15) c h);
+  --tactile-ground: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--accent), black 45%) 30%,
+    transparent
+  );
+  /* 悬浮岛用：抬离窗口一层，但远轻于 overlay（浮层）的投影 */
+  --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --background: #0a0a0c;
+  --surface: #141416;
+  --surface-2: #1c1c20;
+  --surface-2-hover: #26262b;
+  --surface-raised: rgba(255, 255, 255, 0.16);
+  --overlay: rgba(22, 22, 26, 0.72);
+  --overlay-thick: rgba(30, 30, 34, 0.9);
+  --fill: rgba(255, 255, 255, 0.06);
+  --fill-hover: rgba(255, 255, 255, 0.1);
+  --fill-active: rgba(255, 255, 255, 0.14);
+  --border: rgba(255, 255, 255, 0.08);
+  /*
+   * 暗色下不给凸起控件加内高光。斜面靠的是「暗边 + 亮高光」的对比，而暗色主题里
+   * 边框本身就是浅色，再叠一条同亮度的浅线只会读成 2px 的双边框，不会读成光。
+   * Linear/Raycast 的暗色控件同样是单条 hairline。亮色仍保留高光（见 :root）。
+   */
+  --highlight: transparent;
+  --fg: rgba(255, 255, 255, 0.9);
+  --fg-secondary: rgba(255, 255, 255, 0.6);
+  --fg-tertiary: rgba(255, 255, 255, 0.4);
+  --accent: #6e79d6;
+  --accent-fg: #ffffff;
+  --danger: #ec5d64;
+  --traffic-glyph: rgba(0, 0, 0, 0.55);
+  --scrim: rgba(0, 0, 0, 0.6);
+  --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.55);
+  /* 深色底上侧壁要更深才和顶面分开；影子用中性黑，带色会读成发光 */
+  --tactile-face: radial-gradient(
+      130% 78% at 50% -8%,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.06) 34%,
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--accent), white 12%),
+      var(--accent) 55%,
+      color-mix(in oklab, var(--accent), black 6%)
+    );
+  --tactile-rim: rgba(255, 255, 255, 0.12);
+  --tactile-bevel: oklch(from var(--accent) calc(l + 0.05) c h);
+  --tactile-wall: oklch(from var(--accent) calc(l - 0.28) c h);
+  --tactile-ground: rgba(0, 0, 0, 0.4);
+  --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.45);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-2-hover: var(--surface-2-hover);
+  --color-surface-raised: var(--surface-raised);
+  --color-overlay: var(--overlay);
+  --color-fill: var(--fill);
+  --color-fill-hover: var(--fill-hover);
+  --color-fill-active: var(--fill-active);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-fg-secondary: var(--fg-secondary);
+  --color-fg-tertiary: var(--fg-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-danger: var(--danger);
+  --radius-window: 14px;
+  --radius-card: 10px;
+  --radius-control: 6px;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --color-traffic-close: #ff5f57;
+  --color-traffic-minimize: #febc2e;
+  --color-traffic-zoom: #28c840;
+  --color-scrim: var(--scrim);
+  --radius-icon: 5px;
+  --text-ui: 13px;
+  /*
+   * Mac 上用系统字体：SF 和苹方是配套的，Inter 在 13px 下偏宽，中英混排也对不齐。
+   * Inter 只给没装 SF 的系统兜底（设置 --font-inter，或本机装了 Inter）。
+   * system-ui 放在中文字体前面，否则 Windows 的英文会落到微软雅黑里。
+   */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    var(--font-inter, "Inter"), system-ui, "PingFang SC", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
+}
+
+@utility app-region-drag {
+  -webkit-app-region: drag;
+}
+
+@utility app-region-no-drag {
+  -webkit-app-region: no-drag;
+}
+
+/*
+ * Translucent materials, in two weights.
+ *
+ * .mayumi-vibrancy       — 大面积窗体 chrome（窗口、侧栏）。薄一些，让桌面透上来。
+ * .mayumi-vibrancy-thick — 瞬时浮层（菜单、下拉、Toast、对话框）。它们会落在任意内容
+ *                          之上且尺寸小，模糊半径大于自身宽度时会「吸不进」足够背景，
+ *                          所以加厚模糊 + 提高底色不透明度，保证文字始终可读。
+ *
+ * Accessibility fallbacks are baked in: reduced-transparency / increased-contrast
+ * get a solid surface.
+ */
+.mayumi-vibrancy {
+  background-color: var(--overlay);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.mayumi-vibrancy-thick {
+  background-color: var(--overlay-thick);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+}
+
+@keyframes mayumi-print-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  .mayumi-vibrancy,
+  .mayumi-vibrancy-thick {
+    background-color: var(--surface);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}

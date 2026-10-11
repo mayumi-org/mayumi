@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "title": "Checkbox",
+  "dependencies": [
+    "@base-ui/react",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/checkbox.tsx",
+      "content": "import { Checkbox as BaseCheckbox } from \"@base-ui/react/checkbox\"\nimport { Check } from \"lucide-react\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction Checkbox({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseCheckbox.Root>) {\n  return (\n    <BaseCheckbox.Root\n      {...props}\n      data-slot=\"checkbox\"\n      className={cn(\n        \"flex size-4 shrink-0 items-center justify-center rounded-icon border border-border bg-fill outline-none transition-colors duration-150 ease-out focus-visible:ring-2 focus-visible:ring-accent/60 data-checked:border-accent data-checked:bg-accent disabled:pointer-events-none disabled:opacity-50\",\n        className\n      )}\n    >\n      <BaseCheckbox.Indicator\n        data-slot=\"checkbox-indicator\"\n        className=\"flex text-accent-fg data-unchecked:hidden\"\n      >\n        <Check aria-hidden=\"true\" className=\"size-2.5\" strokeWidth={3} />\n      </BaseCheckbox.Indicator>\n    </BaseCheckbox.Root>\n  )\n}\n\nexport { Checkbox }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

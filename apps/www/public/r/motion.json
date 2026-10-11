@@ -1,0 +1,16 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "motion",
+  "title": "Spring presets",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/lib/motion.ts",
+      "content": "import type { Transition } from \"motion/react\"\n\n/**\n * Canonical spring presets, in Apple's damping/response terms (motion's\n * `duration` + `bounce` maps to response + damping ratio).\n *\n * UI springs are critically damped (bounce 0) — a surface that just\n * appeared has no user momentum, so it must not overshoot:\n * - snappy: popovers, dropdowns, dialogs (response 0.3)\n * - smooth: layout — sidebar collapse, reorder (response 0.4)\n * - gentle: hover-level micro interactions (response 0.25)\n *\n * momentum is the only underdamped preset. Reserve it for motion that\n * inherits gesture velocity (drag release, flick, swipe-to-dismiss);\n * pass the release velocity via `velocity` so the hand-off is seamless.\n */\nexport const springs = {\n  snappy: { type: \"spring\", duration: 0.3, bounce: 0 },\n  smooth: { type: \"spring\", duration: 0.4, bounce: 0 },\n  gentle: { type: \"spring\", duration: 0.25, bounce: 0 },\n  momentum: { type: \"spring\", duration: 0.3, bounce: 0.2 },\n} satisfies Record<string, Transition>\n",
+      "type": "registry:lib"
+    }
+  ],
+  "type": "registry:lib"
+}

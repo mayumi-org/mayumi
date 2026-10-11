@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toolbar",
+  "title": "Toolbar",
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/toolbar.tsx",
+      "content": "import { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction Toolbar({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      {...props}\n      data-slot=\"toolbar\"\n      className={cn(\"flex min-w-0 flex-1 items-center gap-1\", className)}\n    />\n  )\n}\n\nfunction ToolbarTitle({ className, ...props }: React.ComponentProps<\"h1\">) {\n  return (\n    <h1\n      {...props}\n      data-slot=\"toolbar-title\"\n      className={cn(\"truncate text-ui font-semibold text-fg\", className)}\n    />\n  )\n}\n\nexport { Toolbar, ToolbarTitle }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

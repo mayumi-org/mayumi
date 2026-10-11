@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "slider",
+  "title": "Slider",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/slider.tsx",
+      "content": "import { Slider as BaseSlider } from \"@base-ui/react/slider\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction Slider({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseSlider.Root>) {\n  return (\n    <BaseSlider.Root {...props} data-slot=\"slider\" className={cn(\"w-full\", className)}>\n      <BaseSlider.Control className=\"flex h-4 w-full touch-none items-center select-none\">\n        <BaseSlider.Track className=\"relative h-1 w-full rounded-full bg-surface-2\">\n          <BaseSlider.Indicator data-slot=\"slider-indicator\" className=\"rounded-full bg-accent\" />\n          <BaseSlider.Thumb\n            data-slot=\"slider-thumb\"\n            className=\"size-4 rounded-full border border-border bg-accent-fg shadow-sm outline-none transition-[scale] duration-150 ease-out focus-visible:ring-2 focus-visible:ring-accent/60 motion-safe:data-dragging:scale-125 motion-reduce:data-dragging:scale-105 motion-safe:[@media(hover:hover)_and_(pointer:fine)]:hover:scale-110 motion-reduce:[@media(hover:hover)_and_(pointer:fine)]:hover:scale-105\"\n          />\n        </BaseSlider.Track>\n      </BaseSlider.Control>\n    </BaseSlider.Root>\n  )\n}\n\nexport { Slider }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

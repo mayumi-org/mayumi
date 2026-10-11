@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "tabs",
+  "title": "Tabs",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/tabs.tsx",
+      "content": "import { Tabs as BaseTabs } from \"@base-ui/react/tabs\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nfunction Tabs({ className, ...props }: React.ComponentProps<typeof BaseTabs.Root>) {\n  return (\n    <BaseTabs.Root\n      {...props}\n      data-slot=\"tabs\"\n      className={cn(\"flex flex-col gap-3\", className)}\n    />\n  )\n}\n\nfunction TabsList({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<typeof BaseTabs.List>) {\n  return (\n    <BaseTabs.List\n      {...props}\n      data-slot=\"tabs-list\"\n      className={cn(\n        \"relative flex items-center gap-4 border-b border-border\",\n        className\n      )}\n    >\n      {children}\n      <TabsIndicator />\n    </BaseTabs.List>\n  )\n}\n\n/**\n * 下划线指示条。位置来自 Base UI 暴露的 --active-tab-left/width，\n * 滑动本身是运动，走 motion-safe 门控——减少动态效果时直接落到新位置。\n */\nfunction TabsIndicator({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseTabs.Indicator>) {\n  return (\n    <BaseTabs.Indicator\n      {...props}\n      data-slot=\"tabs-indicator\"\n      className={cn(\n        \"absolute bottom-0 left-0 h-0.5 w-(--active-tab-width) translate-x-(--active-tab-left) rounded-full bg-accent motion-safe:transition-[translate,width] motion-safe:duration-200 motion-safe:ease-out\",\n        className\n      )}\n    />\n  )\n}\n\nfunction TabsTab({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseTabs.Tab>) {\n  return (\n    <BaseTabs.Tab\n      {...props}\n      data-slot=\"tabs-tab\"\n      className={cn(\n        \"-mb-px inline-flex h-8 items-center gap-1.5 border-b-2 border-transparent px-0.5 text-ui leading-tight text-fg-secondary outline-none transition-colors duration-150 ease-out select-none hover:text-fg focus-visible:ring-2 focus-visible:ring-accent/60 data-active:text-fg disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0\",\n        className\n      )}\n    />\n  )\n}\n\nfunction TabsPanel({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseTabs.Panel>) {\n  return (\n    <BaseTabs.Panel\n      {...props}\n      data-slot=\"tabs-panel\"\n      className={cn(\"outline-none\", className)}\n    />\n  )\n}\n\nexport { Tabs, TabsIndicator, TabsList, TabsPanel, TabsTab }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dialog",
+  "title": "Dialog",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/dialog.tsx",
+      "content": "import { Dialog as BaseDialog } from \"@base-ui/react/dialog\"\nimport { type VariantProps, cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nconst Dialog = BaseDialog.Root\nconst DialogTrigger = BaseDialog.Trigger\nconst DialogClose = BaseDialog.Close\n\nconst dialogContentVariants = cva(\n  \"mayumi-vibrancy-thick fixed top-1/2 left-1/2 w-96 -translate-x-1/2 -translate-y-1/2 rounded-window border border-border p-5 shadow-[var(--shadow-overlay)] outline-none\",\n  {\n    variants: {\n      /**\n       * default：开合做 200ms 缩放+淡入，配合模态语境建立层级\n       * instant：立即出现，用于快捷键高频唤起的界面（命令面板），动效只会拖慢肌肉记忆\n       */\n      transition: {\n        default:\n          \"transition-[scale,opacity] duration-200 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 motion-safe:data-ending-style:scale-97 motion-safe:data-starting-style:scale-97\",\n        instant: \"\",\n      },\n    },\n    defaultVariants: { transition: \"default\" },\n  }\n)\n\nconst dialogBackdropVariants = cva(\"fixed inset-0 bg-scrim\", {\n  variants: {\n    transition: {\n      default:\n        \"transition-opacity duration-200 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0\",\n      instant: \"\",\n    },\n  },\n  defaultVariants: { transition: \"default\" },\n})\n\nfunction DialogContent({\n  className,\n  children,\n  transition,\n  ...props\n}: React.ComponentProps<typeof BaseDialog.Popup> &\n  VariantProps<typeof dialogContentVariants>) {\n  return (\n    <BaseDialog.Portal>\n      <BaseDialog.Backdrop\n        data-slot=\"dialog-backdrop\"\n        className={dialogBackdropVariants({ transition })}\n      />\n      <BaseDialog.Popup\n        {...props}\n        data-slot=\"dialog-content\"\n        data-transition={transition ?? \"default\"}\n        className={cn(dialogContentVariants({ transition, className }))}\n      >\n        {children}\n      </BaseDialog.Popup>\n    </BaseDialog.Portal>\n  )\n}\n\nfunction DialogTitle({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseDialog.Title>) {\n  return (\n    <BaseDialog.Title\n      {...props}\n      data-slot=\"dialog-title\"\n      className={cn(\"text-ui leading-tight font-semibold text-fg\", className)}\n    />\n  )\n}\n\nfunction DialogDescription({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseDialog.Description>) {\n  return (\n    <BaseDialog.Description\n      {...props}\n      data-slot=\"dialog-description\"\n      className={cn(\"mt-1 text-ui leading-tight text-fg-secondary\", className)}\n    />\n  )\n}\n\nexport {\n  Dialog,\n  DialogClose,\n  DialogContent,\n  DialogDescription,\n  DialogTitle,\n  DialogTrigger,\n  dialogContentVariants,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
