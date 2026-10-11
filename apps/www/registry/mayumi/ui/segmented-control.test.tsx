@@ -54,4 +54,30 @@ describe("SegmentedControl", () => {
     await userEvent.keyboard("{ArrowRight}")
     expect(screen.getByRole("tab", { name: "网格" })).toHaveFocus()
   })
+
+  it("defaults to the md size with a raised active thumb", () => {
+    render(<Demo />)
+    const tab = screen.getByRole("tab", { name: "列表" })
+    expect(tab).toHaveAttribute("data-size", "md")
+    expect(tab).toHaveClass("flex-1")
+    expect(tab).toHaveClass("data-active:bg-surface-raised")
+  })
+
+  it("icon size renders a fixed square with a dark active fill", () => {
+    render(
+      <SegmentedControl defaultValue="home">
+        <SegmentedControlList aria-label="导航">
+          <SegmentedControlItem size="icon" value="home" aria-label="首页">
+            <svg />
+          </SegmentedControlItem>
+        </SegmentedControlList>
+      </SegmentedControl>
+    )
+    const tab = screen.getByRole("tab", { name: "首页" })
+    expect(tab).toHaveAttribute("data-size", "icon")
+    expect(tab).toHaveClass("w-6", "flex-none")
+    // 图标项的选中垫深灰底，不用文字项那套浮起亮面
+    expect(tab).toHaveClass("data-active:bg-fill-active")
+    expect(tab).not.toHaveClass("data-active:bg-surface-raised")
+  })
 })

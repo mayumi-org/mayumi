@@ -1,5 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react-vite"
 import {
+  CalendarDays,
+  FileText,
+  Globe,
+  House,
+  Settings,
+  UserRound,
+} from "lucide-react"
+import {
   SegmentedControl,
   SegmentedControlItem,
   SegmentedControlList,
@@ -30,6 +38,31 @@ export const Default: StoryObj<typeof SegmentedControl> = {
         <SegmentedControlPanel value="column" className="text-ui text-fg-secondary">
           分栏视图内容
         </SegmentedControlPanel>
+      </SegmentedControl>
+    </div>
+  ),
+}
+
+const ICON_TABS = [
+  { value: "home", label: "首页", icon: House },
+  { value: "calendar", label: "日历", icon: CalendarDays },
+  { value: "globe", label: "网络", icon: Globe },
+  { value: "docs", label: "文稿", icon: FileText },
+  { value: "profile", label: "我的", icon: UserRound },
+  { value: "settings", label: "设置", icon: Settings },
+]
+
+export const Icon: StoryObj<typeof SegmentedControl> = {
+  render: () => (
+    <div className="p-6">
+      <SegmentedControl defaultValue="home">
+        <SegmentedControlList aria-label="导航" className="self-start rounded-full">
+          {ICON_TABS.map(({ value, label, icon: Icon }) => (
+            <SegmentedControlItem key={value} size="icon" value={value} aria-label={label}>
+              <Icon aria-hidden="true" />
+            </SegmentedControlItem>
+          ))}
+        </SegmentedControlList>
       </SegmentedControl>
     </div>
   ),
