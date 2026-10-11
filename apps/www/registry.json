@@ -60,6 +60,31 @@
         {
           "path": "registry/mayumi/ui/button.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/mayumi/ui/fingerprints/print-1.png",
+          "type": "registry:file",
+          "target": "~/components/ui/fingerprints/print-1.png"
+        },
+        {
+          "path": "registry/mayumi/ui/fingerprints/print-2.png",
+          "type": "registry:file",
+          "target": "~/components/ui/fingerprints/print-2.png"
+        },
+        {
+          "path": "registry/mayumi/ui/fingerprints/print-3.png",
+          "type": "registry:file",
+          "target": "~/components/ui/fingerprints/print-3.png"
+        },
+        {
+          "path": "registry/mayumi/ui/fingerprints/print-4.png",
+          "type": "registry:file",
+          "target": "~/components/ui/fingerprints/print-4.png"
+        },
+        {
+          "path": "registry/mayumi/ui/fingerprints/print-5.png",
+          "type": "registry:file",
+          "target": "~/components/ui/fingerprints/print-5.png"
         }
       ]
     },
@@ -588,6 +613,58 @@
       "files": [
         {
           "path": "registry/mayumi/ui/list-toolbar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "registry/mayumi/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Separator",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json"
+      ],
+      "files": [
+        {
+          "path": "registry/mayumi/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "activity-bar",
+      "type": "registry:ui",
+      "title": "ActivityBar",
+      "dependencies": [
+        "@base-ui/react"
+      ],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json",
+        "https://mayumi.netlify.app/r/tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/mayumi/ui/activity-bar.tsx",
           "type": "registry:ui"
         }
       ]

@@ -35,4 +35,25 @@ describe("SidebarNav", () => {
     )
     expect(screen.getByTestId("icon")).toHaveClass("bg-traffic-zoom")
   })
+
+  it("pins trailing content to the right edge", () => {
+    render(<SidebarNavItem trailing={<span>12</span>}>收件箱</SidebarNavItem>)
+    const trailing = screen.getByText("12").parentElement
+    expect(trailing).toHaveAttribute("data-slot", "sidebar-nav-trailing")
+    expect(trailing).toHaveClass("ml-auto")
+    expect(trailing).toHaveClass("tabular-nums")
+    expect(screen.getByRole("button")).toHaveAccessibleName(/^收件箱\s*12$/)
+  })
+
+  it("supports a neutral selection for source-list style sidebars", () => {
+    render(
+      <SidebarNavItem active variant="neutral">
+        mayumi
+      </SidebarNavItem>
+    )
+    const el = screen.getByRole("button", { name: "mayumi" })
+    expect(el).toHaveAttribute("aria-current", "page")
+    expect(el).toHaveClass("bg-fill-active")
+    expect(el).not.toHaveClass("bg-accent")
+  })
 })

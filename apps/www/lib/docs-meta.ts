@@ -71,12 +71,24 @@ const win = getCurrentWindow()
     ],
   },
   {
+    slug: "activity-bar",
+    title: "ActivityBar",
+    description: "窗口最左侧的竖排图标栏，用来切换分区。",
+    group: "窗口层",
+    notes: [
+      "整条只占一个 Tab 站，上下方向键在图标间移动焦点。",
+      "label 必填，既是按钮的无障碍名称，也是悬停时右侧 Tooltip 的文字。badge 只是视觉提示，未读数之类的信息请写进 label。",
+    ],
+  },
+  {
     slug: "sidebar-nav",
     title: "SidebarNav",
-    description: "侧边栏导航列表，色块图标 + 选中态。",
+    description: "侧边栏导航列表，色块图标 + 选中态，右侧可挂计数或状态。",
     group: "列表层",
     notes: [
       "图标底座颜色经 className 传入（内容而非 chrome）；图标自带，推荐 lucide-react。",
+      "variant=\"accent\" 是系统设置式的蓝底选中；variant=\"neutral\" 是 Finder 式的灰底选中，适合会话、文件这类列表。",
+      "trailing 贴右对齐，放计数、状态图标或快捷键。标题较长时自己包一层 truncate。",
     ],
   },
   {
@@ -133,8 +145,12 @@ const win = getCurrentWindow()
   {
     slug: "button",
     title: "Button",
-    description: "四种语义变体与三档尺寸的按钮，带按压反馈。",
+    description: "语义变体与三档尺寸的按钮。tactile 是带厚度的胶囊，每次按下会在落点留下指纹。",
     group: "基础控件",
+    notes: [
+      "平面变体按下是轻微缩放；tactile 改为下沉，底边厚度收进去。指纹最多保留 12 枚。",
+      "纯图标按钮用 icon-sm / icon-md / icon-lg，记得加 aria-label。圆形按钮传 className=\"rounded-full\"。",
+    ],
   },
   {
     slug: "tooltip",
@@ -163,6 +179,25 @@ const win = getCurrentWindow()
     title: "Kbd",
     description: "快捷键标签，Raycast/Linear 界面的常客。",
     group: "基础控件",
+  },
+  {
+    slug: "badge",
+    title: "Badge",
+    description: "数字角标与小圆点，用于未读、通知和状态。",
+    group: "基础控件",
+    notes: [
+      "count 超过 max（默认 99）显示为 99+，为 0 时不渲染；不传内容时是小圆点。",
+      "角标只是视觉提示，读屏用户需要的信息请写进所在控件的 aria-label。",
+    ],
+  },
+  {
+    slug: "separator",
+    title: "Separator",
+    description: "分隔线，横竖两向，可在中间放一段文字。",
+    group: "基础控件",
+    notes: [
+      "带文字时外层不使用 separator 角色，这样读屏能读出文字，两侧的线只做装饰。",
+    ],
   },
   {
     slug: "switch",

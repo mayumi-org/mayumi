@@ -10,26 +10,54 @@ function SidebarNav({ className, ...props }: React.ComponentProps<"nav">) {
   )
 }
 
+type SidebarNavItemProps = React.ComponentProps<"button"> & {
+  active?: boolean
+  /** accent：系统设置式蓝底选中；neutral：Finder / Codex 式灰底选中 */
+  variant?: "accent" | "neutral"
+  /** 贴右对齐的计数、状态图标、快捷键 */
+  trailing?: React.ReactNode
+}
+
 function SidebarNavItem({
   className,
   active = false,
+  variant = "accent",
+  trailing,
+  children,
   ...props
-}: React.ComponentProps<"button"> & { active?: boolean }) {
+}: SidebarNavItemProps) {
+  const accentActive = active && variant === "accent"
   return (
     <button
       {...props}
       type="button"
       data-slot="sidebar-nav-item"
       data-active={active || undefined}
+      data-variant={variant}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "flex h-7 w-full items-center gap-2 rounded-control px-2 text-left text-ui leading-tight select-none outline-none transition-colors duration-150 ease-out focus-visible:ring-2 focus-visible:ring-accent/60",
-        active
+        "flex h-7 w-full min-w-0 items-center gap-2 rounded-control px-2 text-left text-ui leading-tight select-none outline-none transition-colors duration-150 ease-out focus-visible:ring-2 focus-visible:ring-accent/60",
+        accentActive
           ? "bg-accent text-accent-fg"
-          : "text-fg hover:bg-fill-hover active:bg-fill-active",
+          : active
+            ? "bg-fill-active text-fg"
+            : "text-fg hover:bg-fill-hover active:bg-fill-active",
         className
       )}
-    />
+    >
+      {children}
+      {trailing != null ? (
+        <span
+          data-slot="sidebar-nav-trailing"
+          className={cn(
+            "ml-auto flex shrink-0 items-center gap-1 pl-2 text-xs tabular-nums [&_svg]:size-3",
+            accentActive ? "text-accent-fg/80" : "text-fg-tertiary"
+          )}
+        >
+          {trailing}
+        </span>
+      ) : null}
+    </button>
   )
 }
 

@@ -9,4 +9,9 @@ describe("Kbd", () => {
     expect(el.tagName).toBe("KBD")
     expect(el).toHaveAttribute("data-slot", "kbd")
   })
+
+  it("uses tabular digits so ⌘1…⌘9 line up", () => {
+    render(<Kbd>⌘1</Kbd>)
+    expect(screen.getByText("⌘1")).toHaveClass("tabular-nums")
+  })
 })

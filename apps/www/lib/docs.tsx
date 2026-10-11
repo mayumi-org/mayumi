@@ -31,6 +31,9 @@ import { TabsDemo } from "@/components/demos/tabs-demo"
 import { CollapsibleSectionDemo } from "@/components/demos/collapsible-section-demo"
 import { EmptyStateDemo } from "@/components/demos/empty-state-demo"
 import { ListToolbarDemo } from "@/components/demos/list-toolbar-demo"
+import { ActivityBarDemo } from "@/components/demos/activity-bar-demo"
+import { BadgeDemo } from "@/components/demos/badge-demo"
+import { SeparatorDemo } from "@/components/demos/separator-demo"
 import { docsMeta, type DocMeta } from "@/lib/docs-meta"
 
 export type { DocMeta }
@@ -47,6 +50,7 @@ const demos: Record<string, ComponentType> = {
   toolbar: ToolbarDemo,
   "traffic-lights": TrafficLightsDemo,
   sidebar: SidebarDemo,
+  "activity-bar": ActivityBarDemo,
   "sidebar-nav": SidebarNavDemo,
   "grouped-list": GroupedListDemo,
   card: CardDemo,
@@ -59,6 +63,8 @@ const demos: Record<string, ComponentType> = {
   input: InputDemo,
   textarea: TextareaDemo,
   kbd: KbdDemo,
+  badge: BadgeDemo,
+  separator: SeparatorDemo,
   switch: SwitchDemo,
   checkbox: CheckboxDemo,
   slider: SliderDemo,

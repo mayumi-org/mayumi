@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "registry/mayumi/lib/utils.ts",
-      "content": "import { type ClassValue, clsx } from \"clsx\"\nimport { twMerge } from \"tailwind-merge\"\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
+      "content": "import { type ClassValue, clsx } from \"clsx\"\nimport { extendTailwindMerge } from \"tailwind-merge\"\n\n// 与 theme.css 的 --text-* / --radius-* 保持一致；不登记的话 text-ui 会被当成颜色类，\n// 和 text-fg 合并时被吞掉。\nconst twMerge = extendTailwindMerge({\n  extend: {\n    theme: {\n      text: [\"ui\"],\n      radius: [\"window\", \"card\", \"control\", \"icon\"],\n    },\n  },\n})\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}\n",
       "type": "registry:lib"
     }
   ],

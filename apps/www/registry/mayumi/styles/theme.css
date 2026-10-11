@@ -31,6 +31,28 @@
    * hairline 就是 2px 双边框。环只在「浮层没有真边框」时才该出现。
    */
   --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.18);
+  /*
+   * tactile 按钮只在这里放颜色，几何（厚度、偏移）由组件按尺寸拼。
+   * face：近乎平的顶面，只有很浅的上亮下暗。
+   * rim：顶面四周一圈半透明亮边。bevel：顶面和侧壁交接处的受光线。
+   * wall：侧壁，只比 accent 深三成左右，再深就成黑边。
+   * ground：落在背景上的影子，偏 accent 的暗色、又宽又淡。
+   */
+  --tactile-face: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--accent), white 12%),
+    var(--accent) 55%,
+    color-mix(in oklab, var(--accent), black 6%)
+  );
+  --tactile-rim: rgba(255, 255, 255, 0.22);
+  /* 只降亮度、不降彩度：和黑 color-mix 会把侧壁一起洗灰 */
+  --tactile-bevel: oklch(from var(--accent) calc(l + 0.1) c h);
+  --tactile-wall: oklch(from var(--accent) calc(l - 0.15) c h);
+  --tactile-ground: color-mix(
+    in oklab,
+    color-mix(in oklab, var(--accent), black 45%) 30%,
+    transparent
+  );
   /* 悬浮岛用：抬离窗口一层，但远轻于 overlay（浮层）的投影 */
   --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.1);
 }
@@ -62,6 +84,23 @@
   --traffic-glyph: rgba(0, 0, 0, 0.55);
   --scrim: rgba(0, 0, 0, 0.6);
   --shadow-overlay: 0 16px 48px rgba(0, 0, 0, 0.55);
+  /* 深色底上侧壁要更深才和顶面分开；影子用中性黑，带色会读成发光 */
+  --tactile-face: radial-gradient(
+      130% 78% at 50% -8%,
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.06) 34%,
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      color-mix(in oklab, var(--accent), white 12%),
+      var(--accent) 55%,
+      color-mix(in oklab, var(--accent), black 6%)
+    );
+  --tactile-rim: rgba(255, 255, 255, 0.12);
+  --tactile-bevel: oklch(from var(--accent) calc(l + 0.05) c h);
+  --tactile-wall: oklch(from var(--accent) calc(l - 0.28) c h);
+  --tactile-ground: rgba(0, 0, 0, 0.4);
   --shadow-raised: 0 4px 14px rgba(0, 0, 0, 0.45);
 }
 
@@ -93,8 +132,14 @@
   --color-scrim: var(--scrim);
   --radius-icon: 5px;
   --text-ui: 13px;
-  --font-sans: var(--font-inter, "Inter"), -apple-system, system-ui,
-    "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  /*
+   * Mac 上用系统字体：SF 和苹方是配套的，Inter 在 13px 下偏宽，中英混排也对不齐。
+   * Inter 只给没装 SF 的系统兜底（设置 --font-inter，或本机装了 Inter）。
+   * system-ui 放在中文字体前面，否则 Windows 的英文会落到微软雅黑里。
+   */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    var(--font-inter, "Inter"), system-ui, "PingFang SC", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
 }
 
 @utility app-region-drag {
@@ -126,6 +171,15 @@
   background-color: var(--overlay-thick);
   backdrop-filter: blur(40px) saturate(180%);
   -webkit-backdrop-filter: blur(40px) saturate(180%);
+}
+
+@keyframes mayumi-print-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
