@@ -212,6 +212,16 @@ const win = getCurrentWindow()
     group: "基础控件",
   },
   {
+    slug: "checklist",
+    title: "Checklist",
+    description: "任务清单，勾选时填充方框、绘制对勾并划去文字，可选完成后堆叠。",
+    group: "基础控件",
+    notes: [
+      "items 提供 id、label 与可选 disabled；value / defaultValue 保存已勾选项目的 id，onValueChange 按 items 顺序回报。",
+      "stackOnComplete 默认关闭；开启后，全部勾选时清单收合，取消任意一项会展开。不会自动清空或重置，reduced-motion 下保持展开。",
+    ],
+  },
+  {
     slug: "slider",
     title: "Slider",
     description: "细轨白钮滑杆，键盘方向键可调。",

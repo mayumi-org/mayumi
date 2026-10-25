@@ -7,6 +7,7 @@ import { TextareaDemo } from "@/components/demos/textarea-demo"
 import { KbdDemo } from "@/components/demos/kbd-demo"
 import { SwitchDemo } from "@/components/demos/switch-demo"
 import { CheckboxDemo } from "@/components/demos/checkbox-demo"
+import { ChecklistDemo } from "@/components/demos/checklist-demo"
 import { SliderDemo } from "@/components/demos/slider-demo"
 import { SelectDemo } from "@/components/demos/select-demo"
 import { SegmentedControlDemo } from "@/components/demos/segmented-control-demo"
@@ -67,6 +68,7 @@ const demos: Record<string, ComponentType> = {
   separator: SeparatorDemo,
   switch: SwitchDemo,
   checkbox: CheckboxDemo,
+  checklist: ChecklistDemo,
   slider: SliderDemo,
   select: SelectDemo,
   "segmented-control": SegmentedControlDemo,

@@ -311,6 +311,26 @@
       ]
     },
     {
+      "name": "checklist",
+      "type": "registry:ui",
+      "title": "Checklist",
+      "dependencies": [
+        "@base-ui/react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json",
+        "https://mayumi.netlify.app/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/mayumi/ui/checklist.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "slider",
       "type": "registry:ui",
       "title": "Slider",
