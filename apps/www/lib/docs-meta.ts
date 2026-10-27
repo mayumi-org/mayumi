@@ -228,6 +228,16 @@ const win = getCurrentWindow()
     group: "基础控件",
   },
   {
+    slug: "wake-slider",
+    title: "Wake Slider",
+    description: "无滑钮条形滑杆，快速拖动时刻度随速度抬升并回落。",
+    group: "基础控件",
+    notes: [
+      "bars 限制为 12–64，wake 限制为 0–100；wake={0} 关闭尾迹，showValue={false} 隐藏数值。",
+      "键盘方向键调整时不触发尾迹；reduced-motion 下保留值与颜色反馈，不播放尾迹。",
+    ],
+  },
+  {
     slug: "select",
     title: "Select",
     description: "macOS 双箭头下拉，vibrancy 弹层。",
