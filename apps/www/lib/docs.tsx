@@ -10,6 +10,7 @@ import { CheckboxDemo } from "@/components/demos/checkbox-demo"
 import { ChecklistDemo } from "@/components/demos/checklist-demo"
 import { SliderDemo } from "@/components/demos/slider-demo"
 import { WakeSliderDemo } from "@/components/demos/wake-slider-demo"
+import { TimeScrubberDemo } from "@/components/demos/time-scrubber-demo"
 import { SelectDemo } from "@/components/demos/select-demo"
 import { SegmentedControlDemo } from "@/components/demos/segmented-control-demo"
 import { DropdownMenuDemo } from "@/components/demos/dropdown-menu-demo"
@@ -72,6 +73,7 @@ const demos: Record<string, ComponentType> = {
   checklist: ChecklistDemo,
   slider: SliderDemo,
   "wake-slider": WakeSliderDemo,
+  "time-scrubber": TimeScrubberDemo,
   select: SelectDemo,
   "segmented-control": SegmentedControlDemo,
   avatar: AvatarDemo,

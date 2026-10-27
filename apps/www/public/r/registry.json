@@ -369,6 +369,25 @@
       ]
     },
     {
+      "name": "time-scrubber",
+      "type": "registry:ui",
+      "title": "TimeScrubber",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json",
+        "https://mayumi.netlify.app/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/mayumi/ui/time-scrubber.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "tooltip",
       "type": "registry:ui",
       "title": "Tooltip",

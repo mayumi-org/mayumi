@@ -238,6 +238,16 @@ const win = getCurrentWindow()
     ],
   },
   {
+    slug: "time-scrubber",
+    title: "Time Scrubber",
+    description: "可拖动的时间刻度尺，松手后按惯性滑动并吸附到步长。",
+    group: "基础控件",
+    notes: [
+      "value / defaultValue 使用一天中的分钟数；step 限制为 1–60 分钟，momentum 限制为 0–100，format 支持 12h / 24h。",
+      "支持横向触控板手势；键盘方向键立即按步长调整，不播放惯性；reduced-motion 下直接吸附到落点。",
+    ],
+  },
+  {
     slug: "select",
     title: "Select",
     description: "macOS 双箭头下拉，vibrancy 弹层。",
