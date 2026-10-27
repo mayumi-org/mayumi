@@ -388,6 +388,26 @@
       ]
     },
     {
+      "name": "number-stepper",
+      "type": "registry:ui",
+      "title": "NumberStepper",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json",
+        "https://mayumi.netlify.app/r/motion.json"
+      ],
+      "files": [
+        {
+          "path": "registry/mayumi/ui/number-stepper.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "tooltip",
       "type": "registry:ui",
       "title": "Tooltip",

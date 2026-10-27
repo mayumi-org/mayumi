@@ -1,6 +1,6 @@
 # 待实现组件
 
-以下组件已确认需要加入实现。Checklist、WakeSlider 和 TimeScrubber 已完成，NumberStepper 待实现。
+以下组件已全部完成，按 Checklist、WakeSlider、TimeScrubber、NumberStepper 的顺序逐项实现并验证。
 
 | 组件 | 参考 | 实现重点 |
 | --- | --- | --- |

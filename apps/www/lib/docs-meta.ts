@@ -248,6 +248,16 @@ const win = getCurrentWindow()
     ],
   },
   {
+    slug: "number-stepper",
+    title: "Number Stepper",
+    description: "逐位滚动的数字步进器，支持长按加速和上下拖动。",
+    group: "基础控件",
+    notes: [
+      "支持 value / defaultValue、onValueChange、min / max / step；数值与步长按整数处理，draggable={false} 可关闭拖动。",
+      "长按会先加速重复，再扩大步长；键盘调整不播放滚动，reduced-motion 下数字立即落位。",
+    ],
+  },
+  {
     slug: "select",
     title: "Select",
     description: "macOS 双箭头下拉，vibrancy 弹层。",
