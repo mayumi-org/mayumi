@@ -12,6 +12,7 @@ import { SliderDemo } from "@/components/demos/slider-demo"
 import { WakeSliderDemo } from "@/components/demos/wake-slider-demo"
 import { TimeScrubberDemo } from "@/components/demos/time-scrubber-demo"
 import { NumberStepperDemo } from "@/components/demos/number-stepper-demo"
+import { LineChartDemo } from "@/components/demos/line-chart-demo"
 import { SelectDemo } from "@/components/demos/select-demo"
 import { SegmentedControlDemo } from "@/components/demos/segmented-control-demo"
 import { DropdownMenuDemo } from "@/components/demos/dropdown-menu-demo"
@@ -76,6 +77,7 @@ const demos: Record<string, ComponentType> = {
   "wake-slider": WakeSliderDemo,
   "time-scrubber": TimeScrubberDemo,
   "number-stepper": NumberStepperDemo,
+  "line-chart": LineChartDemo,
   select: SelectDemo,
   "segmented-control": SegmentedControlDemo,
   avatar: AvatarDemo,

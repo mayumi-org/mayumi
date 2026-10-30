@@ -2,7 +2,7 @@ export type DocMeta = {
   slug: string
   title: string
   description: string
-  group: "窗口层" | "列表层" | "基础控件" | "重交互"
+  group: "窗口层" | "列表层" | "基础控件" | "数据展示" | "重交互"
   notes?: string[]
   wiring?: { label: string; code: string }[]
 }
@@ -255,6 +255,17 @@ const win = getCurrentWindow()
     notes: [
       "支持 value / defaultValue、onValueChange、min / max / step；数值与步长按整数处理，draggable={false} 可关闭拖动。",
       "长按会先加速重复，再扩大步长；键盘调整不播放滚动，reduced-motion 下数字立即落位。",
+    ],
+  },
+  {
+    slug: "line-chart",
+    title: "Line Chart",
+    description: "平滑 SVG 折线图，支持连续读数和时间窗口切换。",
+    group: "数据展示",
+    notes: [
+      "data 接收 { label, value } 数组；smooth 使用 Catmull-Rom 曲线，includeZero 控制数值域，formatValue 自定义格式。",
+      "windows 提供时间范围与共享移动 pill；reduced-motion 下切换立即落位。",
+      "方向键读数，Home / End 跳转首尾，Escape 清除；隐藏数据表供屏幕阅读器读取。",
     ],
   },
   {

@@ -6,7 +6,7 @@
 
 ## 特性
 
-- **39 个 mac-style 组件**：窗口 chrome（红绿灯/标题栏/侧栏）、设置风格列表、全套基础控件、⌘K 命令面板与通知
+- **40 个 mac-style 组件**：窗口 chrome（红绿灯/标题栏/侧栏）、设置风格列表、全套基础控件、⌘K 命令面板与通知
 - **shadcn registry 分发**：源码拷贝进你的项目，不是黑盒 npm 包
 - **Base UI primitives**：键盘导航与 ARIA 开箱即用
 - **Apple 动效基调**：临界阻尼 spring、125–200ms 弹层过渡、reduced-motion 全覆盖
