@@ -427,6 +427,28 @@
       ]
     },
     {
+      "name": "voice-player",
+      "type": "registry:ui",
+      "title": "VoicePlayer",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json",
+        "https://mayumi.netlify.app/r/motion.json",
+        "https://mayumi.netlify.app/r/button.json",
+        "https://mayumi.netlify.app/r/slider.json"
+      ],
+      "files": [
+        {
+          "path": "registry/mayumi/ui/voice-player.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "tooltip",
       "type": "registry:ui",
       "title": "Tooltip",

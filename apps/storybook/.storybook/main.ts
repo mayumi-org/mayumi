@@ -8,6 +8,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const config: StorybookConfig = {
   framework: "@storybook/react-vite",
   stories: ["../../www/registry/**/*.stories.@(ts|tsx)"],
+  staticDirs: [path.resolve(__dirname, "../../www/public")],
   async viteFinal(viteConfig) {
     const tailwindcss = (await import("@tailwindcss/vite")).default
     viteConfig.plugins ??= []

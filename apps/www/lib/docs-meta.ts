@@ -269,6 +269,17 @@ const win = getCurrentWindow()
     ],
   },
   {
+    slug: "voice-player",
+    title: "Voice Player",
+    description: "真实音频驱动的点阵语音播放器，支持播放、暂停与进度拖动。",
+    group: "重交互",
+    notes: [
+      "VoicePlayer 接收 src、title、可选 description、duration 与 showProgress；duration 可在浏览器无法读取元数据时提供已知秒数。VoiceWaveform 可独立接收 levels 或 AnalyserNode。",
+      "首次播放时通过 Web Audio 采样；实时波形要求音频同源或允许 CORS，不支持采样时保留播放控制与静态波形。",
+      "播放时才运行波形，暂停冻结，reduced-motion 下始终显示静态波形。",
+    ],
+  },
+  {
     slug: "select",
     title: "Select",
     description: "macOS 双箭头下拉，vibrancy 弹层。",

@@ -12,6 +12,8 @@ function Slider({
         <BaseSlider.Track className="relative h-1 w-full rounded-full bg-surface-2">
           <BaseSlider.Indicator data-slot="slider-indicator" className="rounded-full bg-accent" />
           <BaseSlider.Thumb
+            aria-label={props["aria-label"]}
+            aria-labelledby={props["aria-labelledby"]}
             data-slot="slider-thumb"
             className="size-4 rounded-full border border-border bg-accent-fg shadow-sm outline-none transition-[scale] duration-150 ease-out focus-visible:ring-2 focus-visible:ring-accent/60 motion-safe:data-dragging:scale-125 motion-reduce:data-dragging:scale-105 motion-safe:[@media(hover:hover)_and_(pointer:fine)]:hover:scale-110 motion-reduce:[@media(hover:hover)_and_(pointer:fine)]:hover:scale-105"
           />

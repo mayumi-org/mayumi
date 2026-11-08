@@ -598,7 +598,7 @@ function DriveMock() {
             </span>
             <div className="min-w-0">
               <p className="text-xs leading-tight font-semibold text-fg">Drive</p>
-              <p className="truncate text-[9px] text-fg-tertiary">johnwork's workspace</p>
+              <p className="truncate text-[9px] text-fg-tertiary">johnwork&apos;s workspace</p>
             </div>
           </div>
           {[
@@ -710,7 +710,7 @@ function MailMock() {
           <p className="text-fg-tertiary">Hi Max,</p>
           <p className="leading-relaxed text-fg-tertiary">
             As we kick off the new year, I wanted to take a moment to provide you
-            with some updates and highlights from our team's recent…
+            with some updates and highlights from our team&apos;s recent…
           </p>
         </div>
       </MockSurface>
