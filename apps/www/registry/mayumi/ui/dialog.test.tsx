@@ -44,4 +44,20 @@ describe("Dialog", () => {
     await userEvent.click(screen.getByRole("button", { name: "删除项目" }))
     expect(document.querySelector('[data-slot="dialog-backdrop"]')).not.toBeNull()
   })
+
+  it("supports the alert variant role", async () => {
+    render(
+      <Dialog>
+        <DialogTrigger>警报</DialogTrigger>
+        <DialogContent variant="alert">
+          <DialogTitle>确认？</DialogTitle>
+        </DialogContent>
+      </Dialog>
+    )
+    await userEvent.click(screen.getByRole("button", { name: "警报" }))
+    expect(await screen.findByRole("alertdialog")).toHaveAttribute(
+      "data-variant",
+      "alert"
+    )
+  })
 })

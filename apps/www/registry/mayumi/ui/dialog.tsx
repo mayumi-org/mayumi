@@ -20,8 +20,12 @@ const dialogContentVariants = cva(
           "transition-[scale,opacity] duration-200 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 motion-safe:data-ending-style:scale-97 motion-safe:data-starting-style:scale-97",
         instant: "",
       },
+      variant: {
+        default: "",
+        alert: "",
+      },
     },
-    defaultVariants: { transition: "default" },
+    defaultVariants: { transition: "default", variant: "default" },
   }
 )
 
@@ -40,9 +44,12 @@ function DialogContent({
   className,
   children,
   transition,
+  variant = "default",
+  role,
   ...props
 }: React.ComponentProps<typeof BaseDialog.Popup> &
   VariantProps<typeof dialogContentVariants>) {
+  const resolvedRole = role ?? (variant === "alert" ? "alertdialog" : undefined)
   return (
     <BaseDialog.Portal>
       <BaseDialog.Backdrop
@@ -51,9 +58,11 @@ function DialogContent({
       />
       <BaseDialog.Popup
         {...props}
+        {...(resolvedRole ? { role: resolvedRole } : {})}
         data-slot="dialog-content"
+        data-variant={variant ?? "default"}
         data-transition={transition ?? "default"}
-        className={cn(dialogContentVariants({ transition, className }))}
+        className={cn(dialogContentVariants({ transition, variant, className }))}
       >
         {children}
       </BaseDialog.Popup>

@@ -17,4 +17,24 @@ describe("ScrollArea", () => {
     render(<ScrollArea className="h-24" data-testid="sa" />)
     expect(screen.getByTestId("sa")).toHaveClass("h-24")
   })
+
+  it("supports viewportRef, viewportProps, orientation, and hideScrollbar", () => {
+    let node: HTMLDivElement | null = null
+    render(
+      <ScrollArea
+        orientation="both"
+        hideScrollbar
+        viewportRef={(el) => {
+          node = el
+        }}
+        viewportProps={{ "data-testid": "vp", className: "vp-custom" }}
+      >
+        <p>Scrollable</p>
+      </ScrollArea>
+    )
+    const vp = screen.getByTestId("vp")
+    expect(vp).toHaveClass("vp-custom")
+    expect(node).toBe(vp)
+    expect(document.querySelector('[data-slot="scroll-area-scrollbar"]')).toBeNull()
+  })
 })

@@ -122,6 +122,7 @@
   --color-accent-fg: var(--accent-fg);
   --color-danger: var(--danger);
   --radius-window: 14px;
+  --radius-island: 12px;
   --radius-card: 10px;
   --radius-control: 6px;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
