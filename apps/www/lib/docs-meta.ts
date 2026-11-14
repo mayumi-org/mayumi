@@ -5,6 +5,10 @@ export type DocMeta = {
   group: "窗口层" | "列表层" | "基础控件" | "数据展示" | "重交互"
   notes?: string[]
   wiring?: { label: string; code: string }[]
+  /** 演示动画类条目：不在 registry 中，隐藏安装区 */
+  demoOnly?: boolean
+  /** 自定义源码路径（相对 apps/www），默认 registry/mayumi/ui/<slug>.tsx */
+  sourcePath?: string
 }
 
 export const docsMeta: DocMeta[] = [
@@ -277,6 +281,19 @@ const win = getCurrentWindow()
       "VoicePlayer 接收 src、title、可选 description、duration 与 showProgress；duration 可在浏览器无法读取元数据时提供已知秒数。VoiceWaveform 可独立接收 levels 或 AnalyserNode。",
       "首次播放时通过 Web Audio 采样；实时波形要求音频同源或允许 CORS，不支持采样时保留播放控制与静态波形。",
       "播放时才运行波形，暂停冻结，reduced-motion 下始终显示静态波形。",
+    ],
+  },
+  {
+    slug: "ai-sheet-fill",
+    title: "AI Sheet Fill",
+    description: "AI 填表动画：光晕自底部涌起覆盖表格，数据行自下而上从模糊中显影，提示卡边缘流光滑边。",
+    group: "重交互",
+    demoOnly: true,
+    sourcePath: "components/demos/ai-sheet-fill-demo.tsx",
+    notes: [
+      "演示级动画，适用于营销页 / 新手引导等稀有场景，不是高频交互组件；数据与文案为示例。",
+      "三层结构由相位机同步：表格内的光晕与行显影由 AIFill 容器（纯 CSS keyframes）驱动，卡片辉光为静态 conic 渐变。",
+      "骨架与真实数据的偷换发生在光晕完全遮住表格之后；prefers-reduced-motion 下光晕退化为淡入淡出、行显影退化为快速淡入。",
     ],
   },
   {

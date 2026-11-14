@@ -806,6 +806,26 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "view-gallery",
+      "type": "registry:ui",
+      "title": "ViewGallery",
+      "dependencies": [
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://mayumi.netlify.app/r/theme.json",
+        "https://mayumi.netlify.app/r/utils.json",
+        "https://mayumi.netlify.app/r/button.json"
+      ],
+      "files": [
+        {
+          "path": "registry/mayumi/ui/view-gallery.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

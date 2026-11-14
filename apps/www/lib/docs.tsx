@@ -14,6 +14,7 @@ import { TimeScrubberDemo } from "@/components/demos/time-scrubber-demo"
 import { NumberStepperDemo } from "@/components/demos/number-stepper-demo"
 import { LineChartDemo } from "@/components/demos/line-chart-demo"
 import { VoicePlayerDemo } from "@/components/demos/voice-player-demo"
+import { AISheetFillDemo } from "@/components/demos/ai-sheet-fill-demo"
 import { SelectDemo } from "@/components/demos/select-demo"
 import { SegmentedControlDemo } from "@/components/demos/segmented-control-demo"
 import { DropdownMenuDemo } from "@/components/demos/dropdown-menu-demo"
@@ -80,6 +81,7 @@ const demos: Record<string, ComponentType> = {
   "number-stepper": NumberStepperDemo,
   "line-chart": LineChartDemo,
   "voice-player": VoicePlayerDemo,
+  "ai-sheet-fill": AISheetFillDemo,
   select: SelectDemo,
   "segmented-control": SegmentedControlDemo,
   avatar: AvatarDemo,

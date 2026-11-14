@@ -20,7 +20,7 @@ export default async function ComponentPage({
   const doc = getDoc(slug)
   if (!doc) notFound()
   const source = await fs.readFile(
-    path.join(process.cwd(), "registry/mayumi/ui", `${slug}.tsx`),
+    path.join(process.cwd(), doc.sourcePath ?? path.join("registry/mayumi/ui", `${slug}.tsx`)),
     "utf-8"
   )
   return (
@@ -36,17 +36,19 @@ export default async function ComponentPage({
         <doc.Demo />
       </section>
 
-      <section className="space-y-2">
-        <h2 className="text-ui font-semibold text-fg">安装</h2>
-        <CodeBlock
-          lang="bash"
-          code={`npx shadcn@latest add https://mayumi.netlify.app/r/${slug}.json`}
-        />
-        <p className="text-xs text-fg-tertiary">
-          在 components.json 配置 registries 后也可用{" "}
-          <code>{`npx shadcn add @mayumi/${slug}`}</code>（见首页快速开始）。
-        </p>
-      </section>
+      {doc.demoOnly ? null : (
+        <section className="space-y-2">
+          <h2 className="text-ui font-semibold text-fg">安装</h2>
+          <CodeBlock
+            lang="bash"
+            code={`npx shadcn@latest add https://mayumi.netlify.app/r/${slug}.json`}
+          />
+          <p className="text-xs text-fg-tertiary">
+            在 components.json 配置 registries 后也可用{" "}
+            <code>{`npx shadcn add @mayumi/${slug}`}</code>（见首页快速开始）。
+          </p>
+        </section>
+      )}
 
       {doc.notes?.length ? (
         <section className="space-y-2">
