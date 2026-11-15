@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "island",
+  "title": "Island",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/island.tsx",
+      "content": "import { type VariantProps, cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nconst islandVariants = cva(\n  \"relative flex min-h-0 min-w-0 flex-col overflow-hidden rounded-island border border-border\",\n  {\n    variants: {\n      /**\n       * default：主工作浮岛容器（桌面端 `--island-bg` + `--shadow-island`，standalone 回退 `--surface` + `--shadow-raised`）\n       * sub：次级内嵌区块（如底部上下文托架）\n       */\n      variant: {\n        default:\n          \"bg-[var(--island-bg,var(--surface))] shadow-[var(--shadow-island,var(--shadow-raised))]\",\n        sub: \"bg-[var(--island-sub,var(--surface-2))]\",\n      },\n    },\n    defaultVariants: { variant: \"default\" },\n  }\n)\n\nfunction Island({\n  className,\n  variant,\n  ...props\n}: React.ComponentProps<\"section\"> & VariantProps<typeof islandVariants>) {\n  return (\n    <section\n      {...props}\n      data-slot=\"island\"\n      data-variant={variant ?? \"default\"}\n      className={cn(islandVariants({ variant, className }))}\n    />\n  )\n}\n\nfunction IslandHeader({ className, ...props }: React.ComponentProps<\"header\">) {\n  return (\n    <header\n      {...props}\n      data-slot=\"island-header\"\n      className={cn(\n        \"flex h-11 shrink-0 items-center justify-between gap-2 border-b border-border px-4\",\n        className\n      )}\n    />\n  )\n}\n\nfunction IslandTitle({ className, ...props }: React.ComponentProps<\"h2\">) {\n  return (\n    <h2\n      {...props}\n      data-slot=\"island-title\"\n      className={cn(\"truncate text-ui font-semibold text-fg\", className)}\n    />\n  )\n}\n\nfunction IslandContent({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      {...props}\n      data-slot=\"island-content\"\n      className={cn(\"flex min-h-0 flex-1 flex-col\", className)}\n    />\n  )\n}\n\nfunction IslandFooter({ className, ...props }: React.ComponentProps<\"footer\">) {\n  return (\n    <footer\n      {...props}\n      data-slot=\"island-footer\"\n      className={cn(\"shrink-0 border-t border-border px-4 py-3\", className)}\n    />\n  )\n}\n\nexport {\n  Island,\n  IslandContent,\n  IslandFooter,\n  IslandHeader,\n  IslandTitle,\n  islandVariants,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
