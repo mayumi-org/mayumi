@@ -28,3 +28,31 @@ body {
 html:not(.dark) .shiki span {
   color: var(--shiki-light);
 }
+
+/* --- 移动端基线（仅站点，不进 registry） --- */
+html {
+  /* 点按时的灰/蓝闪光是「这是个网页」的最大破绽 */
+  -webkit-tap-highlight-color: transparent;
+  /* 横屏时禁止 iOS 自动放大字体 */
+  -webkit-text-size-adjust: 100%;
+}
+button,
+a,
+[role="button"] {
+  /* 禁用双击缩放检测，点按立即触发 click（消除 300ms 迟滞感） */
+  touch-action: manipulation;
+}
+button,
+[role="button"] {
+  /* 长按不选中按钮文字；正文内容保持可选中 */
+  user-select: none;
+  -webkit-user-select: none;
+}
+/* iOS 聚焦 <16px 的输入框会整页放大且不回缩：粗指针下统一提到 16px */
+@media (pointer: coarse) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}

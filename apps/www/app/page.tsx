@@ -14,7 +14,7 @@ const REGISTRY_CONFIG = `{
 
 export default function Home() {
   return (
-    <main className="mx-auto max-w-5xl px-8 pb-24">
+    <main className="mx-auto max-w-5xl px-4 pb-24 sm:px-8">
       <nav className="flex h-14 items-center justify-between">
         <span className="text-ui font-semibold text-fg">mayumi</span>
         <div className="flex items-center gap-2">
@@ -28,7 +28,7 @@ export default function Home() {
       </nav>
 
       <section className="py-16 text-center">
-        <h1 className="text-5xl font-semibold tracking-[-0.02em] text-fg">
+        <h1 className="text-4xl font-semibold sm:text-5xl tracking-[-0.02em] text-fg">
           Mac-style React 组件
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-ui leading-relaxed text-fg-secondary">

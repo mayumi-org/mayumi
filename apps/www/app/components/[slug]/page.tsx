@@ -32,7 +32,7 @@ export default async function ComponentPage({
         <p className="mt-1 text-ui text-fg-secondary">{doc.description}</p>
       </header>
 
-      <section className="rounded-card border border-border bg-surface p-8">
+      <section className="rounded-card border border-border bg-surface p-4 sm:p-8">
         <doc.Demo />
       </section>
 
