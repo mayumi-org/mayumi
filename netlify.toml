@@ -1,3 +1,7 @@
+[build.environment]
+  # Netlify 不读 .node-version，只认 NODE_VERSION / .nvmrc；必须 ≥20（pnpm 11、Next 16 的要求）
+  NODE_VERSION = "22"
+
 [build]
   base = "apps/www"
   command = "pnpm build"
