@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "activity-bar",
+  "title": "ActivityBar",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json",
+    "https://mayumi.netlify.app/r/tooltip.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/activity-bar.tsx",
+      "content": "import { Toolbar as BaseToolbar } from \"@base-ui/react/toolbar\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\nimport { Tooltip, TooltipContent, TooltipTrigger } from \"./tooltip\"\n\n/**\n * 窗口最左侧的竖排图标栏（VS Code / Slack / Codex 的分区切换）。\n * 用 Base UI Toolbar 竖排：整条只占一个 Tab 站，上下方向键漫游焦点。\n */\nfunction ActivityBar({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseToolbar.Root>) {\n  return (\n    <BaseToolbar.Root\n      {...props}\n      data-slot=\"activity-bar\"\n      orientation=\"vertical\"\n      className={cn(\n        \"flex w-11 shrink-0 flex-col items-center gap-1 py-2\",\n        className\n      )}\n    />\n  )\n}\n\ntype ActivityBarItemProps = React.ComponentProps<typeof BaseToolbar.Button> & {\n  /** 无障碍名称，同时作为右侧 Tooltip 的文字 */\n  label: string\n  active?: boolean\n  /** 右上角的角标，通常放一个 Badge；仅作视觉提示，读屏信息请写进 label */\n  badge?: React.ReactNode\n}\n\nfunction ActivityBarItem({\n  className,\n  label,\n  active = false,\n  badge,\n  children,\n  ...props\n}: ActivityBarItemProps) {\n  return (\n    <Tooltip>\n      <TooltipTrigger\n        render={\n          <BaseToolbar.Button\n            {...props}\n            data-slot=\"activity-bar-item\"\n            data-active={active || undefined}\n            aria-current={active ? \"page\" : undefined}\n            aria-label={label}\n            className={cn(\n              \"relative inline-flex size-8 shrink-0 items-center justify-center rounded-control outline-none transition-colors duration-150 ease-out select-none focus-visible:ring-2 focus-visible:ring-accent/60 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0\",\n              active\n                ? \"bg-fill-active text-fg\"\n                : \"text-fg-secondary hover:bg-fill-hover hover:text-fg active:bg-fill-active\",\n              className\n            )}\n          />\n        }\n      >\n        {children}\n        {badge != null ? (\n          <span\n            aria-hidden=\"true\"\n            data-slot=\"activity-bar-badge\"\n            className=\"pointer-events-none absolute top-0.5 right-0.5 flex\"\n          >\n            {badge}\n          </span>\n        ) : null}\n      </TooltipTrigger>\n      <TooltipContent side=\"right\">{label}</TooltipContent>\n    </Tooltip>\n  )\n}\n\n/** 把之后的项推到底部（头像、设置） */\nfunction ActivityBarSpacer({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      {...props}\n      aria-hidden=\"true\"\n      data-slot=\"activity-bar-spacer\"\n      className={cn(\"flex-1\", className)}\n    />\n  )\n}\n\nexport { ActivityBar, ActivityBarItem, ActivityBarSpacer }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

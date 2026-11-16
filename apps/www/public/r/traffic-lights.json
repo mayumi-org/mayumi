@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "traffic-lights",
+  "title": "TrafficLights",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/traffic-lights.tsx",
+      "content": "import { Minus, Plus, X } from \"lucide-react\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\ntype TrafficLightsProps = React.ComponentProps<\"div\"> & {\n  mode?: \"controls\" | \"inset\"\n  onClose?: () => void\n  onMinimize?: () => void\n  onZoom?: () => void\n}\n\nconst lights = [\n  {\n    key: \"close\",\n    label: \"Close window\",\n    dot: \"bg-traffic-close\",\n    glyph: X,\n  },\n  {\n    key: \"minimize\",\n    label: \"Minimize window\",\n    dot: \"bg-traffic-minimize\",\n    glyph: Minus,\n  },\n  {\n    key: \"zoom\",\n    label: \"Zoom window\",\n    dot: \"bg-traffic-zoom\",\n    glyph: Plus,\n  },\n] as const\n\nfunction TrafficLights({\n  mode = \"controls\",\n  onClose,\n  onMinimize,\n  onZoom,\n  className,\n  ...props\n}: TrafficLightsProps) {\n  if (mode === \"inset\") {\n    return (\n      <div\n        {...props}\n        data-slot=\"traffic-lights\"\n        aria-hidden=\"true\"\n        className={cn(\"w-[52px] shrink-0\", className)}\n      />\n    )\n  }\n  const handlers = { close: onClose, minimize: onMinimize, zoom: onZoom }\n  return (\n    <div\n      {...props}\n      data-slot=\"traffic-lights\"\n      className={cn(\n        \"group/traffic app-region-no-drag flex shrink-0 items-center gap-2\",\n        className\n      )}\n    >\n      {lights.map((light) => (\n        <button\n          key={light.key}\n          type=\"button\"\n          aria-label={light.label}\n          onClick={handlers[light.key]}\n          className={cn(\n            \"flex size-3 items-center justify-center rounded-full text-transparent outline-none transition-colors duration-150 ease-out focus-visible:ring-2 focus-visible:ring-accent/60 group-hover/traffic:text-(--traffic-glyph)\",\n            light.dot\n          )}\n        >\n          <light.glyph aria-hidden=\"true\" className=\"size-2\" strokeWidth={3} />\n        </button>\n      ))}\n    </div>\n  )\n}\n\nexport { TrafficLights }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

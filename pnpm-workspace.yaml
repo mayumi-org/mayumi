@@ -1,4 +1,11 @@
 packages:
-  - 'example'
-  - '.'
-  - 'apps/docs'
+  - "apps/*"
+  - "packages/*"
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - shadcn@4.19.0
+# standalone (@pnpm/exe) 安装的 pnpm 在校验自身身份时要求 lockfile 含对应条目，
+# 本仓库 lockfile 由 node 版 pnpm 生成；两者版本一致（见 packageManager），关闭自管理即可
+managePackageManagerVersions: false

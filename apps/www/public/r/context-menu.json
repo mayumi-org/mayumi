@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "context-menu",
+  "title": "ContextMenu",
+  "dependencies": [
+    "@base-ui/react"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/context-menu.tsx",
+      "content": "import { ContextMenu as BaseContextMenu } from \"@base-ui/react/context-menu\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nconst ContextMenu = BaseContextMenu.Root\n\nfunction ContextMenuTrigger({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseContextMenu.Trigger>) {\n  return (\n    <BaseContextMenu.Trigger\n      {...props}\n      data-slot=\"context-menu-trigger\"\n      className={cn(className)}\n    />\n  )\n}\n\ntype ContextMenuContentProps = React.ComponentProps<typeof BaseContextMenu.Popup> &\n  Pick<\n    React.ComponentProps<typeof BaseContextMenu.Positioner>,\n    \"side\" | \"align\" | \"sideOffset\"\n  >\n\nfunction ContextMenuContent({\n  className,\n  side,\n  align,\n  sideOffset = 4,\n  children,\n  ...props\n}: ContextMenuContentProps) {\n  return (\n    <BaseContextMenu.Portal>\n      <BaseContextMenu.Positioner side={side} align={align} sideOffset={sideOffset}>\n        <BaseContextMenu.Popup\n          {...props}\n          data-slot=\"context-menu-content\"\n          className={cn(\n            \"mayumi-vibrancy-thick origin-(--transform-origin) min-w-36 rounded-card border border-border p-1 shadow-[var(--shadow-overlay)] outline-none transition-[scale,opacity] duration-200 ease-out data-ending-style:opacity-0 data-starting-style:opacity-0 motion-safe:data-ending-style:scale-95 motion-safe:data-starting-style:scale-95\",\n            className\n          )}\n        >\n          {children}\n        </BaseContextMenu.Popup>\n      </BaseContextMenu.Positioner>\n    </BaseContextMenu.Portal>\n  )\n}\n\nfunction ContextMenuItem({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseContextMenu.Item>) {\n  return (\n    <BaseContextMenu.Item\n      {...props}\n      data-slot=\"context-menu-item\"\n      className={cn(\n        \"flex h-6 cursor-default items-center gap-2 rounded-icon px-2 text-ui leading-tight text-fg outline-none select-none data-highlighted:bg-accent data-highlighted:text-accent-fg\",\n        className\n      )}\n    />\n  )\n}\n\nfunction ContextMenuSeparator({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseContextMenu.Separator>) {\n  return (\n    <BaseContextMenu.Separator\n      {...props}\n      data-slot=\"context-menu-separator\"\n      className={cn(\"mx-2 my-1 h-px bg-border\", className)}\n    />\n  )\n}\n\nexport {\n  ContextMenu,\n  ContextMenuContent,\n  ContextMenuItem,\n  ContextMenuSeparator,\n  ContextMenuTrigger,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar",
+  "title": "Avatar",
+  "dependencies": [
+    "@base-ui/react",
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/avatar.tsx",
+      "content": "import { Avatar as BaseAvatar } from \"@base-ui/react/avatar\"\nimport { type VariantProps, cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nconst avatarVariants = cva(\n  \"relative inline-flex shrink-0 select-none items-center justify-center overflow-hidden rounded-full bg-fill align-middle font-medium text-fg-secondary\",\n  {\n    variants: {\n      size: {\n        sm: \"size-5 text-[10px]\",\n        md: \"size-8 text-xs\",\n        lg: \"size-12 text-ui\",\n      },\n    },\n    defaultVariants: { size: \"md\" },\n  }\n)\n\nfunction Avatar({\n  className,\n  size,\n  ...props\n}: React.ComponentProps<typeof BaseAvatar.Root> &\n  VariantProps<typeof avatarVariants>) {\n  return (\n    <BaseAvatar.Root\n      {...props}\n      data-slot=\"avatar\"\n      className={cn(avatarVariants({ size, className }))}\n    />\n  )\n}\n\nfunction AvatarImage({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseAvatar.Image>) {\n  return (\n    <BaseAvatar.Image\n      {...props}\n      data-slot=\"avatar-image\"\n      className={cn(\"size-full object-cover\", className)}\n    />\n  )\n}\n\n/** 图片加载失败或未提供时的兜底，通常放姓名首字母 */\nfunction AvatarFallback({\n  className,\n  ...props\n}: React.ComponentProps<typeof BaseAvatar.Fallback>) {\n  return (\n    <BaseAvatar.Fallback\n      {...props}\n      data-slot=\"avatar-fallback\"\n      className={cn(\"flex size-full items-center justify-center\", className)}\n    />\n  )\n}\n\nexport { Avatar, AvatarFallback, AvatarImage, avatarVariants }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

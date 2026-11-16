@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "title": "Badge",
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/badge.tsx",
+      "content": "import { type VariantProps, cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nconst badgeVariants = cva(\n  \"inline-flex shrink-0 items-center justify-center rounded-full select-none\",\n  {\n    variants: {\n      tone: {\n        danger: \"bg-danger text-accent-fg\",\n        accent: \"bg-accent text-accent-fg\",\n        neutral: \"bg-fill-active text-fg-secondary\",\n      },\n      dot: {\n        true: \"size-2\",\n        false: \"h-4 min-w-4 px-1 text-xs leading-none font-semibold tabular-nums\",\n      },\n    },\n    defaultVariants: { tone: \"danger\", dot: false },\n  }\n)\n\ntype BadgeProps = Omit<React.ComponentProps<\"span\">, \"children\"> &\n  Pick<VariantProps<typeof badgeVariants>, \"tone\"> & {\n    children?: React.ReactNode\n    /** 数字角标；超过 max 显示为 `${max}+`，为 0 时不渲染 */\n    count?: number\n    max?: number\n  }\n\n/** 没有 children 也没有 count 时渲染成小圆点 */\nfunction Badge({\n  className,\n  tone,\n  count,\n  max = 99,\n  children,\n  ...props\n}: BadgeProps) {\n  if (count === 0 && children == null) return null\n  const content =\n    children ?? (count === undefined ? null : count > max ? `${max}+` : count)\n  const dot = content == null\n\n  return (\n    <span\n      {...props}\n      data-slot=\"badge\"\n      data-dot={dot || undefined}\n      className={cn(badgeVariants({ tone, dot, className }))}\n    >\n      {content}\n    </span>\n  )\n}\n\nexport { Badge, badgeVariants }\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "empty-state",
+  "title": "EmptyState",
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/empty-state.tsx",
+      "content": "import { cn } from \"@/registry/mayumi/lib/utils\"\n\n/**\n * 空列表 / 空内容区的占位。整体居中、字号克制——\n * 它是「这里暂时没东西」的说明，不是要抢注意力的插画位。\n */\nfunction EmptyState({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      {...props}\n      data-slot=\"empty-state\"\n      className={cn(\n        \"flex flex-col items-center justify-center gap-2 px-6 py-10 text-center\",\n        className\n      )}\n    />\n  )\n}\n\n/** 图标槽：中性 tint 圆底，避免用彩色抢内容区的视觉权重 */\nfunction EmptyStateIcon({ className, ...props }: React.ComponentProps<\"span\">) {\n  return (\n    <span\n      {...props}\n      aria-hidden=\"true\"\n      data-slot=\"empty-state-icon\"\n      className={cn(\n        \"flex size-10 items-center justify-center rounded-full bg-fill text-fg-tertiary [&_svg]:size-5 [&_svg]:shrink-0\",\n        className\n      )}\n    />\n  )\n}\n\nfunction EmptyStateTitle({ className, ...props }: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      {...props}\n      data-slot=\"empty-state-title\"\n      className={cn(\"text-ui leading-tight font-medium text-fg\", className)}\n    />\n  )\n}\n\nfunction EmptyStateDescription({\n  className,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      {...props}\n      data-slot=\"empty-state-description\"\n      className={cn(\n        \"max-w-xs text-xs leading-relaxed text-fg-secondary\",\n        className\n      )}\n    />\n  )\n}\n\nfunction EmptyStateActions({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      {...props}\n      data-slot=\"empty-state-actions\"\n      className={cn(\"flex items-center gap-2 pt-1\", className)}\n    />\n  )\n}\n\nexport {\n  EmptyState,\n  EmptyStateActions,\n  EmptyStateDescription,\n  EmptyStateIcon,\n  EmptyStateTitle,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}

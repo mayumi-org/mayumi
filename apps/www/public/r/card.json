@@ -1,0 +1,20 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "title": "Card",
+  "dependencies": [
+    "class-variance-authority"
+  ],
+  "registryDependencies": [
+    "https://mayumi.netlify.app/r/theme.json",
+    "https://mayumi.netlify.app/r/utils.json"
+  ],
+  "files": [
+    {
+      "path": "registry/mayumi/ui/card.tsx",
+      "content": "import { type VariantProps, cva } from \"class-variance-authority\"\n\nimport { cn } from \"@/registry/mayumi/lib/utils\"\n\nconst cardVariants = cva(\"rounded-card border border-border\", {\n  variants: {\n    /**\n     * flat：中性 tint 填充，用于内容区里并列的次级卡片\n     * raised：实色面 + 投影，作为「抬离窗口一层」的内容岛\n     */\n    variant: {\n      flat: \"bg-fill\",\n      raised: \"bg-surface shadow-[var(--shadow-raised)]\",\n    },\n  },\n  defaultVariants: { variant: \"flat\" },\n})\n\nfunction Card({\n  className,\n  variant,\n  ...props\n}: React.ComponentProps<\"div\"> & VariantProps<typeof cardVariants>) {\n  return (\n    <div\n      {...props}\n      data-slot=\"card\"\n      data-variant={variant ?? \"flat\"}\n      className={cn(cardVariants({ variant, className }))}\n    />\n  )\n}\n\nfunction CardHeader({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      {...props}\n      data-slot=\"card-header\"\n      className={cn(\"flex flex-col gap-0.5 p-4 pb-0\", className)}\n    />\n  )\n}\n\nfunction CardTitle({ className, ...props }: React.ComponentProps<\"h3\">) {\n  return (\n    <h3\n      {...props}\n      data-slot=\"card-title\"\n      className={cn(\"text-ui leading-tight font-semibold text-fg\", className)}\n    />\n  )\n}\n\nfunction CardDescription({ className, ...props }: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      {...props}\n      data-slot=\"card-description\"\n      className={cn(\"text-xs leading-relaxed text-fg-secondary\", className)}\n    />\n  )\n}\n\nfunction CardContent({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div {...props} data-slot=\"card-content\" className={cn(\"p-4\", className)} />\n  )\n}\n\nfunction CardFooter({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      {...props}\n      data-slot=\"card-footer\"\n      className={cn(\"flex items-center gap-2 p-4 pt-0\", className)}\n    />\n  )\n}\n\nexport {\n  Card,\n  CardContent,\n  CardDescription,\n  CardFooter,\n  CardHeader,\n  CardTitle,\n  cardVariants,\n}\n",
+      "type": "registry:ui"
+    }
+  ],
+  "type": "registry:ui"
+}
