@@ -5,6 +5,7 @@ import { Search } from "lucide-react"
 
 import { cn } from "@/registry/mayumi/lib/utils"
 import { Dialog, DialogContent, DialogTitle } from "@/registry/mayumi/ui/dialog"
+import { ScrollArea } from "./scroll-area"
 
 function Command({
   className,
@@ -53,11 +54,12 @@ function CommandList({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.List>) {
   return (
-    <CommandPrimitive.List
-      {...props}
-      data-slot="command-list"
-      className={cn("max-h-80 overflow-y-auto overscroll-contain p-1", className)}
-    />
+    <ScrollArea
+      className={cn("max-h-80", className)}
+      viewportProps={{ className: "max-h-[inherit]" }}
+    >
+      <CommandPrimitive.List {...props} data-slot="command-list" className="p-1" />
+    </ScrollArea>
   )
 }
 

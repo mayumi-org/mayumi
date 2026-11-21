@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
-import { describe, expect, it, vi } from "vitest"
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
 import {
   Command,
   CommandDialog,
@@ -10,6 +10,15 @@ import {
   CommandList,
   CommandSeparator,
 } from "./command"
+
+const getAnimations = Element.prototype.getAnimations
+beforeEach(() => {
+  Element.prototype.getAnimations = () => []
+})
+afterEach(() => {
+  if (getAnimations) Element.prototype.getAnimations = getAnimations
+  else delete (Element.prototype as { getAnimations?: typeof Element.prototype.getAnimations }).getAnimations
+})
 
 function Demo({ onSelect }: { onSelect?: (v: string) => void }) {
   return (
@@ -86,5 +95,46 @@ describe("Command", () => {
     expect(dialog).toHaveAttribute("data-transition", "instant")
     expect(dialog.className).not.toMatch(/transition-\[scale,opacity\]/)
     expect(dialog.className).not.toMatch(/data-starting-style:/)
+  })
+
+  it("delegates scrolling to ScrollArea and keeps cmdk list padding", () => {
+    render(<Demo />)
+    const root = document.querySelector('[data-slot="scroll-area"]')
+    const viewport = document.querySelector('[data-slot="scroll-area-viewport"]')
+    const list = document.querySelector('[data-slot="command-list"]')
+
+    expect(root).toHaveClass("max-h-80")
+    expect(viewport).toHaveClass("max-h-[inherit]")
+    expect(viewport).toHaveClass("[scrollbar-width:none]")
+    expect(list).toHaveClass("p-1")
+    expect(list).not.toHaveClass("overflow-y-auto")
+    expect(viewport).toContainElement(list as HTMLElement)
+  })
+
+  it("lets cmdk scroll selected items into the ScrollArea viewport", async () => {
+    const scrollIntoView = vi.spyOn(Element.prototype, "scrollIntoView")
+    try {
+      render(
+        <Command>
+          <CommandInput placeholder="搜索命令…" />
+          <CommandList>
+            {Array.from({ length: 30 }, (_, index) => (
+              <CommandItem key={index} value={`命令 ${index + 1}`}>
+                命令 {index + 1}
+              </CommandItem>
+            ))}
+          </CommandList>
+        </Command>
+      )
+      screen.getByPlaceholderText("搜索命令…").focus()
+      await userEvent.keyboard("{ArrowDown}{ArrowDown}{ArrowDown}")
+
+      expect(scrollIntoView).toHaveBeenCalled()
+      expect(document.querySelector('[data-slot="scroll-area-viewport"]')).toContainElement(
+        screen.getByText("命令 30")
+      )
+    } finally {
+      scrollIntoView.mockRestore()
+    }
   })
 })

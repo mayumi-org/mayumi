@@ -14,7 +14,7 @@ import { Window } from "@/registry/mayumi/ui/window"
 
 export function CommandDemo() {
   return (
-    <Window className="h-96 w-full max-w-xl">
+    <Window className="w-full max-w-xl">
       <Command>
         <CommandInput placeholder="搜索命令…" />
         <CommandList>
