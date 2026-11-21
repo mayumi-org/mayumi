@@ -604,7 +604,8 @@
       "registryDependencies": [
         "https://mayumi.netlify.app/r/theme.json",
         "https://mayumi.netlify.app/r/utils.json",
-        "https://mayumi.netlify.app/r/dialog.json"
+        "https://mayumi.netlify.app/r/dialog.json",
+        "https://mayumi.netlify.app/r/scroll-area.json"
       ],
       "files": [
         {

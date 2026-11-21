@@ -20,7 +20,7 @@ export default meta
 export const Inline: StoryObj<typeof Command> = {
   render: () => (
     <div className="p-8">
-      <Window className="h-96 w-[560px]">
+      <Window className="w-[560px]">
         <Command>
           <CommandInput placeholder="搜索命令…" autoFocus />
           <CommandList>
@@ -69,3 +69,35 @@ function PaletteDemo() {
 }
 
 export const Palette: StoryObj<typeof Command> = { render: () => <PaletteDemo /> }
+
+export const LongList: StoryObj<typeof Command> = {
+  render: () => (
+    <div className="p-8">
+      <Window className="w-[560px]">
+        <Command>
+          <CommandInput placeholder="搜索 30 条命令…" autoFocus />
+          <CommandList>
+            <CommandEmpty>无结果</CommandEmpty>
+            <CommandGroup heading="常用">
+              <CommandItem value="打开设置">
+                打开设置<CommandShortcut>⌘,</CommandShortcut>
+              </CommandItem>
+              <CommandItem value="锁定屏幕">
+                锁定屏幕<CommandShortcut>⌃⌘Q</CommandShortcut>
+              </CommandItem>
+            </CommandGroup>
+            <CommandSeparator />
+            <CommandGroup heading="全部命令">
+              {Array.from({ length: 30 }, (_, index) => (
+                <CommandItem key={index} value={`命令 ${index + 1}`}>
+                  命令 {index + 1}
+                  <CommandShortcut>⌘{index + 1}</CommandShortcut>
+                </CommandItem>
+              ))}
+            </CommandGroup>
+          </CommandList>
+        </Command>
+      </Window>
+    </div>
+  ),
+}
